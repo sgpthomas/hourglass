@@ -1,0 +1,22 @@
+Source: hourglass
+Section: x11
+Priority: extra
+Maintainer: Sam Thomas <sgpthomas@gmail.com>
+Build-Depends: cmake (>= 2.8),
+               debhelper (>= 8.0.0),
+               valac-0.28 | valac (>= 0.28),
+               libgtk-3-dev,
+               libgee-0.8-dev,
+               libnotify-dev,
+               libgranite-dev (>= 0.3.0),
+               libcanberra-dev,
+               libglib2.0-dev
+Standards-Version: 3.9.5
+Homepage: https://launchpad.net/hourglass
+
+Package: hourglass
+Architecture: any
+Depends: ${misc:Depends}, ${shlibs:Depends}
+Enhances: hourglass
+Description: A simple timer and alarm application
+ Hourglass is an application designed for elementary OS and is provides some simple time, stopwatch, and alarm    functionality.

@@ -1,0 +1,34 @@
+.timer {
+    font-size: 48px;
+    font-family: Open Sans Light;
+    padding: 10px;
+}
+
+.timer-red {
+    font-size: 48px;
+    font-family: Open Sans Light;
+    padding: 10px;
+    color: red;
+}
+
+.log-text {
+    font-size: 8px;
+    font-family: Open Sans Light;
+    padding: 1px;
+    color: #8F8F8F;
+}
+
+.alarm-time {
+    font-size: 20px;
+    font-family: Open Sans Light;
+}
+
+.alarm-name {
+    font-size: 10px;
+    font-family: Open Sans Light;
+}
+
+.alarm-days {
+    font-size: 8px;
+    font-family: Open Sans Light;
+}

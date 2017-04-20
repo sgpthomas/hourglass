@@ -1,0 +1,7 @@
+[Desktop Entry]
+Type=Application
+Name=@DAEMON_NAME@
+Comment=@DAEMON_COMMENT@
+Exec=@DAEMON_EXEC_NAME@
+Icon=@ICON_NAME@
+X-GNOME-Autostart-enabled=true

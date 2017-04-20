@@ -1,0 +1,85 @@
+hourglass (1.0.1) trusty; urgency=medium
+
+  * Fixed a bug in displaying alarm times in notifications
+
+ -- Samuel Thomas <sgpthomas@gmail.com>  Fri, 02 Oct 2015 07:13:31 -0700
+
+hourglass (1.0.0) trusty; urgency=medium
+
+  * First major release of hourglass
+  * More info about features here: sgpthomas.github.io/hourglass
+
+ -- Samuel Thomas <sgpthomas@gmail.com>  Sun, 20 Sep 2015 15:02:21 -0700
+
+hourglass (0.5.5) trusty; urgency=medium
+
+  * More natural names for repeat labels
+
+ -- Samuel Thomas <sgpthomas@gmail.com>  Sat, 19 Sep 2015 22:58:47 -0700
+
+hourglass (0.5.4) trusty; urgency=medium
+
+  * Added lap numbers
+
+ -- Samuel Thomas <sgpthomas@gmail.com>  Sat, 19 Sep 2015 20:38:32 -0700
+
+hourglass (0.5.3) trusty; urgency=medium
+
+  * SOUND!!
+  * Finally figured out build problems in launchpad
+
+ -- Samuel Thomas <sgpthomas@gmail.com>  Fri, 18 Sep 2015 19:08:20 -0700
+
+hourglass (0.5.2) trusty; urgency=medium
+
+  * Trying to get building to work
+
+ -- Samuel Thomas <sgpthomas@gmail.com>  Thu, 17 Sep 2015 18:40:21 -0700
+
+hourglass (0.5.1) trusty; urgency=medium
+
+  * Added sound (changeable through dconf)
+  * Variable update frequency for checking alarms
+
+ -- Samuel Thomas <sgpthomas@gmail.com>  Mon, 14 Sep 2015 15:26:07 -0700
+
+hourglass (0.5.0) trusty; urgency=medium
+
+  * Finished first version of alarm system
+  * Added functional daemon
+  * Get rid of some redundant code and replaced it with communication of dbus
+  * Fixed bug with editing alarms for different days
+
+ -- Samuel Thomas <sgpthomas@gmail.com>  Thu, 03 Sep 2015 23:01:19 -0700
+
+hourglass (0.4.1) trusty; urgency=medium
+
+  *Worked on some bugs with packaging
+
+ -- Sam Thomas <samthomas@samthomas>  Tue, 25 Aug 2015 18:27:36 -0700
+
+hourglass (0.4.0) trusty; urgency=medium
+
+  *Added daemon that handles alarms so that alarms will still go off even after hourglass is closed 
+
+ -- Sam Thomas <samthomas@samthomas>  Mon, 17 Aug 2015 18:19:24 -0700
+
+hourglass (0.3.10) trusty; urgency=low
+
+  * Added logic to remove corrupt gsettings data
+  * New alarm dialog time picker defaults to 10 minutes ahead of local
+
+ -- Sam Thomas <samthomas@samthomas>  Mon, 17 Aug 2015 10:06:36 -0700
+
+hourglass (0.3.9) trusty; urgency=low
+
+  * Fixed crash because of alarm parsing
+  * Changed repeat dialog to popover
+
+ -- Sam Thomas <samthomas@samthomas>  Sun, 16 Aug 2015 23:01:32 -0700
+
+hourglass (0.3.0) trusty; urgency=low
+
+  * Initial Release.
+
+ -- Sam Thomas <sgpthomas@gmail.com>  Fri, 7 Aug 2015 12:21:39 -0500

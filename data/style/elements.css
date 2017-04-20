@@ -1,0 +1,32 @@
+.round-button {
+    padding: 5px;
+    border-radius: 15px;
+}
+
+.green-button {
+    color: #ffffff;
+    background: linear-gradient(#009F51, #008041);
+    border: 1px solid darker(#008F43);
+}
+
+.red-button {
+    color: #ffffff;
+    background: linear-gradient(#DF4B4B, #BF4040);
+    border: 1px solid darker(#DF4B4B);
+}
+
+.time-spinner {
+    font-size: 48px;
+    font-family: Open Sans Light;
+}
+
+GtkListBox {
+    background-color: transparent;
+}
+
+GtkListBoxRow:selected {
+    color: black;
+    background-color: #CCCCCC;
+}
+
+

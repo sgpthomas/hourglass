@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schemalist>
+    <schema path="/org/pantheon/hourglass/saved/" id="org.pantheon.hourglass.saved" gettext-domain="hourglass">
+        <key name="last-open-widget" type="s">
+            <default>'alarm'</default>
+            <summary>Last widget open.</summary>
+            <description>The last widget that was open before Hourglass was closed.</description>
+        </key>
+        <key name="window-width" type="i">
+            <default>500</default>
+            <summary>Last saved window height.</summary>
+            <description>Saving size and position of window.</description>
+        </key>
+        <key name="window-height" type="i">
+            <default>450</default>
+            <summary>Last saved window height.</summary>
+            <description>Saving size and position of window.</description>
+        </key>
+        <key name="alarms" type="as">
+            <default>[]</default>
+            <summary>Current Alarms</summary>
+            <description>Saves alarms that have been created.</description>
+        </key>
+    </schema>
+</schemalist>
