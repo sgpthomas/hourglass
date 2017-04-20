@@ -24,18 +24,14 @@ namespace Hourglass.Dialogs {
 
     public class MultiSelectPopover : Gtk.Popover {
 
-        private ListBox list_box;
+		private Gtk.Box box;
 
-        //check buttons
-        private CheckButton[] checks;
+        // check buttons
+        private Gtk.ToggleButton[] toggles;
 
-        private string[] days = {_("Sunday"), _("Monday"),
-                            _("Tuesday"), _("Wednesday"),
-                            _("Thursday"), _("Friday"), _("Saturday")};
+        private string[] shortened_days = {_("Su"), _("M"), _("T"), _("W"), _("Th"), _("F"), _("Sa")};
 
-        //private string[] shortened_days = {_("Sun"), _("Mon"), _("Tue"), _("Wed"), _("Thur"), _("Fri"), _("Sat")};
-
-        //selected
+        // selected
         private int[] selected;
 
         public signal void on_finish (int[] selected, string display_string);
@@ -47,40 +43,38 @@ namespace Hourglass.Dialogs {
 
             this.selected = selected;
 
-            //create layout
+            // create layout
             create_layout ();
 
             load_selected ();
         }
 
         private void create_layout () {
-            list_box = new ListBox ();
-            list_box.set_selection_mode (SelectionMode.NONE);
+			box = new Gtk.Box (Gtk.Orientation.HORIZONTAL, 0);
+			box.border_width = 6;
+			box.get_style_context ().add_class ("linked");
 
-            checks = {};
+			foreach (string s in shortened_days) {
+				var tb = new Gtk.ToggleButton.with_label (s);
+				box.add (tb);
+				toggles += tb;
+			}
 
-            foreach (string s in days) {
-                var c = new CheckButton.with_label (s);
-                checks += c;
-                list_box.insert (c, -1);
-            }
-
-            list_box.show_all ();
-
-            this.add (list_box);
+			box.show_all ();
+			this.add (box);
         }
 
         private void load_selected () {
             foreach (int i in selected) {
-                var check = checks[i];
-                check.active = true;
+                var toggle = toggles[i];
+                toggle.active = true;
             }
         }
 
         public int[] get_selected () {
             selected = {};
-            for (int i = 0; i < checks.length; i++) {
-                if (checks[i].active == true) {
+            for (int i = 0; i < toggles.length; i++) {
+                if (toggles[i].active == true) {
                    selected += i;
                 }
             }
@@ -95,7 +89,7 @@ namespace Hourglass.Dialogs {
         }
 
         public static string selected_to_string (int[] sel) {
-            string[] shortened_days = {_("Sun"), _("Mon"), _("Tue"), _("Wed"), _("Thur"), _("Fri"), _("Sat")};
+            string[] shortened_days = {_("Su"), _("M"), _("T"), _("W"), _("Th"), _("F"), _("Sa")};
 
             var str = "";
             

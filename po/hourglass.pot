@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-10-21 13:20-0400\n"
+"POT-Creation-Date: 2017-04-20 11:03-0400\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,75 +17,47 @@ msgstr ""
 "Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: Dialogs/MultiSelectPopover.vala:32
-msgid "Sunday"
+#: Dialogs/MultiSelectPopover.vala:32 Dialogs/MultiSelectPopover.vala:92
+msgid "Su"
 msgstr ""
 
-#: Dialogs/MultiSelectPopover.vala:32
-msgid "Monday"
+#: Dialogs/MultiSelectPopover.vala:32 Dialogs/MultiSelectPopover.vala:92
+msgid "M"
 msgstr ""
 
-#: Dialogs/MultiSelectPopover.vala:33
-msgid "Tuesday"
+#: Dialogs/MultiSelectPopover.vala:32 Dialogs/MultiSelectPopover.vala:92
+msgid "T"
 msgstr ""
 
-#: Dialogs/MultiSelectPopover.vala:33
-msgid "Wednesday"
+#: Dialogs/MultiSelectPopover.vala:32 Dialogs/MultiSelectPopover.vala:92
+msgid "W"
 msgstr ""
 
-#: Dialogs/MultiSelectPopover.vala:34
-msgid "Thursday"
+#: Dialogs/MultiSelectPopover.vala:32 Dialogs/MultiSelectPopover.vala:92
+msgid "Th"
 msgstr ""
 
-#: Dialogs/MultiSelectPopover.vala:34
-msgid "Friday"
+#: Dialogs/MultiSelectPopover.vala:32 Dialogs/MultiSelectPopover.vala:92
+msgid "F"
 msgstr ""
 
-#: Dialogs/MultiSelectPopover.vala:34
-msgid "Saturday"
+#: Dialogs/MultiSelectPopover.vala:32 Dialogs/MultiSelectPopover.vala:92
+msgid "Sa"
 msgstr ""
 
-#: Dialogs/MultiSelectPopover.vala:98
-msgid "Sun"
-msgstr ""
-
-#: Dialogs/MultiSelectPopover.vala:98
-msgid "Mon"
-msgstr ""
-
-#: Dialogs/MultiSelectPopover.vala:98
-msgid "Tue"
-msgstr ""
-
-#: Dialogs/MultiSelectPopover.vala:98
-msgid "Wed"
-msgstr ""
-
-#: Dialogs/MultiSelectPopover.vala:98
-msgid "Thur"
-msgstr ""
-
-#: Dialogs/MultiSelectPopover.vala:98
-msgid "Fri"
-msgstr ""
-
-#: Dialogs/MultiSelectPopover.vala:98
-msgid "Sat"
-msgstr ""
-
-#: Dialogs/MultiSelectPopover.vala:103
+#: Dialogs/MultiSelectPopover.vala:97
 msgid "Every Day"
 msgstr ""
 
-#: Dialogs/MultiSelectPopover.vala:105
+#: Dialogs/MultiSelectPopover.vala:99
 msgid "Every Weekday"
 msgstr ""
 
-#: Dialogs/MultiSelectPopover.vala:107
+#: Dialogs/MultiSelectPopover.vala:101
 msgid "Every Weekend"
 msgstr ""
 
-#: Dialogs/MultiSelectPopover.vala:114 Dialogs/NewAlarmDialog.vala:100
+#: Dialogs/MultiSelectPopover.vala:108 Dialogs/NewAlarmDialog.vala:100
 msgid "Never"
 msgstr ""
 
@@ -121,11 +93,11 @@ msgstr ""
 msgid "Repeat:"
 msgstr ""
 
-#: Widgets/Alarm.vala:130
+#: Widgets/Alarm.vala:129
 msgid "Repeats "
 msgstr ""
 
-#: Widgets/Alarm.vala:130
+#: Widgets/Alarm.vala:129
 msgid ", Repeats "
 msgstr ""
 

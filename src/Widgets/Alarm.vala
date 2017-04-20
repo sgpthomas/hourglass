@@ -17,7 +17,6 @@
 */
 
 using Gtk;
-
 using Granite.DateTime;
 
 namespace Hourglass.Widgets {
@@ -69,8 +68,8 @@ namespace Hourglass.Widgets {
             days.get_style_context ().add_class ("alarm-days");
 
             toggle = new Switch ();
-            toggle.set_halign (Align.END);
-            toggle.set_valign (Align.CENTER);
+            toggle.set_halign (Gtk.Align.END);
+            toggle.set_valign (Gtk.Align.CENTER);
             toggle.notify["active"].connect (() => {
                 state_toggled (toggle.active);
             });
