@@ -1,15 +1,15 @@
-#Hourglass
-###A simple time keeping application designed for elementary OS
-#####Author: Sam Thomas <sgpthomas@gmail.com>
+# Hourglass
+### A simple time keeping application designed for elementary OS
+##### Author: Sam Thomas <sgpthomas@gmail.com>
 -------------------------------------------
-###Current Features
+### Current Features
  * Alarms
  * Stopwatch
  * Timer
 
 -------------------------------------------
-###Installation
+### Installation
  - [ ] Write installation instructions
  - [ ] This is another line
 -------------------------------------------
-###Planned Features
+### Planned Features
