@@ -1,4 +1,4 @@
-/* Copyright 2015 Sam Thomas
+/* Copyright 2015-2017 Sam Thomas
 *
 * This file is part of Hourglass.
 *

@@ -1,4 +1,4 @@
-/* Copyright 2015 Sam Thomas
+/* Copyright 2015-2017 Sam Thomas
 *
 * This file is part of Hourglass.
 *
@@ -45,8 +45,6 @@ namespace Hourglass.Dialogs {
 
             // create layout
             create_layout ();
-
-            load_selected ();
         }
 
         private void create_layout () {
