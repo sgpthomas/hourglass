@@ -11,8 +11,8 @@ Build-Depends: cmake (>= 2.8),
                libgranite-dev (>= 0.3.0),
                libcanberra-dev,
                libglib2.0-dev
-Standards-Version: 3.9.5
-Homepage: https://github.com/sgpthomas/hourglass
+Standards-Version: 3.9.3
+
 Package: com.github.sgpthomas.hourglass
 Architecture: any
 Depends: ${misc:Depends}, ${shlibs:Depends}

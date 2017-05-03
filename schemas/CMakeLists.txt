@@ -1,2 +1,2 @@
 include(GSettings)
-add_schema("org.pantheon.hourglass.gschema.xml")
+add_schema("com.github.sgpthomas.hourglass.gschema.xml")

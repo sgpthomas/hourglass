@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <schemalist>
-    <schema path="/org/pantheon/hourglass/saved/" id="org.pantheon.hourglass.saved" gettext-domain="hourglass">
+    <schema path="/com/github/sgpthomas/hourglass/saved/" id="com.github.sgpthomas.hourglass.saved" gettext-domain="hourglass">
         <key name="last-open-widget" type="s">
             <default>'alarm'</default>
             <summary>Last widget open.</summary>
@@ -33,7 +33,7 @@
         </key>
 
     </schema>
-    <schema path="/org/pantheon/hourglass/settings/" id="org.pantheon.hourglass.settings" gettext-domain="hourglass">
+    <schema path="/com/github/sgpthomas/hourglass/settings/" id="com.github.sgpthomas.hourglass.settings" gettext-domain="hourglass">
         <key name="update-frequency" type="i">
             <default>15000</default>
             <summary>The frequency at which hourglass checks for alarms.</summary>

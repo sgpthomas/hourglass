@@ -23,7 +23,7 @@ namespace HourglassDaemon {
         public string[] alarms {get; set;}
 
         public SavedAlarms () {
-            base ("org.pantheon.hourglass.saved");
+            base ("com.github.sgpthomas.hourglass.saved");
         }
     }
 
@@ -33,7 +33,7 @@ namespace HourglassDaemon {
         public string sound {get; set;}
 
         public Settings () {
-            base ("org.pantheon.hourglass.settings");
+            base ("com.github.sgpthomas.hourglass.settings");
         }
     }
 }

@@ -8,17 +8,18 @@ cmake_policy (VERSION 2.8)
 list (APPEND CMAKE_MODULE_PATH ${CMAKE_SOURCE_DIR}/cmake)
 
 #some variables
+set (GIT_PREFIX com.github.sgpthomas.)
 set (GETTEXT_PACKAGE ${CMAKE_PROJECT_NAME})
-set (EXEC_NAME ${CMAKE_PROJECT_NAME})
-set (DAEMON_EXEC_NAME ${CMAKE_PROJECT_NAME}-daemon)
-set (DAEMON_NAME ${CMAKE_PROJECT_NAME}-daemon)
+set (EXEC_NAME ${GIT_PREFIX}${CMAKE_PROJECT_NAME})
+set (DAEMON_EXEC_NAME ${GIT_PREFIX}${CMAKE_PROJECT_NAME}-daemon)
+set (DAEMON_NAME ${GIT_PREFIX}${CMAKE_PROJECT_NAME}-daemon)
 set (ICON_NAME ${CMAKE_PROJECT_NAME})
 set (APP_NAME "Hourglass")
 set (GENERIC_NAME "Timer")
 set (RELEASE_NAME "Loki")
 set (COMMENT "This clock application provides stopwatches, alarms, and timers.")
 set (DAEMON_COMMENT "Daemon that deals with Hourglass's alarms.")
-set (VERSION "1.0.10")
+set (VERSION "1.0.12")
 set (VERSION_INFO "Release")
 
 #data directory stuff
@@ -63,8 +64,8 @@ set (DAEMON_DEPS
 
 #configuration file
 configure_file (${CMAKE_SOURCE_DIR}/src/Config.vala.cmake ${CMAKE_SOURCE_DIR}/src/Config.vala)
-configure_file (${CMAKE_SOURCE_DIR}/data/com.github.sgpthomas.hourglass.desktop.in ${CMAKE_SOURCE_DIR}/data/com.github.sgpthomas.hourglass.desktop)
-configure_file (${CMAKE_SOURCE_DIR}/data/com.github.sgpthomas.hourglass-daemon.desktop.in ${CMAKE_SOURCE_DIR}/data/com.github.sgpthomas.hourglass-daemon.desktop)
+configure_file (${CMAKE_SOURCE_DIR}/data/${GIT_PREFIX}hourglass.desktop.in ${CMAKE_SOURCE_DIR}/data/${GIT_PREFIX}hourglass.desktop)
+configure_file (${CMAKE_SOURCE_DIR}/data/${GIT_PREFIX}hourglass-daemon.desktop.in ${CMAKE_SOURCE_DIR}/data/${GIT_PREFIX}hourglass-daemon.desktop)
 
 #some definitions
 add_definitions(-DGETTEXT_PACKAGE=\"${GETTEXT_PACKAGE}\")

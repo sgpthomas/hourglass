@@ -21,10 +21,10 @@ namespace Constants {
 	public const string PKG_DATADIR = "/usr/share/hourglass";
 	public const string GETTEXT_PACKAGE = "hourglass";
 	public const string RELEASE_NAME = "Loki";
-	public const string VERSION = "1.0.6";
+	public const string VERSION = "1.0.12";
 	public const string VERSION_INFO = "Release";
 	public const string INSTALL_PREFIX = "/usr";
     public const string APP_NAME = "Hourglass";
-	public const string EXEC_NAME = "hourglass";
+	public const string EXEC_NAME = "com.github.sgpthomas.hourglass";
 	public const string ICON_NAME = "hourglass";
 }

@@ -20,7 +20,7 @@ extern void exit (int exit_code);
 
 namespace HourglassDaemon {
 
-    [DBus (name = "net.launchpad.hourglass")]
+    [DBus (name = "com.github.sgpthomas.hourglass")]
     public class Server : Object {
 
         public void print_message (string msg) {
@@ -56,7 +56,7 @@ namespace HourglassDaemon {
         public signal void should_refresh_client ();
     }
 
-    [DBus (name = "net.launchpad.hourglass")]
+    [DBus (name = "com.github.sgpthomas.hourglass")]
     public errordomain HourglassError {
         SOME_ERROR
     }
@@ -71,7 +71,7 @@ namespace HourglassDaemon {
 
             // try to register server name in session bus
             Bus.own_name (BusType.SESSION,
-                      "net.launchpad.hourglass",
+                      "com.github.sgpthomas.hourglass",
                       BusNameOwnerFlags.NONE,
                       (conn) => { on_bus_aquired (conn); },
                       (c, name) => { message ("%s was successfully registered!", name); },
@@ -81,7 +81,7 @@ namespace HourglassDaemon {
         private void on_bus_aquired (DBusConnection connection) {
             try {
                 // start service and register it as dbus object
-                connection.register_object ("/net/launchpad/hourglass", server);
+                connection.register_object ("/com/github/sgpthomas/hourglass", server);
             } catch (IOError e) {
                 critical ("Could not register service: %s", e.message);
             }

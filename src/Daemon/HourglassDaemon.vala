@@ -27,7 +27,7 @@ namespace HourglassDaemon {
     public class HourglassAlarmDaemon : GLib.Application {
 
         public HourglassAlarmDaemon () {
-            Object (application_id: "net.launchpad.hourglass", flags: ApplicationFlags.NON_UNIQUE); 
+            Object (application_id: "com.github.sgpthomas.hourglass", flags: ApplicationFlags.NON_UNIQUE); 
             set_inactivity_timeout (1000);
         }
 

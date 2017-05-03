@@ -102,7 +102,7 @@ namespace Hourglass {
 
         private void spawn_daemon () {
             message ("starting daemon");
-            string[] spawn_args = {"hourglass-daemon"}; //command name
+            string[] spawn_args = {"com.github.sgpthomas.hourglass-daemon"}; // command name
 
             //try to spawn daemon
             try {

@@ -18,7 +18,7 @@
 
 namespace Hourglass.Services {
 
-    [DBus (name = "net.launchpad.hourglass")]
+    [DBus (name = "com.github.sgpthomas.hourglass")]
     public interface HourglassClient : Object {
         public abstract void print_message (string msg) throws IOError;
         public abstract void show_notification (string summary, string body = "", string track = "") throws IOError;
@@ -41,7 +41,7 @@ namespace Hourglass.Services {
         private void sync_server () {
             try {
                 //sync client to server
-                client = Bus.get_proxy_sync (BusType.SESSION, "net.launchpad.hourglass", "/net/launchpad/hourglass");
+                client = Bus.get_proxy_sync (BusType.SESSION, "com.github.sgpthomas.hourglass", "/com/github/sgpthomas/hourglass");
 
                 client.print_message ("Client Starting");
 

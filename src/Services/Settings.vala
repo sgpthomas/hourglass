@@ -31,7 +31,7 @@ namespace Hourglass.Services {
         public int window_height {get; set;}
 
         public SavedState () {
-            base ("org.pantheon.hourglass.saved");
+            base ("com.github.sgpthomas.hourglass.saved");
         }
     }
 
