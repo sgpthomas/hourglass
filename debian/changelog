@@ -1,3 +1,21 @@
+hourglass (1.0.9) xenial; urgency=medium
+
+  * Working on getting this to Houston (part 3)
+
+ -- Samuel Thomas <sgpthomas@gmail.com>  Wed, 03 May 2017 01:41:31 -0500
+
+hourglass (1.0.8) xenial; urgency=medium
+
+  * Working on getting this to Houston (part 2)
+
+ -- Samuel Thomas <sgpthomas@gmail.com>  Wed, 03 May 2017 01:35:31 -0500
+
+hourglass (1.0.7) xenial; urgency=medium
+
+  * Working on getting this to Houston
+
+ -- Samuel Thomas <sgpthomas@gmail.com>  Wed, 03 May 2017 01:30:31 -0500
+
 hourglass (1.0.1) trusty; urgency=medium
 
   * Fixed a bug in displaying alarm times in notifications
