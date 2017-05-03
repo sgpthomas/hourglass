@@ -18,7 +18,7 @@ set (GENERIC_NAME "Timer")
 set (RELEASE_NAME "Freya")
 set (COMMENT "This clock application provides stopwatches, alarms, and timers.")
 set (DAEMON_COMMENT "Daemon that deals with Hourglass's alarms.")
-set (VERSION "1.0.1")
+set (VERSION "1.0.3")
 set (VERSION_INFO "Release")
 
 #data directory stuff
