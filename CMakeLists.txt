@@ -63,8 +63,8 @@ set (DAEMON_DEPS
 
 #configuration file
 configure_file (${CMAKE_SOURCE_DIR}/src/Config.vala.cmake ${CMAKE_SOURCE_DIR}/src/Config.vala)
-configure_file (${CMAKE_SOURCE_DIR}/data/hourglass.desktop.in ${CMAKE_SOURCE_DIR}/data/hourglass.desktop)
-configure_file (${CMAKE_SOURCE_DIR}/data/hourglass-daemon.desktop.in ${CMAKE_SOURCE_DIR}/data/hourglass-daemon.desktop)
+configure_file (${CMAKE_SOURCE_DIR}/data/com.github.sgpthomas.hourglass.desktop.in ${CMAKE_SOURCE_DIR}/data/com.github.sgpthomas.hourglass.desktop)
+configure_file (${CMAKE_SOURCE_DIR}/data/com.github.sgpthomas.hourglass-daemon.desktop.in ${CMAKE_SOURCE_DIR}/data/com.github.sgpthomas.hourglass-daemon.desktop)
 
 #some definitions
 add_definitions(-DGETTEXT_PACKAGE=\"${GETTEXT_PACKAGE}\")

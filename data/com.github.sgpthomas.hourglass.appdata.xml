@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright 2017 Sam Thomas <sgpthomas@gmail.com> -->
+<component type="desktop-application">
+  <id>com.github.sgpthomas.hourglass.desktop</id>
+  <metadata_license>CC0</metadata_license>
+  <project_license>GPL-3</project_license>
+  <name>Hourglass</name>
+  <summary>A simple clock application that provides stopwatches, alarms, and timers.</summary>
+
+  <description>
+    <p>
+        Hourglass is a simple time keeping application that helps you easily set stopwatches, repeating alarms, and timers.
+    </p>
+  </description>
+
+  <screenshots>
+    <screenshot type="default">
+      <caption>Alarm</caption>
+      <image>https://raw.githubusercontent.com/sgpthomas/hourglass/master/data/screenshots/alarm.png</image>
+    </screenshot>
+    <screenshot>
+      <caption>Stopwatch</caption>
+      <image>https://raw.githubusercontent.com/sgpthomas/hourglass/master/data/screenshots/stopwatch.png</image>
+    </screenshot>
+    <screenshot>
+      <caption>Timer</caption>
+      <image>https://raw.githubusercontent.com/sgpthomas/hourglass/master/data/screenshots/timer.png</image>
+    </screenshot>
+  </screenshots>
+
+  <developer_name>Sam Thomas</developer_name>
+  <url type="homepage">https://github.com/sgpthomas/hourglass</url>
+  <url type="bugtracker">https://github.com/sgpthomas/hourglass/issues</url>
+  <url type="help">https://github.com/sgpthomas/hourglass/issues</url>
+  <update_contact>sgpthomas@gmail.com</update_contact>
+
+  <custom>
+    <value key="x-appcenter-color-primary">#4ea87c</value>
+    <value key="x-appcenter-color-primary-text">#fff</value>
+  </custom>
+
+  <provides>
+    <binary>hourglass</binary>
+    <binary>hourglass-daemon</binary>
+  </provides>
+
+  <releases>
+  </releases>
+</component>

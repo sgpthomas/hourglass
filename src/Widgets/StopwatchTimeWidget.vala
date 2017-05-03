@@ -79,6 +79,8 @@ namespace Hourglass.Widgets {
             container_box.pack_start (spacer);
 
             scrolled_window.add (container_box);
+			scrolled_window.vexpand = true;
+			scrolled_window.shadow_type = Gtk.ShadowType.IN;
             this.pack_start (scrolled_window);
 
             //Create buttons

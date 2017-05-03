@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-04-20 11:03-0400\n"
+"POT-Creation-Date: 2017-04-22 17:54-0400\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,47 +17,47 @@ msgstr ""
 "Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: Dialogs/MultiSelectPopover.vala:32 Dialogs/MultiSelectPopover.vala:92
+#: Dialogs/MultiSelectPopover.vala:32 Dialogs/MultiSelectPopover.vala:90
 msgid "Su"
 msgstr ""
 
-#: Dialogs/MultiSelectPopover.vala:32 Dialogs/MultiSelectPopover.vala:92
+#: Dialogs/MultiSelectPopover.vala:32 Dialogs/MultiSelectPopover.vala:90
 msgid "M"
 msgstr ""
 
-#: Dialogs/MultiSelectPopover.vala:32 Dialogs/MultiSelectPopover.vala:92
+#: Dialogs/MultiSelectPopover.vala:32 Dialogs/MultiSelectPopover.vala:90
 msgid "T"
 msgstr ""
 
-#: Dialogs/MultiSelectPopover.vala:32 Dialogs/MultiSelectPopover.vala:92
+#: Dialogs/MultiSelectPopover.vala:32 Dialogs/MultiSelectPopover.vala:90
 msgid "W"
 msgstr ""
 
-#: Dialogs/MultiSelectPopover.vala:32 Dialogs/MultiSelectPopover.vala:92
+#: Dialogs/MultiSelectPopover.vala:32 Dialogs/MultiSelectPopover.vala:90
 msgid "Th"
 msgstr ""
 
-#: Dialogs/MultiSelectPopover.vala:32 Dialogs/MultiSelectPopover.vala:92
+#: Dialogs/MultiSelectPopover.vala:32 Dialogs/MultiSelectPopover.vala:90
 msgid "F"
 msgstr ""
 
-#: Dialogs/MultiSelectPopover.vala:32 Dialogs/MultiSelectPopover.vala:92
+#: Dialogs/MultiSelectPopover.vala:32 Dialogs/MultiSelectPopover.vala:90
 msgid "Sa"
 msgstr ""
 
-#: Dialogs/MultiSelectPopover.vala:97
+#: Dialogs/MultiSelectPopover.vala:95
 msgid "Every Day"
 msgstr ""
 
-#: Dialogs/MultiSelectPopover.vala:99
+#: Dialogs/MultiSelectPopover.vala:97
 msgid "Every Weekday"
 msgstr ""
 
-#: Dialogs/MultiSelectPopover.vala:101
+#: Dialogs/MultiSelectPopover.vala:99
 msgid "Every Weekend"
 msgstr ""
 
-#: Dialogs/MultiSelectPopover.vala:108 Dialogs/NewAlarmDialog.vala:100
+#: Dialogs/MultiSelectPopover.vala:106 Dialogs/NewAlarmDialog.vala:100
 msgid "Never"
 msgstr ""
 
@@ -117,23 +117,23 @@ msgstr ""
 msgid "Alarm"
 msgstr ""
 
-#: Widgets/StopwatchTimeWidget.vala:90 Widgets/TimerTimeWidget.vala:92
+#: Widgets/StopwatchTimeWidget.vala:92 Widgets/TimerTimeWidget.vala:92
 msgid "Start"
 msgstr ""
 
-#: Widgets/StopwatchTimeWidget.vala:93 Widgets/TimerTimeWidget.vala:113
+#: Widgets/StopwatchTimeWidget.vala:95 Widgets/TimerTimeWidget.vala:113
 msgid "Stop"
 msgstr ""
 
-#: Widgets/StopwatchTimeWidget.vala:96
+#: Widgets/StopwatchTimeWidget.vala:98
 msgid "Reset"
 msgstr ""
 
-#: Widgets/StopwatchTimeWidget.vala:98
+#: Widgets/StopwatchTimeWidget.vala:100
 msgid "Lap"
 msgstr ""
 
-#: Widgets/StopwatchTimeWidget.vala:114
+#: Widgets/StopwatchTimeWidget.vala:116
 msgid "Stopwatch"
 msgstr ""
 
