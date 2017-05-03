@@ -1,16 +1,15 @@
 [Desktop Entry]
 Type=Application
 Name=@APP_NAME@
-Version=@VERSION@
 Comment=@COMMENT@
 GenericName=@GENERIC_NAME@
 StartupWMClass=@EXEC_NAME@
 Exec=@EXEC_NAME@
 Icon=@ICON_NAME@
 Terminal=false
-Categories=GNOME;GTK;Utility;Productivity
-Keywords=Timer;Time;Clock;Hourglass;Alarm
-X-GNOME-Keywords=Timer;Time;Clock;Hourglass;Alarm
+Categories=GNOME;GTK;Utility;Productivity;
+Keywords=Timer;Time;Clock;Hourglass;Alarm;
+X-GNOME-Keywords=Timer;Time;Clock;Hourglass;Alarm;
 StartupNotify=true
 X-GNOME-Gettext-Domain=@GETTEXT_PACKAGE@
 Actions=AboutDialog;
