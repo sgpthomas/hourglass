@@ -1,7 +1,7 @@
 [Desktop Entry]
 Type=Application
 Name=Hourglass
-Version=1.0.1
+Version=1.0.4
 Comment=This clock application provides stopwatches, alarms, and timers.
 GenericName=Timer
 StartupWMClass=hourglass

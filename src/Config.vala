@@ -20,8 +20,8 @@ namespace Constants {
 	public const string DATADIR = "/usr/share";
 	public const string PKG_DATADIR = "/usr/share/hourglass";
 	public const string GETTEXT_PACKAGE = "hourglass";
-	public const string RELEASE_NAME = "Freya";
-	public const string VERSION = "1.0.1";
+	public const string RELEASE_NAME = "Loki";
+	public const string VERSION = "1.0.4";
 	public const string VERSION_INFO = "Release";
 	public const string INSTALL_PREFIX = "/usr";
     public const string APP_NAME = "Hourglass";

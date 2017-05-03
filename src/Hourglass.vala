@@ -43,14 +43,14 @@ namespace Hourglass {
             exec_name = Constants.EXEC_NAME;
             build_version = Constants.VERSION;
 
-            app_years = "2015";
+            app_years = "2015-2017";
             app_icon = Constants.ICON_NAME;
-            app_launcher = "hourglass.desktop";
-            application_id = "net.launchpad.hourglass.client";
+            app_launcher = "com.github.sgpthomas.hourglass.desktop";
+            application_id = "com.github.sgpthomas.client";
 
-            main_url = "http://launchpad.net/hourglass";
-            bug_url = "http://bugs.launchpad.net/hourglass";
-            help_url = "http://answers.launchpad.net/hourglass";
+            main_url = "https://github.com/sgpthomas/hourglass";
+            bug_url = "https://github.com/sgpthomas/hourglass/issues";
+            help_url = "https://github.com/sgpthomas/hourglass/issues";
             translate_url = "http://translations.launchpad.net/hourglass";
 
             about_authors = {"Sam Thomas <sgpthomas@gmail.com>"};
