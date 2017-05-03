@@ -18,7 +18,7 @@ set (GENERIC_NAME "Timer")
 set (RELEASE_NAME "Loki")
 set (COMMENT "This clock application provides stopwatches, alarms, and timers.")
 set (DAEMON_COMMENT "Daemon that deals with Hourglass's alarms.")
-set (VERSION "1.0.9")
+set (VERSION "1.0.10")
 set (VERSION_INFO "Release")
 
 #data directory stuff

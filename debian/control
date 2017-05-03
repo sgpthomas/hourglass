@@ -13,7 +13,6 @@ Build-Depends: cmake (>= 2.8),
                libglib2.0-dev
 Standards-Version: 3.9.5
 Homepage: https://github.com/sgpthomas/hourglass
-
 Package: com.github.sgpthomas.hourglass
 Architecture: any
 Depends: ${misc:Depends}, ${shlibs:Depends}
