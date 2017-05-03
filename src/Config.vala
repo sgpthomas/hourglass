@@ -21,7 +21,7 @@ namespace Constants {
 	public const string PKG_DATADIR = "/usr/share/hourglass";
 	public const string GETTEXT_PACKAGE = "hourglass";
 	public const string RELEASE_NAME = "Loki";
-	public const string VERSION = "1.0.4";
+	public const string VERSION = "1.0.5";
 	public const string VERSION_INFO = "Release";
 	public const string INSTALL_PREFIX = "/usr";
     public const string APP_NAME = "Hourglass";

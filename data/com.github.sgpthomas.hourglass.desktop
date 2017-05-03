@@ -1,16 +1,15 @@
 [Desktop Entry]
 Type=Application
 Name=Hourglass
-Version=1.0.4
 Comment=This clock application provides stopwatches, alarms, and timers.
 GenericName=Timer
 StartupWMClass=hourglass
 Exec=hourglass
 Icon=hourglass
 Terminal=false
-Categories=GNOME;GTK;Utility;Productivity
-Keywords=Timer;Time;Clock;Hourglass;Alarm
-X-GNOME-Keywords=Timer;Time;Clock;Hourglass;Alarm
+Categories=GNOME;GTK;Utility;Productivity;
+Keywords=Timer;Time;Clock;Hourglass;Alarm;
+X-GNOME-Keywords=Timer;Time;Clock;Hourglass;Alarm;
 StartupNotify=true
 X-GNOME-Gettext-Domain=hourglass
 Actions=AboutDialog;
