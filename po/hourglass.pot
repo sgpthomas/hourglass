@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-05-03 14:58-0400\n"
+"POT-Creation-Date: 2017-05-03 22:30-0400\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -61,7 +61,7 @@ msgstr ""
 msgid "Never"
 msgstr ""
 
-#: Dialogs/NewAlarmDialog.vala:120 Widgets/AlarmTimeWidget.vala:110
+#: Dialogs/NewAlarmDialog.vala:120 Widgets/AlarmTimeWidget.vala:109
 msgid "Edit"
 msgstr ""
 
@@ -101,19 +101,19 @@ msgstr ""
 msgid ", Repeats "
 msgstr ""
 
-#: Widgets/AlarmTimeWidget.vala:78
+#: Widgets/AlarmTimeWidget.vala:77
 msgid "No Alarms"
 msgstr ""
 
-#: Widgets/AlarmTimeWidget.vala:78
+#: Widgets/AlarmTimeWidget.vala:77
 msgid "Click 'Add' to get started."
 msgstr ""
 
-#: Widgets/AlarmTimeWidget.vala:107
+#: Widgets/AlarmTimeWidget.vala:106
 msgid "Add"
 msgstr ""
 
-#: Widgets/AlarmTimeWidget.vala:250
+#: Widgets/AlarmTimeWidget.vala:245
 msgid "Alarm"
 msgstr ""
 

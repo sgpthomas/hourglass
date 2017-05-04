@@ -44,7 +44,6 @@ namespace Hourglass.Widgets {
         // action buttons
         private Button add_alarm;
         private Button edit_alarm;
-        private Button settings;
 
         // dialogs
         private NewAlarmDialog new_alarm_dialog;
@@ -110,16 +109,12 @@ namespace Hourglass.Widgets {
             edit_alarm = new Button.with_label (_("Edit"));
             // edit_alarm.set_halign (Align.CENTER);
 
-            settings = new Button.from_icon_name ("emblem-system-symbolic");
-            settings.set_halign (Align.END);
-
             add_edit_box.add (add_alarm);
             add_edit_box.add (edit_alarm);
             add_edit_box.set_halign (Align.CENTER);
             add_edit_box.set_hexpand (true);
             
             button_box.add (add_edit_box);
-            button_box.add (settings);
 
             var grid = new Grid ();
             grid.row_spacing = 12;
