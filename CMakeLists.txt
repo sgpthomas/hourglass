@@ -19,7 +19,7 @@ set (GENERIC_NAME "Timer")
 set (RELEASE_NAME "Loki")
 set (COMMENT "This clock application provides stopwatches, alarms, and timers.")
 set (DAEMON_COMMENT "Daemon that deals with Hourglass's alarms.")
-set (VERSION "1.0.13")
+set (VERSION "1.0.14")
 set (VERSION_INFO "Release")
 
 #data directory stuff
@@ -27,7 +27,7 @@ include (GNUInstallDirs)
 set (PREFIX ${CMAKE_INSTALL_PREFIX})
 set (DATADIR ${CMAKE_INSTALL_PREFIX}/share)
 set (PKG_DATADIR ${DATADIR}/${CMAKE_PROJECT_NAME})
-set (DOLLAR "$")  
+set (DOLLAR "$")
 
 # Add 'make dist' command for creating release tarball
 set (CPACK_PACKAGE_VERSION ${VERSION})
@@ -82,7 +82,7 @@ include (ValaPrecompile)
 find_package (PkgConfig)
 pkg_check_modules (GTK+ REQUIRED
   gtk+-3.0>=3.18)
-    
+
 pkg_check_modules (DEPS REQUIRED ${SOURCE_DEPS})
 pkg_check_modules (DEPS REQUIRED ${DAEMON_DEPS})
 
