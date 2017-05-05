@@ -25,6 +25,8 @@ namespace HourglassDaemon {
         private Notify.Notification notification;
         private Context player;
 
+		private bool open = false;
+
         // constructor
         public NotificationManager () {
             Notify.init ("hourglass");
@@ -33,6 +35,7 @@ namespace HourglassDaemon {
         }
 
         public void show (string summary, string body = "", string track = "") {
+			open = true;
             try {
                 if (notification == null) {
                     notification = new Notify.Notification (summary, body, "hourglass"); // create notification
@@ -42,9 +45,23 @@ namespace HourglassDaemon {
 
                 notification.set_urgency (Notify.Urgency.CRITICAL);
                 notification.show ();
+				
+				notification.closed.connect (() => {
+						player.cancel (1);
+						open = false;
+					});
 
                 // player sound
                 player.play (1, PROP_EVENT_ID, settings.sound, PROP_MEDIA_ROLE, "alarm");
+
+				Timeout.add (10000, () => {
+						if (open) {
+							player.play (1, PROP_EVENT_ID, settings.sound, PROP_MEDIA_ROLE, "alarm");
+							return Source.CONTINUE;
+						} else {
+							return Source.REMOVE;
+						}
+					});
 
             } catch (GLib.Error e) {
                 error ("Error: %s", e.message);
