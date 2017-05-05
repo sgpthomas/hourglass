@@ -65,6 +65,7 @@ namespace Hourglass.Widgets {
             name.get_style_context ().add_class ("alarm-name");
 
             var days = new Label (make_repeat_label ());
+			days.margin_start = 12;
             days.get_style_context ().add_class ("alarm-days");
 
             toggle = new Switch ();
@@ -80,7 +81,6 @@ namespace Hourglass.Widgets {
             grid.attach (new Spacer.w_hexpand (), 2, 0, 1, 2);
             grid.attach (toggle, 3, 0, 1, 2);
 
-            //this.add (box);
             this.add (grid);
 
             toggle.active = true;
