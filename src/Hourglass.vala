@@ -33,7 +33,6 @@ namespace Hourglass {
 
     /* State */
     public bool running = false;
-    //public bool window = false;
     public MainWindow main_window;
 
     public class HourglassApp : Granite.Application {
@@ -59,9 +58,6 @@ namespace Hourglass {
             about_translators = "Launchpad Translators";
         }
 
-        /* Object-wide variables */
-        //public MainWindow main_window;
-
         //constructor
         public HourglassApp () {
             /* Logger initilization */
@@ -72,7 +68,7 @@ namespace Hourglass {
             saved = new SavedState ();
             system_time_format = new SystemTimeFormat ();
 
-            //attempt to spawn daemon
+            // attempt to spawn daemon
             spawn_daemon ();
 
             /* Managers */
@@ -85,18 +81,14 @@ namespace Hourglass {
             Intl.bindtextdomain (Constants.GETTEXT_PACKAGE, langpack_dir);
             Intl.bind_textdomain_codeset (Constants.GETTEXT_PACKAGE, "UTF-8");
             Intl.textdomain (Constants.GETTEXT_PACKAGE);
-
-            //init ();
         }
 
         public override void activate () {
             if (main_window == null) {
                 main_window = new MainWindow (this);
-                //connect_signals ();
                 Gtk.main ();
             } else {
                 message ("There is an instance of hourglass already open.");
-                main_window = new MainWindow (this);
             }
         }
 

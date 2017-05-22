@@ -34,27 +34,27 @@ namespace Hourglass.Widgets {
             int milliseconds;
         }
 
-        private int current_time; //in milliseconds
-        private Label time_label_w_milli; //with milliseconds
-        private Label time_label_wo_milli; //without milliseconds
+        private int current_time; // in milliseconds
+        private Label time_label_w_milli; // with milliseconds
+        private Label time_label_wo_milli; // without milliseconds
         private CountDirection direction;
         private uint time_step = 10;
-        private uint timeout_id; //timeout_id
+        private uint timeout_id; // timeout_id
 
-        //private string[] hours = {"", N_("hour"), N_("hours")};
-        //private string[] mins = {"", N_("minute"), N_("minutes")};
+        // private string[] hours = {"", N_("hour"), N_("hours")};
+        // private string[] mins = {"", N_("minute"), N_("minutes")};
         private bool should_stay_open;
 
         private bool should_notify;
         private string notify_summary;
         private string notify_body;
 
-        public signal void on_tick (); //on tick signal
-        public signal void on_start (); //when timer starts
-        public signal void on_stop (); //when timer is stopped
-        public signal void on_end (); //when timer finishes
+        public signal void on_tick (); // on tick signal
+        public signal void on_start (); // when timer starts
+        public signal void on_stop (); // when timer is stopped
+        public signal void on_end (); // when timer finishes
 
-        //constructor
+        // constructor
         public Counter (CountDirection direction, bool should_stay_open = false) {
             time_label_w_milli = new Label ("");
             time_label_wo_milli = new Label ("");
