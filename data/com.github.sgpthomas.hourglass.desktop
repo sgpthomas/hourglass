@@ -2,7 +2,9 @@
 Type=Application
 Name=Hourglass
 Comment=This clock application provides stopwatches, alarms, and timers.
+Comment[lt]=Ši laikrodžio programa pateikia chronometrus, žadintuvus ir laikmačius.
 GenericName=Timer
+GenericName[lt]=Laikmatis
 StartupWMClass=com.github.sgpthomas.hourglass
 Exec=com.github.sgpthomas.hourglass
 Icon=hourglass
@@ -17,3 +19,4 @@ Actions=AboutDialog;
 [Desktop Action AboutDialog]
 Exec=hourglass --about
 Name=About Hourglass
+Name[lt]=Apie Hourglass
