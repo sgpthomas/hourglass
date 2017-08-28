@@ -2,6 +2,7 @@
 Type=Application
 Name=com.github.sgpthomas.hourglass-daemon
 Comment=Daemon that deals with Hourglass's alarms.
+Comment[lt]=Tarnyba, kuri tvarko Hourglass žadintuvus.
 Exec=com.github.sgpthomas.hourglass-daemon
 Icon=hourglass
 X-GNOME-Autostart-enabled=true
