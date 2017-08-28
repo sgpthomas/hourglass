@@ -17,3 +17,4 @@ Actions=AboutDialog;
 [Desktop Action AboutDialog]
 Exec=hourglass --about
 Name=About Hourglass
+Name[lt]=Apie Hourglass
