@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-05-22 15:33-0400\n"
+"POT-Creation-Date: 2017-08-28 14:02-0400\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -117,11 +117,11 @@ msgstr ""
 msgid "Alarm"
 msgstr ""
 
-#: Widgets/StopwatchTimeWidget.vala:92 Widgets/TimerTimeWidget.vala:92
+#: Widgets/StopwatchTimeWidget.vala:92 Widgets/TimerTimeWidget.vala:95
 msgid "Start"
 msgstr ""
 
-#: Widgets/StopwatchTimeWidget.vala:95 Widgets/TimerTimeWidget.vala:113
+#: Widgets/StopwatchTimeWidget.vala:95 Widgets/TimerTimeWidget.vala:116
 msgid "Stop"
 msgstr ""
 
@@ -137,26 +137,26 @@ msgstr ""
 msgid "Stopwatch"
 msgstr ""
 
-#: Widgets/TimerTimeWidget.vala:82
+#: Widgets/TimerTimeWidget.vala:85
 msgid "Hours"
 msgstr ""
 
-#: Widgets/TimerTimeWidget.vala:86
+#: Widgets/TimerTimeWidget.vala:89
 msgid "Minutes"
 msgstr ""
 
-#: Widgets/TimerTimeWidget.vala:90
+#: Widgets/TimerTimeWidget.vala:93
 msgid "Seconds"
 msgstr ""
 
-#: Widgets/TimerTimeWidget.vala:99 Widgets/TimerTimeWidget.vala:102
+#: Widgets/TimerTimeWidget.vala:102 Widgets/TimerTimeWidget.vala:105
 msgid ":"
 msgstr ""
 
-#: Widgets/TimerTimeWidget.vala:185
+#: Widgets/TimerTimeWidget.vala:184
 msgid "Timer has ended!"
 msgstr ""
 
-#: Widgets/TimerTimeWidget.vala:212
+#: Widgets/TimerTimeWidget.vala:211
 msgid "Timer"
 msgstr ""

@@ -129,24 +129,25 @@ namespace Hourglass.Window {
                 }
             });
 
-            //remove gtk loop on destroy window
+            // remove gtk loop on destroy window
             this.delete_event.connect (() => {
-                //save size of window on close
+                // save size of window on close
                 int win_w;
                 int win_h;
                 this.get_size (out win_w, out win_h);
                 Hourglass.saved.window_width = win_w;
                 Hourglass.saved.window_height = win_h;
 
-                /*if (Hourglass.running) {
-                    this.hide ();
-                    return false;
-                } else {
-                    Gtk.main_quit ();
-                    return true;
-                }*/
-                Gtk.main_quit ();
-                return true;
+				var visible = (TimeWidget) stack.get_visible_child ();
+				if (visible.keep_open ()) {
+					this.iconify ();
+					message ("yo yo yo!!!!");
+					return false;
+				} else {
+					Gtk.main_quit ();
+					return true;
+				}
+
             });
         }
     }

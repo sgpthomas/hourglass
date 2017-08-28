@@ -32,7 +32,6 @@ namespace Hourglass {
     public SystemTimeFormat system_time_format;
 
     /* State */
-    public bool running = false;
     public MainWindow main_window;
 
     public class HourglassApp : Granite.Application {

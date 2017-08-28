@@ -26,45 +26,45 @@ namespace Hourglass.Widgets {
 
         private MainWindow window;
 
-        //countdown
+        // countdown
         private Counter counter;
 
-        //lap log
+        // lap log
         private ScrolledWindow scrolled_window;
         private Box lap_box;
         private string[] lap_log;
 
-        //buttons
+        // buttons
         private Button start;
         private Button stop;
         private Button reset;
         private Button lap;
 
-        //State
+        // state
         private bool running;
 
-        //constructor
+        // constructor
         public StopwatchTimeWidget (MainWindow window) {
             Object (orientation: Orientation.VERTICAL, spacing: 0);
             running = false;
             this.window = window;
 
-            //create and add box to widget
+            // create and add box to widget
             create_layout ();
 
-            //connect signals
+            // connect signals
             connect_signals ();
 
             update ();
         }
 
         public void create_layout () {
-            //add and configure counter
+            // add and configure counter
             counter = new Counter (CountDirection.UP);
             counter.set_label_class ("timer");
             this.pack_start (counter.get_label ());
 
-            //create scollable log
+            // create scollable log
             lap_log = {};
             scrolled_window = new ScrolledWindow (null, null);
             scrolled_window.vexpand = true;
@@ -83,7 +83,7 @@ namespace Hourglass.Widgets {
 			scrolled_window.shadow_type = Gtk.ShadowType.IN;
             this.pack_start (scrolled_window);
 
-            //Create buttons
+            // create buttons
             var button_box = new ButtonBox (Orientation.HORIZONTAL);
             button_box.set_layout (Gtk.ButtonBoxStyle.CENTER);
             button_box.set_spacing (6);
@@ -116,6 +116,10 @@ namespace Hourglass.Widgets {
             return _("Stopwatch");
         }
 
+		public bool keep_open () {
+			return counter.get_active ();
+		}
+
         public void update () {
             //set visibility
             if (running) {
@@ -130,7 +134,7 @@ namespace Hourglass.Widgets {
                 lap.hide ();
             }
 
-            //set sensitivity
+            // set sensitivity
             reset.sensitive = counter.get_current_time () == 0 ? false : true;
         }
 

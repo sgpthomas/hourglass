@@ -34,16 +34,15 @@ namespace Hourglass.Widgets {
             int milliseconds;
         }
 
+		private DateTime start_time;
         private int current_time; // in milliseconds
+		private int limit;
+		private int last_time = 0; // in milliseconds
         private Label time_label_w_milli; // with milliseconds
         private Label time_label_wo_milli; // without milliseconds
         private CountDirection direction;
         private uint time_step = 10;
         private uint timeout_id; // timeout_id
-
-        // private string[] hours = {"", N_("hour"), N_("hours")};
-        // private string[] mins = {"", N_("minute"), N_("minutes")};
-        private bool should_stay_open;
 
         private bool should_notify;
         private string notify_summary;
@@ -55,11 +54,10 @@ namespace Hourglass.Widgets {
         public signal void on_end (); // when timer finishes
 
         // constructor
-        public Counter (CountDirection direction, bool should_stay_open = false) {
+        public Counter (CountDirection direction) {
             time_label_w_milli = new Label ("");
             time_label_wo_milli = new Label ("");
             set_current_time (0);
-            this.should_stay_open = should_stay_open;
             should_notify = false;
             this.direction = direction;
             update_label ();
@@ -69,24 +67,28 @@ namespace Hourglass.Widgets {
             time_label_w_milli = new Label ("");
             time_label_wo_milli = new Label ("");
             set_current_time (milliseconds);
-            this.should_stay_open = should_stay_open;
             should_notify = false;
             this.direction = direction;
             update_label ();
         }
 
         public void start () {
+			start_time = new DateTime.now_local ();
+
             if (timeout_id == 0) {
                 timeout_id = Timeout.add (time_step, tick);
-            } if (should_stay_open) Hourglass.running = true;
+            }
+
             on_start ();
         }
 
         public void stop () {
+			last_time = current_time;
             if (timeout_id != 0) {
                 Source.remove (timeout_id);
                 timeout_id = 0;
-            } Hourglass.running = false;
+            }
+
             on_stop ();
 
             if (Hourglass.main_window == null) {
@@ -95,35 +97,45 @@ namespace Hourglass.Widgets {
         }
 
         private bool tick () {
-            //set inc based on direction
-            var inc = 0;
-            if (direction == CountDirection.UP) inc = 1;
-            else if (direction == CountDirection.DOWN) inc = -1;
+			var diff = (new DateTime.now_local ()).difference(start_time);
 
-            //if current time is greater than 0, increment time counter
-            if (current_time >= 0) {
-                current_time += inc;
-            } else {
-                if (should_notify) {
-                    Hourglass.dbus_server.show_notification (notify_summary, notify_body);
-                }
-                stop ();
-                on_end ();
-            }
+			if (direction == CountDirection.UP) {
+				current_time = (int)diff + last_time;
+			} else {
+				if (current_time >= 0) {
+					current_time = limit - (int)diff;
+				} else {
+					if (should_notify) {
+						Hourglass.dbus_server.show_notification (notify_summary, notify_body);
+					}
+					stop ();
+					on_end ();
+				}
+			}
 
             update_label ();
-            on_tick (); //fire signal
+            on_tick (); // fire signal
             return true;
         }
 
         public void set_current_time (int time) {
             current_time = time;
+			last_time = 0;
             update_label ();
         }
 
         public int get_current_time () {
             return current_time;
         }
+
+		public void set_limit (int time) {
+			limit = time;
+			current_time = time;
+		}
+
+		public bool get_active () {
+			return this.current_time > 0;
+		}
 
         public void set_should_notify (bool b = true, string? summary = null, string? body = null) {
             should_notify = b;
@@ -169,14 +181,15 @@ namespace Hourglass.Widgets {
         }
 
         public static Time parse_seconds (int time) {
-            Time t = Time ();
-            t.hours = time / 360000;
-            time %= 360000;
-            t.minutes = time / 6000;
-            time %= 6000;
-            t.seconds = time / 100;
-            t.milliseconds = time % 100;
-            return t;
+			Time t = Time ();
+			t.hours = time / (int) TimeSpan.HOUR;
+			time %= (int) TimeSpan.HOUR;
+			t.minutes = time / (int) TimeSpan.MINUTE;
+			time %= (int) TimeSpan.MINUTE;
+			t.seconds = time / (int) TimeSpan.SECOND;
+			time %= (int) TimeSpan.SECOND;
+			t.milliseconds = time % ((int) TimeSpan.MILLISECOND / 10);
+			return t;
         }
     }
 }

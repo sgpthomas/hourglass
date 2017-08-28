@@ -23,15 +23,15 @@ namespace Hourglass.Widgets {
     public class TimeSpinner : Gtk.SpinButton {
 
         public TimeSpinner (int limit) {
-            //set adjustment of the time spinner
+            // set adjustment of the time spinner
             var adj = new Adjustment (0, 0, limit, 1, 0, 0);
             this.configure (adj, 1, 0);
             this.set_numeric (true);
 
-            //set the orientation of the spin button
+            // set the orientation of the spin button
             this.orientation = Orientation.VERTICAL;
             this.wrap = true;
-            this.get_style_context ().add_class ("time-spinner"); //add some $tyle
+            this.get_style_context ().add_class ("time-spinner"); // add some $tyle
 
             this.output.connect (() => {
                 var val = this.get_value ();

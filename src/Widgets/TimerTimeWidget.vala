@@ -25,56 +25,59 @@ namespace Hourglass.Widgets {
 
     public class TimerTimeWidget : Gtk.Box, TimeWidget {
 
-        //counter
+        // counter
         private Counter counter;
 
-        //containers
+        // containers
         private Grid chooser_grid;
         private Grid timer_grid;
         private Stack stack;
 
-        //elements
+        // elements
         private TimeSpinner hour_chooser;
         private TimeSpinner min_chooser;
         private TimeSpinner sec_chooser;
         private Button start_timer_button;
         private Button stop_timer_button;
 
-        //timer value
+        // timer value
         private int timer_value;
 
-        //constructor
+        // constructor
         public TimerTimeWidget (MainWindow window) {
             Object (orientation: Orientation.VERTICAL, spacing: 0);
 
             create_layout ();
 
-            //connect some signals
+            // connect some signals
             connect_signals ();
 
-            //update display
+            // update display
             update ();
 
-            //resume state
+            // resume state
             if (Hourglass.saved.timer_state) {
                 start_timer ();
             }
+
+            // var str = Hourglass.saved.timer_state ? "timer_grid" : "chooser_grid";
+            // stack.set_visible_child_name (str);
         }
 
         private void create_layout () {
-            //configure counter
-            counter = new Counter (CountDirection.DOWN, true);
+            // configure counter
+            counter = new Counter (CountDirection.DOWN);
             counter.set_label_class ("timer");
 
-            //create stack
+            // create stack
             stack = new Stack ();
 
-            //chooser grid
+            // chooser grid
             chooser_grid = new Grid ();
             chooser_grid.column_spacing = 6;
             chooser_grid.row_spacing = 12;
 
-            //get current time from dconf
+            // get current time from dconf
             Counter.Time t = Counter.parse_seconds (Hourglass.saved.timer_time * 100);
 
             hour_chooser = new TimeSpinner (59);
@@ -105,7 +108,7 @@ namespace Hourglass.Widgets {
             chooser_grid.attach (new Spacer.w_hexpand (), 6, 0, 1, 1);
             chooser_grid.attach (start_timer_button, 1, 1, 5, 1);
 
-            //timer grid
+            // timer grid
             timer_grid = new Grid ();
             timer_grid.column_spacing = 6;
             timer_grid.row_spacing = 36;
@@ -119,7 +122,7 @@ namespace Hourglass.Widgets {
             timer_grid.attach (new Spacer.w_hexpand (), 2, 0, 1, 1);
             timer_grid.attach (stop_timer_button, 1, 1, 1, 1);
 
-            //add grids to the stack
+            // add grids to the stack
             stack.add_titled (chooser_grid, "chooser_grid", "Chooser Grid");
             stack.add_titled (timer_grid, "timer_grid", "Timer Grid");
 
@@ -129,11 +132,8 @@ namespace Hourglass.Widgets {
         }
 
         private void update () {
-            var str = Hourglass.saved.timer_state ? "timer_grid" : "chooser_grid";
-            stack.set_visible_child_name (str);
-
-            //set sensitivity of the start button
-            start_timer_button.sensitive = sec_chooser.get_value () == 0 && min_chooser.get_value () == 0 && hour_chooser.get_value () == 0 ? false : true;
+            // set sensitivity of the start button
+            start_timer_button.sensitive = !(sec_chooser.get_value () == 0 && min_chooser.get_value () == 0 && hour_chooser.get_value () == 0);
         }
 
         private void connect_signals () {
@@ -162,45 +162,44 @@ namespace Hourglass.Widgets {
         private void start_timer () {
             stack.set_visible_child_name ("timer_grid");
 
-            var val = (int) (sec_chooser.get_value () + (min_chooser.get_value () * 60) + (hour_chooser.get_value () * 3600)) * 100;
-            counter.set_current_time (val);
+            var val = (int) (sec_chooser.get_value () + (min_chooser.get_value () * 60) + (hour_chooser.get_value () * 3600)) * 1000000;
+            counter.set_limit (val);
             timer_value = val;
-            //counter.set_should_notify (true, _("Timer has ended!"), counter.get_label (false).label); //turn on notificaions
 
             counter.start ();
 
-            //update saved time
+            // update saved time
             counter.on_tick.connect (() => {
-                Hourglass.saved.timer_time = counter.get_current_time () / 100;
+                Hourglass.saved.timer_time = counter.get_current_time () / 1000;
                 update ();
             });
 
-            //when timer stops, turn timer state to false
+            // when timer stops, turn timer state to false
             counter.on_stop.connect (() => {
                 Hourglass.saved.timer_state = false;
             });
 
-            //when counter ends
+            // when counter ends
             counter.on_end.connect (() => {
                 Hourglass.dbus_server.show_notification (_("Timer has ended!"), Counter.create_time_string (timer_value, false));
                 Hourglass.saved.timer_state = false;
             });
 
-            //update state
+            // update state
             Hourglass.saved.timer_state = true;
         }
 
         private void stop_timer () {
-            stack.set_visible_child_name ("chooser_grid"); //set the chooser to be visible
-            counter.stop (); //stop the counter
+            stack.set_visible_child_name ("chooser_grid"); // set the chooser to be visible
+            counter.stop (); // stop the counter
             counter.set_should_notify (false);
 
-            var time = Counter.parse_seconds (counter.get_current_time ()); //get time from counter
-            sec_chooser.set_value (time.seconds); //get second value from time and update spinner value
-            min_chooser.set_value (time.minutes); //get minute value from time and update spinner value
-            hour_chooser.set_value (time.hours); //get hour value from time and update spinner value
+            var time = Counter.parse_seconds (counter.get_current_time ()); // get time from counter
+            sec_chooser.set_value (time.seconds); // get second value from time and update spinner value
+            min_chooser.set_value (time.minutes); // get minute value from time and update spinner value
+            hour_chooser.set_value (time.hours); // get hour value from time and update spinner value
 
-            //update state
+            // update state
             Hourglass.saved.timer_state = false;
         }
 
@@ -211,6 +210,10 @@ namespace Hourglass.Widgets {
         public string get_name () {
             return _("Timer");
         }
+
+		public bool keep_open () {
+			return counter.get_active ();
+		}
     }
 
 }

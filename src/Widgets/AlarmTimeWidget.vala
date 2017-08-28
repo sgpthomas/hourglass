@@ -244,6 +244,10 @@ namespace Hourglass.Widgets {
         public string get_name () {
             return _("Alarm");
         }
+
+		public bool keep_open () {
+			return false;
+		}
     }
 
 }
