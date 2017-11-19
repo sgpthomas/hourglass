@@ -140,8 +140,8 @@ namespace Hourglass.Window {
 
 				var visible = (TimeWidget) stack.get_visible_child ();
 				if (visible.keep_open ()) {
+					Hourglass.window_open = false;
 					this.iconify ();
-					message ("yo yo yo!!!!");
 					return false;
 				} else {
 					Gtk.main_quit ();

@@ -33,6 +33,7 @@ namespace Hourglass {
 
     /* State */
     public MainWindow main_window;
+	public bool window_open;
 
     public class HourglassApp : Granite.Application {
 
@@ -85,9 +86,11 @@ namespace Hourglass {
         public override void activate () {
             if (main_window == null) {
                 main_window = new MainWindow (this);
+				window_open = true;
                 Gtk.main ();
             } else {
                 message ("There is an instance of hourglass already open.");
+				main_window.deiconify ();
             }
         }
 

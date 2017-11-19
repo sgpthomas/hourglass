@@ -91,7 +91,7 @@ namespace Hourglass.Widgets {
 
             on_stop ();
 
-            if (Hourglass.main_window == null) {
+            if (!Hourglass.window_open) {
                 Gtk.main_quit ();
             }
         }
@@ -102,8 +102,10 @@ namespace Hourglass.Widgets {
 			if (direction == CountDirection.UP) {
 				current_time = (int)diff + last_time;
 			} else {
+				message ("here: %d", current_time);
 				if (current_time >= 0) {
 					current_time = limit - (int)diff;
+					message ("%d", current_time);
 				} else {
 					if (should_notify) {
 						Hourglass.dbus_server.show_notification (notify_summary, notify_body);

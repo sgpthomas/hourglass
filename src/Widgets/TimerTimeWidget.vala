@@ -165,8 +165,10 @@ namespace Hourglass.Widgets {
             var val = (int) (sec_chooser.get_value () + (min_chooser.get_value () * 60) + (hour_chooser.get_value () * 3600)) * 1000000;
             counter.set_limit (val);
             timer_value = val;
+			counter.set_should_notify (true, _("Timer has ended!"), Counter.create_time_string (timer_value, false));
 
             counter.start ();
+			
 
             // update saved time
             counter.on_tick.connect (() => {
@@ -181,7 +183,6 @@ namespace Hourglass.Widgets {
 
             // when counter ends
             counter.on_end.connect (() => {
-                Hourglass.dbus_server.show_notification (_("Timer has ended!"), Counter.create_time_string (timer_value, false));
                 Hourglass.saved.timer_state = false;
             });
 
