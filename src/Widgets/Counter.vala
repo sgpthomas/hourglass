@@ -92,6 +92,7 @@ namespace Hourglass.Widgets {
             on_stop ();
 
             if (!Hourglass.window_open) {
+                Hourglass.saved.timer_state = false; // prevents timer from going off again when you start up the app
                 Gtk.main_quit ();
             }
         }
@@ -102,10 +103,8 @@ namespace Hourglass.Widgets {
 			if (direction == CountDirection.UP) {
 				current_time = (int)diff + last_time;
 			} else {
-				message ("here: %d", current_time);
 				if (current_time >= 0) {
 					current_time = limit - (int)diff;
-					message ("%d", current_time);
 				} else {
 					if (should_notify) {
 						Hourglass.dbus_server.show_notification (notify_summary, notify_body);
