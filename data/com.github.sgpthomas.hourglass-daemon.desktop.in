@@ -1,7 +1,7 @@
 [Desktop Entry]
 Type=Application
-Name=@DAEMON_NAME@
-Comment=@DAEMON_COMMENT@
-Exec=@DAEMON_EXEC_NAME@
-Icon=@ICON_NAME@
+Name=com.github.sgpthomas.hourglass-daemon
+Comment=Daemon that deals with Hourglass's alarms.
+Exec=com.github.sgpthomas.hourglass-daemon
+Icon=hourglass
 X-GNOME-Autostart-enabled=true

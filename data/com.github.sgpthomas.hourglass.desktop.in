@@ -1,17 +1,17 @@
 [Desktop Entry]
 Type=Application
-Name=@APP_NAME@
-Comment=@COMMENT@
-GenericName=@GENERIC_NAME@
-StartupWMClass=@EXEC_NAME@
-Exec=@EXEC_NAME@
-Icon=@ICON_NAME@
+Name=Hourglass
+Comment=This clock application provides stopwatches, alarms, and timers.
+GenericName=Timer
+StartupWMClass=com.github.sgpthomas.hourglass
+Exec=com.github.sgpthomas.hourglass
+Icon=hourglass
 Terminal=false
 Categories=GNOME;GTK;Utility;
 Keywords=Timer;Time;Clock;Hourglass;Alarm;
 X-GNOME-Keywords=Timer;Time;Clock;Hourglass;Alarm;
 StartupNotify=true
-X-GNOME-Gettext-Domain=@GETTEXT_PACKAGE@
+X-GNOME-Gettext-Domain=hourglass
 Actions=AboutDialog;
 
 [Desktop Action AboutDialog]

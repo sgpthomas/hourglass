@@ -23,7 +23,7 @@ namespace Hourglass.Services {
     public class StyleManager {
 
         public static void add_stylesheet (string path) {
-            var css_file = Constants.PKG_DATADIR + "/" + path;
+            var css_file = "/usr/share/hourglass/" + path;
             var provider = new CssProvider ();
             try {
                 provider.load_from_path (css_file);

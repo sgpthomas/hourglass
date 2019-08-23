@@ -53,7 +53,7 @@ namespace Hourglass.Window {
         public MainWindow (HourglassApp app) {
             //set some variables of gtk.window
             this.app = app;
-            this.title = Constants.APP_NAME;
+            this.title = _("Hourglass");
             this.set_border_width (12);
             this.set_position (WindowPosition.CENTER);
             this.set_size_request (500, 450);

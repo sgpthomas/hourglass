@@ -38,12 +38,12 @@ namespace Hourglass {
     public class HourglassApp : Granite.Application {
 
         construct {
-            program_name = Constants.APP_NAME;
-            exec_name = Constants.EXEC_NAME;
-            build_version = Constants.VERSION;
+            //  program_name = Constants.APP_NAME;
+            //  exec_name = Constants.EXEC_NAME;
+            //  build_version = Constants.VERSION;
 
             app_years = "2015-2017";
-            app_icon = Constants.ICON_NAME;
+            //  app_icon = Constants.ICON_NAME;
             app_launcher = "com.github.sgpthomas.hourglass.desktop";
             application_id = "com.github.sgpthomas.client";
 
@@ -61,8 +61,8 @@ namespace Hourglass {
         //constructor
         public HourglassApp () {
             /* Logger initilization */
-            Logger.initialize (Constants.APP_NAME);
-            Logger.DisplayLevel = LogLevel.DEBUG;
+            //  Logger.initialize (Constants.APP_NAME);
+            //  Logger.DisplayLevel = LogLevel.DEBUG;
 
             /* Settings */
             saved = new SavedState ();
@@ -76,11 +76,11 @@ namespace Hourglass {
             dbus_server = dbus_manager.client;
 
             /* Translation support */
-            Intl.setlocale (LocaleCategory.ALL, "");
-            string langpack_dir = Path.build_filename (Constants.DATADIR, "locale");
-            Intl.bindtextdomain (Constants.GETTEXT_PACKAGE, langpack_dir);
-            Intl.bind_textdomain_codeset (Constants.GETTEXT_PACKAGE, "UTF-8");
-            Intl.textdomain (Constants.GETTEXT_PACKAGE);
+            //  Intl.setlocale (LocaleCategory.ALL, "");
+            //  string langpack_dir = Path.build_filename (Constants.DATADIR, "locale");
+            //  Intl.bindtextdomain (Constants.GETTEXT_PACKAGE, langpack_dir);
+            //  Intl.bind_textdomain_codeset (Constants.GETTEXT_PACKAGE, "UTF-8");
+            //  Intl.textdomain (Constants.GETTEXT_PACKAGE);
         }
 
         public override void activate () {
