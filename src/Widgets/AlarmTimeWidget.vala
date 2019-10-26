@@ -193,7 +193,12 @@ namespace Hourglass.Widgets {
                 Hourglass.dbus_server.toggle_alarm (a.to_string ());
             });
 
-            Hourglass.dbus_server.add_alarm (a.to_string ());
+            try {
+                Hourglass.dbus_server.add_alarm (a.to_string ());
+            } catch (Error e) {
+                warning (e.message);
+            }
+
             update ();
         }
 
