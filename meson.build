@@ -50,7 +50,7 @@ executable(
 )
 
 install_data(
-    'schemas/com.github.sgpthomas.hourglass.gschema.xml',
+    join_paths('schemas', meson.project_name() + '.gschema.xml'),
     install_dir: join_paths(get_option('datadir'), 'glib-2.0', 'schemas')
 )
 

@@ -1,5 +1,5 @@
 executable(
-    'com.github.sgpthomas.hourglass-daemon',
+    meson.project_name() + '-daemon',
     'AlarmManager.vala',
     'HourglassDaemon.vala',
     'HourglassServer.vala',
