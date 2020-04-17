@@ -2,13 +2,13 @@ icon_sizes = ['16', '24', '32', '48', '64', '128']
 
 foreach i : icon_sizes
     install_data(
-        join_paths('icons', i + 'x' + i, 'apps', 'hourglass.svg'),
+        join_paths('icons', i + 'x' + i, 'apps', meson.project_name() + '.svg'),
         install_dir: join_paths(get_option('datadir'), 'icons', 'hicolor', i + 'x' + i, 'apps')
     )
 endforeach
 
 install_data(
-    'hourglass.svg',
+    meson.project_name() + '.svg',
     install_dir: join_paths(get_option('datadir'), 'pixmaps')
 )
 
@@ -17,7 +17,7 @@ css_files = ['elements', 'text']
 foreach c : css_files
     install_data(
         join_paths('style', c + '.css'),
-        install_dir: join_paths(get_option('datadir'), gettext_name, 'style')
+        install_dir: join_paths(get_option('datadir'), meson.project_name(), 'style')
     )
 endforeach
 
