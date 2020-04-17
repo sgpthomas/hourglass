@@ -13,16 +13,9 @@ conf_data.set('DAEMON_EXEC_NAME', meson.project_name() + '-daemon')
 conf_data.set('DAEMON_NAME', meson.project_name() + '-daemon')
 conf_data.set('ICON_NAME', meson.project_name())
 conf_data.set('APP_NAME', 'Hourglass')
-conf_data.set('GENERIC_NAME', 'Timer')
-conf_data.set('RELEASE_NAME', 'Loki')
-conf_data.set('COMMENT', 'This clock application provides stopwatches, alarms, and timers.')
-conf_data.set('DAEMON_COMMENT', 'Daemon that deals with Hourglass\'s alarms.')
 conf_data.set('VERSION', meson.project_version())
-conf_data.set('VERSION_INFO', 'Release')
-
 conf_data.set('DATADIR', get_option('datadir'))
 conf_data.set('PKG_DATADIR', join_paths(get_option('datadir'), meson.project_name()))
-conf_data.set('INSTALL_PREFIX', get_option('prefix'))
 
 config_file = configure_file(
     input: join_paths('src', 'Config.vala.in'),

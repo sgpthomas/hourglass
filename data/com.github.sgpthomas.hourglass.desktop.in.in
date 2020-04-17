@@ -1,8 +1,8 @@
 [Desktop Entry]
 Type=Application
 Name=@APP_NAME@
-Comment=@COMMENT@
-GenericName=@GENERIC_NAME@
+Comment=This clock application provides stopwatches, alarms, and timers.
+GenericName=Timer
 StartupWMClass=@EXEC_NAME@
 Exec=@EXEC_NAME@
 Icon=@ICON_NAME@

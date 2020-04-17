@@ -1,7 +1,7 @@
 [Desktop Entry]
 Type=Application
 Name=@DAEMON_NAME@
-Comment=@DAEMON_COMMENT@
+Comment=Daemon that deals with Hourglass's alarms.
 Exec=@DAEMON_EXEC_NAME@
 Icon=@ICON_NAME@
 X-GNOME-Autostart-enabled=true
