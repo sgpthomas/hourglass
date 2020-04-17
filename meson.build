@@ -1,4 +1,7 @@
-project('com.github.sgpthomas.hourglass', 'vala', 'c', version: '1.1.1')
+project('com.github.sgpthomas.hourglass',
+    'vala', 'c',
+    version: '1.1.1'
+)
 
 i18n = import('i18n')
 add_project_arguments(
