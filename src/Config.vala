@@ -17,13 +17,13 @@
 */
 
 namespace Constants {
-	public const string DATADIR = "/usr/local/share";
-	public const string PKG_DATADIR = "/usr/local/share/hourglass";
+	public const string DATADIR = "/usr/share";
+	public const string PKG_DATADIR = "/usr/share/hourglass";
 	public const string GETTEXT_PACKAGE = "hourglass";
 	public const string RELEASE_NAME = "Loki";
 	public const string VERSION = "1.1.1";
 	public const string VERSION_INFO = "Release";
-	public const string INSTALL_PREFIX = "/usr/local";
+	public const string INSTALL_PREFIX = "/usr";
     public const string APP_NAME = "Hourglass";
 	public const string EXEC_NAME = "com.github.sgpthomas.hourglass";
 	public const string ICON_NAME = "hourglass";
