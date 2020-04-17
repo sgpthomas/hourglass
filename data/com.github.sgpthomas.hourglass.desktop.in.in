@@ -1,0 +1,20 @@
+[Desktop Entry]
+Type=Application
+Name=@APP_NAME@
+Comment=@COMMENT@
+GenericName=@GENERIC_NAME@
+StartupWMClass=@EXEC_NAME@
+Exec=@EXEC_NAME@
+Icon=@ICON_NAME@
+Terminal=false
+Categories=GNOME;GTK;Utility;
+Keywords=Timer;Time;Clock;Hourglass;Alarm;
+X-GNOME-Keywords=Timer;Time;Clock;Hourglass;Alarm;
+StartupNotify=true
+X-GNOME-Gettext-Domain=@GETTEXT_PACKAGE@
+Actions=AboutDialog;
+
+[Desktop Action AboutDialog]
+Exec=hourglass --about
+Name=About Hourglass
+Name[lt]=Apie Hourglass
