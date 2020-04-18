@@ -23,10 +23,10 @@ namespace Hourglass.Services {
     public class StyleManager {
 
         public static void add_stylesheet (string path) {
-            var css_file = Constants.PKG_DATADIR + "/" + path;
+            var css_file = "/com/github/sgpthomas/hourglass/" + path;
             var provider = new CssProvider ();
             try {
-                provider.load_from_path (css_file);
+                provider.load_from_resource (css_file);
                 StyleContext.add_provider_for_screen (Gdk.Screen.get_default (), provider, Gtk.STYLE_PROVIDER_PRIORITY_USER);
                 message ("Loaded %s", css_file);
             } catch (Error e) {

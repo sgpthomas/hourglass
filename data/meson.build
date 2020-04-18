@@ -12,15 +12,6 @@ install_data(
     install_dir: join_paths(get_option('datadir'), 'pixmaps')
 )
 
-css_files = ['elements', 'text']
-
-foreach c : css_files
-    install_data(
-        join_paths('style', c + '.css'),
-        install_dir: join_paths(get_option('datadir'), meson.project_name(), 'style')
-    )
-endforeach
-
 i18n.merge_file(
     input: meson.project_name() + '.appdata.xml.in',
     output: meson.project_name() + '.appdata.xml',
