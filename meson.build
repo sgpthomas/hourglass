@@ -19,7 +19,6 @@ conf_data.set('ICON_NAME', meson.project_name())
 conf_data.set('APP_NAME', 'Hourglass')
 conf_data.set('VERSION', meson.project_version())
 conf_data.set('DATADIR', get_option('datadir'))
-conf_data.set('PKG_DATADIR', join_paths(get_option('datadir'), meson.project_name()))
 
 config_file = configure_file(
     input: join_paths('src', 'Config.vala.in'),
