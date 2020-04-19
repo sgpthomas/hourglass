@@ -2,16 +2,16 @@ Source: com.github.sgpthomas.hourglass
 Section: x11
 Priority: extra
 Maintainer: Sam Thomas <sgpthomas@gmail.com>
-Build-Depends: cmake (>= 2.8),
-               debhelper (>= 8.0.0),
-               valac-0.28 | valac (>= 0.28),
+Build-Depends: debhelper (>= 10.5.1),
                libgtk-3-dev,
                libgee-0.8-dev,
                libnotify-dev,
-               libgranite-dev (>= 0.3.0),
+               libgranite-dev,
                libcanberra-dev,
-               libglib2.0-dev
-Standards-Version: 3.9.3
+               libglib2.0-dev,
+               meson,
+               valac
+Standards-Version: 4.1.1
 
 Package: com.github.sgpthomas.hourglass
 Architecture: any
