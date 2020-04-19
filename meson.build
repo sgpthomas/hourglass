@@ -1,6 +1,6 @@
 project('com.github.sgpthomas.hourglass',
     'vala', 'c',
-    version: '1.1.1'
+    version: '1.2.0'
 )
 
 gnome = import('gnome')

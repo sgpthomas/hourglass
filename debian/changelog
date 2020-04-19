@@ -1,3 +1,14 @@
+com.github.sgpthomas.hourglass (1.2.0) bionic; urgency=medium
+
+  * Fixed timer control influences other instances
+  * Updated Lithuanian translation
+  * Fixed timekeeping
+  * Fixed what happens when the app closes and there is a timer running
+  * Fixed the notification going off again when you open the app
+  * Switch the build system from CMake to Meson
+
+ -- Ryo Nakano <ryonakaknock3@gmail.com>  Mon, 20 Apr 2020 08:24:27 +0900
+
 com.github.sgpthomas.hourglass (1.0.12) trusty; urgency=medium
 
   * Fixed a bug in displaying alarm times in notifications

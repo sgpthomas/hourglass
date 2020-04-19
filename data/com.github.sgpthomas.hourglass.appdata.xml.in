@@ -45,5 +45,17 @@
   </provides>
 
   <releases>
+    <release version="1.2.0" date="2020-04-20" urgency="medium">
+      <description>
+        <ul>
+          <li>Fixed timer control influences other instances</li>
+          <li>Updated Lithuanian translation</li>
+          <li>Fixed timekeeping</li>
+          <li>Fixed what happens when the app closes and there is a timer running</li>
+          <li>Fixed the notification going off again when you open the app</li>
+          <li>Switch the build system from CMake to Meson</li>
+        </ul>
+      </description>
+    </release>
   </releases>
 </component>
