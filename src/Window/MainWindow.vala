@@ -88,7 +88,6 @@ namespace Hourglass.Window {
         private void setup_headerbar () {
             //headerbar
             headerbar = new HeaderBar ();
-            //headerbar.pack_end (app_menu);
             headerbar.set_custom_title (stack_switcher);
             headerbar.set_show_close_button (true);
             this.set_titlebar (headerbar);
