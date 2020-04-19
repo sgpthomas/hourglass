@@ -13,8 +13,3 @@ X-GNOME-Keywords=Timer;Time;Clock;Hourglass;Alarm;
 StartupNotify=true
 X-GNOME-Gettext-Domain=@GETTEXT_PACKAGE@
 Actions=AboutDialog;
-
-[Desktop Action AboutDialog]
-Exec=hourglass --about
-Name=About Hourglass
-Name[lt]=Apie Hourglass
