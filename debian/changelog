@@ -5,7 +5,7 @@ com.github.sgpthomas.hourglass (1.2.0) bionic; urgency=medium
   * Fixed timekeeping
   * Fixed what happens when the app closes and there is a timer running
   * Fixed the notification going off again when you open the app
-  * Switch the build system from CMake to Meson
+  * Switched the build system from CMake to Meson
 
  -- Ryo Nakano <ryonakaknock3@gmail.com>  Mon, 20 Apr 2020 08:24:27 +0900
 
