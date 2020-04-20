@@ -23,7 +23,7 @@ namespace HourglassDaemon {
     [DBus (name = "com.github.sgpthomas.hourglass")]
     public class Server : Object {
 
-        public void print_message (string msg) throws Error{
+        public void print_message (string msg) throws Error {
             message (msg);
         }
 
