@@ -1,3 +1,10 @@
+com.github.sgpthomas.hourglass (1.2.1) bionic; urgency=medium
+
+  * Fixed a regression that the app didn't run at the first time launch
+  * Revived and updated valid translation files
+
+ -- Ryo Nakano <ryonakaknock3@gmail.com>  Mon, 20 Apr 2020 21:27:22 +0900
+
 com.github.sgpthomas.hourglass (1.2.0) bionic; urgency=medium
 
   * Fixed timer control influences other instances

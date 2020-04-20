@@ -45,6 +45,14 @@
   </provides>
 
   <releases>
+    <release version="1.2.1" date="2020-04-20" urgency="medium">
+      <description>
+        <ul>
+          <li>Fixed a regression that the app didn't run at the first time launch</li>
+          <li>Revived and updated valid translation files</li>
+        </ul>
+      </description>
+    </release>
     <release version="1.2.0" date="2020-04-20" urgency="medium">
       <description>
         <ul>
