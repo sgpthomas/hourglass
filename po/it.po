@@ -1,26 +1,23 @@
-# SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the com.github.sgpthomas.hourglass package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-#
-#, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: com.github.sgpthomas.hourglass\n"
+"Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-04-20 20:25+0900\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"PO-Revision-Date: 2015-08-09 18:19+0000\n"
+"Last-Translator: Fabio Zaramella <FFabio.96.X@Gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"X-Launchpad-Export-Date: 2016-04-29 06:25+0000\n"
+"X-Generator: Launchpad (build 17995)\n"
 
 #: src/Dialogs/MultiSelectPopover.vala:32
 #: src/Dialogs/MultiSelectPopover.vala:83
+#, fuzzy
 msgid "Su"
-msgstr ""
+msgstr "Dom"
 
 #: src/Dialogs/MultiSelectPopover.vala:32
 #: src/Dialogs/MultiSelectPopover.vala:83
@@ -39,8 +36,9 @@ msgstr ""
 
 #: src/Dialogs/MultiSelectPopover.vala:32
 #: src/Dialogs/MultiSelectPopover.vala:83
+#, fuzzy
 msgid "Th"
-msgstr ""
+msgstr "Gio"
 
 #: src/Dialogs/MultiSelectPopover.vala:32
 #: src/Dialogs/MultiSelectPopover.vala:83
@@ -49,97 +47,149 @@ msgstr ""
 
 #: src/Dialogs/MultiSelectPopover.vala:32
 #: src/Dialogs/MultiSelectPopover.vala:83
+#, fuzzy
 msgid "Sa"
-msgstr ""
+msgstr "Sab"
 
 #: src/Dialogs/MultiSelectPopover.vala:88
 msgid "Every Day"
-msgstr ""
+msgstr "Ogni giorno"
 
 #: src/Dialogs/MultiSelectPopover.vala:90
 msgid "Every Weekday"
-msgstr ""
+msgstr "Ogni giorno della settimana"
 
 #: src/Dialogs/MultiSelectPopover.vala:92
 msgid "Every Weekend"
-msgstr ""
+msgstr "Ogni fine settimana"
 
 #: src/Dialogs/MultiSelectPopover.vala:99 src/Dialogs/NewAlarmDialog.vala:100
 msgid "Never"
-msgstr ""
+msgstr "Mai"
 
 #: src/Dialogs/NewAlarmDialog.vala:120 src/Widgets/AlarmTimeWidget.vala:109
 msgid "Edit"
-msgstr ""
+msgstr "Modifica"
 
 #: src/Dialogs/NewAlarmDialog.vala:120
 msgid "Create"
-msgstr ""
+msgstr "Crea"
 
 #: src/Dialogs/NewAlarmDialog.vala:122
 msgid "Cancel"
-msgstr ""
+msgstr "Annulla"
 
 #: src/Dialogs/NewAlarmDialog.vala:124
 msgid "Delete"
-msgstr ""
+msgstr "Rimuovi"
 
 #: src/Dialogs/NewAlarmDialog.vala:143
 msgid "Title:"
-msgstr ""
+msgstr "Titolo:"
 
 #: src/Dialogs/NewAlarmDialog.vala:148
 msgid "Choose a time:"
-msgstr ""
+msgstr "Scegli un'ora:"
 
 #: src/Dialogs/NewAlarmDialog.vala:153
 msgid "Choose a date:"
-msgstr ""
+msgstr "Scegli una data:"
 
 #: src/Dialogs/NewAlarmDialog.vala:163
 msgid "Repeat:"
-msgstr ""
+msgstr "Ripeti:"
 
 #: src/Widgets/Alarm.vala:129
 msgid "Repeats "
-msgstr ""
+msgstr "Ripeti "
 
 #: src/Widgets/Alarm.vala:129
 msgid ", Repeats "
-msgstr ""
+msgstr ", Ripeti "
 
 #: src/Widgets/AlarmTimeWidget.vala:77
 msgid "No Alarms"
-msgstr ""
+msgstr "Nessuna sveglia"
 
 #: src/Widgets/AlarmTimeWidget.vala:77
 msgid "Click 'Add' to get started."
-msgstr ""
+msgstr "Fare clic su 'Aggiungi' per iniziare."
 
 #: src/Widgets/AlarmTimeWidget.vala:106
 msgid "Add"
-msgstr ""
+msgstr "Aggiungi"
 
 #: src/Widgets/AlarmTimeWidget.vala:266
 msgid "Alarm"
-msgstr ""
+msgstr "Sveglia"
 
 #: src/Widgets/StopwatchTimeWidget.vala:92
 msgid "Start"
-msgstr ""
+msgstr "Avvia"
 
 #: src/Widgets/StopwatchTimeWidget.vala:95
 msgid "Stop"
-msgstr ""
+msgstr "Interrompi"
 
 #: src/Widgets/StopwatchTimeWidget.vala:98
 msgid "Reset"
-msgstr ""
+msgstr "Azzera"
 
 #: src/Widgets/StopwatchTimeWidget.vala:100
 msgid "Lap"
-msgstr ""
+msgstr "Giro"
 
 #: src/Widgets/StopwatchTimeWidget.vala:116
 msgid "Stopwatch"
-msgstr ""
+msgstr "Cronometro"
+
+#~ msgid "Sunday"
+#~ msgstr "Domenica"
+
+#~ msgid "Monday"
+#~ msgstr "Lunedì"
+
+#~ msgid "Tuesday"
+#~ msgstr "Martedì"
+
+#~ msgid "Wednesday"
+#~ msgstr "Mercoledì"
+
+#~ msgid "Thursday"
+#~ msgstr "Giovedi"
+
+#~ msgid "Friday"
+#~ msgstr "Venerdì"
+
+#~ msgid "Saturday"
+#~ msgstr "Sabato"
+
+#~ msgid "Mon"
+#~ msgstr "Lun"
+
+#~ msgid "Tue"
+#~ msgstr "Mar"
+
+#~ msgid "Wed"
+#~ msgstr "Mer"
+
+#~ msgid "Fri"
+#~ msgstr "Ven"
+
+#~ msgid "Hours"
+#~ msgstr "Ore"
+
+#~ msgid "Minutes"
+#~ msgstr "Minuti"
+
+#~ msgid "Seconds"
+#~ msgstr "Secondi"
+
+#~ msgid ":"
+#~ msgstr ":"
+
+#~ msgid "Timer has ended!"
+#~ msgstr "Il timer è terminato!"
+
+#~ msgid "Timer"
+#~ msgstr "Timer"

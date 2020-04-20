@@ -1,145 +1,165 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the com.github.sgpthomas.hourglass package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# This file is distributed under the same license as the PACKAGE package.
+# Moo, 2017.
 #
-#, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: com.github.sgpthomas.hourglass\n"
+"Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-04-20 20:25+0900\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
-"Language: \n"
+"PO-Revision-Date: 2017-08-28 12:57+0300\n"
+"Last-Translator: Moo\n"
+"Language-Team: \n"
+"Language: lt\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.8.7.1\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && (n"
+"%100<10 || n%100>=20) ? 1 : 2);\n"
 
 #: src/Dialogs/MultiSelectPopover.vala:32
 #: src/Dialogs/MultiSelectPopover.vala:83
 msgid "Su"
-msgstr ""
+msgstr "Sek"
 
 #: src/Dialogs/MultiSelectPopover.vala:32
 #: src/Dialogs/MultiSelectPopover.vala:83
 msgid "M"
-msgstr ""
+msgstr "Pir"
 
 #: src/Dialogs/MultiSelectPopover.vala:32
 #: src/Dialogs/MultiSelectPopover.vala:83
 msgid "T"
-msgstr ""
+msgstr "Ant"
 
 #: src/Dialogs/MultiSelectPopover.vala:32
 #: src/Dialogs/MultiSelectPopover.vala:83
 msgid "W"
-msgstr ""
+msgstr "Tre"
 
 #: src/Dialogs/MultiSelectPopover.vala:32
 #: src/Dialogs/MultiSelectPopover.vala:83
 msgid "Th"
-msgstr ""
+msgstr "Ket"
 
 #: src/Dialogs/MultiSelectPopover.vala:32
 #: src/Dialogs/MultiSelectPopover.vala:83
 msgid "F"
-msgstr ""
+msgstr "Pen"
 
 #: src/Dialogs/MultiSelectPopover.vala:32
 #: src/Dialogs/MultiSelectPopover.vala:83
 msgid "Sa"
-msgstr ""
+msgstr "Šeš"
 
 #: src/Dialogs/MultiSelectPopover.vala:88
 msgid "Every Day"
-msgstr ""
+msgstr "Kiekvieną dieną"
 
 #: src/Dialogs/MultiSelectPopover.vala:90
 msgid "Every Weekday"
-msgstr ""
+msgstr "Kiekvieną šiokiadienį"
 
 #: src/Dialogs/MultiSelectPopover.vala:92
 msgid "Every Weekend"
-msgstr ""
+msgstr "Kiekvieną savaitgalį"
 
 #: src/Dialogs/MultiSelectPopover.vala:99 src/Dialogs/NewAlarmDialog.vala:100
 msgid "Never"
-msgstr ""
+msgstr "Niekada"
 
 #: src/Dialogs/NewAlarmDialog.vala:120 src/Widgets/AlarmTimeWidget.vala:109
 msgid "Edit"
-msgstr ""
+msgstr "Taisyti"
 
 #: src/Dialogs/NewAlarmDialog.vala:120
 msgid "Create"
-msgstr ""
+msgstr "Sukurti"
 
 #: src/Dialogs/NewAlarmDialog.vala:122
 msgid "Cancel"
-msgstr ""
+msgstr "Atsisakyti"
 
 #: src/Dialogs/NewAlarmDialog.vala:124
 msgid "Delete"
-msgstr ""
+msgstr "Ištrinti"
 
 #: src/Dialogs/NewAlarmDialog.vala:143
 msgid "Title:"
-msgstr ""
+msgstr "Pavadinimas:"
 
 #: src/Dialogs/NewAlarmDialog.vala:148
 msgid "Choose a time:"
-msgstr ""
+msgstr "Pasirinkite laiką:"
 
 #: src/Dialogs/NewAlarmDialog.vala:153
 msgid "Choose a date:"
-msgstr ""
+msgstr "Pasirinkite datą:"
 
 #: src/Dialogs/NewAlarmDialog.vala:163
 msgid "Repeat:"
-msgstr ""
+msgstr "Kartoti:"
 
 #: src/Widgets/Alarm.vala:129
 msgid "Repeats "
-msgstr ""
+msgstr "Kartojamas "
 
 #: src/Widgets/Alarm.vala:129
 msgid ", Repeats "
-msgstr ""
+msgstr ", kartojamas "
 
 #: src/Widgets/AlarmTimeWidget.vala:77
 msgid "No Alarms"
-msgstr ""
+msgstr "Nėra žadintuvų"
 
 #: src/Widgets/AlarmTimeWidget.vala:77
 msgid "Click 'Add' to get started."
-msgstr ""
+msgstr "Norėdami pradėti, spustelėkite \"Pridėti\"."
 
 #: src/Widgets/AlarmTimeWidget.vala:106
 msgid "Add"
-msgstr ""
+msgstr "Pridėti"
 
 #: src/Widgets/AlarmTimeWidget.vala:266
 msgid "Alarm"
-msgstr ""
+msgstr "Žadintuvas"
 
 #: src/Widgets/StopwatchTimeWidget.vala:92
 msgid "Start"
-msgstr ""
+msgstr "Pradėti"
 
 #: src/Widgets/StopwatchTimeWidget.vala:95
 msgid "Stop"
-msgstr ""
+msgstr "Stabdyti"
 
 #: src/Widgets/StopwatchTimeWidget.vala:98
 msgid "Reset"
-msgstr ""
+msgstr "Atstatyti"
 
 #: src/Widgets/StopwatchTimeWidget.vala:100
 msgid "Lap"
-msgstr ""
+msgstr "Ratas"
 
 #: src/Widgets/StopwatchTimeWidget.vala:116
 msgid "Stopwatch"
-msgstr ""
+msgstr "Chronometras"
+
+#~ msgid "Hours"
+#~ msgstr "Valandos"
+
+#~ msgid "Minutes"
+#~ msgstr "Minutės"
+
+#~ msgid "Seconds"
+#~ msgstr "Sekundės"
+
+#~ msgid ":"
+#~ msgstr ":"
+
+#~ msgid "Timer has ended!"
+#~ msgstr "Laikmatis pasibaigė!"
+
+#~ msgid "Timer"
+#~ msgstr "Laikmatis"

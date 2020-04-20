@@ -1,26 +1,23 @@
-# SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the com.github.sgpthomas.hourglass package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-#
-#, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: com.github.sgpthomas.hourglass\n"
+"Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-04-20 20:25+0900\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"PO-Revision-Date: 2015-08-09 19:32+0000\n"
+"Last-Translator: Deniz CAN <denizcan72@hotmail.de>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"X-Launchpad-Export-Date: 2016-04-29 06:30+0000\n"
+"X-Generator: Launchpad (build 17995)\n"
 
 #: src/Dialogs/MultiSelectPopover.vala:32
 #: src/Dialogs/MultiSelectPopover.vala:83
+#, fuzzy
 msgid "Su"
-msgstr ""
+msgstr "Paz"
 
 #: src/Dialogs/MultiSelectPopover.vala:32
 #: src/Dialogs/MultiSelectPopover.vala:83
@@ -39,8 +36,9 @@ msgstr ""
 
 #: src/Dialogs/MultiSelectPopover.vala:32
 #: src/Dialogs/MultiSelectPopover.vala:83
+#, fuzzy
 msgid "Th"
-msgstr ""
+msgstr "Per"
 
 #: src/Dialogs/MultiSelectPopover.vala:32
 #: src/Dialogs/MultiSelectPopover.vala:83
@@ -49,97 +47,149 @@ msgstr ""
 
 #: src/Dialogs/MultiSelectPopover.vala:32
 #: src/Dialogs/MultiSelectPopover.vala:83
+#, fuzzy
 msgid "Sa"
-msgstr ""
+msgstr "Cmt"
 
 #: src/Dialogs/MultiSelectPopover.vala:88
 msgid "Every Day"
-msgstr ""
+msgstr "Her Gün"
 
 #: src/Dialogs/MultiSelectPopover.vala:90
 msgid "Every Weekday"
-msgstr ""
+msgstr "Haftanın Her Günü"
 
 #: src/Dialogs/MultiSelectPopover.vala:92
 msgid "Every Weekend"
-msgstr ""
+msgstr "Her haftasonu"
 
 #: src/Dialogs/MultiSelectPopover.vala:99 src/Dialogs/NewAlarmDialog.vala:100
 msgid "Never"
-msgstr ""
+msgstr "Hiçbir Zaman"
 
 #: src/Dialogs/NewAlarmDialog.vala:120 src/Widgets/AlarmTimeWidget.vala:109
 msgid "Edit"
-msgstr ""
+msgstr "Düzenle"
 
 #: src/Dialogs/NewAlarmDialog.vala:120
 msgid "Create"
-msgstr ""
+msgstr "Oluştur"
 
 #: src/Dialogs/NewAlarmDialog.vala:122
 msgid "Cancel"
-msgstr ""
+msgstr "İptal"
 
 #: src/Dialogs/NewAlarmDialog.vala:124
 msgid "Delete"
-msgstr ""
+msgstr "Sil"
 
 #: src/Dialogs/NewAlarmDialog.vala:143
 msgid "Title:"
-msgstr ""
+msgstr "Başlık:"
 
 #: src/Dialogs/NewAlarmDialog.vala:148
 msgid "Choose a time:"
-msgstr ""
+msgstr "Bir zaman seçin:"
 
 #: src/Dialogs/NewAlarmDialog.vala:153
 msgid "Choose a date:"
-msgstr ""
+msgstr "Bir tarih seçin:"
 
 #: src/Dialogs/NewAlarmDialog.vala:163
 msgid "Repeat:"
-msgstr ""
+msgstr "Tekrarla:"
 
 #: src/Widgets/Alarm.vala:129
 msgid "Repeats "
-msgstr ""
+msgstr "Tekrarlar "
 
 #: src/Widgets/Alarm.vala:129
 msgid ", Repeats "
-msgstr ""
+msgstr ", Tekrarlar "
 
 #: src/Widgets/AlarmTimeWidget.vala:77
 msgid "No Alarms"
-msgstr ""
+msgstr "Alarm Yok"
 
 #: src/Widgets/AlarmTimeWidget.vala:77
 msgid "Click 'Add' to get started."
-msgstr ""
+msgstr "Başlamak için \"Ekle\" ye tıklayın."
 
 #: src/Widgets/AlarmTimeWidget.vala:106
 msgid "Add"
-msgstr ""
+msgstr "Ekle"
 
 #: src/Widgets/AlarmTimeWidget.vala:266
 msgid "Alarm"
-msgstr ""
+msgstr "Alarm"
 
 #: src/Widgets/StopwatchTimeWidget.vala:92
 msgid "Start"
-msgstr ""
+msgstr "Başlat"
 
 #: src/Widgets/StopwatchTimeWidget.vala:95
 msgid "Stop"
-msgstr ""
+msgstr "Dur"
 
 #: src/Widgets/StopwatchTimeWidget.vala:98
 msgid "Reset"
-msgstr ""
+msgstr "Sıfırla"
 
 #: src/Widgets/StopwatchTimeWidget.vala:100
 msgid "Lap"
-msgstr ""
+msgstr "Tur"
 
 #: src/Widgets/StopwatchTimeWidget.vala:116
 msgid "Stopwatch"
-msgstr ""
+msgstr "Kronometre"
+
+#~ msgid "Sunday"
+#~ msgstr "Pazar"
+
+#~ msgid "Monday"
+#~ msgstr "Pazartesi"
+
+#~ msgid "Tuesday"
+#~ msgstr "Salı"
+
+#~ msgid "Wednesday"
+#~ msgstr "Çarşamba"
+
+#~ msgid "Thursday"
+#~ msgstr "Perşembe"
+
+#~ msgid "Friday"
+#~ msgstr "Cuma"
+
+#~ msgid "Saturday"
+#~ msgstr "Cumartesi"
+
+#~ msgid "Mon"
+#~ msgstr "Pzt"
+
+#~ msgid "Tue"
+#~ msgstr "Sal"
+
+#~ msgid "Wed"
+#~ msgstr "Çar"
+
+#~ msgid "Fri"
+#~ msgstr "Cum"
+
+#~ msgid "Hours"
+#~ msgstr "Saatler"
+
+#~ msgid "Minutes"
+#~ msgstr "Dakikalar"
+
+#~ msgid "Seconds"
+#~ msgstr "Saniyeler"
+
+#~ msgid ":"
+#~ msgstr ":"
+
+#~ msgid "Timer has ended!"
+#~ msgstr "Zamanlayıcı sona erdi!"
+
+#~ msgid "Timer"
+#~ msgstr "Zamanlayıcı"
