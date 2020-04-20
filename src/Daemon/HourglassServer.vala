@@ -23,25 +23,25 @@ namespace HourglassDaemon {
     [DBus (name = "com.github.sgpthomas.hourglass")]
     public class Server : Object {
 
-        public void print_message (string msg) throws Error {
+        public void print_message (string msg) {
             message (msg);
         }
 
-        public void show_notification (string summary, string body = "", string track = "") throws Error {
+        public void show_notification (string summary, string body = "", string track = "") {
             notification.show (summary, body, track);
         }
 
-        public void add_alarm (string alarm) throws Error {
+        public void add_alarm (string alarm) {
             message (alarm);
             manager.add_alarm (alarm);
         }
 
-        public void remove_alarm (string alarm) throws Error {
+        public void remove_alarm (string alarm) {
             message (alarm);
             manager.remove_alarm (alarm);
         }
 
-        public string[] get_alarm_list () throws Error {
+        public string[] get_alarm_list () {
             string[] list = {};
             foreach (string s in manager.alarm_list) {
                 list += s;
@@ -49,7 +49,7 @@ namespace HourglassDaemon {
             return list;
         }
 
-        public void toggle_alarm (string alarm) throws Error {
+        public void toggle_alarm (string alarm) {
             manager.toggle_alarm (alarm);
         }
 

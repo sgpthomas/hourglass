@@ -107,11 +107,7 @@ namespace Hourglass.Widgets {
 					current_time = limit - (int)diff;
 				} else {
 					if (should_notify) {
-                        try {
-                            Hourglass.dbus_server.show_notification (notify_summary, notify_body);
-                        } catch (Error e) {
-                            warning (e.message);
-                        }
+						Hourglass.dbus_server.show_notification (notify_summary, notify_body);
 					}
 					stop ();
 					on_end ();
