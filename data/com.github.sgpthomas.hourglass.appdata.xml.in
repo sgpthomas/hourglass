@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Copyright 2017 Sam Thomas <sgpthomas@gmail.com> -->
 <component type="desktop-application">
-  <id>com.github.sgpthomas.hourglass.desktop</id>
+  <id>com.github.sgpthomas.hourglass</id>
   <metadata_license>CC0</metadata_license>
   <project_license>GPL-3</project_license>
   <name>Hourglass</name>

@@ -36,7 +36,7 @@ namespace Hourglass.Dialogs {
         private int[] repeat_days;
 
         //buttons
-        private HButtonBox final_actions;
+        private ButtonBox final_actions;
         private Button cancel_button;
         private Button delete_alarm_button;
         private Button create_alarm_button;
@@ -112,7 +112,7 @@ namespace Hourglass.Dialogs {
             repeat_combo_box.set_active (0);*/
 
             //final action button box
-            final_actions = new HButtonBox ();
+            final_actions = new ButtonBox (Gtk.Orientation.HORIZONTAL);
             final_actions.set_layout (Gtk.ButtonBoxStyle.END);
             final_actions.spacing = 12;
             final_actions.margin_top = 6;
@@ -137,8 +137,8 @@ namespace Hourglass.Dialogs {
             var main_grid = new Grid ();
             main_grid.row_spacing = 6;
             main_grid.column_spacing = 12;
-            main_grid.margin_left = 12;
-            main_grid.margin_right = 12;
+            main_grid.margin_start = 12;
+            main_grid.margin_end = 12;
 
             var label = new Label (_("Title:"));
             label.halign = Gtk.Align.END;
