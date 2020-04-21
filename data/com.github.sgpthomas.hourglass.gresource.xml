@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gresources>
+  <gresource prefix="/com/github/sgpthomas/hourglass/style">
+    <file alias="elements.css">style/elements.css</file>
+    <file alias="text.css">style/text.css</file>
+  </gresource>
+</gresources>

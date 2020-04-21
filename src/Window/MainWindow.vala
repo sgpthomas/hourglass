@@ -32,7 +32,6 @@ namespace Hourglass.Window {
         private HourglassApp app;
 
         //header bar stuff
-        private AppMenu app_menu;
         private HeaderBar headerbar;
         //menu items
 
@@ -74,8 +73,6 @@ namespace Hourglass.Window {
             widget_list += new StopwatchTimeWidget (this);
             widget_list += new TimerTimeWidget (this);
 
-            setup_app_menu ();
-
             setup_headerbar ();
 
             setup_layout ();
@@ -88,17 +85,9 @@ namespace Hourglass.Window {
             stack.set_visible_child_name (Hourglass.saved.last_open_widget);
         }
 
-        private void setup_app_menu () {
-            //create app menu
-            var m = new Gtk.Menu ();
-
-            app_menu = app.create_appmenu (m);
-        }
-
         private void setup_headerbar () {
             //headerbar
             headerbar = new HeaderBar ();
-            //headerbar.pack_end (app_menu);
             headerbar.set_custom_title (stack_switcher);
             headerbar.set_show_close_button (true);
             this.set_titlebar (headerbar);

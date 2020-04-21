@@ -35,27 +35,10 @@ namespace Hourglass {
     public MainWindow main_window;
 	public bool window_open;
 
-    public class HourglassApp : Granite.Application {
+    public class HourglassApp : Gtk.Application {
 
         construct {
-            program_name = Constants.APP_NAME;
-            exec_name = Constants.EXEC_NAME;
-            build_version = Constants.VERSION;
-
-            app_years = "2015-2017";
-            app_icon = Constants.ICON_NAME;
-            app_launcher = "com.github.sgpthomas.hourglass.desktop";
             application_id = "com.github.sgpthomas.client";
-
-            main_url = "https://github.com/sgpthomas/hourglass";
-            bug_url = "https://github.com/sgpthomas/hourglass/issues";
-            help_url = "https://github.com/sgpthomas/hourglass/issues";
-            translate_url = "http://translations.launchpad.net/hourglass";
-
-            about_authors = {"Sam Thomas <sgpthomas@gmail.com>"};
-            about_license_type = Gtk.License.GPL_3_0;
-            about_artists = {"Sam Thomas <sgpthomas@gmail.com>"};
-            about_translators = "Launchpad Translators";
         }
 
         //constructor

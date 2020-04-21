@@ -62,13 +62,6 @@ namespace Hourglass.Dialogs {
 			this.add (box);
         }
 
-        private void load_selected () {
-            foreach (int i in selected) {
-                var toggle = toggles[i];
-                toggle.active = true;
-            }
-        }
-
         public int[] get_selected () {
             selected = {};
             for (int i = 0; i < toggles.length; i++) {

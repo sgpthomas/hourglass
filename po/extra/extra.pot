@@ -1,0 +1,79 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the extra package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: extra\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-04-18 06:36+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: data/com.github.sgpthomas.hourglass.appdata.xml.in:7
+msgid "Hourglass"
+msgstr ""
+
+#: data/com.github.sgpthomas.hourglass.appdata.xml.in:8
+msgid ""
+"A simple clock application that provides stopwatches, alarms, and timers"
+msgstr ""
+
+#: data/com.github.sgpthomas.hourglass.appdata.xml.in:11
+msgid ""
+"Hourglass is a simple time keeping application that helps you easily set "
+"stopwatches, repeating alarms, and timers."
+msgstr ""
+
+#: data/com.github.sgpthomas.hourglass.appdata.xml.in:18
+msgid "Alarm"
+msgstr ""
+
+#: data/com.github.sgpthomas.hourglass.appdata.xml.in:22
+msgid "Stopwatch"
+msgstr ""
+
+#: data/com.github.sgpthomas.hourglass.appdata.xml.in:26
+#: data/com.github.sgpthomas.hourglass.desktop.in.in:6
+msgid "Timer"
+msgstr ""
+
+#: data/com.github.sgpthomas.hourglass.appdata.xml.in:31
+msgid "Sam Thomas"
+msgstr ""
+
+#: data/com.github.sgpthomas.hourglass.desktop.in.in:4
+msgid "@APP_NAME@"
+msgstr ""
+
+#: data/com.github.sgpthomas.hourglass.desktop.in.in:5
+msgid "This clock application provides stopwatches, alarms, and timers."
+msgstr ""
+
+#: data/com.github.sgpthomas.hourglass.desktop.in.in:9
+#: data/com.github.sgpthomas.hourglass-daemon.desktop.in.in:7
+msgid "@ICON_NAME@"
+msgstr ""
+
+#: data/com.github.sgpthomas.hourglass.desktop.in.in:12
+msgid "Timer;Time;Clock;Hourglass;Alarm;"
+msgstr ""
+
+#: data/com.github.sgpthomas.hourglass.desktop.in.in:20
+msgid "About Hourglass"
+msgstr ""
+
+#: data/com.github.sgpthomas.hourglass-daemon.desktop.in.in:4
+msgid "@DAEMON_NAME@"
+msgstr ""
+
+#: data/com.github.sgpthomas.hourglass-daemon.desktop.in.in:5
+msgid "Daemon that deals with Hourglass's alarms."
+msgstr ""
