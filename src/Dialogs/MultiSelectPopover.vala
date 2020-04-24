@@ -29,7 +29,7 @@ namespace Hourglass.Dialogs {
         // check buttons
         private Gtk.ToggleButton[] toggles;
 
-        private string[] shortened_days = {_("Su"), _("M"), _("T"), _("W"), _("Th"), _("F"), _("Sa")};
+        private string[] shortened_days = {_("Sun"), _("Mon"), _("Tue"), _("Wed"), _("Thu"), _("Fri"), _("Sat")};
 
         // selected
         private int[] selected;
@@ -80,7 +80,7 @@ namespace Hourglass.Dialogs {
         }
 
         public static string selected_to_string (int[] sel) {
-            string[] shortened_days = {_("Su"), _("M"), _("T"), _("W"), _("Th"), _("F"), _("Sa")};
+            string[] shortened_days = {_("Sun"), _("Mon"), _("Tue"), _("Wed"), _("Thu"), _("Fri"), _("Sat")};
 
             var str = "";
             
