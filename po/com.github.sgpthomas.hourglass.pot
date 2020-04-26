@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: com.github.sgpthomas.hourglass\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-04-20 20:25+0900\n"
+"POT-Creation-Date: 2020-04-26 21:04+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -19,37 +19,37 @@ msgstr ""
 
 #: src/Dialogs/MultiSelectPopover.vala:32
 #: src/Dialogs/MultiSelectPopover.vala:83
-msgid "Su"
+msgid "Sun"
 msgstr ""
 
 #: src/Dialogs/MultiSelectPopover.vala:32
 #: src/Dialogs/MultiSelectPopover.vala:83
-msgid "M"
+msgid "Mon"
 msgstr ""
 
 #: src/Dialogs/MultiSelectPopover.vala:32
 #: src/Dialogs/MultiSelectPopover.vala:83
-msgid "T"
+msgid "Tue"
 msgstr ""
 
 #: src/Dialogs/MultiSelectPopover.vala:32
 #: src/Dialogs/MultiSelectPopover.vala:83
-msgid "W"
+msgid "Wed"
 msgstr ""
 
 #: src/Dialogs/MultiSelectPopover.vala:32
 #: src/Dialogs/MultiSelectPopover.vala:83
-msgid "Th"
+msgid "Thu"
 msgstr ""
 
 #: src/Dialogs/MultiSelectPopover.vala:32
 #: src/Dialogs/MultiSelectPopover.vala:83
-msgid "F"
+msgid "Fri"
 msgstr ""
 
 #: src/Dialogs/MultiSelectPopover.vala:32
 #: src/Dialogs/MultiSelectPopover.vala:83
-msgid "Sa"
+msgid "Sat"
 msgstr ""
 
 #: src/Dialogs/MultiSelectPopover.vala:88
@@ -120,7 +120,7 @@ msgstr ""
 msgid "Add"
 msgstr ""
 
-#: src/Widgets/AlarmTimeWidget.vala:266
+#: src/Widgets/AlarmTimeWidget.vala:245
 msgid "Alarm"
 msgstr ""
 

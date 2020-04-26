@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-04-20 20:25+0900\n"
+"POT-Creation-Date: 2020-04-26 21:04+0900\n"
 "PO-Revision-Date: 2017-08-28 12:57+0300\n"
 "Last-Translator: Moo\n"
 "Language-Team: \n"
@@ -21,37 +21,40 @@ msgstr ""
 
 #: src/Dialogs/MultiSelectPopover.vala:32
 #: src/Dialogs/MultiSelectPopover.vala:83
-msgid "Su"
+#, fuzzy
+msgid "Sun"
 msgstr "Sek"
 
 #: src/Dialogs/MultiSelectPopover.vala:32
 #: src/Dialogs/MultiSelectPopover.vala:83
-msgid "M"
-msgstr "Pir"
+msgid "Mon"
+msgstr ""
 
 #: src/Dialogs/MultiSelectPopover.vala:32
 #: src/Dialogs/MultiSelectPopover.vala:83
-msgid "T"
-msgstr "Ant"
+msgid "Tue"
+msgstr ""
 
 #: src/Dialogs/MultiSelectPopover.vala:32
 #: src/Dialogs/MultiSelectPopover.vala:83
-msgid "W"
-msgstr "Tre"
+msgid "Wed"
+msgstr ""
 
 #: src/Dialogs/MultiSelectPopover.vala:32
 #: src/Dialogs/MultiSelectPopover.vala:83
-msgid "Th"
+#, fuzzy
+msgid "Thu"
 msgstr "Ket"
 
 #: src/Dialogs/MultiSelectPopover.vala:32
 #: src/Dialogs/MultiSelectPopover.vala:83
-msgid "F"
-msgstr "Pen"
+msgid "Fri"
+msgstr ""
 
 #: src/Dialogs/MultiSelectPopover.vala:32
 #: src/Dialogs/MultiSelectPopover.vala:83
-msgid "Sa"
+#, fuzzy
+msgid "Sat"
 msgstr "Šeš"
 
 #: src/Dialogs/MultiSelectPopover.vala:88
@@ -122,7 +125,7 @@ msgstr "Norėdami pradėti, spustelėkite \"Pridėti\"."
 msgid "Add"
 msgstr "Pridėti"
 
-#: src/Widgets/AlarmTimeWidget.vala:266
+#: src/Widgets/AlarmTimeWidget.vala:245
 msgid "Alarm"
 msgstr "Žadintuvas"
 
@@ -145,6 +148,18 @@ msgstr "Ratas"
 #: src/Widgets/StopwatchTimeWidget.vala:116
 msgid "Stopwatch"
 msgstr "Chronometras"
+
+#~ msgid "M"
+#~ msgstr "Pir"
+
+#~ msgid "T"
+#~ msgstr "Ant"
+
+#~ msgid "W"
+#~ msgstr "Tre"
+
+#~ msgid "F"
+#~ msgstr "Pen"
 
 #~ msgid "Hours"
 #~ msgstr "Valandos"

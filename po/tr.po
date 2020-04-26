@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-04-20 20:25+0900\n"
+"POT-Creation-Date: 2020-04-26 21:04+0900\n"
 "PO-Revision-Date: 2015-08-09 19:32+0000\n"
 "Last-Translator: Deniz CAN <denizcan72@hotmail.de>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -16,39 +16,39 @@ msgstr ""
 #: src/Dialogs/MultiSelectPopover.vala:32
 #: src/Dialogs/MultiSelectPopover.vala:83
 #, fuzzy
-msgid "Su"
+msgid "Sun"
 msgstr "Paz"
 
 #: src/Dialogs/MultiSelectPopover.vala:32
 #: src/Dialogs/MultiSelectPopover.vala:83
-msgid "M"
-msgstr ""
+msgid "Mon"
+msgstr "Pzt"
 
 #: src/Dialogs/MultiSelectPopover.vala:32
 #: src/Dialogs/MultiSelectPopover.vala:83
-msgid "T"
-msgstr ""
+msgid "Tue"
+msgstr "Sal"
 
 #: src/Dialogs/MultiSelectPopover.vala:32
 #: src/Dialogs/MultiSelectPopover.vala:83
-msgid "W"
-msgstr ""
+msgid "Wed"
+msgstr "Çar"
 
 #: src/Dialogs/MultiSelectPopover.vala:32
 #: src/Dialogs/MultiSelectPopover.vala:83
 #, fuzzy
-msgid "Th"
+msgid "Thu"
 msgstr "Per"
 
 #: src/Dialogs/MultiSelectPopover.vala:32
 #: src/Dialogs/MultiSelectPopover.vala:83
-msgid "F"
-msgstr ""
+msgid "Fri"
+msgstr "Cum"
 
 #: src/Dialogs/MultiSelectPopover.vala:32
 #: src/Dialogs/MultiSelectPopover.vala:83
 #, fuzzy
-msgid "Sa"
+msgid "Sat"
 msgstr "Cmt"
 
 #: src/Dialogs/MultiSelectPopover.vala:88
@@ -119,7 +119,7 @@ msgstr "Başlamak için \"Ekle\" ye tıklayın."
 msgid "Add"
 msgstr "Ekle"
 
-#: src/Widgets/AlarmTimeWidget.vala:266
+#: src/Widgets/AlarmTimeWidget.vala:245
 msgid "Alarm"
 msgstr "Alarm"
 
@@ -163,18 +163,6 @@ msgstr "Kronometre"
 
 #~ msgid "Saturday"
 #~ msgstr "Cumartesi"
-
-#~ msgid "Mon"
-#~ msgstr "Pzt"
-
-#~ msgid "Tue"
-#~ msgstr "Sal"
-
-#~ msgid "Wed"
-#~ msgstr "Çar"
-
-#~ msgid "Fri"
-#~ msgstr "Cum"
 
 #~ msgid "Hours"
 #~ msgstr "Saatler"

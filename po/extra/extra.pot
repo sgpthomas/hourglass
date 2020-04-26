@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-04-18 06:36+0900\n"
+"POT-Creation-Date: 2020-04-26 21:04+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -49,12 +49,44 @@ msgstr ""
 msgid "Sam Thomas"
 msgstr ""
 
+#: data/com.github.sgpthomas.hourglass.appdata.xml.in:51
+msgid "Fixed a regression that the app didn't run at the first time launch"
+msgstr ""
+
+#: data/com.github.sgpthomas.hourglass.appdata.xml.in:52
+msgid "Revived and updated valid translation files"
+msgstr ""
+
+#: data/com.github.sgpthomas.hourglass.appdata.xml.in:59
+msgid "Fixed timer control influences other instances"
+msgstr ""
+
+#: data/com.github.sgpthomas.hourglass.appdata.xml.in:60
+msgid "Updated Lithuanian translation"
+msgstr ""
+
+#: data/com.github.sgpthomas.hourglass.appdata.xml.in:61
+msgid "Fixed timekeeping"
+msgstr ""
+
+#: data/com.github.sgpthomas.hourglass.appdata.xml.in:62
+msgid "Fixed what happens when the app closes and there is a timer running"
+msgstr ""
+
+#: data/com.github.sgpthomas.hourglass.appdata.xml.in:63
+msgid "Fixed the notification going off again when you open the app"
+msgstr ""
+
+#: data/com.github.sgpthomas.hourglass.appdata.xml.in:64
+msgid "Switched the build system from CMake to Meson"
+msgstr ""
+
 #: data/com.github.sgpthomas.hourglass.desktop.in.in:4
 msgid "@APP_NAME@"
 msgstr ""
 
 #: data/com.github.sgpthomas.hourglass.desktop.in.in:5
-msgid "This clock application provides stopwatches, alarms, and timers."
+msgid "Set alarms, timers, and stopwatches"
 msgstr ""
 
 #: data/com.github.sgpthomas.hourglass.desktop.in.in:9
@@ -64,10 +96,6 @@ msgstr ""
 
 #: data/com.github.sgpthomas.hourglass.desktop.in.in:12
 msgid "Timer;Time;Clock;Hourglass;Alarm;"
-msgstr ""
-
-#: data/com.github.sgpthomas.hourglass.desktop.in.in:20
-msgid "About Hourglass"
 msgstr ""
 
 #: data/com.github.sgpthomas.hourglass-daemon.desktop.in.in:4
