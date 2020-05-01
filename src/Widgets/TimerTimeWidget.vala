@@ -99,6 +99,7 @@ namespace Hourglass.Widgets {
             chooser_grid.attach (new Spacer.w_hexpand (), 0, 0, 1, 1);
             chooser_grid.attach (hour_chooser, 1, 0, 1, 1);
 
+            // TRANSLATORS: Time separator, e.g. 00:00:00
             chooser_grid.attach (new Label (_(":")), 2, 0, 1, 1);
             chooser_grid.attach (min_chooser, 3, 0, 1, 1);
 
