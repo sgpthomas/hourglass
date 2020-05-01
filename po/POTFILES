@@ -3,5 +3,6 @@ src/Dialogs/NewAlarmDialog.vala
 src/Widgets/Alarm.vala
 src/Widgets/AlarmTimeWidget.vala
 src/Widgets/StopwatchTimeWidget.vala
+src/Widgets/TimerTimeWidget.vala
 src/Widgets/TimeWidget.vala
 src/Window/MainWindow.vala
