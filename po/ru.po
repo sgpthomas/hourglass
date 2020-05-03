@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: com.github.sgpthomas.hourglass\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-05-01 16:26+0200\n"
+"POT-Creation-Date: 2020-05-03 10:10+0200\n"
 "PO-Revision-Date: 2020-05-01 16:18+0200\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -128,11 +128,11 @@ msgstr "Добавить"
 msgid "Alarm"
 msgstr "Будильник"
 
-#: src/Widgets/StopwatchTimeWidget.vala:92
+#: src/Widgets/StopwatchTimeWidget.vala:92 src/Widgets/TimerTimeWidget.vala:95
 msgid "Start"
 msgstr "Начать"
 
-#: src/Widgets/StopwatchTimeWidget.vala:95
+#: src/Widgets/StopwatchTimeWidget.vala:95 src/Widgets/TimerTimeWidget.vala:118
 msgid "Stop"
 msgstr "Стоп"
 
@@ -147,6 +147,31 @@ msgstr "Круг"
 #: src/Widgets/StopwatchTimeWidget.vala:116
 msgid "Stopwatch"
 msgstr "Секундомер"
+
+#: src/Widgets/TimerTimeWidget.vala:85
+msgid "Hours"
+msgstr "Часы"
+
+#: src/Widgets/TimerTimeWidget.vala:89
+msgid "Minutes"
+msgstr "Минуты"
+
+#: src/Widgets/TimerTimeWidget.vala:93
+msgid "Seconds"
+msgstr "Секунды"
+
+#. TRANSLATORS: Time separator, e.g. 00:00:00
+#: src/Widgets/TimerTimeWidget.vala:103 src/Widgets/TimerTimeWidget.vala:107
+msgid ":"
+msgstr ":"
+
+#: src/Widgets/TimerTimeWidget.vala:170
+msgid "Timer has ended!"
+msgstr "Таймер отработал!"
+
+#: src/Widgets/TimerTimeWidget.vala:215
+msgid "Timer"
+msgstr "Таймер"
 
 #~ msgid "Sunday"
 #~ msgstr "Воскресенье"
@@ -168,21 +193,3 @@ msgstr "Секундомер"
 
 #~ msgid "Saturday"
 #~ msgstr "Суббота"
-
-#~ msgid "Hours"
-#~ msgstr "Часы"
-
-#~ msgid "Minutes"
-#~ msgstr "Минуты"
-
-#~ msgid "Seconds"
-#~ msgstr "Секунды"
-
-#~ msgid ":"
-#~ msgstr ":"
-
-#~ msgid "Timer has ended!"
-#~ msgstr "Таймер отработал!"
-
-#~ msgid "Timer"
-#~ msgstr "Таймер"
