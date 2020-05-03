@@ -162,10 +162,16 @@ namespace Hourglass.Widgets {
 
         private void load_alarms () {
             clear_alarms ();
-            foreach (string str in Hourglass.dbus_server.get_alarm_list ()) {
-                if (Alarm.is_valid_alarm_string (str)) {
-                    append_alarm (Alarm.parse_string (str));
+            try {
+                foreach (string str in Hourglass.dbus_server.get_alarm_list ()) {
+                    if (Alarm.is_valid_alarm_string (str)) {
+                        append_alarm (Alarm.parse_string (str));
+                    }
                 }
+            } catch (GLib.IOError e) {
+                error ("%s", e.message);
+            } catch (GLib.DBusError e) {
+                error ("%s", e.message);
             }
         }
 
@@ -190,10 +196,21 @@ namespace Hourglass.Widgets {
 
             a.state_toggled.connect ((b) => {
                 message ("toggled");
-                Hourglass.dbus_server.toggle_alarm (a.to_string ());
+                try {
+                    Hourglass.dbus_server.toggle_alarm (a.to_string ());
+                } catch (GLib.IOError e) {
+                    error ("%s", e.message);
+                } catch (GLib.DBusError e) {
+                    error ("%s", e.message);
+                }
             });
-
-            Hourglass.dbus_server.add_alarm (a.to_string ());
+            try {
+                Hourglass.dbus_server.add_alarm (a.to_string ());
+            } catch (GLib.IOError e) {
+                error ("%s", e.message);
+            } catch (GLib.DBusError e) {
+                error ("%s", e.message);
+            }
             update ();
         }
 
@@ -213,13 +230,25 @@ namespace Hourglass.Widgets {
 
                 new_alarm_dialog.edit_alarm.connect ((old_a, new_a) => {
                     list_box.remove (old_a); //  remove old alarm
-                    Hourglass.dbus_server.remove_alarm (old_a.to_string ());
+                    try {
+                        Hourglass.dbus_server.remove_alarm (old_a.to_string ());
+                    } catch (GLib.IOError e) {
+                        error ("%s", e.message);
+                    } catch (GLib.DBusError e) {
+                        error ("%s", e.message);
+                    }
                     append_alarm (new_a); // add new alarms
                 });
 
                 new_alarm_dialog.delete_alarm.connect ((a) => {
                     list_box.remove (a);
-                    Hourglass.dbus_server.remove_alarm (a.to_string ());
+                    try {
+                        Hourglass.dbus_server.remove_alarm (a.to_string ());
+                    } catch (GLib.IOError e) {
+                        error ("%s", e.message);
+                    } catch (GLib.DBusError e) {
+                        error ("%s", e.message);
+                    }
                 });
                 new_alarm_dialog.show_all ();
             }
