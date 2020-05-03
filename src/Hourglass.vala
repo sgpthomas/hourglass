@@ -57,13 +57,6 @@ namespace Hourglass {
             /* Managers */
             dbus_manager = new DBusManager ();
             dbus_server = dbus_manager.client;
-
-            /* Translation support */
-            Intl.setlocale (LocaleCategory.ALL, "");
-            string langpack_dir = Path.build_filename (Constants.DATADIR, "locale");
-            Intl.bindtextdomain (Constants.GETTEXT_PACKAGE, langpack_dir);
-            Intl.bind_textdomain_codeset (Constants.GETTEXT_PACKAGE, "UTF-8");
-            Intl.textdomain (Constants.GETTEXT_PACKAGE);
         }
 
         public override void activate () {

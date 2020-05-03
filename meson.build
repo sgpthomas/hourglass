@@ -11,14 +11,11 @@ add_project_arguments(
 )
 
 conf_data = configuration_data()
-conf_data.set('GETTEXT_PACKAGE', meson.project_name())
 conf_data.set('EXEC_NAME', meson.project_name())
 conf_data.set('DAEMON_EXEC_NAME', meson.project_name() + '-daemon')
 conf_data.set('DAEMON_NAME', meson.project_name() + '-daemon')
 conf_data.set('ICON_NAME', meson.project_name())
 conf_data.set('APP_NAME', 'Hourglass')
-conf_data.set('VERSION', meson.project_version())
-conf_data.set('DATADIR', get_option('datadir'))
 
 config_file = configure_file(
     input: join_paths('src', 'Config.vala.in'),
