@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: com.github.sgpthomas.hourglass\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-05-01 16:26+0200\n"
+"POT-Creation-Date: 2020-05-03 10:10+0200\n"
 "PO-Revision-Date: 2020-05-01 16:18+0200\n"
 "Last-Translator: Kristjan Vool <tictac7x@gmail.com>\n"
 "Language-Team: none\n"
@@ -127,11 +127,11 @@ msgstr ""
 msgid "Alarm"
 msgstr "Alarm"
 
-#: src/Widgets/StopwatchTimeWidget.vala:92
+#: src/Widgets/StopwatchTimeWidget.vala:92 src/Widgets/TimerTimeWidget.vala:95
 msgid "Start"
 msgstr "Käivita"
 
-#: src/Widgets/StopwatchTimeWidget.vala:95
+#: src/Widgets/StopwatchTimeWidget.vala:95 src/Widgets/TimerTimeWidget.vala:118
 msgid "Stop"
 msgstr "Peata"
 
@@ -146,6 +146,31 @@ msgstr ""
 #: src/Widgets/StopwatchTimeWidget.vala:116
 msgid "Stopwatch"
 msgstr "Stopper"
+
+#: src/Widgets/TimerTimeWidget.vala:85
+msgid "Hours"
+msgstr "Tundi"
+
+#: src/Widgets/TimerTimeWidget.vala:89
+msgid "Minutes"
+msgstr "Minutit"
+
+#: src/Widgets/TimerTimeWidget.vala:93
+msgid "Seconds"
+msgstr "Sekundit"
+
+#. TRANSLATORS: Time separator, e.g. 00:00:00
+#: src/Widgets/TimerTimeWidget.vala:103 src/Widgets/TimerTimeWidget.vala:107
+msgid ":"
+msgstr ":"
+
+#: src/Widgets/TimerTimeWidget.vala:170
+msgid "Timer has ended!"
+msgstr ""
+
+#: src/Widgets/TimerTimeWidget.vala:215
+msgid "Timer"
+msgstr "Taimer"
 
 #~ msgid "Sunday"
 #~ msgstr "Pühapäev"
@@ -167,18 +192,3 @@ msgstr "Stopper"
 
 #~ msgid "Saturday"
 #~ msgstr "Laupäev"
-
-#~ msgid "Hours"
-#~ msgstr "Tundi"
-
-#~ msgid "Minutes"
-#~ msgstr "Minutit"
-
-#~ msgid "Seconds"
-#~ msgstr "Sekundit"
-
-#~ msgid ":"
-#~ msgstr ":"
-
-#~ msgid "Timer"
-#~ msgstr "Taimer"

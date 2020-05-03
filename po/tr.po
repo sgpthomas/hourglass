@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: com.github.sgpthomas.hourglass\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-05-01 16:26+0200\n"
+"POT-Creation-Date: 2020-05-03 10:10+0200\n"
 "PO-Revision-Date: 2020-05-01 16:18+0200\n"
 "Last-Translator: Deniz CAN <denizcan72@hotmail.de>\n"
 "Language-Team: none\n"
@@ -127,11 +127,11 @@ msgstr "Ekle"
 msgid "Alarm"
 msgstr "Alarm"
 
-#: src/Widgets/StopwatchTimeWidget.vala:92
+#: src/Widgets/StopwatchTimeWidget.vala:92 src/Widgets/TimerTimeWidget.vala:95
 msgid "Start"
 msgstr "Başlat"
 
-#: src/Widgets/StopwatchTimeWidget.vala:95
+#: src/Widgets/StopwatchTimeWidget.vala:95 src/Widgets/TimerTimeWidget.vala:118
 msgid "Stop"
 msgstr "Dur"
 
@@ -146,6 +146,31 @@ msgstr "Tur"
 #: src/Widgets/StopwatchTimeWidget.vala:116
 msgid "Stopwatch"
 msgstr "Kronometre"
+
+#: src/Widgets/TimerTimeWidget.vala:85
+msgid "Hours"
+msgstr "Saatler"
+
+#: src/Widgets/TimerTimeWidget.vala:89
+msgid "Minutes"
+msgstr "Dakikalar"
+
+#: src/Widgets/TimerTimeWidget.vala:93
+msgid "Seconds"
+msgstr "Saniyeler"
+
+#. TRANSLATORS: Time separator, e.g. 00:00:00
+#: src/Widgets/TimerTimeWidget.vala:103 src/Widgets/TimerTimeWidget.vala:107
+msgid ":"
+msgstr ":"
+
+#: src/Widgets/TimerTimeWidget.vala:170
+msgid "Timer has ended!"
+msgstr "Zamanlayıcı sona erdi!"
+
+#: src/Widgets/TimerTimeWidget.vala:215
+msgid "Timer"
+msgstr "Zamanlayıcı"
 
 #~ msgid "Sunday"
 #~ msgstr "Pazar"
@@ -167,21 +192,3 @@ msgstr "Kronometre"
 
 #~ msgid "Saturday"
 #~ msgstr "Cumartesi"
-
-#~ msgid "Hours"
-#~ msgstr "Saatler"
-
-#~ msgid "Minutes"
-#~ msgstr "Dakikalar"
-
-#~ msgid "Seconds"
-#~ msgstr "Saniyeler"
-
-#~ msgid ":"
-#~ msgstr ":"
-
-#~ msgid "Timer has ended!"
-#~ msgstr "Zamanlayıcı sona erdi!"
-
-#~ msgid "Timer"
-#~ msgstr "Zamanlayıcı"
