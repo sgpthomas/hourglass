@@ -11,4 +11,3 @@ Categories=GNOME;GTK;Utility;
 Keywords=Timer;Time;Clock;Hourglass;Alarm;
 X-GNOME-Keywords=Timer;Time;Clock;Hourglass;Alarm;
 StartupNotify=true
-X-GNOME-Gettext-Domain=@GETTEXT_PACKAGE@
