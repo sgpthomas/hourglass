@@ -102,11 +102,11 @@ msgstr "Répétition :"
 
 #: src/Widgets/Alarm.vala:129
 msgid "Repeats "
-msgstr ""
+msgstr "Se répète"
 
 #: src/Widgets/Alarm.vala:129
 msgid ", Repeats "
-msgstr ""
+msgstr ", Se répète "
 
 #: src/Widgets/AlarmTimeWidget.vala:77
 msgid "No Alarms"
