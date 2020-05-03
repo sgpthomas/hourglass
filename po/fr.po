@@ -1,0 +1,170 @@
+# French translations for com.github.sgpthomas.hourglass package.
+# Copyright (C) 2020 THE com.github.sgpthomas.hourglass'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the com.github.sgpthomas.hourglass package.
+# Nathan Bonnemains (@NathanBnm), 2020.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: com.github.sgpthomas.hourglass\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-05-03 12:04+0200\n"
+"PO-Revision-Date: 2020-05-03 11:55+0200\n"
+"Last-Translator: Nathan Bonnemains (@NathanBnm)\n"
+"Language-Team: none\n"
+"Language: fr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+
+#: src/Dialogs/MultiSelectPopover.vala:32
+#: src/Dialogs/MultiSelectPopover.vala:83
+msgid "Sun"
+msgstr "Dim"
+
+#: src/Dialogs/MultiSelectPopover.vala:32
+#: src/Dialogs/MultiSelectPopover.vala:83
+msgid "Mon"
+msgstr "Lun"
+
+#: src/Dialogs/MultiSelectPopover.vala:32
+#: src/Dialogs/MultiSelectPopover.vala:83
+msgid "Tue"
+msgstr "Mar"
+
+#: src/Dialogs/MultiSelectPopover.vala:32
+#: src/Dialogs/MultiSelectPopover.vala:83
+msgid "Wed"
+msgstr "Mer"
+
+#: src/Dialogs/MultiSelectPopover.vala:32
+#: src/Dialogs/MultiSelectPopover.vala:83
+msgid "Thu"
+msgstr "Jeu"
+
+#: src/Dialogs/MultiSelectPopover.vala:32
+#: src/Dialogs/MultiSelectPopover.vala:83
+msgid "Fri"
+msgstr "Ven"
+
+#: src/Dialogs/MultiSelectPopover.vala:32
+#: src/Dialogs/MultiSelectPopover.vala:83
+msgid "Sat"
+msgstr "Sam"
+
+#: src/Dialogs/MultiSelectPopover.vala:88
+msgid "Every Day"
+msgstr "Chaque jour"
+
+#: src/Dialogs/MultiSelectPopover.vala:90
+msgid "Every Weekday"
+msgstr "Chaque jour de la semaine"
+
+#: src/Dialogs/MultiSelectPopover.vala:92
+msgid "Every Weekend"
+msgstr "Chaque weekend"
+
+#: src/Dialogs/MultiSelectPopover.vala:99 src/Dialogs/NewAlarmDialog.vala:100
+msgid "Never"
+msgstr "Jamais"
+
+#: src/Dialogs/NewAlarmDialog.vala:120 src/Widgets/AlarmTimeWidget.vala:109
+msgid "Edit"
+msgstr "Modifier"
+
+#: src/Dialogs/NewAlarmDialog.vala:120
+msgid "Create"
+msgstr "Créer"
+
+#: src/Dialogs/NewAlarmDialog.vala:122
+msgid "Cancel"
+msgstr "Annuler"
+
+#: src/Dialogs/NewAlarmDialog.vala:124
+msgid "Delete"
+msgstr "Supprimer"
+
+#: src/Dialogs/NewAlarmDialog.vala:143
+msgid "Title:"
+msgstr "Nom :"
+
+#: src/Dialogs/NewAlarmDialog.vala:148
+msgid "Choose a time:"
+msgstr "Sélectionner une heure :"
+
+#: src/Dialogs/NewAlarmDialog.vala:153
+msgid "Choose a date:"
+msgstr "Sélectionner une date :"
+
+#: src/Dialogs/NewAlarmDialog.vala:163
+msgid "Repeat:"
+msgstr "Répétition :"
+
+#: src/Widgets/Alarm.vala:129
+msgid "Repeats "
+msgstr ""
+
+#: src/Widgets/Alarm.vala:129
+msgid ", Repeats "
+msgstr ""
+
+#: src/Widgets/AlarmTimeWidget.vala:77
+msgid "No Alarms"
+msgstr "Aucune alarme"
+
+#: src/Widgets/AlarmTimeWidget.vala:77
+msgid "Click 'Add' to get started."
+msgstr "Cliquez « Ajouter » sur pour commencer."
+
+#: src/Widgets/AlarmTimeWidget.vala:106
+msgid "Add"
+msgstr "Ajouter"
+
+#: src/Widgets/AlarmTimeWidget.vala:245
+msgid "Alarm"
+msgstr "Alarme"
+
+#: src/Widgets/StopwatchTimeWidget.vala:92 src/Widgets/TimerTimeWidget.vala:95
+msgid "Start"
+msgstr "Démarrer"
+
+#: src/Widgets/StopwatchTimeWidget.vala:95 src/Widgets/TimerTimeWidget.vala:118
+msgid "Stop"
+msgstr "Arrêter"
+
+#: src/Widgets/StopwatchTimeWidget.vala:98
+msgid "Reset"
+msgstr "Réinitialiser"
+
+#: src/Widgets/StopwatchTimeWidget.vala:100
+msgid "Lap"
+msgstr "Enregistrer"
+
+#: src/Widgets/StopwatchTimeWidget.vala:116
+msgid "Stopwatch"
+msgstr "Chronomètre"
+
+#: src/Widgets/TimerTimeWidget.vala:85
+msgid "Hours"
+msgstr "Heures"
+
+#: src/Widgets/TimerTimeWidget.vala:89
+msgid "Minutes"
+msgstr "Minutes"
+
+#: src/Widgets/TimerTimeWidget.vala:93
+msgid "Seconds"
+msgstr "Secondes"
+
+#. TRANSLATORS: Time separator, e.g. 00:00:00
+#: src/Widgets/TimerTimeWidget.vala:103 src/Widgets/TimerTimeWidget.vala:107
+msgid ":"
+msgstr ":"
+
+#: src/Widgets/TimerTimeWidget.vala:170
+msgid "Timer has ended!"
+msgstr "Le minuteur est terminé !"
+
+#: src/Widgets/TimerTimeWidget.vala:215
+msgid "Timer"
+msgstr "Minuteur"
