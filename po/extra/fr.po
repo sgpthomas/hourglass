@@ -1,0 +1,119 @@
+# French translations for extra package.
+# Copyright (C) 2020 THE extra'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the extra package.
+# Nathan Bonnemains (@NathanBnm), 2020.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: extra\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-05-03 12:04+0200\n"
+"PO-Revision-Date: 2020-05-03 11:55+0200\n"
+"Last-Translator: Nathan Bonnemains (@NathanBnm)\n"
+"Language-Team: none\n"
+"Language: fr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+
+#: data/com.github.sgpthomas.hourglass.desktop.in.in:4
+msgid "@APP_NAME@"
+msgstr "@APP_NAME@"
+
+#: data/com.github.sgpthomas.hourglass.desktop.in.in:5
+msgid "Set alarms, timers, and stopwatches"
+msgstr "Définissez des alames, des minuteurs et des chronomètres"
+
+#: data/com.github.sgpthomas.hourglass.desktop.in.in:6
+#: data/com.github.sgpthomas.hourglass.appdata.xml.in:26
+msgid "Timer"
+msgstr "Minuteur"
+
+#: data/com.github.sgpthomas.hourglass.desktop.in.in:9
+#: data/com.github.sgpthomas.hourglass-daemon.desktop.in.in:7
+msgid "@ICON_NAME@"
+msgstr "@ICON_NAME@"
+
+#: data/com.github.sgpthomas.hourglass.desktop.in.in:12
+msgid "Timer;Time;Clock;Hourglass;Alarm;"
+msgstr "Minuteur;Heure;Horloge;Sablier;Alarme;"
+
+#: data/com.github.sgpthomas.hourglass.appdata.xml.in:7
+msgid "Hourglass"
+msgstr "Hourglass"
+
+#: data/com.github.sgpthomas.hourglass.appdata.xml.in:8
+msgid ""
+"A simple clock application that provides stopwatches, alarms, and timers"
+msgstr ""
+"Une simple application d'horloge qui fournit chronomètres, alarmes et "
+"minuteurs"
+
+#: data/com.github.sgpthomas.hourglass.appdata.xml.in:11
+msgid ""
+"Hourglass is a simple time keeping application that helps you easily set "
+"stopwatches, repeating alarms, and timers."
+msgstr ""
+"Hourglass est une simple application de gestion du temps qui vous permet de "
+"définir facilement des chronomètres, des alarmes avec répétition et des "
+"minuteurs."
+
+#: data/com.github.sgpthomas.hourglass.appdata.xml.in:18
+msgid "Alarm"
+msgstr "Alarme"
+
+#: data/com.github.sgpthomas.hourglass.appdata.xml.in:22
+msgid "Stopwatch"
+msgstr "Chronomètre"
+
+#: data/com.github.sgpthomas.hourglass.appdata.xml.in:31
+msgid "Sam Thomas"
+msgstr "Sam Thomas"
+
+#: data/com.github.sgpthomas.hourglass.appdata.xml.in:51
+msgid "Fixed a regression that the app didn't run at the first time launch"
+msgstr ""
+"Correction d'une regression qui empêchait l'application de démarrer la "
+"première fois"
+
+#: data/com.github.sgpthomas.hourglass.appdata.xml.in:52
+msgid "Revived and updated valid translation files"
+msgstr "Mise à jour et correction des fichiers de traduction valides"
+
+#: data/com.github.sgpthomas.hourglass.appdata.xml.in:59
+msgid "Fixed timer control influences other instances"
+msgstr ""
+"Correction des contrôles du minuteur qui influençaient les autres instances"
+
+#: data/com.github.sgpthomas.hourglass.appdata.xml.in:60
+msgid "Updated Lithuanian translation"
+msgstr "Mise à jour des traductions en lituanien"
+
+#: data/com.github.sgpthomas.hourglass.appdata.xml.in:61
+msgid "Fixed timekeeping"
+msgstr "Correction de la conservation du temps"
+
+#: data/com.github.sgpthomas.hourglass.appdata.xml.in:62
+msgid "Fixed what happens when the app closes and there is a timer running"
+msgstr ""
+"Correction du comportement de l'application à la fermeture lorsqu'un "
+"minuteur est en cours"
+
+#: data/com.github.sgpthomas.hourglass.appdata.xml.in:63
+msgid "Fixed the notification going off again when you open the app"
+msgstr ""
+"Correction des notifications qui se désactivaient à l'ouverture de "
+"l'application"
+
+#: data/com.github.sgpthomas.hourglass.appdata.xml.in:64
+msgid "Switched the build system from CMake to Meson"
+msgstr "Passage du système de compilation CMake à Meson"
+
+#: data/com.github.sgpthomas.hourglass-daemon.desktop.in.in:4
+msgid "@DAEMON_NAME@"
+msgstr "@DAEMON_NAME@"
+
+#: data/com.github.sgpthomas.hourglass-daemon.desktop.in.in:5
+msgid "Daemon that deals with Hourglass's alarms."
+msgstr "Démon qui gère les alarmes de Hourglass."
