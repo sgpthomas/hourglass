@@ -28,8 +28,8 @@ namespace Hourglass {
     public HourglassClient dbus_server;
 
     /* Settings */
-    public SavedState saved;
-    public SystemTimeFormat system_time_format;
+    public GLib.Settings saved;
+    public GLib.Settings system_time_format;
 
     /* State */
     public MainWindow main_window;
@@ -48,8 +48,8 @@ namespace Hourglass {
             Logger.DisplayLevel = LogLevel.DEBUG;
 
             /* Settings */
-            saved = new SavedState ();
-            system_time_format = new SystemTimeFormat ();
+            saved = new GLib.Settings ("com.github.sgpthomas.hourglass.saved");
+            system_time_format = new GLib.Settings ("org.gnome.desktop.interface");
 
             // attempt to spawn daemon
             spawn_daemon ();

@@ -103,7 +103,7 @@ namespace Hourglass.Widgets {
 
         public string get_time_string () {
             var str = "";
-            if (Hourglass.system_time_format.clock_format == "12h") {
+            if (Hourglass.system_time_format.get_string ("clock-format") == "12h") {
                 if (time.get_hour () < 13) {
                     if (time.get_minute () < 10) str = "%i:0%i am".printf (time.get_hour (), time.get_minute ());
                     else str = "%i:%i am".printf (time.get_hour (), time.get_minute ());
