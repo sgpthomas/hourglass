@@ -51,9 +51,6 @@ namespace Hourglass {
             saved = new SavedState ();
             system_time_format = new SystemTimeFormat ();
 
-            // attempt to spawn daemon
-            spawn_daemon ();
-
             /* Managers */
             dbus_manager = new DBusManager ();
             dbus_server = dbus_manager.client;
@@ -70,7 +67,7 @@ namespace Hourglass {
             }
         }
 
-        private void spawn_daemon () {
+        public static void spawn_daemon () {
             message ("starting daemon");
             string[] spawn_args = {"com.github.sgpthomas.hourglass-daemon"}; // command name
 
@@ -84,6 +81,9 @@ namespace Hourglass {
     }
 
     public static void main(string[] args) {
+        // attempt to spawn daemon
+        HourglassApp.spawn_daemon ();
+
         Gtk.init (ref args);
 
         HourglassApp app = new HourglassApp ();
