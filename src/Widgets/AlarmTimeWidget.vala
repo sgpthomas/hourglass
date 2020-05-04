@@ -169,9 +169,9 @@ namespace Hourglass.Widgets {
                     }
                 }
             } catch (GLib.IOError e) {
-                error ("%s", e.message);
+                error (e.message);
             } catch (GLib.DBusError e) {
-                error ("%s", e.message);
+                error (e.message);
             }
         }
 
@@ -199,17 +199,17 @@ namespace Hourglass.Widgets {
                 try {
                     Hourglass.dbus_server.toggle_alarm (a.to_string ());
                 } catch (GLib.IOError e) {
-                    error ("%s", e.message);
+                    error (e.message);
                 } catch (GLib.DBusError e) {
-                    error ("%s", e.message);
+                    error (e.message);
                 }
             });
             try {
                 Hourglass.dbus_server.add_alarm (a.to_string ());
             } catch (GLib.IOError e) {
-                error ("%s", e.message);
+                error (e.message);
             } catch (GLib.DBusError e) {
-                error ("%s", e.message);
+                error (e.message);
             }
             update ();
         }
@@ -233,9 +233,9 @@ namespace Hourglass.Widgets {
                     try {
                         Hourglass.dbus_server.remove_alarm (old_a.to_string ());
                     } catch (GLib.IOError e) {
-                        error ("%s", e.message);
+                        error (e.message);
                     } catch (GLib.DBusError e) {
-                        error ("%s", e.message);
+                        error (e.message);
                     }
                     append_alarm (new_a); // add new alarms
                 });
@@ -245,9 +245,9 @@ namespace Hourglass.Widgets {
                     try {
                         Hourglass.dbus_server.remove_alarm (a.to_string ());
                     } catch (GLib.IOError e) {
-                        error ("%s", e.message);
+                        error (e.message);
                     } catch (GLib.DBusError e) {
-                        error ("%s", e.message);
+                        error (e.message);
                     }
                 });
                 new_alarm_dialog.show_all ();

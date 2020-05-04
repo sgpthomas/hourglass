@@ -46,9 +46,9 @@ namespace Hourglass.Services {
                 client.print_message ("Client Starting");
 
             } catch (GLib.IOError e) {
-                error ("%s", e.message);
+                error (e.message);
             } catch (GLib.DBusError e) {
-                error ("%s", e.message);
+                error (e.message);
             }
         }
     }

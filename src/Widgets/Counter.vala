@@ -110,9 +110,9 @@ namespace Hourglass.Widgets {
                         try {
                             Hourglass.dbus_server.show_notification (notify_summary, notify_body);
                         } catch (GLib.IOError e) {
-                            error ("%s", e.message);
+                            error (e.message);
                         } catch (GLib.DBusError e) {
-                            error ("%s", e.message);
+                            error (e.message);
                         }
 					}
 					stop ();
