@@ -117,12 +117,12 @@ namespace Hourglass.Dialogs {
             final_actions.spacing = 12;
             final_actions.margin_top = 6;
 
-            var create_alarm_button_label = edit_alarm_enabled ? _("Edit") : _("Create");
+            var create_alarm_button_label = edit_alarm_enabled ? _("Save") : _("Create Alarm");
 
             cancel_button = new Button.with_label (_("Cancel"));
 
             delete_alarm_button = new Button.with_label (_("Delete"));
-            delete_alarm_button.get_style_context ().add_class ("red-button");
+            delete_alarm_button.get_style_context ().add_class (Gtk.STYLE_CLASS_DESTRUCTIVE_ACTION);
             create_alarm_button = new Button.with_label (create_alarm_button_label);
             create_alarm_button.get_style_context ().add_class ("green-button");
 
@@ -140,17 +140,17 @@ namespace Hourglass.Dialogs {
             main_grid.margin_start = 12;
             main_grid.margin_end = 12;
 
-            var label = new Label (_("Title:"));
+            var label = new Granite.HeaderLabel (_("Title:"));
             label.halign = Gtk.Align.END;
             main_grid.attach (label, 0, 0, 1, 1);
             main_grid.attach (title_entry, 1, 0, 1, 1);
 
-            label = new Label (_("Choose a time:"));
+            label = new Granite.HeaderLabel (_("Time:"));
             label.halign = Gtk.Align.END;
             main_grid.attach (label , 0, 1, 1, 1);
             main_grid.attach (time_picker, 1, 1, 1, 1);
 
-            label = new Label (_("Choose a date:"));
+            label = new Granite.HeaderLabel (_("Date:"));
             label.halign = Gtk.Align.END;
             main_grid.attach (label, 0, 2, 1, 1);
             main_grid.attach (date_picker, 1, 2, 1, 1);
@@ -160,7 +160,7 @@ namespace Hourglass.Dialogs {
             main_grid.attach (label, 0, 3, 1, 1);
             main_grid.attach (repeat_combo_box, 1, 3, 1, 1);*/
 
-            label = new Label (_("Repeat:"));
+            label = new Granite.HeaderLabel (_("Repeat:"));
             label.halign = Gtk.Align.END;
             main_grid.attach (label, 0, 3, 1, 1);
             main_grid.attach (repeat_day_picker, 1, 3, 1, 1);
