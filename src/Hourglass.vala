@@ -28,8 +28,8 @@ namespace Hourglass {
     public HourglassClient dbus_server;
 
     /* Settings */
-    public GLib.Settings saved;
-    public GLib.Settings system_time_format;
+    public static GLib.Settings saved;
+    public static GLib.Settings system_time_format;
 
     /* State */
     public MainWindow main_window;
@@ -41,15 +41,17 @@ namespace Hourglass {
             application_id = "com.github.sgpthomas.client";
         }
 
+        static construct {
+            /* Settings */
+            saved = new GLib.Settings ("com.github.sgpthomas.hourglass.saved");
+            system_time_format = new GLib.Settings ("org.gnome.desktop.interface");
+        }
+
         //constructor
         public HourglassApp () {
             /* Logger initilization */
             Logger.initialize (Constants.APP_NAME);
             Logger.DisplayLevel = LogLevel.DEBUG;
-
-            /* Settings */
-            saved = new GLib.Settings ("com.github.sgpthomas.hourglass.saved");
-            system_time_format = new GLib.Settings ("org.gnome.desktop.interface");
 
             // attempt to spawn daemon
             spawn_daemon ();

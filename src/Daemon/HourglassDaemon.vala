@@ -19,8 +19,8 @@
 namespace HourglassDaemon {
 
     public HourglassServer server;
-    public GLib.Settings saved_alarms;
-    public GLib.Settings settings;
+    public static GLib.Settings saved_alarms;
+    public static GLib.Settings settings;
     public NotificationManager notification;
     public AlarmManager manager;
 
@@ -29,6 +29,11 @@ namespace HourglassDaemon {
         public HourglassAlarmDaemon () {
             Object (application_id: "com.github.sgpthomas.hourglass", flags: ApplicationFlags.NON_UNIQUE); 
             set_inactivity_timeout (1000);
+        }
+
+        static construct {
+            saved_alarms = new GLib.Settings ("com.github.sgpthomas.hourglass.saved");
+            settings = new GLib.Settings ("com.github.sgpthomas.hourglass.settings");
         }
 
         ~HourglassAlarmDaemon () {
@@ -41,8 +46,6 @@ namespace HourglassDaemon {
 
             server = new HourglassServer ();
             manager = new AlarmManager ();
-            saved_alarms = new GLib.Settings ("com.github.sgpthomas.hourglass.saved");
-            settings = new GLib.Settings ("com.github.sgpthomas.hourglass.settings");
             notification = new NotificationManager ();
 
             manager.load_alarm_list ();
