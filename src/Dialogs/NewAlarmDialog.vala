@@ -117,7 +117,7 @@ namespace Hourglass.Dialogs {
             final_actions.spacing = 12;
             final_actions.margin_top = 6;
 
-            var create_alarm_button_label = edit_alarm_enabled ? _("Save Changes") : _("Create Alarm");
+            var create_alarm_button_label = edit_alarm_enabled ? _("Save") : _("Create Alarm");
 
             cancel_button = new Button.with_label (_("Cancel"));
 
