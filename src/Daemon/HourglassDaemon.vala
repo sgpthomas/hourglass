@@ -54,7 +54,7 @@ namespace HourglassDaemon {
                 HourglassDaemon.settings.set_int ("update-frequency", 15000);
             }
 
-            Timeout.add (settings.get_int ("update-frequency"), manager.check_alarm);
+            Timeout.add (HourglassDaemon.settings.get_int ("update-frequency"), manager.check_alarm);
         }
 
         public override void activate () {
