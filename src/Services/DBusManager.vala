@@ -20,12 +20,12 @@ namespace Hourglass.Services {
 
     [DBus (name = "com.github.sgpthomas.hourglass")]
     public interface HourglassClient : Object {
-        public abstract void print_message (string msg) throws IOError;
-        public abstract void show_notification (string summary, string body = "", string track = "") throws IOError;
-        public abstract void add_alarm (string alarm) throws IOError;
-        public abstract void remove_alarm (string alarm) throws IOError;
-        public abstract string[] get_alarm_list () throws IOError;
-        public abstract void toggle_alarm (string alarm) throws IOError;
+        public abstract void print_message (string msg) throws GLib.DBusError, GLib.IOError;
+        public abstract void show_notification (string summary, string body = "", string track = "") throws GLib.DBusError, GLib.IOError;
+        public abstract void add_alarm (string alarm) throws GLib.DBusError, GLib.IOError;
+        public abstract void remove_alarm (string alarm) throws GLib.DBusError, GLib.IOError;
+        public abstract string[] get_alarm_list () throws GLib.DBusError, GLib.IOError;
+        public abstract void toggle_alarm (string alarm) throws GLib.DBusError, GLib.IOError;
         public signal void should_refresh_client ();
     }
 
@@ -45,8 +45,10 @@ namespace Hourglass.Services {
 
                 client.print_message ("Client Starting");
 
-            } catch (IOError e) {
-                error ("%s", e.message);
+            } catch (GLib.IOError e) {
+                error (e.message);
+            } catch (GLib.DBusError e) {
+                error (e.message);
             }
         }
     }
