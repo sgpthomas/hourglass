@@ -37,7 +37,6 @@ executable(
     'src/Dialogs/MultiSelectPopover.vala',
     'src/Dialogs/NewAlarmDialog.vala',
     'src/Services/DBusManager.vala',
-    'src/Services/Settings.vala',
     'src/Services/StyleManager.vala',
     'src/Widgets/Alarm.vala',
     'src/Widgets/AlarmTimeWidget.vala',

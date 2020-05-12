@@ -148,7 +148,7 @@ namespace Hourglass.Widgets {
                 main_stack.set_visible_child_name ("no-alarm-view");
 
                 // add small delay if daemon loads after application and list is empty
-                if (Hourglass.saved.alarms.length != 0) {
+                if (Hourglass.saved.get_strv ("alarms").length != 0) {
                     timeout_id = Timeout.add (500, load_alarms_source_func);
                 } else {
                     load_alarms ();

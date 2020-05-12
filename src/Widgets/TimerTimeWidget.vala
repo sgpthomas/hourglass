@@ -56,11 +56,11 @@ namespace Hourglass.Widgets {
             update ();
 
             // resume state
-            if (Hourglass.saved.timer_state) {
+            if (Hourglass.saved.get_boolean ("timer-state")) {
                 start_timer ();
             }
 
-            // var str = Hourglass.saved.timer_state ? "timer_grid" : "chooser_grid";
+            // var str = Hourglass.saved.get_boolean ("timer-state") ? "timer_grid" : "chooser_grid";
             // stack.set_visible_child_name (str);
         }
 
@@ -78,7 +78,7 @@ namespace Hourglass.Widgets {
             chooser_grid.row_spacing = 12;
 
             // get current time from dconf
-            Counter.Time t = Counter.parse_seconds (Hourglass.saved.timer_time * 100);
+            Counter.Time t = Counter.parse_seconds (Hourglass.saved.get_int ("timer-time") * 100);
 
             hour_chooser = new TimeSpinner (59);
             hour_chooser.set_value (t.hours);
@@ -140,17 +140,17 @@ namespace Hourglass.Widgets {
 
         private void connect_signals () {
             sec_chooser.value_changed.connect (() => {
-                Hourglass.saved.timer_time = (int) ((hour_chooser.get_value () * 3600) + (min_chooser.get_value () * 60) + sec_chooser.get_value ());
+                Hourglass.saved.set_int ("timer-time", (int) ((hour_chooser.get_value () * 3600) + (min_chooser.get_value () * 60) + sec_chooser.get_value ()));
                 update ();
             });
 
             min_chooser.value_changed.connect (() => {
-                Hourglass.saved.timer_time = (int) ((hour_chooser.get_value () * 3600) + (min_chooser.get_value () * 60) + sec_chooser.get_value ());
+                Hourglass.saved.set_int ("timer-time", (int) ((hour_chooser.get_value () * 3600) + (min_chooser.get_value () * 60) + sec_chooser.get_value ()));
                 update ();
             });
 
             hour_chooser.value_changed.connect (() => {
-                Hourglass.saved.timer_time = (int) ((hour_chooser.get_value () * 3600) + (min_chooser.get_value () * 60) + sec_chooser.get_value ());
+                Hourglass.saved.set_int ("timer-time", (int) ((hour_chooser.get_value () * 3600) + (min_chooser.get_value () * 60) + sec_chooser.get_value ()));
                 update ();
             });
 
@@ -175,22 +175,22 @@ namespace Hourglass.Widgets {
 
             // update saved time
             counter.on_tick.connect (() => {
-                Hourglass.saved.timer_time = counter.get_current_time () / 1000;
+                Hourglass.saved.set_int ("timer-time", counter.get_current_time () / 1000);
                 update ();
             });
 
             // when timer stops, turn timer state to false
             counter.on_stop.connect (() => {
-                Hourglass.saved.timer_state = false;
+                Hourglass.saved.set_boolean ("timer-state", false);
             });
 
             // when counter ends
             counter.on_end.connect (() => {
-                Hourglass.saved.timer_state = false;
+                Hourglass.saved.set_boolean ("timer-state", false);
             });
 
             // update state
-            Hourglass.saved.timer_state = true;
+            Hourglass.saved.set_boolean ("timer-state", true);
         }
 
         private void stop_timer () {
@@ -204,7 +204,7 @@ namespace Hourglass.Widgets {
             hour_chooser.set_value (time.hours); // get hour value from time and update spinner value
 
             // update state
-            Hourglass.saved.timer_state = false;
+            Hourglass.saved.set_boolean ("timer-state", false);
         }
 
         public string get_id () {
