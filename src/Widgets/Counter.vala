@@ -92,7 +92,7 @@ namespace Hourglass.Widgets {
             on_stop ();
 
             if (!Hourglass.window_open) {
-                Hourglass.saved.timer_state = false; // prevents timer from going off again when you start up the app
+                Hourglass.saved.set_boolean ("timer-state", false); // prevents timer from going off again when you start up the app
                 Gtk.main_quit ();
             }
         }

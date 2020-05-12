@@ -52,11 +52,11 @@ namespace HourglassDaemon {
 					});
 
                 // player sound
-                player.play (1, PROP_EVENT_ID, settings.sound, PROP_MEDIA_ROLE, "alarm");
+                player.play (1, PROP_EVENT_ID, HourglassDaemon.settings.get_string ("sound"), PROP_MEDIA_ROLE, "alarm");
 
 				Timeout.add (10000, () => {
 						if (open) {
-							player.play (1, PROP_EVENT_ID, settings.sound, PROP_MEDIA_ROLE, "alarm");
+							player.play (1, PROP_EVENT_ID, HourglassDaemon.settings.get_string ("sound"), PROP_MEDIA_ROLE, "alarm");
 							return Source.CONTINUE;
 						} else {
 							return Source.REMOVE;

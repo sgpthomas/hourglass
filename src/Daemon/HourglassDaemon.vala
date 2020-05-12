@@ -19,8 +19,8 @@
 namespace HourglassDaemon {
 
     public HourglassServer server;
-    public SavedAlarms saved_alarms;
-    public Settings settings;
+    public static GLib.Settings saved_alarms;
+    public static GLib.Settings settings;
     public NotificationManager notification;
     public AlarmManager manager;
 
@@ -29,6 +29,11 @@ namespace HourglassDaemon {
         public HourglassAlarmDaemon () {
             Object (application_id: "com.github.sgpthomas.hourglass", flags: ApplicationFlags.NON_UNIQUE); 
             set_inactivity_timeout (1000);
+        }
+
+        static construct {
+            saved_alarms = new GLib.Settings ("com.github.sgpthomas.hourglass.saved");
+            settings = new GLib.Settings ("com.github.sgpthomas.hourglass.settings");
         }
 
         ~HourglassAlarmDaemon () {
@@ -41,8 +46,6 @@ namespace HourglassDaemon {
 
             server = new HourglassServer ();
             manager = new AlarmManager ();
-            saved_alarms = new SavedAlarms ();
-            settings = new Settings ();
             notification = new NotificationManager ();
 
             manager.load_alarm_list ();
@@ -50,13 +53,11 @@ namespace HourglassDaemon {
             hold ();
 
             // check to make sure that update frequency is below 60,000
-            if (settings.update_frequency < 60000) {
-                Timeout.add (settings.update_frequency, manager.check_alarm);
-            } else {
-                settings.update_frequency = 15000;
-                Timeout.add (settings.update_frequency, manager.check_alarm);
+            if (HourglassDaemon.settings.get_int ("update-frequency") >= 60000) {
+                HourglassDaemon.settings.set_int ("update-frequency", 15000);
             }
 
+            Timeout.add (HourglassDaemon.settings.get_int ("update-frequency"), manager.check_alarm);
         }
 
         public override void activate () {

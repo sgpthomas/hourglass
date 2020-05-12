@@ -76,7 +76,7 @@ namespace HourglassDaemon {
 
         public void load_alarm_list () {
             alarm_list = new ArrayList<string>(); //empty alarm list
-            foreach (string s in saved_alarms.alarms) { //loop through all entries in schema
+            foreach (string s in HourglassDaemon.saved_alarms.get_strv ("alarms")) { //loop through all entries in schema
                 if (is_valid_alarm_string (s)) { //check for validity
                     alarm_list.add (s); //add to alarm list
                 }
@@ -88,7 +88,7 @@ namespace HourglassDaemon {
             foreach (string s in alarm_list) { //loop through all entries in alarm list
                 new_alarm_list += s;
             }
-            saved_alarms.schema.set_strv ("alarms", new_alarm_list); //update alarms gsettings entry
+            HourglassDaemon.saved_alarms.set_strv ("alarms", new_alarm_list); //update alarms gsettings entry
         }
 
         public string get_alarm_name (string alarm_string) {

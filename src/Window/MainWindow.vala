@@ -56,7 +56,7 @@ namespace Hourglass.Window {
             this.set_border_width (12);
             this.set_position (WindowPosition.CENTER);
             this.set_size_request (500, 450);
-            this.resize (Hourglass.saved.window_width, Hourglass.saved.window_height);
+            this.resize (Hourglass.saved.get_int ("window-width"), Hourglass.saved.get_int ("window-height"));
 
             //initiate stylesheet
             StyleManager.add_stylesheet ("style/text.css");
@@ -82,7 +82,7 @@ namespace Hourglass.Window {
 
             connect_signals ();
 
-            stack.set_visible_child_name (Hourglass.saved.last_open_widget);
+            stack.set_visible_child_name (Hourglass.saved.get_string ("last-open-widget"));
         }
 
         private void setup_headerbar () {
@@ -114,7 +114,7 @@ namespace Hourglass.Window {
                     last_visible = stack.get_visible_child_name ();
                     on_stack_change ();
 
-                    Hourglass.saved.last_open_widget = last_visible;
+                    Hourglass.saved.set_string ("last-open-widget", last_visible);
                 }
             });
 
@@ -124,8 +124,8 @@ namespace Hourglass.Window {
                 int win_w;
                 int win_h;
                 this.get_size (out win_w, out win_h);
-                Hourglass.saved.window_width = win_w;
-                Hourglass.saved.window_height = win_h;
+                Hourglass.saved.set_int ("window-width", win_w);
+                Hourglass.saved.set_int ("window-height", win_h);
 
 				var visible = (TimeWidget) stack.get_visible_child ();
 				if (visible.keep_open ()) {
