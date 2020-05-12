@@ -172,6 +172,7 @@ namespace Hourglass.Dialogs {
         }
 
         private void connect_signals () {
+            var popover = new MultiSelectPopover (repeat_day_picker, repeat_days);
 
             repeat_day_picker.clicked.connect (() => {
                 //var dialog = new MultiSelectDialog (this, repeat_days);
@@ -181,7 +182,6 @@ namespace Hourglass.Dialogs {
                     repeat_day_picker.label = str;
                     repeat_days = selected;
                 });*/
-                var popover = new MultiSelectPopover (repeat_day_picker, repeat_days);
                 popover.closed.connect (() => {
                     repeat_day_picker.label = popover.get_display_string ();
                     repeat_days = popover.get_selected ();
