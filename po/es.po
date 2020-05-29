@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: com.github.sgpthomas.hourglass\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-05-03 10:10+0200\n"
-"PO-Revision-Date: 2020-05-01 16:18+0200\n"
+"PO-Revision-Date: 2020-05-28 16:47-0500\n"
 "Last-Translator: Sam Thomas <sgpthomas@gmail.com>\n"
 "Language-Team: none\n"
 "Language: es\n"
@@ -19,7 +19,6 @@ msgstr ""
 
 #: src/Dialogs/MultiSelectPopover.vala:32
 #: src/Dialogs/MultiSelectPopover.vala:83
-#, fuzzy
 msgid "Sun"
 msgstr "Dom"
 
@@ -40,9 +39,8 @@ msgstr "Mie"
 
 #: src/Dialogs/MultiSelectPopover.vala:32
 #: src/Dialogs/MultiSelectPopover.vala:83
-#, fuzzy
 msgid "Thu"
-msgstr "Mar"
+msgstr "Jue"
 
 #: src/Dialogs/MultiSelectPopover.vala:32
 #: src/Dialogs/MultiSelectPopover.vala:83
@@ -51,21 +49,20 @@ msgstr "Vie"
 
 #: src/Dialogs/MultiSelectPopover.vala:32
 #: src/Dialogs/MultiSelectPopover.vala:83
-#, fuzzy
 msgid "Sat"
-msgstr "Sab"
+msgstr "Sáb"
 
 #: src/Dialogs/MultiSelectPopover.vala:88
 msgid "Every Day"
-msgstr "Cada día"
+msgstr "Todos los Días"
 
 #: src/Dialogs/MultiSelectPopover.vala:90
 msgid "Every Weekday"
-msgstr ""
+msgstr "Cada día Laboral"
 
 #: src/Dialogs/MultiSelectPopover.vala:92
 msgid "Every Weekend"
-msgstr ""
+msgstr "Cada FIn de Semana"
 
 #: src/Dialogs/MultiSelectPopover.vala:99 src/Dialogs/NewAlarmDialog.vala:100
 msgid "Never"
@@ -73,11 +70,11 @@ msgstr "Nunca"
 
 #: src/Dialogs/NewAlarmDialog.vala:120 src/Widgets/AlarmTimeWidget.vala:109
 msgid "Edit"
-msgstr ""
+msgstr "Editar"
 
 #: src/Dialogs/NewAlarmDialog.vala:120
 msgid "Create"
-msgstr ""
+msgstr "Crear"
 
 #: src/Dialogs/NewAlarmDialog.vala:122
 msgid "Cancel"
@@ -85,11 +82,11 @@ msgstr "Cancelar"
 
 #: src/Dialogs/NewAlarmDialog.vala:124
 msgid "Delete"
-msgstr ""
+msgstr "Borrar"
 
 #: src/Dialogs/NewAlarmDialog.vala:143
 msgid "Title:"
-msgstr "Título"
+msgstr "Título:"
 
 #: src/Dialogs/NewAlarmDialog.vala:148
 msgid "Choose a time:"
@@ -97,7 +94,7 @@ msgstr "Seleccionar hora:"
 
 #: src/Dialogs/NewAlarmDialog.vala:153
 msgid "Choose a date:"
-msgstr "Seleccionar fecha"
+msgstr "Seleccionar fecha:"
 
 #: src/Dialogs/NewAlarmDialog.vala:163
 msgid "Repeat:"
@@ -105,23 +102,23 @@ msgstr "Repetir:"
 
 #: src/Widgets/Alarm.vala:129
 msgid "Repeats "
-msgstr ""
+msgstr "Se Repite "
 
 #: src/Widgets/Alarm.vala:129
 msgid ", Repeats "
-msgstr ""
+msgstr ", Se Repite "
 
 #: src/Widgets/AlarmTimeWidget.vala:77
 msgid "No Alarms"
-msgstr "Sin alarmas"
+msgstr "Sin Alarmas"
 
 #: src/Widgets/AlarmTimeWidget.vala:77
 msgid "Click 'Add' to get started."
-msgstr ""
+msgstr "Clic en 'Añadir' para empezar."
 
 #: src/Widgets/AlarmTimeWidget.vala:106
 msgid "Add"
-msgstr ""
+msgstr "Añadir"
 
 #: src/Widgets/AlarmTimeWidget.vala:245
 msgid "Alarm"
@@ -166,7 +163,7 @@ msgstr ":"
 
 #: src/Widgets/TimerTimeWidget.vala:170
 msgid "Timer has ended!"
-msgstr ""
+msgstr "¡Se acabó el tiempo!"
 
 #: src/Widgets/TimerTimeWidget.vala:215
 msgid "Timer"
