@@ -16,56 +16,48 @@
 * with Hourglass. If not, see http://www.gnu.org/licenses/.
 */
 
-using Canberra;
+public class HourglassDaemon.NotificationManager {
+    private Notify.Notification notification;
+    private Canberra.Context player;
 
-namespace HourglassDaemon {
+    private bool open = false;
 
-    public class NotificationManager {
+    public NotificationManager () {
+        Notify.init ("hourglass");
 
-        private Notify.Notification notification;
-        private Context player;
+        Canberra.Context.create (out player);
+    }
 
-		private bool open = false;
-
-        // constructor
-        public NotificationManager () {
-            Notify.init ("hourglass");
-
-            Context.create (out player);
-        }
-
-        public void show (string summary, string body = "", string track = "") {
-			open = true;
-            try {
-                if (notification == null) {
-                    notification = new Notify.Notification (summary, body, "hourglass"); // create notification
-                } else {
-                    notification.update (summary, body, "hourglass"); // update notification if it already exists
-                } 
-
-                notification.set_urgency (Notify.Urgency.CRITICAL);
-                notification.show ();
-				
-				notification.closed.connect (() => {
-						player.cancel (1);
-						open = false;
-					});
-
-                // player sound
-                player.play (1, PROP_EVENT_ID, HourglassDaemon.settings.get_string ("sound"), PROP_MEDIA_ROLE, "alarm");
-
-				Timeout.add (10000, () => {
-						if (open) {
-							player.play (1, PROP_EVENT_ID, HourglassDaemon.settings.get_string ("sound"), PROP_MEDIA_ROLE, "alarm");
-							return Source.CONTINUE;
-						} else {
-							return Source.REMOVE;
-						}
-					});
-
-            } catch (GLib.Error e) {
-                error ("Error: %s", e.message);
+    public void show (string summary, string body = "", string track = "") {
+        open = true;
+        try {
+            if (notification == null) {
+                notification = new Notify.Notification (summary, body, "hourglass"); // create notification
+            } else {
+                notification.update (summary, body, "hourglass"); // update notification if it already exists
             }
+
+            notification.set_urgency (Notify.Urgency.CRITICAL);
+            notification.show ();
+
+            notification.closed.connect (() => {
+                player.cancel (1);
+                open = false;
+            });
+
+            // player sound
+            player.play (1, Canberra.PROP_EVENT_ID, HourglassDaemon.settings.get_string ("sound"), Canberra.PROP_MEDIA_ROLE, "alarm");
+
+            Timeout.add (10000, () => {
+                if (open) {
+                    player.play (1, Canberra.PROP_EVENT_ID, HourglassDaemon.settings.get_string ("sound"), Canberra.PROP_MEDIA_ROLE, "alarm");
+                    return Source.CONTINUE;
+                } else {
+                    return Source.REMOVE;
+                }
+            });
+        } catch (GLib.Error e) {
+            error ("Error: %s", e.message);
         }
     }
 }
