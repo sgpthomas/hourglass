@@ -29,7 +29,7 @@ namespace HourglassDaemon {
 
         // constructor
         public NotificationManager () {
-            Notify.init ("hourglass");
+            Notify.init ("com.github.sgpthomas.hourglass");
 
             Context.create (out player);
         }
@@ -38,9 +38,9 @@ namespace HourglassDaemon {
 			open = true;
             try {
                 if (notification == null) {
-                    notification = new Notify.Notification (summary, body, "hourglass"); // create notification
+                    notification = new Notify.Notification (summary, body, "com.github.sgpthomas.hourglass"); // create notification
                 } else {
-                    notification.update (summary, body, "hourglass"); // update notification if it already exists
+                    notification.update (summary, body, "com.github.sgpthomas.hourglass"); // update notification if it already exists
                 } 
 
                 notification.set_urgency (Notify.Urgency.CRITICAL);
