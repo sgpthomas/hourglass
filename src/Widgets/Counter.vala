@@ -188,7 +188,7 @@ namespace Hourglass.Widgets {
         }
 
         public static Time parse_seconds (uint64 time) {
-            Time t = Time ();
+			Time t = Time ();
 			t.hours = time / (uint64) TimeSpan.HOUR;
 			time %= (uint64) TimeSpan.HOUR;
 			t.minutes = time / (uint64) TimeSpan.MINUTE;
