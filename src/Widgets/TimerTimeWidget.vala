@@ -41,7 +41,7 @@ namespace Hourglass.Widgets {
         private Button stop_timer_button;
 
         // timer value
-        private int timer_value;
+        private uint64 timer_value;
 
         // constructor
         public TimerTimeWidget (MainWindow window) {
@@ -78,7 +78,7 @@ namespace Hourglass.Widgets {
             chooser_grid.row_spacing = 12;
 
             // get current time from dconf
-            Counter.Time t = Counter.parse_seconds (Hourglass.saved.get_int ("timer-time") * 100);
+            Counter.Time t = Counter.parse_seconds (Hourglass.saved.get_uint64 ("timer-time") * 100);
 
             hour_chooser = new TimeSpinner (59);
             hour_chooser.set_value (t.hours);
@@ -140,17 +140,17 @@ namespace Hourglass.Widgets {
 
         private void connect_signals () {
             sec_chooser.value_changed.connect (() => {
-                Hourglass.saved.set_int ("timer-time", (int) ((hour_chooser.get_value () * 3600) + (min_chooser.get_value () * 60) + sec_chooser.get_value ()));
+                Hourglass.saved.set_uint64 ("timer-time", (uint64) ((hour_chooser.get_value () * 3600) + (min_chooser.get_value () * 60) + sec_chooser.get_value ()));
                 update ();
             });
 
             min_chooser.value_changed.connect (() => {
-                Hourglass.saved.set_int ("timer-time", (int) ((hour_chooser.get_value () * 3600) + (min_chooser.get_value () * 60) + sec_chooser.get_value ()));
+                Hourglass.saved.set_uint64 ("timer-time", (uint64) ((hour_chooser.get_value () * 3600) + (min_chooser.get_value () * 60) + sec_chooser.get_value ()));
                 update ();
             });
 
             hour_chooser.value_changed.connect (() => {
-                Hourglass.saved.set_int ("timer-time", (int) ((hour_chooser.get_value () * 3600) + (min_chooser.get_value () * 60) + sec_chooser.get_value ()));
+                Hourglass.saved.set_uint64 ("timer-time", (uint64) ((hour_chooser.get_value () * 3600) + (min_chooser.get_value () * 60) + sec_chooser.get_value ()));
                 update ();
             });
 
@@ -164,7 +164,7 @@ namespace Hourglass.Widgets {
         private void start_timer () {
             stack.set_visible_child_name ("timer_grid");
 
-            var val = (int) (sec_chooser.get_value () + (min_chooser.get_value () * 60) + (hour_chooser.get_value () * 3600)) * 1000000;
+            var val = (uint64) (sec_chooser.get_value () + (min_chooser.get_value () * 60) + (hour_chooser.get_value () * 3600)) * 1000000;
             counter.set_limit (val);
             timer_value = val;
 			counter.set_should_notify (true, _("Timer has ended!"), Counter.create_time_string (timer_value, false));
@@ -175,7 +175,7 @@ namespace Hourglass.Widgets {
 
             // update saved time
             counter.on_tick.connect (() => {
-                Hourglass.saved.set_int ("timer-time", counter.get_current_time () / 1000);
+                Hourglass.saved.set_uint64 ("timer-time", counter.get_current_time () / 1000);
                 update ();
             });
 
