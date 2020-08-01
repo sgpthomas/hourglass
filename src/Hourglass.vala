@@ -33,7 +33,7 @@ namespace Hourglass {
 
     /* State */
     public MainWindow main_window;
-	public bool window_open;
+    public bool window_open;
 
     public class HourglassApp : Gtk.Application {
 
@@ -61,7 +61,7 @@ namespace Hourglass {
         public override void activate () {
             if (main_window != null) {
                 message ("There is an instance of hourglass already open.");
-				main_window.deiconify ();
+                main_window.deiconify ();
             }
 
             main_window = new MainWindow (this);
@@ -99,7 +99,7 @@ namespace Hourglass {
         }
     }
 
-    public static void main(string[] args) {
+    public static void main (string[] args) {
         // attempt to spawn daemon
         HourglassApp.spawn_daemon ();
 
