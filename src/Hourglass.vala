@@ -62,6 +62,7 @@ namespace Hourglass {
             if (main_window != null) {
                 message ("There is an instance of hourglass already open.");
                 main_window.deiconify ();
+                return;
             }
 
             main_window = new MainWindow (this);
