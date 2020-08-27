@@ -65,7 +65,7 @@ namespace Hourglass {
                 return;
             }
 
-            main_window = new MainWindow (this);
+            main_window = new MainWindow ();
 
             if (Hourglass.saved.get_boolean ("is-maximized")) {
                 main_window.maximize ();
