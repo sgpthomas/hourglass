@@ -60,7 +60,7 @@ namespace Hourglass {
 
         public override void activate () {
             if (main_window == null) {
-                main_window = new MainWindow (this);
+                main_window = new MainWindow ();
                 window_open = true;
                 Gtk.main ();
             } else {
