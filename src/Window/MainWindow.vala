@@ -31,9 +31,6 @@ public class Hourglass.Window.MainWindow : Gtk.Window {
     construct {
         title = Constants.APP_NAME;
         set_border_width (12);
-        set_position (Gtk.WindowPosition.CENTER);
-        set_size_request (500, 450);
-        resize (Hourglass.saved.get_int ("window-width"), Hourglass.saved.get_int ("window-height"));
 
         //initiate stylesheet
         Hourglass.Services.StyleManager.add_stylesheet ("style/text.css");
@@ -78,11 +75,12 @@ public class Hourglass.Window.MainWindow : Gtk.Window {
         // remove gtk loop on destroy window
         this.delete_event.connect (() => {
             // save size of window on close
-            int win_w;
-            int win_h;
-            this.get_size (out win_w, out win_h);
-            Hourglass.saved.set_int ("window-width", win_w);
-            Hourglass.saved.set_int ("window-height", win_h);
+            int window_width, window_height, window_x, window_y;
+            get_size (out window_width, out window_height);
+            get_position (out window_x, out window_y);
+            Hourglass.saved.set ("window-size", "(ii)", window_width, window_height);
+            Hourglass.saved.set ("window-position", "(ii)", window_x, window_y);
+            Hourglass.saved.set_boolean ("is-maximized", this.is_maximized);
 
             var visible = (Hourglass.Widgets.TimeWidget) stack.get_visible_child ();
             if (visible.keep_open ()) {
