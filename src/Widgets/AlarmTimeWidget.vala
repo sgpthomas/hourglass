@@ -72,15 +72,12 @@ namespace Hourglass.Widgets {
 
         private void create_layout () {
             main_stack = new Stack ();
+            main_stack.get_style_context ().add_class ("frame");
 
             // welcome screen
             no_alarm_screen = new Welcome (_("No Alarms"), _("Click 'Add' to get started."));
 
-            frame = new Gtk.Frame (null);
-            frame.add (no_alarm_screen);
-            frame.show_all ();
-
-            main_stack.add_named (frame, "no-alarm-view");
+            main_stack.add_named (no_alarm_screen, "no-alarm-view");
 
             // alarm view
             scrolled_window = new ScrolledWindow (null, null);
@@ -93,11 +90,7 @@ namespace Hourglass.Widgets {
 
             scrolled_window.add (list_box);
 
-            frame = new Gtk.Frame (null);
-            frame.add (scrolled_window);
-            frame.show_all ();
-
-            main_stack.add_named (frame, "alarm-view");
+            main_stack.add_named (scrolled_window, "alarm-view");
 
             // action buttons
             var button_box = new Box (Orientation.HORIZONTAL, 0);
