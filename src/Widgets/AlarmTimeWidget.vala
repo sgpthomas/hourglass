@@ -72,10 +72,9 @@ namespace Hourglass.Widgets {
 
         private void create_layout () {
             main_stack = new Stack ();
-            main_stack.get_style_context ().add_class ("frame");
 
             // welcome screen
-            no_alarm_screen = new Welcome (_("No Alarms"), _("Click 'Add' to get started."));
+            no_alarm_screen = new Welcome (_("No Alarms"), _("Click the add icon in the toolbar below to get started."));
 
             main_stack.add_named (no_alarm_screen, "no-alarm-view");
 
@@ -93,27 +92,23 @@ namespace Hourglass.Widgets {
             main_stack.add_named (scrolled_window, "alarm-view");
 
             // action buttons
-            var button_box = new Box (Orientation.HORIZONTAL, 0);
-            var add_edit_box = new Box (Orientation.HORIZONTAL, 12);
+            add_alarm = new Gtk.Button.from_icon_name ("list-add-symbolic", Gtk.IconSize.BUTTON);
+            add_alarm.tooltip_text = _("Add…");
 
-            add_alarm = new Button.with_label (_("Add"));
-            // add_alarm.set_halign (Align.CENTER);
+            edit_alarm = new Gtk.Button.from_icon_name ("edit-symbolic", Gtk.IconSize.BUTTON);
+            edit_alarm.tooltip_text = _("Edit…");
 
-            edit_alarm = new Button.with_label (_("Edit"));
-            // edit_alarm.set_halign (Align.CENTER);
-
-            add_edit_box.add (add_alarm);
-            add_edit_box.add (edit_alarm);
-            add_edit_box.set_halign (Align.CENTER);
-            add_edit_box.set_hexpand (true);
-            
-            button_box.add (add_edit_box);
+            var actionbar = new Gtk.ActionBar ();
+            actionbar.get_style_context ().add_class (Gtk.STYLE_CLASS_INLINE_TOOLBAR);
+            actionbar.add (add_alarm);
+            actionbar.add (edit_alarm);
 
             var grid = new Grid ();
             grid.row_spacing = 12;
+            grid.get_style_context ().add_class ("frame");
 
             grid.attach (main_stack, 0, 0, 1, 1);
-            grid.attach (button_box, 0, 1, 1, 1);
+            grid.attach (actionbar, 0, 1, 1, 1);
             this.pack_start (grid);
         }
 
