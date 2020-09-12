@@ -23,8 +23,8 @@ namespace HourglassDaemon {
     [DBus (name = "com.github.sgpthomas.hourglass")]
     public class Server : Object {
 
-        public void print_message (string msg) throws GLib.DBusError, GLib.IOError {
-            message (msg);
+        public void print_debug (string msg) throws GLib.DBusError, GLib.IOError {
+            debug (msg);
         }
 
         public void show_notification (string summary, string body = "", string track = "") throws GLib.DBusError, GLib.IOError {
@@ -32,12 +32,12 @@ namespace HourglassDaemon {
         }
 
         public void add_alarm (string alarm) throws GLib.DBusError, GLib.IOError {
-            message (alarm);
+            debug (alarm);
             manager.add_alarm (alarm);
         }
 
         public void remove_alarm (string alarm) throws GLib.DBusError, GLib.IOError {
-            message (alarm);
+            debug (alarm);
             manager.remove_alarm (alarm);
         }
 
@@ -74,7 +74,7 @@ namespace HourglassDaemon {
                       "com.github.sgpthomas.hourglass",
                       BusNameOwnerFlags.NONE,
                       (conn) => { on_bus_aquired (conn); },
-                      (c, name) => { message ("%s was successfully registered!", name); },
+                      (c, name) => { debug ("%s was successfully registered!", name); },
                       () => { critical ("Could not aquire service name"); exit (-1); });
         }
 

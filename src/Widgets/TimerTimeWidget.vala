@@ -169,7 +169,7 @@ namespace Hourglass.Widgets {
             timer_value = val;
 			counter.set_should_notify (true, _("Timer has ended!"), Counter.create_time_string (timer_value, false));
 
-			message ("starting");
+			debug ("starting");
             counter.start ();
 			
 

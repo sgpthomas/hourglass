@@ -27,7 +27,7 @@ namespace Hourglass.Services {
             var provider = new CssProvider ();
             provider.load_from_resource (css_file);
             StyleContext.add_provider_for_screen (Gdk.Screen.get_default (), provider, Gtk.STYLE_PROVIDER_PRIORITY_USER);
-            message ("Loaded %s", css_file);
+            debug ("Loaded %s", css_file);
         }
     }
 }
