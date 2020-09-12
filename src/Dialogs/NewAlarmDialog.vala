@@ -195,9 +195,9 @@ namespace Hourglass.Dialogs {
                 if (title == "") title = "Alarm";
 
                 var time = time_picker.time; //time in time picker plus today's date
-                //message ("Time %i:%i", time.get_month (), time.get_day_of_month ());
+                //debug ("Time %i:%i", time.get_month (), time.get_day_of_month ());
                 var date = date_picker.date; //date set in datepicker
-                //message ("Date %i:%i", date.get_month (), date.get_day_of_month ());
+                //debug ("Date %i:%i", date.get_month (), date.get_day_of_month ());
 
                 //create datetime with time of alalarm
                 var alarm_time = new DateTime.local (date.get_year (), date.get_month (), date.get_day_of_month (), time.get_hour (), time.get_minute (), time.get_second ());
