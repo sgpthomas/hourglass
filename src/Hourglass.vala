@@ -16,8 +16,6 @@
 * with Hourglass. If not, see http://www.gnu.org/licenses/.
 */
 
-using Granite.Services;
-
 using Hourglass.Window;
 using Hourglass.Services;
 
@@ -49,10 +47,6 @@ namespace Hourglass {
 
         //constructor
         public HourglassApp () {
-            /* Logger initilization */
-            Logger.initialize (Constants.APP_NAME);
-            Logger.DisplayLevel = LogLevel.DEBUG;
-
             /* Managers */
             dbus_manager = new DBusManager ();
             dbus_server = dbus_manager.client;
@@ -60,7 +54,7 @@ namespace Hourglass {
 
         public override void activate () {
             if (main_window != null) {
-                message ("There is an instance of hourglass already open.");
+                debug ("There is an instance of hourglass already open.");
                 main_window.deiconify ();
                 return;
             }
@@ -88,7 +82,7 @@ namespace Hourglass {
         }
 
         public static void spawn_daemon () {
-            message ("starting daemon");
+            debug ("starting daemon");
             string[] spawn_args = {"com.github.sgpthomas.hourglass-daemon"}; // command name
 
             //try to spawn daemon

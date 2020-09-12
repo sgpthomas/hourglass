@@ -21,14 +21,14 @@ namespace HourglassDaemon {
         public Gee.ArrayList<string> alarm_list { get; private set; }
 
         public AlarmManager () {
-            message ("Initiating Alarm Manager");
+            debug ("Initiating Alarm Manager");
             alarm_list = new Gee.ArrayList<string> ();
 
             load_alarm_list (); //load alarm list
         }
 
         public bool check_alarm () {
-            message ("Checking alarms");
+            debug ("Checking alarms");
 
             //loop through alarm list
             foreach (string alarm in alarm_list) {

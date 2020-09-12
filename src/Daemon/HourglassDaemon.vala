@@ -41,7 +41,7 @@ namespace HourglassDaemon {
         }
 
         public override void startup () {
-            message ("Hourglass-Daemon started");
+            debug ("Hourglass-Daemon started");
             base.startup ();
 
             server = new HourglassServer ();
@@ -61,7 +61,7 @@ namespace HourglassDaemon {
         }
 
         public override void activate () {
-            message ("Daemon Activated");
+            debug ("Daemon Activated");
         }
 
         public override bool dbus_register (DBusConnection connection, string object_path) throws Error {

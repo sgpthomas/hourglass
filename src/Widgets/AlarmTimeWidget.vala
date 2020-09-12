@@ -131,7 +131,7 @@ namespace Hourglass.Widgets {
 
             Hourglass.dbus_server.should_refresh_client.connect (() => {
                 load_alarms ();
-                message ("Refresh");
+                debug ("Refresh");
             });
 
             // update display if alarm settings change
@@ -195,7 +195,7 @@ namespace Hourglass.Widgets {
             list_box.prepend (a);
 
             a.state_toggled.connect ((b) => {
-                message ("toggled");
+                debug ("toggled");
                 try {
                     Hourglass.dbus_server.toggle_alarm (a.to_string ());
                 } catch (GLib.IOError e) {
