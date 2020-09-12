@@ -31,9 +31,6 @@ namespace Hourglass.Widgets {
         // stack
         private Stack main_stack;
 
-        // frame
-        private Gtk.Frame frame;
-
         // welcome screen
         private Welcome no_alarm_screen;
 
