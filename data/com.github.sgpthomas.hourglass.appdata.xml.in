@@ -45,6 +45,31 @@
   </provides>
 
   <releases>
+    <release version="1.2.2" date="2020-08-27" urgency="medium">
+      <description>
+        <ul>
+          <li>Update .desktop comment to be consistent with HIG (by @aljelly)</li>
+          <li>Change shortened format of weekdays (by @NathanBnm)</li>
+          <li>Improve look of create/edit alarm dialog</li>
+          <li>Don't reset repeat setting on closing popover</li>
+          <li>Fix DBus error at the first launch</li>
+          <li>Fix notification icon is not set</li>
+          <li>Fix left time shows unexpected values if set time is too big</li>
+          <li>Improve saving window state</li>
+        </ul>
+        <p>Translation updates:</p>
+        <ul>
+          <li>Add French translation (by @NathanBnm)</li>
+          <li>Update Spanish translation (by @CCaroV)</li>
+          <li>Add Japanese translation</li>
+          <li>Add Portuguese-Portugal translation (by @rottenpants466)</li>
+        </ul>
+        <p>Other updates:</p>
+        <ul>
+          <li>Various l10n and coding improvements to the project thanks to @NathanBnm</li>
+        </ul>
+      </description>
+    </release>
     <release version="1.2.1" date="2020-04-20" urgency="medium">
       <description>
         <ul>
