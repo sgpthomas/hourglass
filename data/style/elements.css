@@ -19,14 +19,3 @@
     font-size: 48px;
     font-family: Open Sans Light;
 }
-
-GtkListBox {
-    background-color: transparent;
-}
-
-GtkListBoxRow:selected {
-    color: black;
-    background-color: #CCCCCC;
-}
-
-
