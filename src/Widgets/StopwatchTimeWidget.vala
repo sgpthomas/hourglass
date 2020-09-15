@@ -134,6 +134,7 @@ namespace Hourglass.Widgets {
         private void update_log () {
             var num = lap_box.get_children ().length ();
             var label = new Label ("%u: %s".printf (num + 1, lap_log[num]));
+            label.get_style_context ().add_class (Gtk.STYLE_CLASS_DIM_LABEL);
             label.margin = 6;
 
             var row = new ListBoxRow ();
