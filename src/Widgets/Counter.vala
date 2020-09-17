@@ -28,16 +28,16 @@ namespace Hourglass.Widgets {
     public class Counter {
 
         public struct Time {
-            uint64 hours;
-            uint64 minutes;
-            uint64 seconds;
-            uint64 milliseconds;
+            int64 hours;
+            int64 minutes;
+            int64 seconds;
+            int64 milliseconds;
         }
 
 		private DateTime start_time;
-        private uint64 current_time; // in milliseconds
-		private uint64 limit;
-		private uint64 last_time = 0; // in milliseconds
+        private int64 current_time; // in milliseconds
+		private int64 limit;
+		private int64 last_time = 0; // in milliseconds
         private Label time_label_w_milli; // with milliseconds
         private Label time_label_wo_milli; // without milliseconds
         private CountDirection direction;
@@ -63,7 +63,7 @@ namespace Hourglass.Widgets {
             update_label ();
         }
 
-        public Counter.with_time (CountDirection direction, uint64 milliseconds, bool should_stay_open = false) {
+        public Counter.with_time (CountDirection direction, int64 milliseconds, bool should_stay_open = false) {
             time_label_w_milli = new Label ("");
             time_label_wo_milli = new Label ("");
             set_current_time (milliseconds);
@@ -101,10 +101,10 @@ namespace Hourglass.Widgets {
 			var diff = (new DateTime.now_local ()).difference(start_time);
 
 			if (direction == CountDirection.UP) {
-				current_time = (uint64)diff + last_time;
+				current_time = (int64)diff + last_time;
 			} else {
 				if (current_time >= 0) {
-					current_time = limit - (uint64)diff;
+					current_time = limit - (int64)diff;
 				} else {
 					if (should_notify) {
                         try {
@@ -125,17 +125,17 @@ namespace Hourglass.Widgets {
             return true;
         }
 
-        public void set_current_time (uint64 time) {
+        public void set_current_time (int64 time) {
             current_time = time;
 			last_time = 0;
             update_label ();
         }
 
-        public uint64 get_current_time () {
+        public int64 get_current_time () {
             return current_time;
         }
 
-		public void set_limit (uint64 time) {
+		public void set_limit (int64 time) {
 			limit = time;
 			current_time = time;
 		}
@@ -174,7 +174,7 @@ namespace Hourglass.Widgets {
             return create_time_string (current_time, with_milli);
         }
 
-        public static string create_time_string (uint64 alt_time, bool with_milli = true) {
+        public static string create_time_string (int64 alt_time, bool with_milli = true) {
             Time t = parse_seconds (alt_time);
             if (with_milli) {
                 if (t.hours == 0) {
@@ -187,15 +187,15 @@ namespace Hourglass.Widgets {
             }
         }
 
-        public static Time parse_seconds (uint64 time) {
+        public static Time parse_seconds (int64 time) {
 			Time t = Time ();
-			t.hours = time / (uint64) TimeSpan.HOUR;
-			time %= (uint64) TimeSpan.HOUR;
-			t.minutes = time / (uint64) TimeSpan.MINUTE;
-			time %= (uint64) TimeSpan.MINUTE;
-			t.seconds = time / (uint64) TimeSpan.SECOND;
-			time %= (uint64) TimeSpan.SECOND;
-			t.milliseconds = time % ((uint64) TimeSpan.MILLISECOND / 10);
+			t.hours = time / (int64) TimeSpan.HOUR;
+			time %= (int64) TimeSpan.HOUR;
+			t.minutes = time / (int64) TimeSpan.MINUTE;
+			time %= (int64) TimeSpan.MINUTE;
+			t.seconds = time / (int64) TimeSpan.SECOND;
+			time %= (int64) TimeSpan.SECOND;
+			t.milliseconds = time % ((int64) TimeSpan.MILLISECOND / 10);
 			return t;
         }
     }
