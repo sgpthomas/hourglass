@@ -53,7 +53,7 @@
         </ul>
         <p>Improvements:</p>
         <ul>
-          <li>StopWatch: Rewrite for efficiency and the future support of the dark style</li>
+          <li>StopWatch: Rewrite for efficiency and visibility</li>
           <li>Add :disabled pseudo-class to the .round-button class</li>
           <li>Use icons for add/remove buttons</li>
         </ul>
