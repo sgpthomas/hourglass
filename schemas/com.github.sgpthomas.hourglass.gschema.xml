@@ -11,7 +11,7 @@
             <summary>Current Alarms</summary>
             <description>Saves alarms that have been created.</description>
         </key>
-        <key name="timer-time" type="t">
+        <key name="timer-time" type="x">
             <default>0</default>
             <summary>Current Time on Timer</summary>
             <description>Saves the time currently on the timer.</description>

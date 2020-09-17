@@ -31,7 +31,7 @@ namespace Hourglass.Widgets {
 
         // lap log
         private ScrolledWindow scrolled_window;
-        private Box lap_box;
+        private ListBox lap_box;
         private string[] lap_log;
 
         // buttons
@@ -68,17 +68,10 @@ namespace Hourglass.Widgets {
             lap_log = {};
             scrolled_window = new ScrolledWindow (null, null);
             scrolled_window.vexpand = true;
-            var container_box = new Box (Orientation.VERTICAL, 0);
 
-            lap_box = new Box (Orientation.VERTICAL, 0);
-            lap_box.vexpand = false;
-            container_box.pack_start (lap_box);
+            lap_box = new ListBox ();
 
-            var spacer = new Box (Orientation.VERTICAL, 0);
-            spacer.vexpand = true;
-            container_box.pack_start (spacer);
-
-            scrolled_window.add (container_box);
+            scrolled_window.add (lap_box);
 			scrolled_window.vexpand = true;
 			scrolled_window.shadow_type = Gtk.ShadowType.IN;
             this.pack_start (scrolled_window);
@@ -139,16 +132,17 @@ namespace Hourglass.Widgets {
         }
 
         private void update_log () {
-            foreach (var w in lap_box.get_children ()) {
-                w.destroy ();
-            }
-            foreach (var s in lap_log) {
-                var num = lap_box.get_children ().length ()+ 1;
-                var label = new Label (num.to_string () + ": " + s);
-                label.get_style_context ().add_class ("log-text");
-                label.show ();
-                lap_box.pack_end (label);
-            }
+            var num = lap_box.get_children ().length ();
+            var label = new Label ("%u: %s".printf (num + 1, lap_log[num]));
+            label.get_style_context ().add_class (Gtk.STYLE_CLASS_DIM_LABEL);
+            label.margin = 6;
+
+            var row = new ListBoxRow ();
+            row.add (label);
+
+            lap_box.insert (row, 0);
+
+            lap_box.show_all ();
         }
 
         private void connect_signals () {
@@ -175,7 +169,10 @@ namespace Hourglass.Widgets {
         private void on_reset_click () {
             counter.set_current_time (0);
             lap_log = {};
-            update_log ();
+            foreach (var w in lap_box.get_children ()) {
+                w.destroy ();
+            }
+
             update ();
         }
 
