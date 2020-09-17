@@ -45,6 +45,20 @@
   </provides>
 
   <releases>
+    <release version="1.2.3" date="2020-09-17" urgency="high">
+      <description>
+        <p>Fixes:</p>
+        <ul>
+          <li>Fix a fatal regression that timer does not stop on 00:00:00</li>
+        </ul>
+        <p>Improvements:</p>
+        <ul>
+          <li>StopWatch: Rewrite for efficiency and visibility</li>
+          <li>Add :disabled pseudo-class to the .round-button class</li>
+          <li>Use icons for add/remove buttons</li>
+        </ul>
+      </description>
+    </release>
     <release version="1.2.2" date="2020-09-12" urgency="medium">
       <description>
         <ul>
