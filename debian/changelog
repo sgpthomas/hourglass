@@ -1,3 +1,12 @@
+com.github.sgpthomas.hourglass (1.2.3) bionic; urgency=high
+
+  * StopWatch: Rewrite for efficiency and the future support of the dark style
+  * Add :disabled pseudo-class to the .round-button class
+  * Fix timer does not stop on 00:00:00
+  * Use icons for add/remove buttons
+
+ -- Ryo Nakano <ryonakaknock3@gmail.com>  Thu, 17 Sep 2020 12:03:19 +0900
+
 com.github.sgpthomas.hourglass (1.2.2) bionic; urgency=medium
 
   * Update .desktop comment to be consistent with HIG (by @aljelly)
