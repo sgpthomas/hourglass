@@ -101,7 +101,6 @@ namespace Hourglass.Widgets {
             actionbar.add (edit_alarm);
 
             var grid = new Grid ();
-            grid.row_spacing = 12;
             grid.get_style_context ().add_class ("frame");
 
             grid.attach (main_stack, 0, 0, 1, 1);
