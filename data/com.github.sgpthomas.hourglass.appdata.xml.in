@@ -45,6 +45,16 @@
   </provides>
 
   <releases>
+    <release version="1.2.3" date="2020-09-17" urgency="high">
+      <description>
+        <ul>
+          <li>Use icons for add/remove buttons</li>
+          <li>Fix timer does not stop on 00:00:00</li>
+          <li>Add :disabled pseudo-class to the .round-button class</li>
+          <li>StopWatch: Rewrite for efficiency and the future support of the dark style</li>
+        </ul>
+      </description>
+    </release>
     <release version="1.2.2" date="2020-08-27" urgency="medium">
       <description>
         <ul>
