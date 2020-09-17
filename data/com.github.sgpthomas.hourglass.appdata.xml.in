@@ -49,7 +49,7 @@
       <description>
         <p>Fixes:</p>
         <ul>
-          <li>Fix a fatal issue that timer does not stop on 00:00:00</li>
+          <li>Fix a fatal regression that timer does not stop on 00:00:00</li>
         </ul>
         <p>Improvements:</p>
         <ul>
