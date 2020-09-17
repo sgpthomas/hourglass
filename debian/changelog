@@ -14,7 +14,7 @@ com.github.sgpthomas.hourglass (1.2.2) bionic; urgency=medium
   * Add Portuguese-Portugal translation (by @rottenpants466)
   * Various l10n and coding improvements to the project thanks to @NathanBnm
 
- -- Ryo Nakano <ryonakaknock3@gmail.com>  Thu, 27 Aug 2020 21:56:34 +0900
+ -- Ryo Nakano <ryonakaknock3@gmail.com>  Sat, 12 Sep 2020 09:14:34 +0900
 
 com.github.sgpthomas.hourglass (1.2.1) bionic; urgency=medium
 
