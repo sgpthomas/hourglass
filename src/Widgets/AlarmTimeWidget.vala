@@ -41,6 +41,7 @@ namespace Hourglass.Widgets {
         // action buttons
         private Button add_alarm;
         private Button edit_alarm;
+        private Button delete_alarm;
 
         // dialogs
         private NewAlarmDialog new_alarm_dialog;
@@ -95,10 +96,14 @@ namespace Hourglass.Widgets {
             edit_alarm = new Gtk.Button.from_icon_name ("edit-symbolic", Gtk.IconSize.BUTTON);
             edit_alarm.tooltip_text = _("Edit…");
 
+            delete_alarm = new Gtk.Button.from_icon_name ("list-remove-symbolic", Gtk.IconSize.BUTTON);
+            delete_alarm.tooltip_text = _("Delete");
+
             var actionbar = new Gtk.ActionBar ();
             actionbar.get_style_context ().add_class (Gtk.STYLE_CLASS_INLINE_TOOLBAR);
             actionbar.add (add_alarm);
             actionbar.add (edit_alarm);
+            actionbar.add (delete_alarm);
 
             var grid = new Grid ();
             grid.get_style_context ().add_class ("frame");
@@ -111,6 +116,17 @@ namespace Hourglass.Widgets {
         private void connect_signals () {
             add_alarm.clicked.connect (add_alarm_action);
             edit_alarm.clicked.connect (edit_alarm_action);
+            delete_alarm.clicked.connect (() => {
+                unowned Alarm alarm = ((Alarm) list_box.get_selected_row ());
+                list_box.remove (alarm);
+                try {
+                    Hourglass.dbus_server.remove_alarm (alarm.to_string ());
+                } catch (GLib.IOError e) {
+                    error (e.message);
+                } catch (GLib.DBusError e) {
+                    error (e.message);
+                }
+            });
             list_box.row_selected.connect (update);
 
             Hourglass.dbus_server.should_refresh_client.connect (() => {
@@ -141,7 +157,8 @@ namespace Hourglass.Widgets {
                 main_stack.set_visible_child_name ("alarm-view");
             }
 
-            edit_alarm.sensitive = (inc != 0 && list_box.get_selected_row () != null) ? true : false;
+            edit_alarm.sensitive = (inc != 0 && list_box.get_selected_row () != null);
+            delete_alarm.sensitive = (inc != 0 && list_box.get_selected_row () != null);
         }
 
         private void load_alarms () {
@@ -224,16 +241,6 @@ namespace Hourglass.Widgets {
                     append_alarm (new_a); // add new alarms
                 });
 
-                new_alarm_dialog.delete_alarm.connect ((a) => {
-                    list_box.remove (a);
-                    try {
-                        Hourglass.dbus_server.remove_alarm (a.to_string ());
-                    } catch (GLib.IOError e) {
-                        error (e.message);
-                    } catch (GLib.DBusError e) {
-                        error (e.message);
-                    }
-                });
                 new_alarm_dialog.show_all ();
             }
             update ();
