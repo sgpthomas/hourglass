@@ -33,20 +33,16 @@ public class Hourglass.Widgets.Alarm : Gtk.ListBoxRow {
             title: title
         );
         this.repeat = repeat;
-    }
 
-    construct {
-        var str = get_time_string ();
+        var time_label = new Gtk.Label (get_time_string ());
+        time_label.get_style_context ().add_class ("alarm-time");
 
-        var time = new Gtk.Label (str);
-        time.get_style_context ().add_class ("alarm-time");
+        var name_label = new Gtk.Label (title);
+        name_label.get_style_context ().add_class ("alarm-name");
 
-        var name = new Gtk.Label (title);
-        name.get_style_context ().add_class ("alarm-name");
-
-        var days = new Gtk.Label (make_repeat_label ());
-        days.margin_start = 12;
-        days.get_style_context ().add_class ("alarm-days");
+        var days_label = new Gtk.Label (make_repeat_label ());
+        days_label.margin_start = 12;
+        days_label.get_style_context ().add_class ("alarm-days");
 
         toggle = new Gtk.Switch ();
         toggle.halign = Gtk.Align.END;
@@ -58,9 +54,9 @@ public class Hourglass.Widgets.Alarm : Gtk.ListBoxRow {
         var grid = new Gtk.Grid ();
         grid.margin_start = 6;
         grid.margin_end = 6;
-        grid.attach (time, 0, 0, 1, 1);
-        grid.attach (name, 0, 1, 1, 1);
-        grid.attach (days, 1, 0, 1, 2);
+        grid.attach (time_label, 0, 0, 1, 1);
+        grid.attach (name_label, 0, 1, 1, 1);
+        grid.attach (days_label, 1, 0, 1, 2);
         grid.attach (new Spacer.w_hexpand (), 2, 0, 1, 2);
         grid.attach (toggle, 3, 0, 1, 2);
 
