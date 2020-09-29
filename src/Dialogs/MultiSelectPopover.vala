@@ -24,7 +24,7 @@ namespace Hourglass.Dialogs {
 
     public class MultiSelectPopover : Gtk.Popover {
 
-		private Gtk.Box box;
+        private Gtk.Box box;
 
         // check buttons
         private Gtk.ToggleButton[] toggles;
@@ -48,18 +48,18 @@ namespace Hourglass.Dialogs {
         }
 
         private void create_layout () {
-			box = new Gtk.Box (Gtk.Orientation.HORIZONTAL, 0);
-			box.border_width = 6;
-			box.get_style_context ().add_class ("linked");
+            box = new Gtk.Box (Gtk.Orientation.HORIZONTAL, 0);
+            box.border_width = 6;
+            box.get_style_context ().add_class ("linked");
 
-			foreach (string s in shortened_days) {
-				var tb = new Gtk.ToggleButton.with_label (s);
-				box.add (tb);
-				toggles += tb;
-			}
+            foreach (string s in shortened_days) {
+                var tb = new Gtk.ToggleButton.with_label (s);
+                box.add (tb);
+                toggles += tb;
+            }
 
-			box.show_all ();
-			this.add (box);
+            box.show_all ();
+            this.add (box);
         }
 
         public int[] get_selected () {
@@ -83,7 +83,7 @@ namespace Hourglass.Dialogs {
             string[] shortened_days = {_("Sun"), _("Mon"), _("Tue"), _("Wed"), _("Thu"), _("Fri"), _("Sat")};
 
             var str = "";
-            
+
             if (sel.length == 7) {
                 str = _("Every Day");
             } else if (sel.length == 5 && !(0 in sel) && !(6 in sel)) {

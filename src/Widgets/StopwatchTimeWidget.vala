@@ -72,8 +72,8 @@ namespace Hourglass.Widgets {
             lap_box = new ListBox ();
 
             scrolled_window.add (lap_box);
-			scrolled_window.vexpand = true;
-			scrolled_window.shadow_type = Gtk.ShadowType.IN;
+            scrolled_window.vexpand = true;
+            scrolled_window.shadow_type = Gtk.ShadowType.IN;
             this.pack_start (scrolled_window);
 
             // create buttons
@@ -109,9 +109,9 @@ namespace Hourglass.Widgets {
             return _("Stopwatch");
         }
 
-		public bool keep_open () {
-			return counter.get_active ();
-		}
+        public bool keep_open () {
+            return counter.get_active ();
+        }
 
         public void update () {
             //set visibility
