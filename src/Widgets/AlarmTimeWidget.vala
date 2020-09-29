@@ -265,9 +265,9 @@ namespace Hourglass.Widgets {
             return _("Alarm");
         }
 
-		public bool keep_open () {
-			return false;
-		}
+        public bool keep_open () {
+            return false;
+        }
     }
 
 }
