@@ -103,7 +103,7 @@ msgstr "Título:"
 
 #: src/Dialogs/NewAlarmDialog.vala:148
 msgid "Time:"
-msgstr "Hora"
+msgstr "Hora:"
 
 #: src/Dialogs/NewAlarmDialog.vala:153
 msgid "Date:"
