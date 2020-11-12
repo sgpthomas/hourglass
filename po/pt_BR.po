@@ -1,7 +1,8 @@
 # Portuguese translations for com.github.sgpthomas.hourglass package.
 # Copyright (C) 2020 THE com.github.sgpthomas.hourglass'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the com.github.sgpthomas.hourglass package.
-# Cleiton Floss <gfavaro@gmail.com>, 2020.
+# Cleiton Floss <cleitonfloss@gmail.com>, 2020.
+# Gabriel Fávaro <gfavaro@gmail.com>, 2020.
 #
 msgid ""
 msgstr ""
