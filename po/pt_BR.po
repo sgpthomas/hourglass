@@ -2,6 +2,7 @@
 # Copyright (C) 2020 THE com.github.sgpthomas.hourglass'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the com.github.sgpthomas.hourglass package.
 # Cleiton Floss <cleitonfloss@gmail.com>, 2020.
+# Gabriel Fávaro <gfavaro@gmail.com>, 2020.
 #
 msgid ""
 msgstr ""
@@ -9,10 +10,10 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-09-17 12:00+0900\n"
 "PO-Revision-Date: 2020-05-01 16:18+0200\n"
-"Last-Translator: Cleiton Floss <cleitonfloss@gmail.com>\n"
+"Last-Translator: Gabriel Fávaro <gfavaro@gmail.com>\n"
 "Language-Team: none\n"
 "Language: pt_BR\n"
-"MIME-Version: 1.0\n"
+"MIME-Version: 1.1\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
@@ -62,7 +63,7 @@ msgstr "Diariamente"
 
 #: src/Dialogs/MultiSelectPopover.vala:90
 msgid "Every Weekday"
-msgstr "Todo semana"
+msgstr "Semanalmente"
 
 #: src/Dialogs/MultiSelectPopover.vala:92
 msgid "Every Weekend"
@@ -81,7 +82,7 @@ msgstr "Nunca"
 
 #: src/Dialogs/NewAlarmDialog.vala:120
 msgid "Save"
-msgstr ""
+msgstr "Guardar"
 
 #: src/Dialogs/NewAlarmDialog.vala:120
 #, fuzzy
@@ -101,13 +102,12 @@ msgid "Title:"
 msgstr "Título:"
 
 #: src/Dialogs/NewAlarmDialog.vala:148
-#, fuzzy
 msgid "Time:"
-msgstr "Cronômetro"
+msgstr "Hora:"
 
 #: src/Dialogs/NewAlarmDialog.vala:153
 msgid "Date:"
-msgstr ""
+msgstr "Data:"
 
 #. label = new Label (_("Repeat:"));
 #. label.halign = Gtk.Align.END;
@@ -119,11 +119,11 @@ msgstr "Repetir:"
 
 #: src/Widgets/Alarm.vala:129
 msgid "Repeats "
-msgstr "Repetir "
+msgstr "Repetições "
 
 #: src/Widgets/Alarm.vala:129
 msgid ", Repeats "
-msgstr ", Repetir "
+msgstr ", Repetições "
 
 #. welcome screen
 #: src/Widgets/AlarmTimeWidget.vala:74
@@ -132,12 +132,12 @@ msgstr "Nenhum Alarme"
 
 #: src/Widgets/AlarmTimeWidget.vala:74
 msgid "Click the add icon in the toolbar below to get started."
-msgstr ""
+msgstr "Clique no ícone de adicionar na barra inferior para começar."
 
 #. action buttons
 #: src/Widgets/AlarmTimeWidget.vala:93
 msgid "Add…"
-msgstr ""
+msgstr "Adicionar…"
 
 #: src/Widgets/AlarmTimeWidget.vala:96
 #, fuzzy
@@ -158,7 +158,7 @@ msgstr "Parar"
 
 #: src/Widgets/StopwatchTimeWidget.vala:91
 msgid "Reset"
-msgstr "Resetar"
+msgstr "Reiniciar"
 
 #: src/Widgets/StopwatchTimeWidget.vala:93
 msgid "Lap"
@@ -187,11 +187,11 @@ msgstr ":"
 
 #: src/Widgets/TimerTimeWidget.vala:170
 msgid "Timer has ended!"
-msgstr "Contador terminou!"
+msgstr "Temporizador terminou!"
 
 #: src/Widgets/TimerTimeWidget.vala:215
 msgid "Timer"
-msgstr "Cronômetro"
+msgstr "Temporizador"
 
 #~ msgid "Choose a time:"
 #~ msgstr "Escolha a hora:"
