@@ -102,7 +102,6 @@ msgid "Title:"
 msgstr "Título:"
 
 #: src/Dialogs/NewAlarmDialog.vala:148
-#, fuzzy
 msgid "Time:"
 msgstr "Hora"
 
