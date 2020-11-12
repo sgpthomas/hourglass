@@ -107,7 +107,7 @@ msgstr "Hora:"
 
 #: src/Dialogs/NewAlarmDialog.vala:153
 msgid "Date:"
-msgstr "Data"
+msgstr "Data:"
 
 #. label = new Label (_("Repeat:"));
 #. label.halign = Gtk.Align.END;
