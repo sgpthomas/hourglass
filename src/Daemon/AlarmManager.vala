@@ -16,23 +16,19 @@
 * with Hourglass. If not, see http://www.gnu.org/licenses/.
 */
 
-using Gee;
-
 namespace HourglassDaemon {
-
     public class AlarmManager {
-
-        public ArrayList<string> alarm_list;
+        public Gee.ArrayList<string> alarm_list { get; private set; }
 
         public AlarmManager () {
-            message ("Initiating Alarm Manager");
-            alarm_list = new ArrayList<string>();
+            debug ("Initiating Alarm Manager");
+            alarm_list = new Gee.ArrayList<string> ();
 
             load_alarm_list (); //load alarm list
         }
 
         public bool check_alarm () {
-            message ("Checking alarms");
+            debug ("Checking alarms");
 
             //loop through alarm list
             foreach (string alarm in alarm_list) {
@@ -48,15 +44,19 @@ namespace HourglassDaemon {
                     toggle_alarm (alarm);
                     server.server.should_refresh_client ();
                 }
-
             }
 
             return true;
         }
 
         public void add_alarm (string alarm_string) {
-            if (alarm_list.contains (alarm_string)) return; //return if alarm is already in array
-            if (!is_valid_alarm_string (alarm_string)) return; //don't add string if string is not valid
+            if (alarm_list.contains (alarm_string)) {
+                return; //return if alarm is already in array
+            }
+
+            if (!is_valid_alarm_string (alarm_string)) {
+                return; //don't add string if string is not valid
+            }
 
             //add alarm to list
             alarm_list.add (alarm_string);
@@ -75,7 +75,7 @@ namespace HourglassDaemon {
         }
 
         public void load_alarm_list () {
-            alarm_list = new ArrayList<string>(); //empty alarm list
+            alarm_list = new Gee.ArrayList<string> (); //empty alarm list
             foreach (string s in HourglassDaemon.saved_alarms.get_strv ("alarms")) { //loop through all entries in schema
                 if (is_valid_alarm_string (s)) { //check for validity
                     alarm_list.add (s); //add to alarm list
@@ -88,6 +88,7 @@ namespace HourglassDaemon {
             foreach (string s in alarm_list) { //loop through all entries in alarm list
                 new_alarm_list += s;
             }
+
             HourglassDaemon.saved_alarms.set_strv ("alarms", new_alarm_list); //update alarms gsettings entry
         }
 
@@ -130,7 +131,9 @@ namespace HourglassDaemon {
 
             if (parts[3] == "none") {
                 return false;
-            } return true;
+            }
+
+            return true;
         }
 
         public void toggle_alarm (string input) {
@@ -202,13 +205,17 @@ namespace HourglassDaemon {
                         return true;
                     }
                 }
-            } return false;
+            }
+
+            return false;
         }
 
         public bool is_valid_alarm_string (string alarm_string) {
             if (";" in alarm_string) {
                 string[] parts = alarm_string.split (";");
-                if (parts.length != 6) return false; //if wrong number of sections return false
+                if (parts.length != 6) {
+                    return false; //if wrong number of sections return false
+                }
 
                 //check if time section is correct
                 var time_string_parts = parts[1].split (",");

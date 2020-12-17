@@ -38,7 +38,6 @@ namespace Hourglass.Dialogs {
         //buttons
         private ButtonBox final_actions;
         private Button cancel_button;
-        private Button delete_alarm_button;
         private Button create_alarm_button;
 
         //should display edit alarm dialog instead
@@ -48,7 +47,6 @@ namespace Hourglass.Dialogs {
         //signals
         public signal void create_alarm (Alarm a);
         public signal void edit_alarm (Alarm old_alarm, Alarm new_alarm);
-        public signal void delete_alarm (Alarm a);
 
         public NewAlarmDialog (Gtk.Window? parent, Alarm? alarm = null) {
             //assign the dialog a parent if one is provided
@@ -121,14 +119,8 @@ namespace Hourglass.Dialogs {
 
             cancel_button = new Button.with_label (_("Cancel"));
 
-            delete_alarm_button = new Button.with_label (_("Delete"));
-            delete_alarm_button.get_style_context ().add_class (Gtk.STYLE_CLASS_DESTRUCTIVE_ACTION);
             create_alarm_button = new Button.with_label (create_alarm_button_label);
             create_alarm_button.get_style_context ().add_class ("green-button");
-
-            if (edit_alarm_enabled) {
-                final_actions.pack_start (delete_alarm_button);
-            }
 
             final_actions.pack_start (cancel_button);
             final_actions.pack_start (create_alarm_button);
@@ -195,9 +187,9 @@ namespace Hourglass.Dialogs {
                 if (title == "") title = "Alarm";
 
                 var time = time_picker.time; //time in time picker plus today's date
-                //message ("Time %i:%i", time.get_month (), time.get_day_of_month ());
+                //debug ("Time %i:%i", time.get_month (), time.get_day_of_month ());
                 var date = date_picker.date; //date set in datepicker
-                //message ("Date %i:%i", date.get_month (), date.get_day_of_month ());
+                //debug ("Date %i:%i", date.get_month (), date.get_day_of_month ());
 
                 //create datetime with time of alalarm
                 var alarm_time = new DateTime.local (date.get_year (), date.get_month (), date.get_day_of_month (), time.get_hour (), time.get_minute (), time.get_second ());
@@ -217,11 +209,6 @@ namespace Hourglass.Dialogs {
                 } else {
                     create_alarm (a);
                 }
-                this.destroy ();
-            });
-
-            delete_alarm_button.clicked.connect (() => {
-                delete_alarm (alarm);
                 this.destroy ();
             });
 

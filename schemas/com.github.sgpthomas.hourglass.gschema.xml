@@ -11,7 +11,7 @@
             <summary>Current Alarms</summary>
             <description>Saves alarms that have been created.</description>
         </key>
-        <key name="timer-time" type="i">
+        <key name="timer-time" type="x">
             <default>0</default>
             <summary>Current Time on Timer</summary>
             <description>Saves the time currently on the timer.</description>
@@ -21,15 +21,20 @@
             <summary>Current State of timer</summary>
             <description>Saves whether the alarm is currently running or not.</description>
         </key>
-        <key name="window-width" type="i">
-            <default>500</default>
-            <summary>Last saved window height.</summary>
-            <description>Saving size and position of window.</description>
+        <key name="window-position" type="(ii)">
+            <default>(-1, -1)</default>
+            <summary>Last saved window position.</summary>
+            <description>Saves the last window position.</description>
         </key>
-        <key name="window-height" type="i">
-            <default>450</default>
-            <summary>Last saved window height.</summary>
-            <description>Saving size and position of window.</description>
+        <key name="window-size" type="(ii)">
+            <default>(500, 450)</default>
+            <summary>Last saved window size.</summary>
+            <description>Saves the last window size.</description>
+        </key>
+        <key name="is-maximized" type="b">
+            <default>false</default>
+            <summary>Whether last saved window is maximized.</summary>
+            <description>Saves whether the last window is maximized.</description>
         </key>
 
     </schema>

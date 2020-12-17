@@ -2,21 +2,23 @@
 # Copyright (C) 2020 THE com.github.sgpthomas.hourglass'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the com.github.sgpthomas.hourglass package.
 # Cleiton Floss <cleitonfloss@gmail.com>, 2020.
+# Gabriel Fávaro <gfavaro@gmail.com>, 2020.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: com.github.sgpthomas.hourglass\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-05-03 10:10+0200\n"
+"POT-Creation-Date: 2020-09-17 12:00+0900\n"
 "PO-Revision-Date: 2020-05-01 16:18+0200\n"
-"Last-Translator: Cleiton Floss <cleitonfloss@gmail.com>\n"
+"Last-Translator: Gabriel Fávaro <gfavaro@gmail.com>\n"
 "Language-Team: none\n"
 "Language: pt_BR\n"
-"MIME-Version: 1.0\n"
+"MIME-Version: 1.1\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
+#. check buttons
 #: src/Dialogs/MultiSelectPopover.vala:32
 #: src/Dialogs/MultiSelectPopover.vala:83
 #, fuzzy
@@ -61,22 +63,30 @@ msgstr "Diariamente"
 
 #: src/Dialogs/MultiSelectPopover.vala:90
 msgid "Every Weekday"
-msgstr "Todo semana"
+msgstr "Semanalmente"
 
 #: src/Dialogs/MultiSelectPopover.vala:92
 msgid "Every Weekend"
 msgstr "Todo fim de semana"
 
+#. Time Picker
+#. set to time of alarm
+#. or set to current time plus 10
+#. Date Picker
+#. set date_picker to date of alarm
+#. Combo box
+#. repeat_combo_box = new ComboBoxText ();
 #: src/Dialogs/MultiSelectPopover.vala:99 src/Dialogs/NewAlarmDialog.vala:100
 msgid "Never"
 msgstr "Nunca"
 
-#: src/Dialogs/NewAlarmDialog.vala:120 src/Widgets/AlarmTimeWidget.vala:109
-msgid "Edit"
-msgstr "Editar"
+#: src/Dialogs/NewAlarmDialog.vala:120
+msgid "Save"
+msgstr "Guardar"
 
 #: src/Dialogs/NewAlarmDialog.vala:120
-msgid "Create"
+#, fuzzy
+msgid "Create Alarm"
 msgstr "Criar"
 
 #: src/Dialogs/NewAlarmDialog.vala:122
@@ -92,58 +102,69 @@ msgid "Title:"
 msgstr "Título:"
 
 #: src/Dialogs/NewAlarmDialog.vala:148
-msgid "Choose a time:"
-msgstr "Escolha a hora:"
+msgid "Time:"
+msgstr "Hora:"
 
 #: src/Dialogs/NewAlarmDialog.vala:153
-msgid "Choose a date:"
-msgstr "Escolha a data:"
+msgid "Date:"
+msgstr "Data:"
 
+#. label = new Label (_("Repeat:"));
+#. label.halign = Gtk.Align.END;
+#. main_grid.attach (label, 0, 3, 1, 1);
+#. main_grid.attach (repeat_combo_box, 1, 3, 1, 1);
 #: src/Dialogs/NewAlarmDialog.vala:163
 msgid "Repeat:"
 msgstr "Repetir:"
 
 #: src/Widgets/Alarm.vala:129
 msgid "Repeats "
-msgstr "Repetir "
+msgstr "Repetições "
 
 #: src/Widgets/Alarm.vala:129
 msgid ", Repeats "
-msgstr ", Repetir "
+msgstr ", Repetições "
 
-#: src/Widgets/AlarmTimeWidget.vala:77
+#. welcome screen
+#: src/Widgets/AlarmTimeWidget.vala:74
 msgid "No Alarms"
 msgstr "Nenhum Alarme"
 
-#: src/Widgets/AlarmTimeWidget.vala:77
-msgid "Click 'Add' to get started."
-msgstr "Clique 'Adicionar' para começar"
+#: src/Widgets/AlarmTimeWidget.vala:74
+msgid "Click the add icon in the toolbar below to get started."
+msgstr "Clique no ícone de adicionar na barra inferior para começar."
 
-#: src/Widgets/AlarmTimeWidget.vala:106
-msgid "Add"
-msgstr "Adicionar"
+#. action buttons
+#: src/Widgets/AlarmTimeWidget.vala:93
+msgid "Add…"
+msgstr "Adicionar…"
 
-#: src/Widgets/AlarmTimeWidget.vala:245
+#: src/Widgets/AlarmTimeWidget.vala:96
+#, fuzzy
+msgid "Edit…"
+msgstr "Editar"
+
+#: src/Widgets/AlarmTimeWidget.vala:258
 msgid "Alarm"
 msgstr "Alarme"
 
-#: src/Widgets/StopwatchTimeWidget.vala:92 src/Widgets/TimerTimeWidget.vala:95
+#: src/Widgets/StopwatchTimeWidget.vala:85 src/Widgets/TimerTimeWidget.vala:95
 msgid "Start"
 msgstr "Começar"
 
-#: src/Widgets/StopwatchTimeWidget.vala:95 src/Widgets/TimerTimeWidget.vala:118
+#: src/Widgets/StopwatchTimeWidget.vala:88 src/Widgets/TimerTimeWidget.vala:118
 msgid "Stop"
 msgstr "Parar"
 
-#: src/Widgets/StopwatchTimeWidget.vala:98
+#: src/Widgets/StopwatchTimeWidget.vala:91
 msgid "Reset"
-msgstr "Resetar"
+msgstr "Reiniciar"
 
-#: src/Widgets/StopwatchTimeWidget.vala:100
+#: src/Widgets/StopwatchTimeWidget.vala:93
 msgid "Lap"
 msgstr "Volta"
 
-#: src/Widgets/StopwatchTimeWidget.vala:116
+#: src/Widgets/StopwatchTimeWidget.vala:109
 msgid "Stopwatch"
 msgstr "Cronômetro"
 
@@ -166,11 +187,23 @@ msgstr ":"
 
 #: src/Widgets/TimerTimeWidget.vala:170
 msgid "Timer has ended!"
-msgstr "Contador terminou!"
+msgstr "Temporizador terminou!"
 
 #: src/Widgets/TimerTimeWidget.vala:215
 msgid "Timer"
-msgstr "Cronômetro"
+msgstr "Temporizador"
+
+#~ msgid "Choose a time:"
+#~ msgstr "Escolha a hora:"
+
+#~ msgid "Choose a date:"
+#~ msgstr "Escolha a data:"
+
+#~ msgid "Click 'Add' to get started."
+#~ msgstr "Clique 'Adicionar' para começar"
+
+#~ msgid "Add"
+#~ msgstr "Adicionar"
 
 #~ msgid "Sunday"
 #~ msgstr "Domingo"

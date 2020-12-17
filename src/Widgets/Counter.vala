@@ -28,16 +28,16 @@ namespace Hourglass.Widgets {
     public class Counter {
 
         public struct Time {
-            int hours;
-            int minutes;
-            int seconds;
-            int milliseconds;
+            int64 hours;
+            int64 minutes;
+            int64 seconds;
+            int64 milliseconds;
         }
 
-		private DateTime start_time;
-        private int current_time; // in milliseconds
-		private int limit;
-		private int last_time = 0; // in milliseconds
+        private DateTime start_time;
+        private int64 current_time; // in milliseconds
+        private int64 limit;
+        private int64 last_time = 0; // in milliseconds
         private Label time_label_w_milli; // with milliseconds
         private Label time_label_wo_milli; // without milliseconds
         private CountDirection direction;
@@ -63,7 +63,7 @@ namespace Hourglass.Widgets {
             update_label ();
         }
 
-        public Counter.with_time (CountDirection direction, int milliseconds, bool should_stay_open = false) {
+        public Counter.with_time (CountDirection direction, int64 milliseconds, bool should_stay_open = false) {
             time_label_w_milli = new Label ("");
             time_label_wo_milli = new Label ("");
             set_current_time (milliseconds);
@@ -73,7 +73,7 @@ namespace Hourglass.Widgets {
         }
 
         public void start () {
-			start_time = new DateTime.now_local ();
+            start_time = new DateTime.now_local ();
 
             if (timeout_id == 0) {
                 timeout_id = Timeout.add (time_step, tick);
@@ -83,7 +83,7 @@ namespace Hourglass.Widgets {
         }
 
         public void stop () {
-			last_time = current_time;
+            last_time = current_time;
             if (timeout_id != 0) {
                 Source.remove (timeout_id);
                 timeout_id = 0;
@@ -98,15 +98,15 @@ namespace Hourglass.Widgets {
         }
 
         private bool tick () {
-			var diff = (new DateTime.now_local ()).difference(start_time);
+            var diff = (new DateTime.now_local ()).difference (start_time);
 
-			if (direction == CountDirection.UP) {
-				current_time = (int)diff + last_time;
-			} else {
-				if (current_time >= 0) {
-					current_time = limit - (int)diff;
-				} else {
-					if (should_notify) {
+            if (direction == CountDirection.UP) {
+                current_time = (int64)diff + last_time;
+            } else {
+                if (current_time >= 0) {
+                    current_time = limit - (int64)diff;
+                } else {
+                    if (should_notify) {
                         try {
                             Hourglass.dbus_server.show_notification (notify_summary, notify_body);
                         } catch (GLib.IOError e) {
@@ -114,35 +114,35 @@ namespace Hourglass.Widgets {
                         } catch (GLib.DBusError e) {
                             error (e.message);
                         }
-					}
-					stop ();
-					on_end ();
-				}
-			}
+                    }
+                    stop ();
+                    on_end ();
+                }
+            }
 
             update_label ();
             on_tick (); // fire signal
             return true;
         }
 
-        public void set_current_time (int time) {
+        public void set_current_time (int64 time) {
             current_time = time;
-			last_time = 0;
+            last_time = 0;
             update_label ();
         }
 
-        public int get_current_time () {
+        public int64 get_current_time () {
             return current_time;
         }
 
-		public void set_limit (int time) {
-			limit = time;
-			current_time = time;
-		}
+        public void set_limit (int64 time) {
+            limit = time;
+            current_time = time;
+        }
 
-		public bool get_active () {
-			return this.current_time > 0;
-		}
+        public bool get_active () {
+            return this.current_time > 0;
+        }
 
         public void set_should_notify (bool b = true, string? summary = null, string? body = null) {
             should_notify = b;
@@ -174,29 +174,29 @@ namespace Hourglass.Widgets {
             return create_time_string (current_time, with_milli);
         }
 
-        public static string create_time_string (int alt_time, bool with_milli = true) {
+        public static string create_time_string (int64 alt_time, bool with_milli = true) {
             Time t = parse_seconds (alt_time);
             if (with_milli) {
                 if (t.hours == 0) {
-                    return "%02d:%02d:%02d".printf (t.minutes, t.seconds, t.milliseconds);
-                } return "%02d:%02d:%02d:%02d".printf (t.hours, t.minutes, t.seconds, t.milliseconds);
+                    return "%02llu:%02llu:%02llu".printf (t.minutes, t.seconds, t.milliseconds);
+                } return "%02llu:%02llu:%02llu:%02llu".printf (t.hours, t.minutes, t.seconds, t.milliseconds);
             } else {
                 if (t.hours == 0) {
-                    return "%02d:%02d".printf (t.minutes, t.seconds);
-                } return "%02d:%02d:%02d".printf (t.hours, t.minutes, t.seconds);
+                    return "%02llu:%02llu".printf (t.minutes, t.seconds);
+                } return "%02llu:%02llu:%02llu".printf (t.hours, t.minutes, t.seconds);
             }
         }
 
-        public static Time parse_seconds (int time) {
-			Time t = Time ();
-			t.hours = time / (int) TimeSpan.HOUR;
-			time %= (int) TimeSpan.HOUR;
-			t.minutes = time / (int) TimeSpan.MINUTE;
-			time %= (int) TimeSpan.MINUTE;
-			t.seconds = time / (int) TimeSpan.SECOND;
-			time %= (int) TimeSpan.SECOND;
-			t.milliseconds = time % ((int) TimeSpan.MILLISECOND / 10);
-			return t;
+        public static Time parse_seconds (int64 time) {
+            Time t = Time ();
+            t.hours = time / (int64) TimeSpan.HOUR;
+            time %= (int64) TimeSpan.HOUR;
+            t.minutes = time / (int64) TimeSpan.MINUTE;
+            time %= (int64) TimeSpan.MINUTE;
+            t.seconds = time / (int64) TimeSpan.SECOND;
+            time %= (int64) TimeSpan.SECOND;
+            t.milliseconds = time % ((int64) TimeSpan.MILLISECOND / 10);
+            return t;
         }
     }
 }

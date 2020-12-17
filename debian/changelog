@@ -1,3 +1,30 @@
+com.github.sgpthomas.hourglass (1.2.3) bionic; urgency=high
+
+  * StopWatch: Rewrite for efficiency and visibility
+  * Add :disabled pseudo-class to the .round-button class
+  * Fix a fatal regression that timer does not stop on 00:00:00
+  * Use icons for add/remove buttons
+
+ -- Ryo Nakano <ryonakaknock3@gmail.com>  Thu, 17 Sep 2020 12:03:19 +0900
+
+com.github.sgpthomas.hourglass (1.2.2) bionic; urgency=medium
+
+  * Update .desktop comment to be consistent with HIG (by @aljelly)
+  * Change shortened format of weekdays (by @NathanBnm)
+  * Improve look of create/edit alarm dialog
+  * Don't reset repeat setting on closing popover
+  * Fix DBus error at the first launch
+  * Fix notification icon is not set
+  * Fix left time shows unexpected values if set time is too big
+  * Improve saving window state
+  * Add French translation (by @NathanBnm)
+  * Update Spanish translation (by @CCaroV)
+  * Add Japanese translation
+  * Add Portuguese-Portugal translation (by @rottenpants466)
+  * Various l10n and coding improvements to the project thanks to @NathanBnm
+
+ -- Ryo Nakano <ryonakaknock3@gmail.com>  Sat, 12 Sep 2020 09:14:34 +0900
+
 com.github.sgpthomas.hourglass (1.2.1) bionic; urgency=medium
 
   * Fixed a regression that the app didn't run at the first time launch

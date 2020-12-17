@@ -27,7 +27,7 @@ namespace HourglassDaemon {
     public class HourglassAlarmDaemon : GLib.Application {
 
         public HourglassAlarmDaemon () {
-            Object (application_id: "com.github.sgpthomas.hourglass", flags: ApplicationFlags.NON_UNIQUE); 
+            Object (application_id: "com.github.sgpthomas.hourglass", flags: ApplicationFlags.NON_UNIQUE);
             set_inactivity_timeout (1000);
         }
 
@@ -41,7 +41,7 @@ namespace HourglassDaemon {
         }
 
         public override void startup () {
-            message ("Hourglass-Daemon started");
+            debug ("Hourglass-Daemon started");
             base.startup ();
 
             server = new HourglassServer ();
@@ -61,7 +61,7 @@ namespace HourglassDaemon {
         }
 
         public override void activate () {
-            message ("Daemon Activated");
+            debug ("Daemon Activated");
         }
 
         public override bool dbus_register (DBusConnection connection, string object_path) throws Error {
