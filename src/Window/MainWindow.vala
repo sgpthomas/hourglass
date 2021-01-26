@@ -34,6 +34,7 @@ public class Hourglass.Window.MainWindow : Hdy.Window {
         Hourglass.Services.StyleManager.add_stylesheet ("style/elements.css");
 
         var stack = new Gtk.Stack ();
+        stack.border_width = 12;
         stack.transition_type = Gtk.StackTransitionType.SLIDE_LEFT_RIGHT;
 
         //add time widgets
