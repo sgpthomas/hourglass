@@ -20,6 +20,7 @@ You'll need the following dependencies to build:
 * libcanberra-dev
 * libgranite-dev
 * libgtk-3-dev
+* libhandy-1-dev
 * libnotify-dev
 * meson
 * valac
