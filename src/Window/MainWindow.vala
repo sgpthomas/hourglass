@@ -17,7 +17,7 @@
 * with Hourglass. If not, see http://www.gnu.org/licenses/.
 */
 
-public class Hourglass.Window.MainWindow : Gtk.Window {
+public class Hourglass.Window.MainWindow : Hdy.Window {
     public signal void on_stack_change ();
 
     //time widgets
@@ -29,17 +29,11 @@ public class Hourglass.Window.MainWindow : Gtk.Window {
     }
 
     construct {
-        title = Constants.APP_NAME;
-        set_border_width (12);
-
         //initiate stylesheet
         Hourglass.Services.StyleManager.add_stylesheet ("style/text.css");
         Hourglass.Services.StyleManager.add_stylesheet ("style/elements.css");
 
         var stack = new Gtk.Stack ();
-        var stack_switcher = new Gtk.StackSwitcher ();
-        stack_switcher.stack = stack;
-        stack_switcher.halign = Gtk.Align.CENTER;
         stack.transition_type = Gtk.StackTransitionType.SLIDE_LEFT_RIGHT;
 
         //add time widgets
@@ -47,17 +41,29 @@ public class Hourglass.Window.MainWindow : Gtk.Window {
         widget_list += new Hourglass.Widgets.StopwatchTimeWidget (this);
         widget_list += new Hourglass.Widgets.TimerTimeWidget (this);
 
-        var headerbar = new Gtk.HeaderBar ();
-        headerbar.set_custom_title (stack_switcher);
-        headerbar.show_close_button = true;
-        this.set_titlebar (headerbar);
-
         //loop through time widgets
         foreach (Hourglass.Widgets.TimeWidget t in widget_list) {
             stack.add_titled (t, t.get_id (), t.get_name ());
         }
 
-        add (stack);
+        var view_switcher_bar = new Hdy.ViewSwitcherBar ();
+        view_switcher_bar.stack = stack;
+
+        var view_switcher_title = new Hdy.ViewSwitcherTitle ();
+        view_switcher_title.stack = stack;
+        view_switcher_title.title = Constants.APP_NAME;
+        view_switcher_title.bind_property ("title-visible", view_switcher_bar, "reveal", GLib.BindingFlags.SYNC_CREATE);
+
+        var headerbar = new Hdy.HeaderBar ();
+        headerbar.custom_title = view_switcher_title;
+        headerbar.show_close_button = true;
+
+        var main_box = new Gtk.Box (Gtk.Orientation.VERTICAL, 0);
+        main_box.add (headerbar);
+        main_box.add (stack);
+        main_box.add (view_switcher_bar);
+
+        add (main_box);
 
         show_all ();
 
