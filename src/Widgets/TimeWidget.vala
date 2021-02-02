@@ -24,6 +24,8 @@ namespace Hourglass.Widgets {
 
         public abstract string get_name ();
 
+        public abstract string get_icon_name ();
+
         public abstract bool keep_open ();
     }
 }

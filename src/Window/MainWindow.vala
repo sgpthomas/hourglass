@@ -44,7 +44,10 @@ public class Hourglass.Window.MainWindow : Hdy.Window {
 
         //loop through time widgets
         foreach (Hourglass.Widgets.TimeWidget t in widget_list) {
+            var val = Value (typeof (string));
+            val.set_string (t.get_icon_name ());
             stack.add_titled (t, t.get_id (), t.get_name ());
+            stack.child_set_property (t, "icon-name", val);
         }
 
         var view_switcher_bar = new Hdy.ViewSwitcherBar ();

@@ -265,6 +265,10 @@ namespace Hourglass.Widgets {
             return _("Alarm");
         }
 
+        public string get_icon_name () {
+            return "preferences-system-time";
+        }
+
         public bool keep_open () {
             return false;
         }

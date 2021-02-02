@@ -109,6 +109,10 @@ namespace Hourglass.Widgets {
             return _("Stopwatch");
         }
 
+        public string get_icon_name () {
+            return "emblem-default";
+        }
+
         public bool keep_open () {
             return counter.get_active ();
         }
