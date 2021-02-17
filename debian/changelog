@@ -1,3 +1,11 @@
+com.github.sgpthomas.hourglass (1.3.0) bionic; urgency=medium
+
+  * Move the delete button in the action bar
+  * Redesign app icons (big thanks to @Fatih20)
+  * Update Brazilian Portuguese translation (by @gfavaro)
+
+ -- Ryo Nakano <ryonakaknock3@gmail.com>  Wed, 17 Feb 2021 17:23:01 +0900
+
 com.github.sgpthomas.hourglass (1.2.3) bionic; urgency=high
 
   * StopWatch: Rewrite for efficiency and visibility
