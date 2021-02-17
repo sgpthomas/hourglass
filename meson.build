@@ -51,7 +51,7 @@ executable(
     dependencies: [
         dependency('gtk+-3.0', version: '>= 3.18'),
         dependency('gee-0.8'),
-        dependency('granite'),
+        dependency('granite', version: '>= 6.0.0'),
     ],
     install: true,
 )

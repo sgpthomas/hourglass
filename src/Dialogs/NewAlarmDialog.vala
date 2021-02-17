@@ -23,7 +23,7 @@ using Hourglass.Widgets;
 
 namespace Hourglass.Dialogs {
 
-    public class NewAlarmDialog : Gtk.Dialog {
+    public class NewAlarmDialog : Granite.Dialog {
 
         //Widgets
         private Entry title_entry;
@@ -36,7 +36,6 @@ namespace Hourglass.Dialogs {
         private int[] repeat_days;
 
         //buttons
-        private ButtonBox final_actions;
         private Button cancel_button;
         private Button create_alarm_button;
 
@@ -109,21 +108,13 @@ namespace Hourglass.Dialogs {
             repeat_combo_box.append ("sat", _("Every Saturday"));
             repeat_combo_box.set_active (0);*/
 
-            //final action button box
-            final_actions = new ButtonBox (Gtk.Orientation.HORIZONTAL);
-            final_actions.set_layout (Gtk.ButtonBoxStyle.END);
-            final_actions.spacing = 12;
-            final_actions.margin_top = 6;
+            cancel_button = (Button) add_button (_("Cancel"), Gtk.ResponseType.CANCEL);
 
-            var create_alarm_button_label = edit_alarm_enabled ? _("Save") : _("Create Alarm");
-
-            cancel_button = new Button.with_label (_("Cancel"));
-
-            create_alarm_button = new Button.with_label (create_alarm_button_label);
+            create_alarm_button = (Button) add_button (
+                edit_alarm_enabled ? _("Save") : _("Create Alarm"),
+                Gtk.ResponseType.YES
+            );
             create_alarm_button.get_style_context ().add_class ("green-button");
-
-            final_actions.pack_start (cancel_button);
-            final_actions.pack_start (create_alarm_button);
 
             //put everything into a grid
             var main_grid = new Grid ();
@@ -156,8 +147,6 @@ namespace Hourglass.Dialogs {
             label.halign = Gtk.Align.END;
             main_grid.attach (label, 0, 3, 1, 1);
             main_grid.attach (repeat_day_picker, 1, 3, 1, 1);
-
-            main_grid.attach (final_actions, 0, 4, 2, 1);
 
             //put the grid into the dialog
             get_content_area ().add (main_grid);
