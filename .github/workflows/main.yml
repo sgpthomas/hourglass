@@ -15,7 +15,7 @@ jobs:
     - name: Install Dependencies
       run: |
         apt update
-        apt install -y libcanberra-dev libnotify-dev
+        apt install -y libgranite-dev libcanberra-dev libnotify-dev
     - name: Build
       env:
         DESTDIR: out
