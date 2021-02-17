@@ -18,7 +18,7 @@
 #### Install From Source
 You'll need the following dependencies to build:
 * libcanberra-dev
-* libgranite-dev
+* libgranite-dev (>= 6.0.0)
 * libgtk-3-dev
 * libhandy-1-dev
 * libnotify-dev
