@@ -61,7 +61,6 @@ public class Hourglass.Window.MainWindow : Hdy.Window {
         var headerbar = new Hdy.HeaderBar ();
         headerbar.custom_title = view_switcher_title;
         headerbar.show_close_button = true;
-        headerbar.get_style_context ().add_class (Gtk.STYLE_CLASS_FLAT);
 
         var main_box = new Gtk.Box (Gtk.Orientation.VERTICAL, 0);
         main_box.add (headerbar);
