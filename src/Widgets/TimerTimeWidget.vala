@@ -214,6 +214,10 @@ namespace Hourglass.Widgets {
             return _("Timer");
         }
 
+        public string get_icon_name () {
+            return "tools-timer-symbolic";
+        }
+
         public bool keep_open () {
             return counter.get_active ();
         }
