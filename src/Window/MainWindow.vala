@@ -26,6 +26,9 @@ public class Hourglass.Window.MainWindow : Hdy.Window {
     private string last_visible;
 
     public MainWindow () {
+        Object (
+            title: Constants.APP_NAME
+        );
     }
 
     construct {
