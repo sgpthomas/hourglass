@@ -26,10 +26,12 @@ public class Hourglass.Window.MainWindow : Gtk.Window {
     private string last_visible;
 
     public MainWindow () {
+        Object (
+            title: Constants.APP_NAME
+        );
     }
 
     construct {
-        title = Constants.APP_NAME;
         set_border_width (12);
 
         //initiate stylesheet
