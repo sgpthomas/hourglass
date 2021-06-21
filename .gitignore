@@ -1,5 +1,2 @@
-working-dir
-hourglass.receipe
-build
-stats.py
-fix_copyright.py
+.flatpak-builder
+build-dir

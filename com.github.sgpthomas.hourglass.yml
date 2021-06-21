@@ -1,0 +1,30 @@
+app-id: com.github.sgpthomas.hourglass
+runtime: io.elementary.Platform
+runtime-version: 'daily'
+sdk: io.elementary.Sdk
+command: com.github.sgpthomas.hourglass
+finish-args:
+  - '--share=ipc'
+  - '--socket=wayland'
+  - '--socket=fallback-x11'
+
+  # DBus access
+  - '--own-name=com.github.sgpthomas.client'
+  - '--own-name=com.github.sgpthomas.hourglass'
+  - '--talk-name=org.freedesktop.Notifications'
+
+  - '--metadata=X-DConf=migrate-path=/com/github/sgpthomas/hourglass/'
+
+  # needed for perfers-color-scheme
+  - '--system-talk-name=org.freedesktop.Accounts'
+modules:
+  - name: libcanberra
+    buildsystem: autotools
+    sources:
+      - type: git
+        url: git://git.0pointer.de/libcanberra
+  - name: hourglass
+    buildsystem: meson
+    sources:
+      - type: dir
+        path: .
