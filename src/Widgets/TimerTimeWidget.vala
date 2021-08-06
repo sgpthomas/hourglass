@@ -215,7 +215,7 @@ namespace Hourglass.Widgets {
         }
 
         public string get_icon_name () {
-            return "tools-timer-symbolic";
+            return "view-timer-symbolic";
         }
 
         public bool keep_open () {

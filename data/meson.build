@@ -8,6 +8,11 @@ foreach i : icon_sizes
 endforeach
 
 install_data(
+    join_paths('icons', 'symbolic', 'view-timer-symbolic.svg'),
+    install_dir: join_paths(get_option('datadir'), 'icons', 'hicolor', 'symbolic', 'apps')
+)
+
+install_data(
     meson.project_name() + '.svg',
     install_dir: join_paths(get_option('datadir'), 'pixmaps')
 )
