@@ -16,161 +16,99 @@
 * with Hourglass. If not, see http://www.gnu.org/licenses/.
 */
 
-using Gtk;
-
 using Hourglass.Window;
 
-namespace Hourglass.Widgets {
-
-    public class StopwatchTimeWidget : TimeWidget {
-        public override string id {
-            get {
-                return "stopwatch";
-            }
+public class Hourglass.Widgets.StopwatchTimeWidget : TimeWidget {
+    public override string id {
+        get {
+            return "stopwatch";
         }
+    }
 
-        public override string display_name {
-            get {
-                return _("Stopwatch");
-            }
+    public override string display_name {
+        get {
+            return _("Stopwatch");
         }
+    }
 
-        public override bool should_keep_open {
-            get {
-                return counter.get_active ();
-            }
+    public override bool should_keep_open {
+        get {
+            return counter.get_active ();
         }
+    }
 
-        private MainWindow window;
+    public MainWindow window { get; construct; }
 
-        // countdown
-        private Counter counter;
+    private Counter counter;
+    private Gtk.ListBox lap_box;
+    private Gtk.Button start;
+    private Gtk.Button stop;
+    private Gtk.Button reset;
+    private Gtk.Button lap;
 
-        // lap log
-        private ScrolledWindow scrolled_window;
-        private ListBox lap_box;
-        private string[] lap_log;
+    private string[] lap_log = {};
+    private bool running = false;
 
-        // buttons
-        private Button start;
-        private Button stop;
-        private Button reset;
-        private Button lap;
+    public StopwatchTimeWidget (MainWindow window) {
+        Object (window: window);
+    }
 
-        // state
-        private bool running;
+    construct {
+        // add and configure counter
+        counter = new Counter (CountDirection.UP);
+        counter.set_label_class ("timer");
 
-        // constructor
-        public StopwatchTimeWidget (MainWindow window) {
-            running = false;
-            this.window = window;
+        // create scollable log
+        lap_box = new Gtk.ListBox ();
 
-            // create and add box to widget
-            create_layout ();
+        var scrolled_window = new Gtk.ScrolledWindow (null, null) {
+            vexpand = true,
+            shadow_type = Gtk.ShadowType.IN
+        };
+        scrolled_window.add (lap_box);
 
-            // connect signals
-            connect_signals ();
+        // create buttons
+        start = new Gtk.Button.with_label (_("Start"));
+        start.get_style_context ().add_class ("round-button");
+        start.get_style_context ().add_class ("green-button");
 
-            update ();
-        }
+        stop = new Gtk.Button.with_label (_("Stop"));
+        stop.get_style_context ().add_class ("round-button");
+        stop.get_style_context ().add_class ("red-button");
 
-        public void create_layout () {
-            // add and configure counter
-            counter = new Counter (CountDirection.UP);
-            counter.set_label_class ("timer");
-            this.pack_start (counter.get_label ());
+        reset = new Gtk.Button.with_label (_("Reset"));
+        reset.get_style_context ().add_class ("round-button");
 
-            // create scollable log
-            lap_log = {};
-            scrolled_window = new ScrolledWindow (null, null);
-            scrolled_window.vexpand = true;
+        lap = new Gtk.Button.with_label (_("Lap"));
+        lap.get_style_context ().add_class ("round-button");
 
-            lap_box = new ListBox ();
+        var button_box = new Gtk.ButtonBox (Gtk.Orientation.HORIZONTAL) {
+            layout_style = Gtk.ButtonBoxStyle.CENTER,
+            spacing = 6,
+            border_width = 12
+        };
+        button_box.add (start);
+        button_box.add (stop);
+        button_box.add (reset);
+        button_box.add (lap);
 
-            scrolled_window.add (lap_box);
-            scrolled_window.vexpand = true;
-            scrolled_window.shadow_type = Gtk.ShadowType.IN;
-            this.pack_start (scrolled_window);
+        pack_start (counter.get_label ());
+        pack_start (scrolled_window);
+        pack_start (button_box);
 
-            // create buttons
-            var button_box = new ButtonBox (Orientation.HORIZONTAL);
-            button_box.set_layout (Gtk.ButtonBoxStyle.CENTER);
-            button_box.set_spacing (6);
-            button_box.set_border_width (12);
-
-            start = new Button.with_label (_("Start"));
-            start.get_style_context ().add_class ("round-button");
-            start.get_style_context ().add_class ("green-button");
-            stop = new Button.with_label (_("Stop"));
-            stop.get_style_context ().add_class ("round-button");
-            stop.get_style_context ().add_class ("red-button");
-            reset = new Button.with_label (_("Reset"));
-            reset.get_style_context ().add_class ("round-button");
-            lap = new Button.with_label (_("Lap"));
-            lap.get_style_context ().add_class ("round-button");
-
-            button_box.add (start);
-            button_box.add (stop);
-            button_box.add (reset);
-            button_box.add (lap);
-
-            this.pack_start (button_box, true, true, 0);
-        }
-
-        public void update () {
-            //set visibility
-            if (running) {
-                start.hide ();
-                stop.show ();
-                reset.hide ();
-                lap.show ();
-            } else if (!running) {
-                start.show ();
-                stop.hide ();
-                reset.show ();
-                lap.hide ();
-            }
-
-            // set sensitivity
-            reset.sensitive = counter.get_current_time () == 0 ? false : true;
-        }
-
-        private void update_log () {
-            var num = lap_box.get_children ().length ();
-            var label = new Label ("%u: %s".printf (num + 1, lap_log[num]));
-            label.get_style_context ().add_class (Gtk.STYLE_CLASS_DIM_LABEL);
-            label.margin = 6;
-
-            var row = new ListBoxRow ();
-            row.add (label);
-
-            lap_box.insert (row, 0);
-
-            lap_box.show_all ();
-        }
-
-        private void connect_signals () {
-            start.clicked.connect (on_start_click);
-            stop.clicked.connect (on_stop_click);
-            reset.clicked.connect (on_reset_click);
-            lap.clicked.connect (on_lap_click);
-
-            window.on_stack_change.connect (update);
-        }
-
-        private void on_start_click () {
+        start.clicked.connect (() => {
             counter.start ();
             running = true;
             update ();
-        }
+        });
 
-        private void on_stop_click () {
+        stop.clicked.connect (() => {
             counter.stop ();
             running = false;
             update ();
-        }
+        });
 
-        private void on_reset_click () {
+        reset.clicked.connect (() => {
             counter.set_current_time (0);
             lap_log = {};
             foreach (var w in lap_box.get_children ()) {
@@ -178,13 +116,48 @@ namespace Hourglass.Widgets {
             }
 
             update ();
-        }
+        });
 
-        private void on_lap_click () {
+        lap.clicked.connect (() => {
             lap_log += counter.get_time_string ();
             update_log ();
             update ();
-        }
+        });
+
+        window.on_stack_change.connect (update);
+
+        update ();
     }
 
+    private void update () {
+        //set visibility
+        if (running) {
+            start.hide ();
+            stop.show ();
+            reset.hide ();
+            lap.show ();
+        } else if (!running) {
+            start.show ();
+            stop.hide ();
+            reset.show ();
+            lap.hide ();
+        }
+
+        reset.sensitive = (counter.get_current_time () != 0);
+    }
+
+    private void update_log () {
+        var num = lap_box.get_children ().length ();
+        var label = new Gtk.Label ("%u: %s".printf (num + 1, lap_log[num])) {
+            margin = 6
+        };
+        label.get_style_context ().add_class (Gtk.STYLE_CLASS_DIM_LABEL);
+
+        var row = new Gtk.ListBoxRow ();
+        row.add (label);
+
+        lap_box.insert (row, 0);
+
+        lap_box.show_all ();
+    }
 }
