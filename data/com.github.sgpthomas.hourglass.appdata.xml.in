@@ -10,7 +10,7 @@
 
   <description>
     <p>
-        Hourglass is a simple time keeping application that helps you easily set stopwatches, repeating alarms, and timers.
+      Hourglass is a simple time keeping application that helps you easily set stopwatches, repeating alarms, and timers.
     </p>
   </description>
 
@@ -59,7 +59,7 @@
     <content_attribute id="money-gambling">none</content_attribute>
   </content_rating>
 
-  <developer_name>Sam Thomas</developer_name>
+  <developer_name>Samuel Thomas</developer_name>
   <url type="homepage">https://github.com/sgpthomas/hourglass</url>
   <url type="bugtracker">https://github.com/sgpthomas/hourglass/issues</url>
   <url type="help">https://github.com/sgpthomas/hourglass/issues</url>
@@ -77,6 +77,18 @@
   </provides>
 
   <releases>
+    <release version="1.4.0" date="2021-08-12" urgency="medium">
+      <description>
+        <ul>
+          <li>Publish the app to the new AppCenter on elementary OS 6 with the Flatpak manifest</li>
+          <li>Respect an elementary OS-wide dark preference</li>
+          <li>Now you can close the window with the shortcut key Ctrl+Q, while the daemon stays running in the background</li>
+          <li>Fix unreadable font size in the Alarm view</li>
+          <li>Fix wrong OARS data</li>
+          <li>Update translations</li>
+        </ul>
+      </description>
+    </release>
     <release version="1.3.0" date="2021-02-17" urgency="medium">
       <description>
         <ul>
