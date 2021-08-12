@@ -84,12 +84,9 @@ public class Hourglass.Widgets.AlarmTimeWidget : TimeWidget {
         actionbar.add (edit_alarm_button);
         actionbar.add (delete_alarm_button);
 
-        var grid = new Gtk.Grid ();
-        grid.get_style_context ().add_class ("frame");
-        grid.attach (stack, 0, 0, 1, 1);
-        grid.attach (actionbar, 0, 1, 1, 1);
-
-        add (grid);
+        get_style_context ().add_class ("frame");
+        pack_start (stack);
+        pack_start (actionbar, false);
 
         list_box.row_selected.connect (update);
 
