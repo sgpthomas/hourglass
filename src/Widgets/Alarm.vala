@@ -42,29 +42,33 @@ public class Hourglass.Widgets.Alarm : Gtk.ListBoxRow {
 
         var days_label = new Gtk.Label (make_repeat_label ());
 
-        toggle = new Gtk.Switch ();
-        toggle.halign = Gtk.Align.END;
-        toggle.valign = Gtk.Align.CENTER;
+        toggle = new Gtk.Switch () {
+            halign = Gtk.Align.END,
+            valign = Gtk.Align.CENTER,
+            active = true
+        };
         toggle.notify["active"].connect (() => {
             state_toggled (toggle.active);
         });
 
-        var grid = new Gtk.Grid ();
-        grid.margin_start = 12;
-        grid.margin_end = 12;
-        grid.margin_top = 12;
-        grid.margin_bottom = 12;
-        grid.row_spacing = 6;
-        grid.column_spacing = 12;
+        var grid = new Gtk.Grid () {
+            row_spacing = 6,
+            column_spacing = 12
+        };
         grid.attach (time_label, 0, 0, 1, 1);
         grid.attach (name_label, 0, 1, 1, 1);
         grid.attach (days_label, 1, 0, 1, 2);
-        grid.attach (new Spacer.w_hexpand (), 2, 0, 1, 2);
-        grid.attach (toggle, 3, 0, 1, 2);
 
-        this.add (grid);
+        var box = new Gtk.Box (Gtk.Orientation.HORIZONTAL, 0) {
+            margin_start = 12,
+            margin_end = 12,
+            margin_top = 12,
+            margin_bottom = 12
+        };
+        box.pack_start (grid);
+        box.pack_end (toggle);
 
-        toggle.active = true;
+        add (box);
     }
 
     public void set_toggle (bool b) {

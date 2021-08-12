@@ -39,7 +39,6 @@ executable(
     'src/Widgets/Alarm.vala',
     'src/Widgets/AlarmTimeWidget.vala',
     'src/Widgets/Counter.vala',
-    'src/Widgets/Spacer.vala',
     'src/Widgets/StopwatchTimeWidget.vala',
     'src/Widgets/TimeSpinner.vala',
     'src/Widgets/TimeWidget.vala',
