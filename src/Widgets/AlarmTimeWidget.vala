@@ -24,7 +24,24 @@ using Granite.Widgets;
 
 namespace Hourglass.Widgets {
 
-    public class AlarmTimeWidget : Gtk.Box, TimeWidget {
+    public class AlarmTimeWidget : TimeWidget {
+        public override string id {
+            get {
+                return "alarm";
+            }
+        }
+
+        public override string display_name {
+            get {
+                return _("Alarm");
+            }
+        }
+
+        public override bool should_keep_open {
+            get {
+                return false;
+            }
+        }
 
         private MainWindow window;
 
@@ -51,8 +68,6 @@ namespace Hourglass.Widgets {
 
         // constructor
         public AlarmTimeWidget (MainWindow window) {
-            Object (orientation: Orientation.VERTICAL, spacing: 0);
-
             this.window = window;
 
             // setup ui
@@ -255,18 +270,6 @@ namespace Hourglass.Widgets {
             } else {
                 return 0;
             }
-        }
-
-        public string get_id () {
-            return "alarm";
-        }
-
-        public string get_name () {
-            return _("Alarm");
-        }
-
-        public bool keep_open () {
-            return false;
         }
     }
 

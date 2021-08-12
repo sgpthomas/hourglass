@@ -18,8 +18,25 @@
 
 using Hourglass.Widgets;
 
-public class Hourglass.Widgets.TimerTimeWidget : Gtk.Box, TimeWidget {
-    // counter
+public class Hourglass.Widgets.TimerTimeWidget : TimeWidget {
+    public override string id {
+        get {
+            return "timer";
+        }
+    }
+
+    public override string display_name {
+        get {
+            return _("Timer");
+        }
+    }
+
+    public override bool should_keep_open {
+        get {
+            return counter.get_active ();
+        }
+    }
+
     private Counter counter;
 
     // containers
@@ -32,11 +49,6 @@ public class Hourglass.Widgets.TimerTimeWidget : Gtk.Box, TimeWidget {
     private Gtk.Button start_timer_button;
     private Gtk.Button reset_timer_button;
     private Gtk.Button stop_timer_button;
-
-    // constructor
-    public TimerTimeWidget () {
-        Object (orientation: Gtk.Orientation.VERTICAL, spacing: 0);
-    }
 
     construct {
         // get current time from dconf
@@ -191,17 +203,5 @@ public class Hourglass.Widgets.TimerTimeWidget : Gtk.Box, TimeWidget {
 
         // update state
         Hourglass.saved.set_boolean ("timer-state", false);
-    }
-
-    public string get_id () {
-        return "timer";
-    }
-
-    public string get_name () {
-        return _("Timer");
-    }
-
-    public bool keep_open () {
-        return counter.get_active ();
     }
 }

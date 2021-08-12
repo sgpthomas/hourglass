@@ -22,7 +22,24 @@ using Hourglass.Window;
 
 namespace Hourglass.Widgets {
 
-    public class StopwatchTimeWidget : Gtk.Box, TimeWidget {
+    public class StopwatchTimeWidget : TimeWidget {
+        public override string id {
+            get {
+                return "stopwatch";
+            }
+        }
+
+        public override string display_name {
+            get {
+                return _("Stopwatch");
+            }
+        }
+
+        public override bool should_keep_open {
+            get {
+                return counter.get_active ();
+            }
+        }
 
         private MainWindow window;
 
@@ -45,7 +62,6 @@ namespace Hourglass.Widgets {
 
         // constructor
         public StopwatchTimeWidget (MainWindow window) {
-            Object (orientation: Orientation.VERTICAL, spacing: 0);
             running = false;
             this.window = window;
 
@@ -99,18 +115,6 @@ namespace Hourglass.Widgets {
             button_box.add (lap);
 
             this.pack_start (button_box, true, true, 0);
-        }
-
-        public string get_id () {
-            return "stopwatch";
-        }
-
-        public string get_name () {
-            return _("Stopwatch");
-        }
-
-        public bool keep_open () {
-            return counter.get_active ();
         }
 
         public void update () {

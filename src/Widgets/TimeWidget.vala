@@ -16,14 +16,12 @@
 * with Hourglass. If not, see http://www.gnu.org/licenses/.
 */
 
-namespace Hourglass.Widgets {
+public abstract class Hourglass.Widgets.TimeWidget : Gtk.Box {
+    public abstract string id { get; }
+    public abstract string display_name { get; }
+    public abstract bool should_keep_open { get; }
 
-    public interface TimeWidget : Gtk.Box {
-
-        public abstract string get_id ();
-
-        public abstract string get_name ();
-
-        public abstract bool keep_open ();
+    protected TimeWidget () {
+        Object (orientation: Gtk.Orientation.VERTICAL, spacing: 0);
     }
 }

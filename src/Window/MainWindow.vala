@@ -55,8 +55,8 @@ public class Hourglass.Window.MainWindow : Gtk.Window {
         this.set_titlebar (headerbar);
 
         //loop through time widgets
-        foreach (Hourglass.Widgets.TimeWidget t in widget_list) {
-            stack.add_titled (t, t.get_id (), t.get_name ());
+        foreach (Hourglass.Widgets.TimeWidget widget in widget_list) {
+            stack.add_titled (widget, widget.id, widget.display_name);
         }
 
         add (stack);
@@ -112,7 +112,7 @@ public class Hourglass.Window.MainWindow : Gtk.Window {
         Hourglass.saved.set_boolean ("is-maximized", is_maximized);
 
         var visible = (Hourglass.Widgets.TimeWidget) stack.get_visible_child ();
-        if (visible.keep_open ()) {
+        if (visible.should_keep_open) {
             Hourglass.window_open = false;
             iconify ();
             return false;
