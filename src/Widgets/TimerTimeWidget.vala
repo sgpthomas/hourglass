@@ -172,19 +172,19 @@ namespace Hourglass.Widgets {
             debug ("starting");
             counter.start ();
 
-            // update saved time
             counter.on_tick.connect (() => {
-                Hourglass.saved.set_int64 ("timer-time", counter.get_current_time () / 1000);
                 update ();
             });
 
             // when timer stops, turn timer state to false
             counter.on_stop.connect (() => {
+                Hourglass.saved.set_int64 ("timer-time", counter.get_current_time () / 1000);
                 Hourglass.saved.set_boolean ("timer-state", false);
             });
 
             // when counter ends
             counter.on_end.connect (() => {
+                Hourglass.saved.set_int64 ("timer-time", 0);
                 Hourglass.saved.set_boolean ("timer-state", false);
             });
 
