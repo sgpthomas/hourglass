@@ -50,7 +50,9 @@ public class Hourglass.Widgets.AlarmTimeWidget : TimeWidget {
 
     construct {
         // welcome screen
-        var no_alarm_screen = new Granite.Widgets.Welcome (_("No Alarms"), _("Click the add icon in the toolbar below to get started."));
+        var no_alarm_screen = new Granite.Widgets.Welcome (
+            _("No Alarms"), _("Click the add icon in the toolbar below to get started.")
+        );
 
         // alarm view
         list_box = new Gtk.ListBox ();
@@ -96,7 +98,7 @@ public class Hourglass.Widgets.AlarmTimeWidget : TimeWidget {
             new_alarm_dialog.create_alarm.connect ((alarm) => {
                 append_alarm (alarm);
             });
-            new_alarm_dialog.show_all ();    
+            new_alarm_dialog.show_all ();
         });
 
         edit_alarm_button.clicked.connect (edit_alarm_action);
