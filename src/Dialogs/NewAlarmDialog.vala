@@ -16,169 +16,143 @@
 * with Hourglass. If not, see http://www.gnu.org/licenses/.
 */
 
-using Gtk;
-
-using Granite.Widgets;
 using Hourglass.Widgets;
 
-namespace Hourglass.Dialogs {
+public class Hourglass.Dialogs.NewAlarmDialog : Granite.Dialog {
+    public signal void create_alarm (Alarm a);
+    public signal void edit_alarm (Alarm old_alarm, Alarm new_alarm);
 
-    public class NewAlarmDialog : Granite.Dialog {
+    public Alarm? alarm { get; construct; }
 
-        //Widgets
-        private Entry title_entry;
-        private TimePicker time_picker;
-        private DatePicker date_picker;
-        private Button repeat_day_picker;
+    private int[] repeat_days;
+    private bool is_existing_alarm = false;
 
-        //list of repeat days
-        private int[] repeat_days;
+    public NewAlarmDialog (Gtk.Window parent, Alarm? alarm = null) {
+        Object (
+            transient_for: parent,
+            alarm: alarm,
+            resizable: false,
+            deletable: false,
+            modal: true
+        );
+    }
 
-        //buttons
-        private Button cancel_button;
-        private Button create_alarm_button;
-
-        //should display edit alarm dialog instead
-        private bool edit_alarm_enabled = false;
-        private Alarm alarm;
-
-        //signals
-        public signal void create_alarm (Alarm a);
-        public signal void edit_alarm (Alarm old_alarm, Alarm new_alarm);
-
-        public NewAlarmDialog (Gtk.Window? parent, Alarm? alarm = null) {
-            //assign the dialog a parent if one is provided
-            if (parent != null) {
-                set_transient_for (parent);
-            }
-
-            //if alarm is given, change some setings
-            if (alarm != null) {
-                edit_alarm_enabled = true;
-                this.alarm = alarm;
-                repeat_days = alarm.repeat;
-            }
-
-            //some dialog settings
-            set_resizable (false);  //make dialog non-resizable
-            set_deletable (false);   //make dialog non-deletable
-            set_modal (true);
-
-            //setup ui
-            create_layout ();
-
-            //connect signals
-            connect_signals ();
+    construct {
+        if (alarm != null) {
+            is_existing_alarm = true;
+            repeat_days = alarm.repeat;
         }
 
-        private void create_layout () {
-            //Title Entry
-            title_entry = new Entry ();
-            if (edit_alarm_enabled) title_entry.text = alarm.title;
-            //if user tries to enter ';' stop them
-            title_entry.insert_text.connect ((new_text, new_text_length, ref pos) => {
-                if (";" in new_text) {
-                    GLib.Signal.stop_emission_by_name (title_entry, "insert-text");
-                }
+        var title_label = new Gtk.Label (_("Title:")) {
+            halign = Gtk.Align.END
+        };
+
+        var title_entry = new Gtk.Entry ();
+
+        var time_label = new Gtk.Label (_("Time:")) {
+            halign = Gtk.Align.END
+        };
+
+        var time_picker = new Granite.Widgets.TimePicker ();
+
+        var date_label = new Gtk.Label (_("Date:")) {
+            halign = Gtk.Align.END
+        };
+
+        var date_picker = new Granite.Widgets.DatePicker ();
+
+        var repeat_label = new Gtk.Label (_("Repeat:")) {
+            halign = Gtk.Align.END
+        };
+
+        string repeat_day_picker_label = _("Never"); // fallback string by default
+        var repeat_day_picker = new Gtk.Button.with_label (repeat_day_picker_label);
+        var popover = new MultiSelectPopover (repeat_day_picker, repeat_days);
+
+        var main_grid = new Gtk.Grid () {
+            row_spacing = 6,
+            column_spacing = 12,
+            margin_start = 12,
+            margin_end = 12
+        };
+
+        main_grid.attach (title_label, 0, 0, 1, 1);
+        main_grid.attach (title_entry, 1, 0, 1, 1);
+        main_grid.attach (time_label , 0, 1, 1, 1);
+        main_grid.attach (time_picker, 1, 1, 1, 1);
+        main_grid.attach (date_label, 0, 2, 1, 1);
+        main_grid.attach (date_picker, 1, 2, 1, 1);
+        main_grid.attach (repeat_label, 0, 3, 1, 1);
+        main_grid.attach (repeat_day_picker, 1, 3, 1, 1);
+
+        get_content_area ().add (main_grid);
+
+        var cancel_button = (Gtk.Button) add_button (_("Cancel"), Gtk.ResponseType.CANCEL);
+
+        var create_alarm_button = (Gtk.Button) add_button (
+            is_existing_alarm ? _("Save") : _("Create Alarm"),
+            Gtk.ResponseType.YES
+        );
+        create_alarm_button.get_style_context ().add_class ("green-button");
+
+        if (is_existing_alarm) {
+            title_entry.text = alarm.title;
+            time_picker.time = alarm.time;
+            date_picker.date = alarm.time;
+            repeat_day_picker_label = MultiSelectPopover.selected_to_string (repeat_days);
+        } else {
+            time_picker.time = new GLib.DateTime.now_local ().add_minutes (10);
+        }
+
+        //if user tries to enter ';' stop them
+        title_entry.insert_text.connect ((new_text, new_text_length, ref pos) => {
+            if (";" in new_text) {
+                GLib.Signal.stop_emission_by_name (title_entry, "insert-text");
+            }
+        });
+
+        repeat_day_picker.clicked.connect (() => {
+            popover.closed.connect (() => {
+                repeat_day_picker.label = popover.get_display_string ();
+                repeat_days = popover.get_selected ();
             });
 
-            //Time Picker
-            time_picker = new TimePicker ();
-            if (edit_alarm_enabled) time_picker.time = alarm.time; //set to time of alarm
-            else time_picker.time = new DateTime.now_local ().add_minutes (10); //or set to current time plus 10
+            popover.show_all ();
+        });
 
-            //Date Picker
-            date_picker = new DatePicker ();
-            if (edit_alarm_enabled) date_picker.date = alarm.time; //set date_picker to date of alarm
+        create_alarm_button.clicked.connect (() => {
+            string title = title_entry.get_text ();
+            if (title == "") {
+                title = _("Alarm");
+            }
 
-            //Repeat day Picker
-            var repeat_day_picker_label = edit_alarm_enabled ? MultiSelectPopover.selected_to_string (repeat_days) : _("Never");
-            repeat_day_picker = new Button.with_label (repeat_day_picker_label);
+            var date = date_picker.date;
+            var time = time_picker.time;
 
-            cancel_button = (Button) add_button (_("Cancel"), Gtk.ResponseType.CANCEL);
-
-            create_alarm_button = (Button) add_button (
-                edit_alarm_enabled ? _("Save") : _("Create Alarm"),
-                Gtk.ResponseType.YES
+            //create datetime with time of alalarm
+            var alarm_time = new GLib.DateTime.local (
+                date.get_year (), date.get_month (), date.get_day_of_month (),
+                time.get_hour (), time.get_minute (), time.get_second ()
             );
-            create_alarm_button.get_style_context ().add_class ("green-button");
 
-            //put everything into a grid
-            var main_grid = new Grid ();
-            main_grid.row_spacing = 6;
-            main_grid.column_spacing = 12;
-            main_grid.margin_start = 12;
-            main_grid.margin_end = 12;
+            Alarm new_alarm;
+            if (repeat_days.length > 0) {
+                new_alarm = new Alarm (alarm_time, title, repeat_days);
+            } else {
+                new_alarm = new Alarm (alarm_time, title);
+            }
 
-            var label = new Granite.HeaderLabel (_("Title:"));
-            label.halign = Gtk.Align.END;
-            main_grid.attach (label, 0, 0, 1, 1);
-            main_grid.attach (title_entry, 1, 0, 1, 1);
+            if (is_existing_alarm) {
+                edit_alarm (alarm, new_alarm);
+            } else {
+                create_alarm (new_alarm);
+            }
 
-            label = new Granite.HeaderLabel (_("Time:"));
-            label.halign = Gtk.Align.END;
-            main_grid.attach (label , 0, 1, 1, 1);
-            main_grid.attach (time_picker, 1, 1, 1, 1);
+            destroy ();
+        });
 
-            label = new Granite.HeaderLabel (_("Date:"));
-            label.halign = Gtk.Align.END;
-            main_grid.attach (label, 0, 2, 1, 1);
-            main_grid.attach (date_picker, 1, 2, 1, 1);
-
-            label = new Granite.HeaderLabel (_("Repeat:"));
-            label.halign = Gtk.Align.END;
-            main_grid.attach (label, 0, 3, 1, 1);
-            main_grid.attach (repeat_day_picker, 1, 3, 1, 1);
-
-            //put the grid into the dialog
-            get_content_area ().add (main_grid);
-        }
-
-        private void connect_signals () {
-            var popover = new MultiSelectPopover (repeat_day_picker, repeat_days);
-
-            repeat_day_picker.clicked.connect (() => {
-                popover.closed.connect (() => {
-                    repeat_day_picker.label = popover.get_display_string ();
-                    repeat_days = popover.get_selected ();
-                });
-
-                popover.show_all ();
-            });
-            //create alarm
-            create_alarm_button.clicked.connect (() => {
-                string title = title_entry.get_text ();
-                if (title == "") title = "Alarm";
-
-                var time = time_picker.time; //time in time picker plus today's date
-                //debug ("Time %i:%i", time.get_month (), time.get_day_of_month ());
-                var date = date_picker.date; //date set in datepicker
-                //debug ("Date %i:%i", date.get_month (), date.get_day_of_month ());
-
-                //create datetime with time of alalarm
-                var alarm_time = new DateTime.local (date.get_year (), date.get_month (), date.get_day_of_month (), time.get_hour (), time.get_minute (), time.get_second ());
-                //time = time.add_months (time.get_month () - date.get_month ()); //current month - set month
-                //time = time.add_days (time.get_day_of_month () - date.get_day_of_month ()); //current day - set day
-
-                Alarm a;
-                if (repeat_days.length > 0) {
-                    a = new Alarm (alarm_time, title, repeat_days);
-                } else {
-                    a = new Alarm (alarm_time, title);
-                }
-
-
-                if (edit_alarm_enabled) {
-                    edit_alarm (alarm, a);
-                } else {
-                    create_alarm (a);
-                }
-                this.destroy ();
-            });
-
-            cancel_button.clicked.connect (() => {
-                this.destroy ();
-            });
-        }
+        cancel_button.clicked.connect (() => {
+            destroy ();
+        });
     }
 }
