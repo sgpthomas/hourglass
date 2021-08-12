@@ -47,7 +47,7 @@ public class Hourglass.Window.MainWindow : Gtk.Window {
         //add time widgets
         widget_list += new Hourglass.Widgets.AlarmTimeWidget (this);
         widget_list += new Hourglass.Widgets.StopwatchTimeWidget (this);
-        widget_list += new Hourglass.Widgets.TimerTimeWidget (this);
+        widget_list += new Hourglass.Widgets.TimerTimeWidget ();
 
         var headerbar = new Gtk.HeaderBar ();
         headerbar.set_custom_title (stack_switcher);
