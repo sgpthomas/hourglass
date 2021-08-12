@@ -1,14 +1,14 @@
 # Japanese translations for extra package.
 # Copyright (C) 2020 THE extra'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the extra package.
-# Ryo Nakano <ryonakaknock3@gmail.com>, 2020.
+# Ryo Nakano <ryonakaknock3@gmail.com>, 2020-2021.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-06-16 17:31+0900\n"
-"PO-Revision-Date: 2020-06-16 17:43+0900\n"
+"POT-Creation-Date: 2021-08-12 14:32+0900\n"
+"PO-Revision-Date: 2021-08-12 14:52+0900\n"
 "Last-Translator: Ryo Nakano <ryonakaknock3@gmail.com>\n"
 "Language-Team: none\n"
 "Language: ja\n"
@@ -18,94 +18,216 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 
 #: data/com.github.sgpthomas.hourglass.desktop.in.in:4
-msgid "@APP_NAME@"
-msgstr "@APP_NAME@"
+#: data/com.github.sgpthomas.hourglass.appdata.xml.in:8
+msgid "Hourglass"
+msgstr "Hourglass"
 
 #: data/com.github.sgpthomas.hourglass.desktop.in.in:5
 msgid "Set alarms, timers, and stopwatches"
 msgstr "アラームやタイマー、ストップウォッチを使用します"
 
 #: data/com.github.sgpthomas.hourglass.desktop.in.in:6
-#: data/com.github.sgpthomas.hourglass.appdata.xml.in:26
+#: data/com.github.sgpthomas.hourglass.appdata.xml.in:27
 msgid "Timer"
 msgstr "タイマー"
 
 #: data/com.github.sgpthomas.hourglass.desktop.in.in:9
 #: data/com.github.sgpthomas.hourglass-daemon.desktop.in.in:7
-msgid "@ICON_NAME@"
-msgstr "@ICON_NAME@"
+msgid "@EXEC_NAME@"
+msgstr "@EXEC_NAME@"
 
 #: data/com.github.sgpthomas.hourglass.desktop.in.in:12
 msgid "Timer;Time;Clock;Hourglass;Alarm;"
 msgstr ""
-"Timer;Time;Clock;Hourglass;Alarm;タイマー;時間;タイム;時計;砂時計;アラー"
-"ム:目覚まし;"
+"Timer;Time;Clock;Hourglass;Alarm;タイマー;時間;タイム;時計;砂時計;アラーム:"
+"目覚まし;"
 
-#: data/com.github.sgpthomas.hourglass.appdata.xml.in:7
-msgid "Hourglass"
-msgstr "Hourglass"
-
-#: data/com.github.sgpthomas.hourglass.appdata.xml.in:8
+#: data/com.github.sgpthomas.hourglass.appdata.xml.in:9
 msgid ""
 "A simple clock application that provides stopwatches, alarms, and timers"
 msgstr ""
 "ストップウォッチ、アラーム、タイマー機能を提供する、シンプルな時計アプリ"
 
-#: data/com.github.sgpthomas.hourglass.appdata.xml.in:11
+#: data/com.github.sgpthomas.hourglass.appdata.xml.in:12
 msgid ""
 "Hourglass is a simple time keeping application that helps you easily set "
 "stopwatches, repeating alarms, and timers."
 msgstr ""
-"Hourglass は、ストップウォッチ、スヌーズ付きアラーム、タイマーを簡単に利"
-"用できる、シンプルな時間管理アプリです。"
+"Hourglass は、ストップウォッチ、スヌーズ付きアラーム、タイマーを簡単に利用で"
+"きる、シンプルな時間管理アプリです。"
 
-#: data/com.github.sgpthomas.hourglass.appdata.xml.in:18
+#: data/com.github.sgpthomas.hourglass.appdata.xml.in:19
 msgid "Alarm"
 msgstr "アラーム"
 
-#: data/com.github.sgpthomas.hourglass.appdata.xml.in:22
+#: data/com.github.sgpthomas.hourglass.appdata.xml.in:23
 msgid "Stopwatch"
 msgstr "ストップウォッチ"
 
-#: data/com.github.sgpthomas.hourglass.appdata.xml.in:31
-msgid "Sam Thomas"
-msgstr "Sam Thomas"
+#: data/com.github.sgpthomas.hourglass.appdata.xml.in:62
+msgid "Samuel Thomas"
+msgstr "Samuel Thomas"
 
-#: data/com.github.sgpthomas.hourglass.appdata.xml.in:51
+#: data/com.github.sgpthomas.hourglass.appdata.xml.in:83
+msgid ""
+"Publish the app to the new AppCenter on elementary OS 6 with the Flatpak "
+"manifest"
+msgstr ""
+
+#: data/com.github.sgpthomas.hourglass.appdata.xml.in:84
+msgid "Respect an elementary OS-wide dark preference"
+msgstr ""
+
+#: data/com.github.sgpthomas.hourglass.appdata.xml.in:85
+msgid ""
+"Now you can close the window with the shortcut key Ctrl+Q, while the daemon "
+"stays running in the background"
+msgstr ""
+
+#: data/com.github.sgpthomas.hourglass.appdata.xml.in:86
+msgid "Fix unreadable font size in the Alarm view"
+msgstr ""
+
+#: data/com.github.sgpthomas.hourglass.appdata.xml.in:87
+msgid "Fix wrong OARS data"
+msgstr ""
+
+#: data/com.github.sgpthomas.hourglass.appdata.xml.in:88
+msgid "Update translations"
+msgstr ""
+
+#: data/com.github.sgpthomas.hourglass.appdata.xml.in:95
+msgid "Move the delete button in the action bar"
+msgstr ""
+
+#: data/com.github.sgpthomas.hourglass.appdata.xml.in:96
+msgid "Redesign app icons (big thanks to @Fatih20)"
+msgstr ""
+
+#: data/com.github.sgpthomas.hourglass.appdata.xml.in:97
+msgid "Update Brazilian Portuguese translation (by @gfavaro)"
+msgstr ""
+
+#: data/com.github.sgpthomas.hourglass.appdata.xml.in:103
+msgid "Fixes:"
+msgstr ""
+
+#: data/com.github.sgpthomas.hourglass.appdata.xml.in:105
+msgid "Fix a fatal regression that timer does not stop on 00:00:00"
+msgstr ""
+
+#: data/com.github.sgpthomas.hourglass.appdata.xml.in:107
+msgid "Improvements:"
+msgstr ""
+
+#: data/com.github.sgpthomas.hourglass.appdata.xml.in:109
+msgid "StopWatch: Rewrite for efficiency and visibility"
+msgstr ""
+
+#: data/com.github.sgpthomas.hourglass.appdata.xml.in:110
+msgid "Add :disabled pseudo-class to the .round-button class"
+msgstr ""
+
+#: data/com.github.sgpthomas.hourglass.appdata.xml.in:111
+msgid "Use icons for add/remove buttons"
+msgstr ""
+
+#: data/com.github.sgpthomas.hourglass.appdata.xml.in:118
+msgid "Update .desktop comment to be consistent with HIG (by @aljelly)"
+msgstr ""
+
+#: data/com.github.sgpthomas.hourglass.appdata.xml.in:119
+msgid "Change shortened format of weekdays (by @NathanBnm)"
+msgstr ""
+
+#: data/com.github.sgpthomas.hourglass.appdata.xml.in:120
+msgid "Improve look of create/edit alarm dialog"
+msgstr ""
+
+#: data/com.github.sgpthomas.hourglass.appdata.xml.in:121
+msgid "Don't reset repeat setting on closing popover"
+msgstr ""
+
+#: data/com.github.sgpthomas.hourglass.appdata.xml.in:122
+msgid "Fix DBus error at the first launch"
+msgstr ""
+
+#: data/com.github.sgpthomas.hourglass.appdata.xml.in:123
+msgid "Fix notification icon is not set"
+msgstr ""
+
+#: data/com.github.sgpthomas.hourglass.appdata.xml.in:124
+msgid "Fix left time shows unexpected values if set time is too big"
+msgstr ""
+
+#: data/com.github.sgpthomas.hourglass.appdata.xml.in:125
+msgid "Improve saving window state"
+msgstr ""
+
+#: data/com.github.sgpthomas.hourglass.appdata.xml.in:127
+msgid "Translation updates:"
+msgstr ""
+
+#: data/com.github.sgpthomas.hourglass.appdata.xml.in:129
+msgid "Add French translation (by @NathanBnm)"
+msgstr ""
+
+#: data/com.github.sgpthomas.hourglass.appdata.xml.in:130
+msgid "Update Spanish translation (by @CCaroV)"
+msgstr ""
+
+#: data/com.github.sgpthomas.hourglass.appdata.xml.in:131
+msgid "Add Japanese translation"
+msgstr ""
+
+#: data/com.github.sgpthomas.hourglass.appdata.xml.in:132
+msgid "Add Portuguese-Portugal translation (by @rottenpants466)"
+msgstr ""
+
+#: data/com.github.sgpthomas.hourglass.appdata.xml.in:134
+msgid "Other updates:"
+msgstr ""
+
+#: data/com.github.sgpthomas.hourglass.appdata.xml.in:136
+msgid ""
+"Various l10n and coding improvements to the project thanks to @NathanBnm"
+msgstr ""
+
+#: data/com.github.sgpthomas.hourglass.appdata.xml.in:143
 msgid "Fixed a regression that the app didn't run at the first time launch"
 msgstr ""
 
-#: data/com.github.sgpthomas.hourglass.appdata.xml.in:52
+#: data/com.github.sgpthomas.hourglass.appdata.xml.in:144
 msgid "Revived and updated valid translation files"
 msgstr ""
 
-#: data/com.github.sgpthomas.hourglass.appdata.xml.in:59
+#: data/com.github.sgpthomas.hourglass.appdata.xml.in:151
 msgid "Fixed timer control influences other instances"
 msgstr ""
 
-#: data/com.github.sgpthomas.hourglass.appdata.xml.in:60
+#: data/com.github.sgpthomas.hourglass.appdata.xml.in:152
 msgid "Updated Lithuanian translation"
 msgstr ""
 
-#: data/com.github.sgpthomas.hourglass.appdata.xml.in:61
+#: data/com.github.sgpthomas.hourglass.appdata.xml.in:153
 msgid "Fixed timekeeping"
 msgstr ""
 
-#: data/com.github.sgpthomas.hourglass.appdata.xml.in:62
+#: data/com.github.sgpthomas.hourglass.appdata.xml.in:154
 msgid "Fixed what happens when the app closes and there is a timer running"
 msgstr ""
 
-#: data/com.github.sgpthomas.hourglass.appdata.xml.in:63
+#: data/com.github.sgpthomas.hourglass.appdata.xml.in:155
 msgid "Fixed the notification going off again when you open the app"
 msgstr ""
 
-#: data/com.github.sgpthomas.hourglass.appdata.xml.in:64
+#: data/com.github.sgpthomas.hourglass.appdata.xml.in:156
 msgid "Switched the build system from CMake to Meson"
 msgstr ""
 
 #: data/com.github.sgpthomas.hourglass-daemon.desktop.in.in:4
-msgid "@DAEMON_NAME@"
-msgstr "@DAEMON_NAME@"
+msgid "Hourglass Daemon"
+msgstr "Hourglass デーモン"
 
 #: data/com.github.sgpthomas.hourglass-daemon.desktop.in.in:5
 msgid "Daemon that deals with Hourglass's alarms."

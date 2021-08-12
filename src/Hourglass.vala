@@ -37,6 +37,10 @@ namespace Hourglass {
 
         construct {
             application_id = "com.github.sgpthomas.client";
+            GLib.Intl.setlocale (LocaleCategory.ALL, "");
+            GLib.Intl.bindtextdomain (GETTEXT_PACKAGE, LOCALEDIR);
+            GLib.Intl.bind_textdomain_codeset (GETTEXT_PACKAGE, "UTF-8");
+            GLib.Intl.textdomain (GETTEXT_PACKAGE);
         }
 
         static construct {

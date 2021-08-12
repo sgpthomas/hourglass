@@ -35,14 +35,12 @@ public class Hourglass.Widgets.Alarm : Gtk.ListBoxRow {
         this.repeat = repeat;
 
         var time_label = new Gtk.Label (get_time_string ());
-        time_label.get_style_context ().add_class ("alarm-time");
+        time_label.get_style_context ().add_class (Granite.STYLE_CLASS_H2_LABEL);
 
         var name_label = new Gtk.Label (title);
-        name_label.get_style_context ().add_class ("alarm-name");
+        name_label.get_style_context ().add_class (Gtk.STYLE_CLASS_DIM_LABEL);
 
         var days_label = new Gtk.Label (make_repeat_label ());
-        days_label.margin_start = 12;
-        days_label.get_style_context ().add_class ("alarm-days");
 
         toggle = new Gtk.Switch ();
         toggle.halign = Gtk.Align.END;
@@ -52,8 +50,12 @@ public class Hourglass.Widgets.Alarm : Gtk.ListBoxRow {
         });
 
         var grid = new Gtk.Grid ();
-        grid.margin_start = 6;
-        grid.margin_end = 6;
+        grid.margin_start = 12;
+        grid.margin_end = 12;
+        grid.margin_top = 12;
+        grid.margin_bottom = 12;
+        grid.row_spacing = 6;
+        grid.column_spacing = 12;
         grid.attach (time_label, 0, 0, 1, 1);
         grid.attach (name_label, 0, 1, 1, 1);
         grid.attach (days_label, 1, 0, 1, 2);

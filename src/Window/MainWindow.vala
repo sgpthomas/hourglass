@@ -20,14 +20,14 @@
 public class Hourglass.Window.MainWindow : Hdy.Window {
     public signal void on_stack_change ();
 
-    //time widgets
+    private Gtk.Stack stack;
     private Hourglass.Widgets.TimeWidget[] widget_list;
 
     private string last_visible;
 
     public MainWindow () {
         Object (
-            title: Constants.APP_NAME
+            title: _("Hourglass")
         );
     }
 
@@ -36,9 +36,13 @@ public class Hourglass.Window.MainWindow : Hdy.Window {
         Hourglass.Services.StyleManager.add_stylesheet ("style/text.css");
         Hourglass.Services.StyleManager.add_stylesheet ("style/elements.css");
 
-        var stack = new Gtk.Stack ();
+        stack = new Gtk.Stack ();
         stack.border_width = 12;
         stack.transition_type = Gtk.StackTransitionType.SLIDE_LEFT_RIGHT;
+
+        var stack_switcher = new Gtk.StackSwitcher ();
+        stack_switcher.stack = stack;
+        stack_switcher.halign = Gtk.Align.CENTER;
 
         //add time widgets
         widget_list += new Hourglass.Widgets.AlarmTimeWidget (this);
@@ -72,6 +76,16 @@ public class Hourglass.Window.MainWindow : Hdy.Window {
 
         add (main_box);
 
+        // Follow elementary OS-wide dark preference
+        var granite_settings = Granite.Settings.get_default ();
+        var gtk_settings = Gtk.Settings.get_default ();
+
+        gtk_settings.gtk_application_prefer_dark_theme = granite_settings.prefers_color_scheme == Granite.Settings.ColorScheme.DARK;
+
+        granite_settings.notify["prefers-color-scheme"].connect (() => {
+            gtk_settings.gtk_application_prefer_dark_theme = granite_settings.prefers_color_scheme == Granite.Settings.ColorScheme.DARK;
+        });
+
         show_all ();
 
         stack.notify.connect ((s, p) => {
@@ -85,28 +99,41 @@ public class Hourglass.Window.MainWindow : Hdy.Window {
             }
         });
 
-        // remove gtk loop on destroy window
         this.delete_event.connect (() => {
-            // save size of window on close
-            int window_width, window_height, window_x, window_y;
-            get_size (out window_width, out window_height);
-            get_position (out window_x, out window_y);
-            Hourglass.saved.set ("window-size", "(ii)", window_width, window_height);
-            Hourglass.saved.set ("window-position", "(ii)", window_x, window_y);
-            Hourglass.saved.set_boolean ("is-maximized", this.is_maximized);
-
-            var visible = (Hourglass.Widgets.TimeWidget) stack.get_visible_child ();
-            if (visible.keep_open ()) {
-                Hourglass.window_open = false;
-                this.iconify ();
-                return false;
-            } else {
-                Gtk.main_quit ();
-                return true;
-            }
-
+            on_delete ();
         });
 
         stack.visible_child_name = Hourglass.saved.get_string ("last-open-widget");
+    }
+
+    protected override bool key_press_event (Gdk.EventKey key) {
+        if (Gdk.ModifierType.CONTROL_MASK in key.state) {
+            switch (key.keyval) {
+                case Gdk.Key.q:
+                    on_delete ();
+                    break;
+            }
+        }
+
+        return Gdk.EVENT_PROPAGATE;
+    }
+
+    private bool on_delete () {
+        int window_width, window_height, window_x, window_y;
+        get_size (out window_width, out window_height);
+        get_position (out window_x, out window_y);
+        Hourglass.saved.set ("window-size", "(ii)", window_width, window_height);
+        Hourglass.saved.set ("window-position", "(ii)", window_x, window_y);
+        Hourglass.saved.set_boolean ("is-maximized", is_maximized);
+
+        var visible = (Hourglass.Widgets.TimeWidget) stack.get_visible_child ();
+        if (visible.keep_open ()) {
+            Hourglass.window_open = false;
+            iconify ();
+            return false;
+        } else {
+            Gtk.main_quit ();
+            return true;
+        }
     }
 }
