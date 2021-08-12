@@ -21,8 +21,7 @@ public abstract class Hourglass.Widgets.TimeWidget : Gtk.Box {
     public abstract string display_name { get; }
     public abstract bool should_keep_open { get; }
 
-    construct {
-        orientation = Gtk.Orientation.VERTICAL;
-        spacing = 0;
+    protected TimeWidget () {
+        Object (orientation: Gtk.Orientation.VERTICAL, spacing: 0);
     }
 }
