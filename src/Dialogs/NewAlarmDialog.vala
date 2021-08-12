@@ -25,7 +25,6 @@ public class Hourglass.Dialogs.NewAlarmDialog : Granite.Dialog {
     public Alarm? alarm { get; construct; }
 
     private int[] repeat_days;
-    //should display edit alarm dialog instead
     private bool is_existing_alarm = false;
 
     public NewAlarmDialog (Gtk.Window parent, Alarm? alarm = null) {
