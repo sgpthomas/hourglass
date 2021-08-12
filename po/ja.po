@@ -1,14 +1,14 @@
 # Japanese translations for com.github.sgpthomas.hourglass package.
 # Copyright (C) 2020 THE com.github.sgpthomas.hourglass'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the com.github.sgpthomas.hourglass package.
-# Ryo Nakano <ryonakaknock3@gmail.com>, 2020.
+# Ryo Nakano <ryonakaknock3@gmail.com>, 2020-2021.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: com.github.sgpthomas.hourglass\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-08-12 14:32+0900\n"
-"PO-Revision-Date: 2020-06-16 17:36+0900\n"
+"PO-Revision-Date: 2021-08-12 14:51+0900\n"
 "Last-Translator: Ryo Nakano <ryonakaknock3@gmail.com>\n"
 "Language-Team: none\n"
 "Language: ja\n"
@@ -110,16 +110,15 @@ msgstr "アラームがありません"
 
 #: src/Widgets/AlarmTimeWidget.vala:75
 msgid "Click the add icon in the toolbar below to get started."
-msgstr ""
+msgstr "以下のツールバーにある追加アイコンをクリックしてください。"
 
 #: src/Widgets/AlarmTimeWidget.vala:94
 msgid "Add…"
-msgstr ""
+msgstr "追加…"
 
 #: src/Widgets/AlarmTimeWidget.vala:97
-#, fuzzy
 msgid "Edit…"
-msgstr "編集"
+msgstr "編集…"
 
 #: src/Widgets/AlarmTimeWidget.vala:100
 msgid "Delete"
@@ -175,12 +174,5 @@ msgid "Timer"
 msgstr "タイマー"
 
 #: src/Window/MainWindow.vala:30
-#, fuzzy
 msgid "Hourglass"
-msgstr "時間"
-
-#~ msgid "Click 'Add' to get started."
-#~ msgstr "開始するには '追加' をクリックしてください。"
-
-#~ msgid "Add"
-#~ msgstr "追加"
+msgstr "Hourglass"

@@ -1,14 +1,14 @@
 # Japanese translations for extra package.
 # Copyright (C) 2020 THE extra'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the extra package.
-# Ryo Nakano <ryonakaknock3@gmail.com>, 2020.
+# Ryo Nakano <ryonakaknock3@gmail.com>, 2020-2021.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-08-12 14:32+0900\n"
-"PO-Revision-Date: 2020-06-16 17:43+0900\n"
+"PO-Revision-Date: 2021-08-12 14:52+0900\n"
 "Last-Translator: Ryo Nakano <ryonakaknock3@gmail.com>\n"
 "Language-Team: none\n"
 "Language: ja\n"
@@ -33,15 +33,14 @@ msgstr "タイマー"
 
 #: data/com.github.sgpthomas.hourglass.desktop.in.in:9
 #: data/com.github.sgpthomas.hourglass-daemon.desktop.in.in:7
-#, fuzzy
 msgid "@EXEC_NAME@"
-msgstr "@ICON_NAME@"
+msgstr "@EXEC_NAME@"
 
 #: data/com.github.sgpthomas.hourglass.desktop.in.in:12
 msgid "Timer;Time;Clock;Hourglass;Alarm;"
 msgstr ""
-"Timer;Time;Clock;Hourglass;Alarm;タイマー;時間;タイム;時計;砂時計;アラーム:目"
-"覚まし;"
+"Timer;Time;Clock;Hourglass;Alarm;タイマー;時間;タイム;時計;砂時計;アラーム:"
+"目覚まし;"
 
 #: data/com.github.sgpthomas.hourglass.appdata.xml.in:9
 msgid ""
@@ -66,9 +65,8 @@ msgid "Stopwatch"
 msgstr "ストップウォッチ"
 
 #: data/com.github.sgpthomas.hourglass.appdata.xml.in:62
-#, fuzzy
 msgid "Samuel Thomas"
-msgstr "Sam Thomas"
+msgstr "Samuel Thomas"
 
 #: data/com.github.sgpthomas.hourglass.appdata.xml.in:83
 msgid ""
@@ -228,16 +226,9 @@ msgid "Switched the build system from CMake to Meson"
 msgstr ""
 
 #: data/com.github.sgpthomas.hourglass-daemon.desktop.in.in:4
-#, fuzzy
 msgid "Hourglass Daemon"
-msgstr "Hourglass"
+msgstr "Hourglass デーモン"
 
 #: data/com.github.sgpthomas.hourglass-daemon.desktop.in.in:5
 msgid "Daemon that deals with Hourglass's alarms."
 msgstr "Hourglass のアラームを管理するデーモンです。"
-
-#~ msgid "@APP_NAME@"
-#~ msgstr "@APP_NAME@"
-
-#~ msgid "@DAEMON_NAME@"
-#~ msgstr "@DAEMON_NAME@"
