@@ -30,7 +30,6 @@ namespace Hourglass.Dialogs {
         private TimePicker time_picker;
         private DatePicker date_picker;
         private Button repeat_day_picker;
-        //private ComboBoxText repeat_combo_box;
 
         //list of repeat days
         private int[] repeat_days;
@@ -92,21 +91,9 @@ namespace Hourglass.Dialogs {
             date_picker = new DatePicker ();
             if (edit_alarm_enabled) date_picker.date = alarm.time; //set date_picker to date of alarm
 
-            //Combo box
-            //repeat_combo_box = new ComboBoxText ();
+            //Repeat day Picker
             var repeat_day_picker_label = edit_alarm_enabled ? MultiSelectPopover.selected_to_string (repeat_days) : _("Never");
             repeat_day_picker = new Button.with_label (repeat_day_picker_label);
-
-            //create model for combo box
-            /*repeat_combo_box.append ("nev", _("Never"));
-            repeat_combo_box.append ("sun", _("Every Sunday"));
-            repeat_combo_box.append ("mon", _("Every Monday"));
-            repeat_combo_box.append ("tue", _("Every Tueday"));
-            repeat_combo_box.append ("wed", _("Every Wednesday"));
-            repeat_combo_box.append ("thur", _("Every Thursday"));
-            repeat_combo_box.append ("fri", _("Every Friday"));
-            repeat_combo_box.append ("sat", _("Every Saturday"));
-            repeat_combo_box.set_active (0);*/
 
             cancel_button = (Button) add_button (_("Cancel"), Gtk.ResponseType.CANCEL);
 
@@ -138,11 +125,6 @@ namespace Hourglass.Dialogs {
             main_grid.attach (label, 0, 2, 1, 1);
             main_grid.attach (date_picker, 1, 2, 1, 1);
 
-            /*label = new Label (_("Repeat:"));
-            label.halign = Gtk.Align.END;
-            main_grid.attach (label, 0, 3, 1, 1);
-            main_grid.attach (repeat_combo_box, 1, 3, 1, 1);*/
-
             label = new Granite.HeaderLabel (_("Repeat:"));
             label.halign = Gtk.Align.END;
             main_grid.attach (label, 0, 3, 1, 1);
@@ -156,13 +138,6 @@ namespace Hourglass.Dialogs {
             var popover = new MultiSelectPopover (repeat_day_picker, repeat_days);
 
             repeat_day_picker.clicked.connect (() => {
-                //var dialog = new MultiSelectDialog (this, repeat_days);
-                //dialog.show_all ();
-
-                /*dialog.on_finish.connect ((selected, str) => {
-                    repeat_day_picker.label = str;
-                    repeat_days = selected;
-                });*/
                 popover.closed.connect (() => {
                     repeat_day_picker.label = popover.get_display_string ();
                     repeat_days = popover.get_selected ();
