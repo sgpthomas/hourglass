@@ -30,6 +30,7 @@ public class Hourglass.Widgets.TimerTimeWidget : Gtk.Box, TimeWidget {
     private TimeSpinner min_chooser;
     private TimeSpinner sec_chooser;
     private Gtk.Button start_timer_button;
+    private Gtk.Button reset_timer_button;
     private Gtk.Button stop_timer_button;
 
     // constructor
@@ -60,6 +61,9 @@ public class Hourglass.Widgets.TimerTimeWidget : Gtk.Box, TimeWidget {
         start_timer_button.get_style_context ().add_class ("round-button");
         start_timer_button.get_style_context ().add_class ("green-button");
 
+        reset_timer_button = new Gtk.Button.with_label (_("Reset"));
+        reset_timer_button.get_style_context ().add_class ("round-button");
+
         // chooser grid
         var chooser_grid = new Gtk.Grid () {
             halign = Gtk.Align.CENTER,
@@ -72,6 +76,7 @@ public class Hourglass.Widgets.TimerTimeWidget : Gtk.Box, TimeWidget {
         chooser_grid.attach (new Gtk.Label (":"), 3, 0, 1, 1);
         chooser_grid.attach (sec_chooser, 4, 0, 1, 1);
         chooser_grid.attach (start_timer_button, 0, 1, 5, 1);
+        chooser_grid.attach (reset_timer_button, 0, 2, 5, 1);
 
         // configure counter
         counter = new Counter (CountDirection.DOWN);
@@ -117,6 +122,8 @@ public class Hourglass.Widgets.TimerTimeWidget : Gtk.Box, TimeWidget {
 
         start_timer_button.clicked.connect (start_timer);
 
+        reset_timer_button.clicked.connect (clear_timer);
+
         stop_timer_button.clicked.connect (stop_timer);
 
         counter.on_end.connect (stop_timer);
@@ -130,8 +137,10 @@ public class Hourglass.Widgets.TimerTimeWidget : Gtk.Box, TimeWidget {
     }
 
     private void update () {
-        // set sensitivity of the start button
-        start_timer_button.sensitive = !(sec_chooser.get_value () == 0 && min_chooser.get_value () == 0 && hour_chooser.get_value () == 0);
+        // set sensitivity of the start button and clear button
+        bool is_timer_non_zero = !(sec_chooser.get_value () == 0 && min_chooser.get_value () == 0 && hour_chooser.get_value () == 0);
+        start_timer_button.sensitive = is_timer_non_zero;
+        reset_timer_button.sensitive = is_timer_non_zero;
     }
 
     private void start_timer () {
@@ -162,6 +171,12 @@ public class Hourglass.Widgets.TimerTimeWidget : Gtk.Box, TimeWidget {
 
         // update state
         Hourglass.saved.set_boolean ("timer-state", true);
+    }
+
+    private void clear_timer () {
+        sec_chooser.value = 0;
+        min_chooser.value = 0;
+        hour_chooser.value = 0;
     }
 
     private void stop_timer () {
