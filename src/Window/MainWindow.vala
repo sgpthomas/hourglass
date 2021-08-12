@@ -62,7 +62,7 @@ public class Hourglass.Window.MainWindow : Hdy.Window {
 
         var view_switcher_title = new Hdy.ViewSwitcherTitle ();
         view_switcher_title.stack = stack;
-        view_switcher_title.title = Constants.APP_NAME;
+        view_switcher_title.title = _("Hourglass");
         view_switcher_title.bind_property ("title-visible", view_switcher_bar, "reveal", GLib.BindingFlags.SYNC_CREATE);
 
         var headerbar = new Hdy.HeaderBar ();
