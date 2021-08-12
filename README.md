@@ -1,21 +1,19 @@
 # Hourglass
-### A simple time keeping application designed for elementary OS
-##### Author: Sam Thomas <sgpthomas@gmail.com>
+Hourglass is a simple time keeping application designed for elementary OS.
+
+Author: [Samuel Thomas](https://github.com/sgpthomas) \<sgpthomas@gmail.com\>
+
 ![](data/screenshots/alarm.png)
 ![](data/screenshots/stopwatch.png)
 ![](data/screenshots/timer.png)
 
--------------------------------------------
-### Current Features
- * Alarms
- * Stopwatch
- * Timer
+## Installation
+### For Users
+On elementary OS? Click the button to get Hourglass on AppCenter:
 
--------------------------------------------
-### Installation
-<a href="https://appcenter.elementary.io/com.github.sgpthomas.hourglass"><img alt="Get it on the AppCenter" src="https://appcenter.elementary.io/badge.svg"></a>
+[![Get it on AppCenter](https://appcenter.elementary.io/badge.svg)](https://appcenter.elementary.io/com.github.sgpthomas.hourglass)
 
-#### Install From Source
+### For Developers
 You'll need the following dependencies to build:
 * libcanberra-dev
 * libgranite-dev (>= 6.0.0)
@@ -32,8 +30,5 @@ Run `meson build` to configure the build environment and then change to the buil
 
 To install, use `ninja install`, then execute with `com.github.sgpthomas.hourglass`
 
-    sudo ninja install
+    ninja install
     com.github.sgpthomas.hourglass
-
--------------------------------------------
-### Planned Features
