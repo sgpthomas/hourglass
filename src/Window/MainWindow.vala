@@ -27,7 +27,7 @@ public class Hourglass.Window.MainWindow : Gtk.Window {
 
     public MainWindow () {
         Object (
-            title: Constants.APP_NAME
+            title: _("Hourglass")
         );
     }
 
