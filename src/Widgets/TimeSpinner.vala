@@ -16,33 +16,31 @@
 * with Hourglass. If not, see http://www.gnu.org/licenses/.
 */
 
-using Gtk;
+public class Hourglass.Widgets.TimeSpinner : Gtk.SpinButton {
+    public int limit { get; construct; }
 
-namespace Hourglass.Widgets {
+    public TimeSpinner (int limit) {
+        Object (
+            limit: limit,
+            orientation: Gtk.Orientation.VERTICAL,
+            wrap: true,
+            numeric: true
+        );
+    }
 
-    public class TimeSpinner : Gtk.SpinButton {
+    construct {
+        var adj = new Gtk.Adjustment (0, 0, limit, 1, 0, 0);
+        configure (adj, 1, 0);
 
-        public TimeSpinner (int limit) {
-            // set adjustment of the time spinner
-            var adj = new Adjustment (0, 0, limit, 1, 0, 0);
-            this.configure (adj, 1, 0);
-            this.set_numeric (true);
+        get_style_context ().add_class ("time-spinner");
 
-            // set the orientation of the spin button
-            this.orientation = Orientation.VERTICAL;
-            this.wrap = true;
-            this.get_style_context ().add_class ("time-spinner"); // add some $tyle
+        output.connect (() => {
+            if (value < 10) {
+                text = "0%i".printf ((int) value);
+                return true;
+            }
 
-            this.output.connect (() => {
-                var val = this.get_value ();
-                if (val < 10) {
-                    this.set_text ("0" + val.to_string ());
-                    return true;
-                } else {
-                    return false;
-                }
-
-            });
-        }
+            return false;
+        });
     }
 }
