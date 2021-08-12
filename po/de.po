@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: com.github.sgpthomas.hourglass\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-09-17 12:00+0900\n"
+"POT-Creation-Date: 2021-08-12 14:32+0900\n"
 "PO-Revision-Date: 2020-05-01 16:18+0200\n"
 "Last-Translator: Marijo Mustac\n"
 "Language-Team: none\n"
@@ -17,7 +17,6 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#. check buttons
 #: src/Dialogs/MultiSelectPopover.vala:32
 #: src/Dialogs/MultiSelectPopover.vala:83
 #, fuzzy
@@ -68,83 +67,70 @@ msgstr "Jeder Wochentag"
 msgid "Every Weekend"
 msgstr "Jedes Wochenende"
 
-#. Time Picker
-#. set to time of alarm
-#. or set to current time plus 10
-#. Date Picker
-#. set date_picker to date of alarm
-#. Combo box
-#. repeat_combo_box = new ComboBoxText ();
-#: src/Dialogs/MultiSelectPopover.vala:99 src/Dialogs/NewAlarmDialog.vala:100
+#: src/Dialogs/MultiSelectPopover.vala:99 src/Dialogs/NewAlarmDialog.vala:95
 msgid "Never"
 msgstr "Nie"
 
-#: src/Dialogs/NewAlarmDialog.vala:120
+#: src/Dialogs/NewAlarmDialog.vala:98
+msgid "Cancel"
+msgstr "Abbrechen"
+
+#: src/Dialogs/NewAlarmDialog.vala:101
 msgid "Save"
 msgstr ""
 
-#: src/Dialogs/NewAlarmDialog.vala:120
+#: src/Dialogs/NewAlarmDialog.vala:101
 #, fuzzy
 msgid "Create Alarm"
 msgstr "Erstellen"
 
-#: src/Dialogs/NewAlarmDialog.vala:122
-msgid "Cancel"
-msgstr "Abbrechen"
-
-#: src/Dialogs/NewAlarmDialog.vala:124
-msgid "Delete"
-msgstr "Löschen"
-
-#: src/Dialogs/NewAlarmDialog.vala:143
+#: src/Dialogs/NewAlarmDialog.vala:113
 msgid "Title:"
 msgstr "Titel:"
 
-#: src/Dialogs/NewAlarmDialog.vala:148
+#: src/Dialogs/NewAlarmDialog.vala:118
 #, fuzzy
 msgid "Time:"
 msgstr "Zeitmesser"
 
-#: src/Dialogs/NewAlarmDialog.vala:153
+#: src/Dialogs/NewAlarmDialog.vala:123
 msgid "Date:"
 msgstr ""
 
-#. label = new Label (_("Repeat:"));
-#. label.halign = Gtk.Align.END;
-#. main_grid.attach (label, 0, 3, 1, 1);
-#. main_grid.attach (repeat_combo_box, 1, 3, 1, 1);
-#: src/Dialogs/NewAlarmDialog.vala:163
+#: src/Dialogs/NewAlarmDialog.vala:128
 msgid "Repeat:"
 msgstr "Wiederholungen:"
 
-#: src/Widgets/Alarm.vala:129
+#: src/Widgets/Alarm.vala:124
 msgid "Repeats "
 msgstr "Wiederholt "
 
-#: src/Widgets/Alarm.vala:129
+#: src/Widgets/Alarm.vala:124
 msgid ", Repeats "
 msgstr ", wiederholt "
 
-#. welcome screen
-#: src/Widgets/AlarmTimeWidget.vala:74
+#: src/Widgets/AlarmTimeWidget.vala:75
 msgid "No Alarms"
 msgstr "Kein Alarm vorhanden"
 
-#: src/Widgets/AlarmTimeWidget.vala:74
+#: src/Widgets/AlarmTimeWidget.vala:75
 msgid "Click the add icon in the toolbar below to get started."
 msgstr ""
 
-#. action buttons
-#: src/Widgets/AlarmTimeWidget.vala:93
+#: src/Widgets/AlarmTimeWidget.vala:94
 msgid "Add…"
 msgstr ""
 
-#: src/Widgets/AlarmTimeWidget.vala:96
+#: src/Widgets/AlarmTimeWidget.vala:97
 #, fuzzy
 msgid "Edit…"
 msgstr "Bearbeiten"
 
-#: src/Widgets/AlarmTimeWidget.vala:258
+#: src/Widgets/AlarmTimeWidget.vala:100
+msgid "Delete"
+msgstr "Löschen"
+
+#: src/Widgets/AlarmTimeWidget.vala:265
 msgid "Alarm"
 msgstr "Alarm"
 
@@ -189,9 +175,14 @@ msgstr ":"
 msgid "Timer has ended!"
 msgstr "Zeitmesser ist abgelaufen!"
 
-#: src/Widgets/TimerTimeWidget.vala:215
+#: src/Widgets/TimerTimeWidget.vala:214
 msgid "Timer"
 msgstr "Zeitmesser"
+
+#: src/Window/MainWindow.vala:30
+#, fuzzy
+msgid "Hourglass"
+msgstr "Stunden"
 
 #~ msgid "Choose a time:"
 #~ msgstr "Uhrzeit wählen:"

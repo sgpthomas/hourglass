@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: com.github.sgpthomas.hourglass\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-09-17 12:00+0900\n"
+"POT-Creation-Date: 2021-08-12 14:32+0900\n"
 "PO-Revision-Date: 2020-06-16 17:36+0900\n"
 "Last-Translator: Ryo Nakano <ryonakaknock3@gmail.com>\n"
 "Language-Team: none\n"
@@ -17,7 +17,6 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
-#. check buttons
 #: src/Dialogs/MultiSelectPopover.vala:32
 #: src/Dialogs/MultiSelectPopover.vala:83
 msgid "Sun"
@@ -65,81 +64,68 @@ msgstr "平日"
 msgid "Every Weekend"
 msgstr "土日"
 
-#. Time Picker
-#. set to time of alarm
-#. or set to current time plus 10
-#. Date Picker
-#. set date_picker to date of alarm
-#. Combo box
-#. repeat_combo_box = new ComboBoxText ();
-#: src/Dialogs/MultiSelectPopover.vala:99 src/Dialogs/NewAlarmDialog.vala:100
+#: src/Dialogs/MultiSelectPopover.vala:99 src/Dialogs/NewAlarmDialog.vala:95
 msgid "Never"
 msgstr "繰り返さない"
 
-#: src/Dialogs/NewAlarmDialog.vala:120
-msgid "Save"
-msgstr "保存"
-
-#: src/Dialogs/NewAlarmDialog.vala:120
-msgid "Create Alarm"
-msgstr "アラームを作成"
-
-#: src/Dialogs/NewAlarmDialog.vala:122
+#: src/Dialogs/NewAlarmDialog.vala:98
 msgid "Cancel"
 msgstr "キャンセル"
 
-#: src/Dialogs/NewAlarmDialog.vala:124
-msgid "Delete"
-msgstr "削除"
+#: src/Dialogs/NewAlarmDialog.vala:101
+msgid "Save"
+msgstr "保存"
 
-#: src/Dialogs/NewAlarmDialog.vala:143
+#: src/Dialogs/NewAlarmDialog.vala:101
+msgid "Create Alarm"
+msgstr "アラームを作成"
+
+#: src/Dialogs/NewAlarmDialog.vala:113
 msgid "Title:"
 msgstr "タイトル:"
 
-#: src/Dialogs/NewAlarmDialog.vala:148
+#: src/Dialogs/NewAlarmDialog.vala:118
 msgid "Time:"
 msgstr "時刻:"
 
-#: src/Dialogs/NewAlarmDialog.vala:153
+#: src/Dialogs/NewAlarmDialog.vala:123
 msgid "Date:"
 msgstr "日付:"
 
-#. label = new Label (_("Repeat:"));
-#. label.halign = Gtk.Align.END;
-#. main_grid.attach (label, 0, 3, 1, 1);
-#. main_grid.attach (repeat_combo_box, 1, 3, 1, 1);
-#: src/Dialogs/NewAlarmDialog.vala:163
+#: src/Dialogs/NewAlarmDialog.vala:128
 msgid "Repeat:"
 msgstr "繰り返し:"
 
-#: src/Widgets/Alarm.vala:129
+#: src/Widgets/Alarm.vala:124
 msgid "Repeats "
 msgstr "繰り返し: "
 
-#: src/Widgets/Alarm.vala:129
+#: src/Widgets/Alarm.vala:124
 msgid ", Repeats "
 msgstr "、繰り返し: "
 
-#. welcome screen
-#: src/Widgets/AlarmTimeWidget.vala:74
+#: src/Widgets/AlarmTimeWidget.vala:75
 msgid "No Alarms"
 msgstr "アラームがありません"
 
-#: src/Widgets/AlarmTimeWidget.vala:74
+#: src/Widgets/AlarmTimeWidget.vala:75
 msgid "Click the add icon in the toolbar below to get started."
 msgstr ""
 
-#. action buttons
-#: src/Widgets/AlarmTimeWidget.vala:93
+#: src/Widgets/AlarmTimeWidget.vala:94
 msgid "Add…"
 msgstr ""
 
-#: src/Widgets/AlarmTimeWidget.vala:96
+#: src/Widgets/AlarmTimeWidget.vala:97
 #, fuzzy
 msgid "Edit…"
 msgstr "編集"
 
-#: src/Widgets/AlarmTimeWidget.vala:258
+#: src/Widgets/AlarmTimeWidget.vala:100
+msgid "Delete"
+msgstr "削除"
+
+#: src/Widgets/AlarmTimeWidget.vala:265
 msgid "Alarm"
 msgstr "アラーム"
 
@@ -184,9 +170,14 @@ msgstr ":"
 msgid "Timer has ended!"
 msgstr "タイマーが終了しました！"
 
-#: src/Widgets/TimerTimeWidget.vala:215
+#: src/Widgets/TimerTimeWidget.vala:214
 msgid "Timer"
 msgstr "タイマー"
+
+#: src/Window/MainWindow.vala:30
+#, fuzzy
+msgid "Hourglass"
+msgstr "時間"
 
 #~ msgid "Click 'Add' to get started."
 #~ msgstr "開始するには '追加' をクリックしてください。"
