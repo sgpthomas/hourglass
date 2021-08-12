@@ -170,9 +170,9 @@ public class Hourglass.Widgets.TimerTimeWidget : Gtk.Box, TimeWidget {
         counter.set_should_notify (false);
 
         var time = Counter.parse_seconds (counter.get_current_time ()); // get time from counter
-        sec_chooser.value = time.seconds; // get second value from time and update spinner vale
-        min_chooser.value = time.minutes; // get minute value from time and update spinner vale
-        hour_chooser.value = time.hours; // get hour value from time and update spinner vale
+        sec_chooser.value = time.seconds; // get second value from time and update spinner value
+        min_chooser.value = time.minutes; // get minute value from time and update spinner value
+        hour_chooser.value = time.hours; // get hour value from time and update spinner value
 
         // update state
         Hourglass.saved.set_boolean ("timer-state", false);
