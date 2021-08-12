@@ -1,11 +1,11 @@
 [Desktop Entry]
 Type=Application
-Name=@APP_NAME@
+Name=Hourglass
 Comment=Set alarms, timers, and stopwatches
 GenericName=Timer
 StartupWMClass=@EXEC_NAME@
 Exec=@EXEC_NAME@
-Icon=@ICON_NAME@
+Icon=@EXEC_NAME@
 Terminal=false
 Categories=GNOME;GTK;Utility;
 Keywords=Timer;Time;Clock;Hourglass;Alarm;
