@@ -94,7 +94,7 @@ public class Hourglass.Window.MainWindow : Gtk.Window {
             if (Gdk.ModifierType.CONTROL_MASK in key.state && key.keyval == Gdk.Key.q) {
                 on_delete ();
             }
-    
+
             return false;
         });
 
