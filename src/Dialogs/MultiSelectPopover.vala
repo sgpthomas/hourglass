@@ -50,14 +50,14 @@ public class Hourglass.Dialogs.MultiSelectPopover : Gtk.Popover {
     }
 
     public int[] get_selected () {
-        int[] selected = {};
+        selected_days = {};
         for (int i = 0; i < toggles.length; i++) {
             if (toggles[i].active) {
-                selected += i;
+                selected_days += i;
             }
         }
 
-        return selected;
+        return selected_days;
     }
 
     public string get_display_string () {
