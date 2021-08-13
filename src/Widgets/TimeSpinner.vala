@@ -32,7 +32,7 @@ public class Hourglass.Widgets.TimeSpinner : Gtk.SpinButton {
         var adj = new Gtk.Adjustment (0, 0, limit, 1, 0, 0);
         configure (adj, 1, 0);
 
-        get_style_context ().add_class ("time-spinner");
+        get_style_context ().add_class ("timer");
 
         output.connect (() => {
             if (value < 10) {

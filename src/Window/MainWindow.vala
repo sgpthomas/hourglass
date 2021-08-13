@@ -34,9 +34,11 @@ public class Hourglass.Window.MainWindow : Gtk.Window {
     construct {
         set_border_width (12);
 
-        //initiate stylesheet
-        Hourglass.Services.StyleManager.add_stylesheet ("style/text.css");
-        Hourglass.Services.StyleManager.add_stylesheet ("style/elements.css");
+        var cssprovider = new Gtk.CssProvider ();
+        cssprovider.load_from_resource ("/com/github/sgpthomas/hourglass/Application.css");
+        Gtk.StyleContext.add_provider_for_screen (Gdk.Screen.get_default (),
+                                                    cssprovider,
+                                                    Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION);
 
         stack = new Gtk.Stack ();
         var stack_switcher = new Gtk.StackSwitcher ();
