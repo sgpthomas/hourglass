@@ -75,58 +75,30 @@ public class Hourglass.Widgets.Alarm : Gtk.ListBoxRow {
         toggle.active = b;
     }
 
-    public bool is_now () {
-        var now = new DateTime.now_local ();
-        bool same_day = time.get_day_of_month () == now.get_day_of_month ();
-        bool same_month = time.get_month () == now.get_month ();
-        bool same_hour = time.get_hour () == now.get_hour ();
-        bool same_min = time.get_minute () == now.get_minute ();
+    private string get_time_string () {
+        var system_time_format = new GLib.Settings ("org.gnome.desktop.interface");
 
-        if (same_day && same_month && same_hour && same_min) {
-            return true;
-        }
+        var time_format = Granite.DateTime.get_default_time_format (
+            system_time_format.get_enum ("clock-format") == 1, false
+        );
 
-        return false;
-    }
-
-    public string get_time_string () {
-        var str = "";
-        if (Hourglass.system_time_format.get_string ("clock-format") == "12h") {
-            if (time.get_hour () < 13) {
-                if (time.get_minute () < 10) {
-                    str = "%i:0%i am".printf (time.get_hour (), time.get_minute ());
-                } else {
-                    str = "%i:%i am".printf (time.get_hour (), time.get_minute ());
-                }
-            } else {
-                if (time.get_minute () < 10) {
-                    str = "%i:0%i pm".printf (time.get_hour () - 12, time.get_minute ());
-                } else {
-                    str = "%i:%i pm".printf (time.get_hour () - 12, time.get_minute ());
-                }
-            }
-        } else {
-            if (time.get_minute () < 10) {
-                str = "%i:0%i".printf (time.get_hour (), time.get_minute ());
-            } else {
-                str = "%i:%i".printf (time.get_hour (), time.get_minute ());
-            }
-        }
-
-        return str;
+        return time.format (time_format);
     }
 
     private string make_repeat_label () {
         var str = "";
 
         var comp = new DateTime.now_local ();
-        if (time.get_day_of_month () != comp.get_day_of_month () || time.get_month () != comp.get_month ()) {
-            str += "%i/%i ".printf (time.get_month (), time.get_day_of_month ());
+        if (!Granite.DateTime.is_same_day (time, comp)) {
+            str += Granite.DateTime.get_relative_datetime (time);
         }
 
         if (repeat.length > 0) {
-            str += str == "" ? _("Repeats ") : _(", Repeats ");
-            str += Dialogs.MultiSelectPopover.selected_to_string (repeat);
+            if (str == "") {
+                str += _("Repeats: %s").printf (Dialogs.MultiSelectPopover.selected_to_string (repeat));
+            } else {
+                str += _(", Repeats: %s").printf (Dialogs.MultiSelectPopover.selected_to_string (repeat));
+            }
         }
 
         return str;
@@ -219,7 +191,6 @@ public class Hourglass.Widgets.Alarm : Gtk.ListBoxRow {
         }
 
         return a;
-
     }
 
     public static bool is_valid_alarm_string (string alarm_string) {
