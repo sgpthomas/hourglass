@@ -120,13 +120,16 @@ public class Hourglass.Widgets.Alarm : Gtk.ListBoxRow {
         var str = "";
 
         var comp = new DateTime.now_local ();
-        if (time.get_day_of_month () != comp.get_day_of_month () || time.get_month () != comp.get_month ()) {
-            str += "%i/%i ".printf (time.get_month (), time.get_day_of_month ());
+        if (!Granite.DateTime.is_same_day (time, comp)) {
+            str += Granite.DateTime.get_relative_datetime (time);
         }
 
         if (repeat.length > 0) {
-            str += str == "" ? _("Repeats ") : _(", Repeats ");
-            str += Dialogs.MultiSelectPopover.selected_to_string (repeat);
+            if (str == "") {
+                str += _("Repeats: %s").printf (Dialogs.MultiSelectPopover.selected_to_string (repeat));
+            } else {
+                str += _(", Repeats: %s").printf (Dialogs.MultiSelectPopover.selected_to_string (repeat));
+            }
         }
 
         return str;
@@ -219,7 +222,6 @@ public class Hourglass.Widgets.Alarm : Gtk.ListBoxRow {
         }
 
         return a;
-
     }
 
     public static bool is_valid_alarm_string (string alarm_string) {
