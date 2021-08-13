@@ -65,19 +65,18 @@ public class Hourglass.Dialogs.NewAlarmDialog : Granite.Dialog {
             halign = Gtk.Align.END
         };
 
-        string repeat_day_picker_label;
+        var repeat_day_picker = new Gtk.Button ();
+        var popover = new MultiSelectPopover (repeat_day_picker, repeat_days);
+
         if (is_existing_alarm) {
             title_entry.text = alarm.title;
             time_picker.time = alarm.time;
             date_picker.date = alarm.time;
-            repeat_day_picker_label = MultiSelectPopover.selected_to_string (repeat_days);
+            repeat_day_picker.label = popover.get_display_string ();
         } else {
             time_picker.time = new GLib.DateTime.now_local ().add_minutes (10);
-            repeat_day_picker_label = _("Never");
+            repeat_day_picker.label = _("Never");
         }
-
-        var repeat_day_picker = new Gtk.Button.with_label (repeat_day_picker_label);
-        var popover = new MultiSelectPopover (repeat_day_picker, repeat_days);
 
         var main_grid = new Gtk.Grid () {
             row_spacing = 6,
@@ -113,12 +112,13 @@ public class Hourglass.Dialogs.NewAlarmDialog : Granite.Dialog {
         });
 
         repeat_day_picker.clicked.connect (() => {
-            popover.closed.connect (() => {
-                repeat_day_picker.label = popover.get_display_string ();
-                repeat_days = popover.get_selected ();
-            });
-
+            popover.set_selected ();
             popover.show_all ();
+        });
+
+        popover.closed.connect (() => {
+            repeat_days = popover.get_selected ();
+            repeat_day_picker.label = popover.get_display_string ();
         });
 
         create_alarm_button.clicked.connect (() => {
