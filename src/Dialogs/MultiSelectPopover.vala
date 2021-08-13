@@ -16,89 +16,82 @@
 * with Hourglass. If not, see http://www.gnu.org/licenses/.
 */
 
-using Gtk;
+public class Hourglass.Dialogs.MultiSelectPopover : Gtk.Popover {
+    private Gtk.ToggleButton[] toggles;
 
-using Hourglass.Widgets;
+    private int[]? selected_days;
+    private string[] shortened_days = {
+        _("Sun"), _("Mon"), _("Tue"), _("Wed"), _("Thu"), _("Fri"), _("Sat")
+    };
 
-namespace Hourglass.Dialogs {
+    public MultiSelectPopover (Gtk.Widget parent, int[]? selected_days = null) {
+        Object (
+            relative_to: parent,
+            modal: true
+        );
 
-    public class MultiSelectPopover : Gtk.Popover {
+        this.selected_days = selected_days;
+    }
 
-        private Gtk.Box box;
+    construct {
+        var box = new Gtk.Box (Gtk.Orientation.HORIZONTAL, 0) {
+            border_width = 6
+        };
+        box.get_style_context ().add_class ("linked");
 
-        // check buttons
-        private Gtk.ToggleButton[] toggles;
-
-        private string[] shortened_days = {_("Sun"), _("Mon"), _("Tue"), _("Wed"), _("Thu"), _("Fri"), _("Sat")};
-
-        // selected
-        private int[] selected;
-
-        public signal void on_finish (int[] selected, string display_string);
-
-        public MultiSelectPopover (Gtk.Widget parent, int[]? selected = null) {
-            this.set_relative_to (parent);
-
-            set_modal (true);
-
-            this.selected = selected;
-
-            // create layout
-            create_layout ();
+        foreach (string day in shortened_days) {
+            var toggle = new Gtk.ToggleButton.with_label (day);
+            box.add (toggle);
+            toggles += toggle;
         }
 
-        private void create_layout () {
-            box = new Gtk.Box (Gtk.Orientation.HORIZONTAL, 0);
-            box.border_width = 6;
-            box.get_style_context ().add_class ("linked");
+        box.show_all ();
+        add (box);
+    }
 
-            foreach (string s in shortened_days) {
-                var tb = new Gtk.ToggleButton.with_label (s);
-                box.add (tb);
-                toggles += tb;
+    public int[] get_selected () {
+        selected_days = {};
+        for (int i = 0; i < toggles.length; i++) {
+            if (toggles[i].active) {
+                selected_days += i;
             }
-
-            box.show_all ();
-            this.add (box);
         }
 
-        public int[] get_selected () {
-            selected = {};
-            for (int i = 0; i < toggles.length; i++) {
-                if (toggles[i].active == true) {
-                   selected += i;
+        return selected_days;
+    }
+
+    public string get_display_string () {
+        return selected_to_string (selected_days);
+    }
+
+    public static string selected_to_string (int[] selected_days) {
+        string[] shortened_days = {
+            _("Sun"), _("Mon"), _("Tue"), _("Wed"), _("Thu"), _("Fri"), _("Sat")
+        };
+
+        string str = "";
+        if (selected_days.length == 7) {
+            str = _("Every Day");
+        } else if (selected_days.length == 5 && !(0 in selected_days) && !(6 in selected_days)) {
+            str = _("Every Weekday");
+        } else if (selected_days.length == 2 && (0 in selected_days) && (6 in selected_days)) {
+            str = _("Every Weekend");
+        } else if (selected_days.length > 0) {
+            int i = 0;
+            foreach (int day in selected_days) {
+                if (i == selected_days.length - 1) {
+                    str += shortened_days[day];
+                } else {
+                    ///TRANSLATORS: %s represents translated string of a day of the week
+                    str += _("%s, ").printf (shortened_days[day]);
                 }
+
+                i++;
             }
-
-            return selected;
+        } else {
+            str = _("Never");
         }
 
-        public string get_display_string () {
-            get_selected ();
-            return selected_to_string (selected);
-
-        }
-
-        public static string selected_to_string (int[] sel) {
-            string[] shortened_days = {_("Sun"), _("Mon"), _("Tue"), _("Wed"), _("Thu"), _("Fri"), _("Sat")};
-
-            var str = "";
-
-            if (sel.length == 7) {
-                str = _("Every Day");
-            } else if (sel.length == 5 && !(0 in sel) && !(6 in sel)) {
-                str = _("Every Weekday");
-            } else if (sel.length == 2 && (0 in sel) && (6 in sel)) {
-                str = _("Every Weekend");
-            } else if (sel.length > 0) {
-                foreach (int i in sel) {
-                    str += shortened_days[i];
-                    str += " ";
-                }
-            } else {
-                str = _("Never");
-            }
-            return str;
-        }
+        return str;
     }
 }
