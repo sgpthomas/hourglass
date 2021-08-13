@@ -86,23 +86,19 @@ public class Hourglass.Window.MainWindow : Gtk.Window {
             }
         });
 
-        this.delete_event.connect (() => {
+        delete_event.connect (() => {
             on_delete ();
         });
 
-        stack.visible_child_name = Hourglass.saved.get_string ("last-open-widget");
-    }
-
-    protected override bool key_press_event (Gdk.EventKey key) {
-        if (Gdk.ModifierType.CONTROL_MASK in key.state) {
-            switch (key.keyval) {
-                case Gdk.Key.q:
-                    on_delete ();
-                    break;
+        key_press_event.connect ((key) => {
+            if (Gdk.ModifierType.CONTROL_MASK in key.state && key.keyval == Gdk.Key.q) {
+                on_delete ();
             }
-        }
+    
+            return false;
+        });
 
-        return Gdk.EVENT_PROPAGATE;
+        stack.visible_child_name = Hourglass.saved.get_string ("last-open-widget");
     }
 
     private bool on_delete () {
