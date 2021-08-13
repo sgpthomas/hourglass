@@ -65,7 +65,17 @@ public class Hourglass.Dialogs.NewAlarmDialog : Granite.Dialog {
             halign = Gtk.Align.END
         };
 
-        string repeat_day_picker_label = _("Never"); // fallback string by default
+        string repeat_day_picker_label;
+        if (is_existing_alarm) {
+            title_entry.text = alarm.title;
+            time_picker.time = alarm.time;
+            date_picker.date = alarm.time;
+            repeat_day_picker_label = MultiSelectPopover.selected_to_string (repeat_days);
+        } else {
+            time_picker.time = new GLib.DateTime.now_local ().add_minutes (10);
+            repeat_day_picker_label = _("Never");
+        }
+
         var repeat_day_picker = new Gtk.Button.with_label (repeat_day_picker_label);
         var popover = new MultiSelectPopover (repeat_day_picker, repeat_days);
 
@@ -94,15 +104,6 @@ public class Hourglass.Dialogs.NewAlarmDialog : Granite.Dialog {
             Gtk.ResponseType.YES
         );
         create_alarm_button.get_style_context ().add_class ("green-button");
-
-        if (is_existing_alarm) {
-            title_entry.text = alarm.title;
-            time_picker.time = alarm.time;
-            date_picker.date = alarm.time;
-            repeat_day_picker_label = MultiSelectPopover.selected_to_string (repeat_days);
-        } else {
-            time_picker.time = new GLib.DateTime.now_local ().add_minutes (10);
-        }
 
         //if user tries to enter ';' stop them
         title_entry.insert_text.connect ((new_text, new_text_length, ref pos) => {
