@@ -35,7 +35,7 @@ public class Hourglass.Window.MainWindow : Gtk.Window {
         set_border_width (12);
 
         var cssprovider = new Gtk.CssProvider ();
-        cssprovider.load_from_resource ("/com/github/sgpthomas/hourglass/style/elements.css");
+        cssprovider.load_from_resource ("/com/github/sgpthomas/hourglass/Application.css");
         Gtk.StyleContext.add_provider_for_screen (Gdk.Screen.get_default (),
                                                     cssprovider,
                                                     Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION);
