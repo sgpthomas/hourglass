@@ -16,18 +16,14 @@
 * with Hourglass. If not, see http://www.gnu.org/licenses/.
 */
 
-using Gtk;
+public abstract class Hourglass.Views.AbstractView : Gtk.Box {
+    public abstract string id { get; }
+    public abstract string display_name { get; }
+    public abstract string icon_name { get; }
+    public abstract bool should_keep_open { get; }
 
-namespace Hourglass.Services {
-
-    public class StyleManager {
-
-        public static void add_stylesheet (string path) {
-            var css_file = "/com/github/sgpthomas/hourglass/" + path;
-            var provider = new CssProvider ();
-            provider.load_from_resource (css_file);
-            StyleContext.add_provider_for_screen (Gdk.Screen.get_default (), provider, Gtk.STYLE_PROVIDER_PRIORITY_USER);
-            debug ("Loaded %s", css_file);
-        }
+    construct {
+        orientation = Gtk.Orientation.VERTICAL;
+        spacing = 0;
     }
 }

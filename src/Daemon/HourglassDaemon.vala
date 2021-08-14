@@ -52,12 +52,14 @@ namespace HourglassDaemon {
 
             hold ();
 
-            // check to make sure that update frequency is below 60,000
-            if (HourglassDaemon.settings.get_int ("update-frequency") >= 60000) {
-                HourglassDaemon.settings.set_int ("update-frequency", 15000);
-            }
+            Timeout.add (1000, () => {
+                // Check timer every 0 second
+                if (new DateTime.now_local ().get_second () == 0) {
+                    manager.check_alarm ();
+                }
 
-            Timeout.add (HourglassDaemon.settings.get_int ("update-frequency"), manager.check_alarm);
+                return true;
+            });
         }
 
         public override void activate () {

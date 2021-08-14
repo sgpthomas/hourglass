@@ -27,7 +27,6 @@ namespace Hourglass {
 
     /* Settings */
     public static GLib.Settings saved;
-    public static GLib.Settings system_time_format;
 
     /* State */
     public MainWindow main_window;
@@ -46,7 +45,6 @@ namespace Hourglass {
         static construct {
             /* Settings */
             saved = new GLib.Settings ("com.github.sgpthomas.hourglass.saved");
-            system_time_format = new GLib.Settings ("org.gnome.desktop.interface");
         }
 
         //constructor

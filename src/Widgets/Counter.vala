@@ -55,18 +55,13 @@ namespace Hourglass.Widgets {
 
         // constructor
         public Counter (CountDirection direction) {
-            time_label_w_milli = new Label ("");
-            time_label_wo_milli = new Label ("");
+            time_label_w_milli = new Label ("") {
+                margin = 10
+            };
+            time_label_wo_milli = new Label ("") {
+                margin = 10
+            };
             set_current_time (0);
-            should_notify = false;
-            this.direction = direction;
-            update_label ();
-        }
-
-        public Counter.with_time (CountDirection direction, int64 milliseconds, bool should_stay_open = false) {
-            time_label_w_milli = new Label ("");
-            time_label_wo_milli = new Label ("");
-            set_current_time (milliseconds);
             should_notify = false;
             this.direction = direction;
             update_label ();
