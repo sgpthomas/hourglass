@@ -27,7 +27,7 @@ namespace HourglassDaemon {
             load_alarm_list (); //load alarm list
         }
 
-        public bool check_alarm () {
+        public void check_alarm () {
             debug ("Checking alarms");
 
             //loop through alarm list
@@ -39,8 +39,6 @@ namespace HourglassDaemon {
                     server.server.should_refresh_client ();
                 }
             }
-
-            return true;
         }
 
         public void add_alarm (string alarm_string) {

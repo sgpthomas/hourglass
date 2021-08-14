@@ -52,8 +52,14 @@ namespace HourglassDaemon {
 
             hold ();
 
-            // Check alarm per second
-            Timeout.add (1000, manager.check_alarm);
+            Timeout.add (1000, () => {
+                // Check timer every 0 second
+                if (new DateTime.now_local ().get_second () == 0) {
+                    manager.check_alarm ();
+                }
+
+                return true;
+            });
         }
 
         public override void activate () {
