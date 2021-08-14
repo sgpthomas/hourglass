@@ -27,7 +27,7 @@
             <description>Saves the last window position.</description>
         </key>
         <key name="window-size" type="(ii)">
-            <default>(500, 450)</default>
+            <default>(450, 600)</default>
             <summary>Last saved window size.</summary>
             <description>Saves the last window size.</description>
         </key>
