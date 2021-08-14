@@ -23,7 +23,7 @@ public class Hourglass.Widgets.Alarm : Gtk.ListBoxRow {
     public string title { get; construct; }
     public int[] repeat;
 
-    private const string SEPARATOR = ";";
+    private const string ALARM_INFO_SEPARATOR = ";";
 
     private Gtk.Switch toggle;
 
@@ -111,7 +111,7 @@ public class Hourglass.Widgets.Alarm : Gtk.ListBoxRow {
 
         //add title
         str += title;
-        str += SEPARATOR;
+        str += ALARM_INFO_SEPARATOR;
 
         //add hours
         str += time.get_hour ().to_string ();
@@ -119,14 +119,14 @@ public class Hourglass.Widgets.Alarm : Gtk.ListBoxRow {
 
         //add minutes
         str += time.get_minute ().to_string ();
-        str += SEPARATOR;
+        str += ALARM_INFO_SEPARATOR;
 
         //add date
         str += time.get_month ().to_string ();
         str += "-";
 
         str += time.get_day_of_month ().to_string ();
-        str += SEPARATOR;
+        str += ALARM_INFO_SEPARATOR;
 
         //add repeat days
         bool has_repeat_days = false;
@@ -142,7 +142,7 @@ public class Hourglass.Widgets.Alarm : Gtk.ListBoxRow {
             str += "none";
         }
 
-        str += SEPARATOR;
+        str += ALARM_INFO_SEPARATOR;
 
         //add state
         if (toggle.active) {
@@ -155,7 +155,7 @@ public class Hourglass.Widgets.Alarm : Gtk.ListBoxRow {
     }
 
     public static Alarm parse_string (string alarm_string) {
-        string[] parts = alarm_string.split (SEPARATOR);
+        string[] parts = alarm_string.split (ALARM_INFO_SEPARATOR);
 
         //title
         var title = parts[0];
@@ -198,8 +198,8 @@ public class Hourglass.Widgets.Alarm : Gtk.ListBoxRow {
     }
 
     public static bool is_valid_alarm_string (string alarm_string) {
-        if (SEPARATOR in alarm_string) {
-            string[] parts = alarm_string.split (SEPARATOR);
+        if (ALARM_INFO_SEPARATOR in alarm_string) {
+            string[] parts = alarm_string.split (ALARM_INFO_SEPARATOR);
             if (parts.length != 6) return false; //if wrong number of sections return false
 
             //check if time section is correct
