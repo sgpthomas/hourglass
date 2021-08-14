@@ -1,14 +1,14 @@
 # French translations for com.github.sgpthomas.hourglass package.
-# Copyright (C) 2020 THE com.github.sgpthomas.hourglass'S COPYRIGHT HOLDER
+# Copyright (C) 2021 THE com.github.sgpthomas.hourglass'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the com.github.sgpthomas.hourglass package.
-# Nathan Bonnemains (@NathanBnm), 2020.
+# Nathan Bonnemains (@NathanBnm), 2021.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: com.github.sgpthomas.hourglass\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-08-12 14:32+0900\n"
-"PO-Revision-Date: 2020-05-03 11:55+0200\n"
+"POT-Creation-Date: 2021-08-14 16:13+0000\n"
+"PO-Revision-Date: 2021-08-14 16:13+0000\n"
 "Last-Translator: Nathan Bonnemains (@NathanBnm)\n"
 "Language-Team: none\n"
 "Language: fr\n"
@@ -17,6 +17,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
+#. check buttons
 #: src/Dialogs/MultiSelectPopover.vala:32
 #: src/Dialogs/MultiSelectPopover.vala:83
 msgid "Sun"
@@ -64,6 +65,12 @@ msgstr "Chaque jour de la semaine"
 msgid "Every Weekend"
 msgstr "Chaque weekend"
 
+#. Time Picker
+#. set to time of alarm
+#. or set to current time plus 10
+#. Date Picker
+#. set date_picker to date of alarm
+#. Repeat day Picker
 #: src/Dialogs/MultiSelectPopover.vala:99 src/Dialogs/NewAlarmDialog.vala:95
 msgid "Never"
 msgstr "Jamais"
@@ -74,25 +81,23 @@ msgstr "Annuler"
 
 #: src/Dialogs/NewAlarmDialog.vala:101
 msgid "Save"
-msgstr ""
+msgstr "Enregistrer"
 
 #: src/Dialogs/NewAlarmDialog.vala:101
-#, fuzzy
 msgid "Create Alarm"
-msgstr "Créer"
+msgstr "Créer l'alarme"
 
 #: src/Dialogs/NewAlarmDialog.vala:113
 msgid "Title:"
 msgstr "Nom :"
 
 #: src/Dialogs/NewAlarmDialog.vala:118
-#, fuzzy
 msgid "Time:"
-msgstr "Minuteur"
+msgstr "Heure :"
 
 #: src/Dialogs/NewAlarmDialog.vala:123
 msgid "Date:"
-msgstr ""
+msgstr "Date :"
 
 #: src/Dialogs/NewAlarmDialog.vala:128
 msgid "Repeat:"
@@ -100,28 +105,29 @@ msgstr "Répétition :"
 
 #: src/Widgets/Alarm.vala:124
 msgid "Repeats "
-msgstr "Se répète"
+msgstr "Se répète "
 
 #: src/Widgets/Alarm.vala:124
 msgid ", Repeats "
 msgstr ", Se répète "
 
+#. welcome screen
 #: src/Widgets/AlarmTimeWidget.vala:75
 msgid "No Alarms"
 msgstr "Aucune alarme"
 
 #: src/Widgets/AlarmTimeWidget.vala:75
 msgid "Click the add icon in the toolbar below to get started."
-msgstr ""
+msgstr "Cliquez sur l'icône d'ajout dans la barre d'outils ci-dessous pour commencer."
 
+#. action buttons
 #: src/Widgets/AlarmTimeWidget.vala:94
 msgid "Add…"
-msgstr ""
+msgstr "Ajouter…"
 
 #: src/Widgets/AlarmTimeWidget.vala:97
-#, fuzzy
 msgid "Edit…"
-msgstr "Modifier"
+msgstr "Modifier…"
 
 #: src/Widgets/AlarmTimeWidget.vala:100
 msgid "Delete"
@@ -177,18 +183,5 @@ msgid "Timer"
 msgstr "Minuteur"
 
 #: src/Window/MainWindow.vala:30
-#, fuzzy
 msgid "Hourglass"
-msgstr "Heures"
-
-#~ msgid "Choose a time:"
-#~ msgstr "Sélectionner une heure :"
-
-#~ msgid "Choose a date:"
-#~ msgstr "Sélectionner une date :"
-
-#~ msgid "Click 'Add' to get started."
-#~ msgstr "Cliquez « Ajouter » sur pour commencer."
-
-#~ msgid "Add"
-#~ msgstr "Ajouter"
+msgstr "Hourglass"
