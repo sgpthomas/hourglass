@@ -16,9 +16,10 @@
 * with Hourglass. If not, see http://www.gnu.org/licenses/.
 */
 
+using Hourglass.Widgets;
 using Hourglass.Window;
 
-public class Hourglass.Widgets.StopwatchTimeWidget : TimeWidget {
+public class Hourglass.Views.StopwatchView : AbstractView {
     public override string id {
         get {
             return "stopwatch";
@@ -49,7 +50,7 @@ public class Hourglass.Widgets.StopwatchTimeWidget : TimeWidget {
     private string[] lap_log = {};
     private bool running = false;
 
-    public StopwatchTimeWidget (MainWindow window) {
+    public StopwatchView (MainWindow window) {
         Object (window: window);
     }
 

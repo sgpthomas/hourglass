@@ -1,8 +1,7 @@
 src/Dialogs/MultiSelectPopover.vala
 src/Dialogs/NewAlarmDialog.vala
+src/Views/AlarmView.vala
+src/Views/StopwatchView.vala
+src/Views/TimerView.vala
 src/Widgets/Alarm.vala
-src/Widgets/AlarmTimeWidget.vala
-src/Widgets/StopwatchTimeWidget.vala
-src/Widgets/TimerTimeWidget.vala
-src/Widgets/TimeWidget.vala
 src/Window/MainWindow.vala
