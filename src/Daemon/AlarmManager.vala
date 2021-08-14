@@ -38,12 +38,6 @@ namespace HourglassDaemon {
                     toggle_alarm (alarm);
                     server.server.should_refresh_client ();
                 }
-
-                //if alarm is set to repeat and alarm is not now, turn it on
-                if (get_alarm_repeat (alarm) && !get_alarm_state (alarm) && !is_alarm_string_now (alarm)) {
-                    toggle_alarm (alarm);
-                    server.server.should_refresh_client ();
-                }
             }
 
             return true;
