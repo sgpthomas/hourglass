@@ -18,7 +18,7 @@
 
 using Hourglass.Widgets;
 
-public class Hourglass.Widgets.TimerTimeWidget : TimeWidget {
+public class Hourglass.Views.TimerView : AbstractView {
     public override string id {
         get {
             return "timer";

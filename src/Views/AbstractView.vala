@@ -16,7 +16,7 @@
 * with Hourglass. If not, see http://www.gnu.org/licenses/.
 */
 
-public abstract class Hourglass.Widgets.TimeWidget : Gtk.Box {
+public abstract class Hourglass.Views.AbstractView : Gtk.Box {
     public abstract string id { get; }
     public abstract string display_name { get; }
     public abstract bool should_keep_open { get; }

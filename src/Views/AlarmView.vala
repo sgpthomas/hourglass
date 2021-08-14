@@ -16,7 +16,9 @@
 * with Hourglass. If not, see http://www.gnu.org/licenses/.
 */
 
-public class Hourglass.Widgets.AlarmTimeWidget : TimeWidget {
+using Hourglass.Widgets;
+
+public class Hourglass.Views.AlarmView : AbstractView {
     public override string id {
         get {
             return "alarm";
@@ -44,7 +46,7 @@ public class Hourglass.Widgets.AlarmTimeWidget : TimeWidget {
 
     private uint timeout_id;
 
-    public AlarmTimeWidget (Hourglass.Window.MainWindow window) {
+    public AlarmView (Hourglass.Window.MainWindow window) {
         Object (window: window);
     }
 
