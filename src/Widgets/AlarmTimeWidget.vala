@@ -173,20 +173,20 @@ public class Hourglass.Widgets.AlarmTimeWidget : TimeWidget {
         return false;
     }
 
-    private void append_alarm (Alarm a) {
-        list_box.prepend (a);
+    private void append_alarm (Alarm alarm) {
+        list_box.prepend (alarm);
 
-        a.state_toggled.connect ((b) => {
+        alarm.state_toggled.connect (() => {
             debug ("toggled");
             try {
-                Hourglass.dbus_server.toggle_alarm (a.to_string ());
+                Hourglass.dbus_server.toggle_alarm (alarm.to_string ());
             } catch (Error e) {
                 error (e.message);
             }
         });
 
         try {
-            Hourglass.dbus_server.add_alarm (a.to_string ());
+            Hourglass.dbus_server.add_alarm (alarm.to_string ());
         } catch (GLib.Error e) {
             error (e.message);
         }

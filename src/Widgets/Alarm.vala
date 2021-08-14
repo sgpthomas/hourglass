@@ -17,23 +17,25 @@
 */
 
 public class Hourglass.Widgets.Alarm : Gtk.ListBoxRow {
-    public DateTime time { get; construct; }
+    public signal void state_toggled ();
+
+    public GLib.DateTime time { get; construct; }
     public string title { get; construct; }
     public int[] repeat;
 
-    // widgets
+    private const string SEPARATOR = ";";
+
     private Gtk.Switch toggle;
 
-    // signals
-    public signal void state_toggled (bool state);
-
-    public Alarm (DateTime time, string title, int[]? repeat = null) {
+    public Alarm (GLib.DateTime time, string title, int[]? repeat = null) {
         Object (
             time: time,
             title: title
         );
         this.repeat = repeat;
+    }
 
+    construct {
         var time_label = new Gtk.Label (get_time_string ());
         time_label.get_style_context ().add_class (Granite.STYLE_CLASS_H2_LABEL);
 
@@ -42,15 +44,6 @@ public class Hourglass.Widgets.Alarm : Gtk.ListBoxRow {
 
         var days_label = new Gtk.Label (make_repeat_label ());
 
-        toggle = new Gtk.Switch () {
-            halign = Gtk.Align.END,
-            valign = Gtk.Align.CENTER,
-            active = true
-        };
-        toggle.notify["active"].connect (() => {
-            state_toggled (toggle.active);
-        });
-
         var grid = new Gtk.Grid () {
             row_spacing = 6,
             column_spacing = 12
@@ -58,6 +51,15 @@ public class Hourglass.Widgets.Alarm : Gtk.ListBoxRow {
         grid.attach (time_label, 0, 0, 1, 1);
         grid.attach (name_label, 0, 1, 1, 1);
         grid.attach (days_label, 1, 0, 1, 2);
+
+        toggle = new Gtk.Switch () {
+            halign = Gtk.Align.END,
+            valign = Gtk.Align.CENTER,
+            active = true
+        };
+        toggle.notify["active"].connect (() => {
+            state_toggled ();
+        });
 
         var box = new Gtk.Box (Gtk.Orientation.HORIZONTAL, 0) {
             margin_start = 12,
@@ -88,7 +90,7 @@ public class Hourglass.Widgets.Alarm : Gtk.ListBoxRow {
     private string make_repeat_label () {
         var str = "";
 
-        var comp = new DateTime.now_local ();
+        var comp = new GLib.DateTime.now_local ();
         if (!Granite.DateTime.is_same_day (time, comp)) {
             str += Granite.DateTime.get_relative_datetime (time);
         }
@@ -109,7 +111,7 @@ public class Hourglass.Widgets.Alarm : Gtk.ListBoxRow {
 
         //add title
         str += title;
-        str += ";";
+        str += SEPARATOR;
 
         //add hours
         str += time.get_hour ().to_string ();
@@ -117,14 +119,14 @@ public class Hourglass.Widgets.Alarm : Gtk.ListBoxRow {
 
         //add minutes
         str += time.get_minute ().to_string ();
-        str += ";";
+        str += SEPARATOR;
 
         //add date
         str += time.get_month ().to_string ();
         str += "-";
 
         str += time.get_day_of_month ().to_string ();
-        str += ";";
+        str += SEPARATOR;
 
         //add repeat days
         bool has_repeat_days = false;
@@ -139,7 +141,8 @@ public class Hourglass.Widgets.Alarm : Gtk.ListBoxRow {
         } else {
             str += "none";
         }
-        str += ";";
+
+        str += SEPARATOR;
 
         //add state
         if (toggle.active) {
@@ -152,7 +155,7 @@ public class Hourglass.Widgets.Alarm : Gtk.ListBoxRow {
     }
 
     public static Alarm parse_string (string alarm_string) {
-        string[] parts = alarm_string.split (";");
+        string[] parts = alarm_string.split (SEPARATOR);
 
         //title
         var title = parts[0];
@@ -167,7 +170,7 @@ public class Hourglass.Widgets.Alarm : Gtk.ListBoxRow {
         var month = int.parse (date_string_parts[0]);
         var day = int.parse (date_string_parts[1]);
 
-        var time = new DateTime.local (new DateTime.now_local ().get_year (), month, day, hour, min, 0);
+        var time = new GLib.DateTime.local (new GLib.DateTime.now_local ().get_year (), month, day, hour, min, 0);
 
         //repeat
         int[] repeat_days = {};
@@ -177,6 +180,7 @@ public class Hourglass.Widgets.Alarm : Gtk.ListBoxRow {
                 repeat_days = null;
                 break;
             }
+
             int i = int.parse (str);
             repeat_days += i;
         }
@@ -194,8 +198,8 @@ public class Hourglass.Widgets.Alarm : Gtk.ListBoxRow {
     }
 
     public static bool is_valid_alarm_string (string alarm_string) {
-        if (";" in alarm_string) {
-            string[] parts = alarm_string.split (";");
+        if (SEPARATOR in alarm_string) {
+            string[] parts = alarm_string.split (SEPARATOR);
             if (parts.length != 6) return false; //if wrong number of sections return false
 
             //check if time section is correct
