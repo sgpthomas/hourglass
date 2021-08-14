@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: com.github.sgpthomas.hourglass\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-08-14 16:13+0000\n"
-"PO-Revision-Date: 2021-08-14 16:13+0000\n"
+"POT-Creation-Date: 2021-08-14 16:32+0000\n"
+"PO-Revision-Date: 2021-08-14 16:32+0000\n"
 "Last-Translator: Nathan Bonnemains (@NathanBnm)\n"
 "Language-Team: none\n"
 "Language: fr\n"
@@ -17,7 +17,6 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
-#. check buttons
 #: src/Dialogs/MultiSelectPopover.vala:32
 #: src/Dialogs/MultiSelectPopover.vala:83
 msgid "Sun"
@@ -65,12 +64,6 @@ msgstr "Chaque jour de la semaine"
 msgid "Every Weekend"
 msgstr "Chaque weekend"
 
-#. Time Picker
-#. set to time of alarm
-#. or set to current time plus 10
-#. Date Picker
-#. set date_picker to date of alarm
-#. Repeat day Picker
 #: src/Dialogs/MultiSelectPopover.vala:99 src/Dialogs/NewAlarmDialog.vala:95
 msgid "Never"
 msgstr "Jamais"
@@ -111,16 +104,15 @@ msgstr "Se répète "
 msgid ", Repeats "
 msgstr ", Se répète "
 
-#. welcome screen
 #: src/Widgets/AlarmTimeWidget.vala:75
 msgid "No Alarms"
 msgstr "Aucune alarme"
 
 #: src/Widgets/AlarmTimeWidget.vala:75
 msgid "Click the add icon in the toolbar below to get started."
-msgstr "Cliquez sur l'icône d'ajout dans la barre d'outils ci-dessous pour commencer."
+msgstr ""
+"Cliquez sur l'icône d'ajout dans la barre d'outils ci-dessous pour commencer."
 
-#. action buttons
 #: src/Widgets/AlarmTimeWidget.vala:94
 msgid "Add…"
 msgstr "Ajouter…"
