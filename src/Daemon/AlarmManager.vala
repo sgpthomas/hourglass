@@ -35,8 +35,6 @@ namespace HourglassDaemon {
                 //if alarm is now and is on, set it off and then disable it
                 if (is_alarm_string_now (alarm) && get_alarm_state (alarm)) {
                     notification.show (get_alarm_name (alarm), get_alarm_time (alarm));
-                    toggle_alarm (alarm);
-                    server.server.should_refresh_client ();
                 }
             }
         }
