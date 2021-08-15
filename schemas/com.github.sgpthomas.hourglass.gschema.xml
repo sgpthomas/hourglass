@@ -36,13 +36,5 @@
             <summary>Whether last saved window is maximized.</summary>
             <description>Saves whether the last window is maximized.</description>
         </key>
-
-    </schema>
-    <schema path="/com/github/sgpthomas/hourglass/settings/" id="com.github.sgpthomas.hourglass.settings" gettext-domain="hourglass">
-        <key name="sound" type="s">
-            <default>'alarm-clock-elapsed'</default>
-            <summary>Name of sound for notification.</summary>
-            <description>Sound defaults to alarm clock elapsed</description>
-        </key>
     </schema>
 </schemalist>
