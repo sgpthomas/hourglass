@@ -46,7 +46,7 @@ namespace HourglassDaemon {
 
             server = new HourglassServer ();
             manager = new AlarmManager ();
-            notification = new NotificationManager ();
+            notification = new NotificationManager (this);
 
             manager.load_alarm_list ();
 

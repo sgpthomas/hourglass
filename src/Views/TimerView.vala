@@ -169,7 +169,8 @@ public class Hourglass.Views.TimerView : AbstractView {
         counter.set_limit (val);
         counter.set_should_notify (true,
             purpose_entry.text == "" ? _("It's time!") : purpose_entry.text,
-            Counter.create_time_string (val, false)
+            Counter.create_time_string (val, false),
+            "timer"
         );
 
         debug ("starting");

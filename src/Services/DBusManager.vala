@@ -21,7 +21,7 @@ namespace Hourglass.Services {
     [DBus (name = "com.github.sgpthomas.hourglass")]
     public interface HourglassClient : Object {
         public abstract void print_debug (string msg) throws GLib.DBusError, GLib.IOError;
-        public abstract void show_notification (string summary, string body = "", string track = "") throws GLib.DBusError, GLib.IOError;
+        public abstract void show_notification (string summary, string body, string id) throws GLib.DBusError, GLib.IOError;
         public abstract void add_alarm (string alarm) throws GLib.DBusError, GLib.IOError;
         public abstract void remove_alarm (string alarm) throws GLib.DBusError, GLib.IOError;
         public abstract string[] get_alarm_list () throws GLib.DBusError, GLib.IOError;
