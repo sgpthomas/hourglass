@@ -20,7 +20,6 @@ namespace HourglassDaemon {
 
     public HourglassServer server;
     public static GLib.Settings saved_alarms;
-    public static GLib.Settings settings;
     public NotificationManager notification;
     public AlarmManager manager;
 
@@ -33,7 +32,6 @@ namespace HourglassDaemon {
 
         static construct {
             saved_alarms = new GLib.Settings ("com.github.sgpthomas.hourglass.saved");
-            settings = new GLib.Settings ("com.github.sgpthomas.hourglass.settings");
         }
 
         ~HourglassAlarmDaemon () {
