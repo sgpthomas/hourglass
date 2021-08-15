@@ -27,26 +27,21 @@ namespace HourglassDaemon {
             load_alarm_list (); //load alarm list
         }
 
-        public bool check_alarm () {
+        public void check_alarm () {
             debug ("Checking alarms");
 
             //loop through alarm list
             foreach (string alarm in alarm_list) {
                 //if alarm is now and is on, set it off and then disable it
                 if (is_alarm_string_now (alarm) && get_alarm_state (alarm)) {
-                    notification.show (get_alarm_name (alarm), get_alarm_time (alarm));
-                    toggle_alarm (alarm);
-                    server.server.should_refresh_client ();
-                }
+                    notification.show (get_alarm_name (alarm), get_alarm_time (alarm), "alarm");
 
-                //if alarm is set to repeat and alarm is not now, turn it on
-                if (get_alarm_repeat (alarm) && !get_alarm_state (alarm) && !is_alarm_string_now (alarm)) {
-                    toggle_alarm (alarm);
-                    server.server.should_refresh_client ();
+                    if (!get_alarm_repeat (alarm)) {
+                        toggle_alarm (alarm);
+                        server.server.should_refresh_client ();
+                    }
                 }
             }
-
-            return true;
         }
 
         public void add_alarm (string alarm_string) {

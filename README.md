@@ -15,10 +15,8 @@ On elementary OS? Click the button to get Hourglass on AppCenter:
 
 ### For Developers
 You'll need the following dependencies to build:
-* libcanberra-dev
 * libgranite-dev (>= 6.0.0)
 * libgtk-3-dev
-* libnotify-dev
 * meson
 * valac
 

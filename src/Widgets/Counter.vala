@@ -47,6 +47,7 @@ namespace Hourglass.Widgets {
         private bool should_notify;
         private string notify_summary;
         private string notify_body;
+        private string notify_id;
 
         public signal void on_tick (); // on tick signal
         public signal void on_start (); // when timer starts
@@ -55,18 +56,13 @@ namespace Hourglass.Widgets {
 
         // constructor
         public Counter (CountDirection direction) {
-            time_label_w_milli = new Label ("");
-            time_label_wo_milli = new Label ("");
+            time_label_w_milli = new Label ("") {
+                margin = 10
+            };
+            time_label_wo_milli = new Label ("") {
+                margin = 10
+            };
             set_current_time (0);
-            should_notify = false;
-            this.direction = direction;
-            update_label ();
-        }
-
-        public Counter.with_time (CountDirection direction, int64 milliseconds, bool should_stay_open = false) {
-            time_label_w_milli = new Label ("");
-            time_label_wo_milli = new Label ("");
-            set_current_time (milliseconds);
             should_notify = false;
             this.direction = direction;
             update_label ();
@@ -108,7 +104,7 @@ namespace Hourglass.Widgets {
                 } else {
                     if (should_notify) {
                         try {
-                            Hourglass.dbus_server.show_notification (notify_summary, notify_body);
+                            Hourglass.dbus_server.show_notification (notify_summary, notify_body, notify_id);
                         } catch (GLib.IOError e) {
                             error (e.message);
                         } catch (GLib.DBusError e) {
@@ -144,10 +140,11 @@ namespace Hourglass.Widgets {
             return this.current_time > 0;
         }
 
-        public void set_should_notify (bool b = true, string? summary = null, string? body = null) {
+        public void set_should_notify (bool b = true, string? summary = null, string? body = null, string? id = null) {
             should_notify = b;
             notify_summary = summary;
             notify_body = body;
+            notify_id = id;
         }
 
         public Label get_label (bool milli = true) {

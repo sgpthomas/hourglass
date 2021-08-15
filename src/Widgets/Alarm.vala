@@ -17,17 +17,17 @@
 */
 
 public class Hourglass.Widgets.Alarm : Gtk.ListBoxRow {
-    public DateTime time { get; construct; }
+    public signal void state_toggled ();
+
+    public GLib.DateTime time { get; construct; }
     public string title { get; construct; }
     public int[] repeat;
 
-    // widgets
+    private const string ALARM_INFO_SEPARATOR = ";";
+
     private Gtk.Switch toggle;
 
-    // signals
-    public signal void state_toggled (bool state);
-
-    public Alarm (DateTime time, string title, int[]? repeat = null) {
+    public Alarm (GLib.DateTime time, string title, int[]? repeat = null) {
         Object (
             time: time,
             title: title
@@ -42,87 +42,63 @@ public class Hourglass.Widgets.Alarm : Gtk.ListBoxRow {
 
         var days_label = new Gtk.Label (make_repeat_label ());
 
-        toggle = new Gtk.Switch ();
-        toggle.halign = Gtk.Align.END;
-        toggle.valign = Gtk.Align.CENTER;
-        toggle.notify["active"].connect (() => {
-            state_toggled (toggle.active);
-        });
-
-        var grid = new Gtk.Grid ();
-        grid.margin_start = 12;
-        grid.margin_end = 12;
-        grid.margin_top = 12;
-        grid.margin_bottom = 12;
-        grid.row_spacing = 6;
-        grid.column_spacing = 12;
+        var grid = new Gtk.Grid () {
+            row_spacing = 6,
+            column_spacing = 12
+        };
         grid.attach (time_label, 0, 0, 1, 1);
         grid.attach (name_label, 0, 1, 1, 1);
         grid.attach (days_label, 1, 0, 1, 2);
-        grid.attach (new Spacer.w_hexpand (), 2, 0, 1, 2);
-        grid.attach (toggle, 3, 0, 1, 2);
 
-        this.add (grid);
+        toggle = new Gtk.Switch () {
+            halign = Gtk.Align.END,
+            valign = Gtk.Align.CENTER,
+            active = true
+        };
+        toggle.notify["active"].connect (() => {
+            state_toggled ();
+        });
 
-        toggle.active = true;
+        var box = new Gtk.Box (Gtk.Orientation.HORIZONTAL, 0) {
+            margin_start = 12,
+            margin_end = 12,
+            margin_top = 12,
+            margin_bottom = 12
+        };
+        box.pack_start (grid);
+        box.pack_end (toggle);
+
+        add (box);
     }
 
     public void set_toggle (bool b) {
         toggle.active = b;
     }
 
-    public bool is_now () {
-        var now = new DateTime.now_local ();
-        bool same_day = time.get_day_of_month () == now.get_day_of_month ();
-        bool same_month = time.get_month () == now.get_month ();
-        bool same_hour = time.get_hour () == now.get_hour ();
-        bool same_min = time.get_minute () == now.get_minute ();
+    private string get_time_string () {
+        var system_time_format = new GLib.Settings ("org.gnome.desktop.interface");
 
-        if (same_day && same_month && same_hour && same_min) {
-            return true;
-        }
+        var time_format = Granite.DateTime.get_default_time_format (
+            system_time_format.get_enum ("clock-format") == 1, false
+        );
 
-        return false;
-    }
-
-    public string get_time_string () {
-        var str = "";
-        if (Hourglass.system_time_format.get_string ("clock-format") == "12h") {
-            if (time.get_hour () < 13) {
-                if (time.get_minute () < 10) {
-                    str = "%i:0%i am".printf (time.get_hour (), time.get_minute ());
-                } else {
-                    str = "%i:%i am".printf (time.get_hour (), time.get_minute ());
-                }
-            } else {
-                if (time.get_minute () < 10) {
-                    str = "%i:0%i pm".printf (time.get_hour () - 12, time.get_minute ());
-                } else {
-                    str = "%i:%i pm".printf (time.get_hour () - 12, time.get_minute ());
-                }
-            }
-        } else {
-            if (time.get_minute () < 10) {
-                str = "%i:0%i".printf (time.get_hour (), time.get_minute ());
-            } else {
-                str = "%i:%i".printf (time.get_hour (), time.get_minute ());
-            }
-        }
-
-        return str;
+        return time.format (time_format);
     }
 
     private string make_repeat_label () {
         var str = "";
 
-        var comp = new DateTime.now_local ();
-        if (time.get_day_of_month () != comp.get_day_of_month () || time.get_month () != comp.get_month ()) {
-            str += "%i/%i ".printf (time.get_month (), time.get_day_of_month ());
+        var comp = new GLib.DateTime.now_local ();
+        if (!Granite.DateTime.is_same_day (time, comp)) {
+            str += Granite.DateTime.get_relative_datetime (time);
         }
 
         if (repeat.length > 0) {
-            str += str == "" ? _("Repeats ") : _(", Repeats ");
-            str += Dialogs.MultiSelectPopover.selected_to_string (repeat);
+            if (str == "") {
+                str += _("Repeats: %s").printf (Dialogs.MultiSelectPopover.selected_to_string (repeat));
+            } else {
+                str += _(", Repeats: %s").printf (Dialogs.MultiSelectPopover.selected_to_string (repeat));
+            }
         }
 
         return str;
@@ -133,7 +109,7 @@ public class Hourglass.Widgets.Alarm : Gtk.ListBoxRow {
 
         //add title
         str += title;
-        str += ";";
+        str += ALARM_INFO_SEPARATOR;
 
         //add hours
         str += time.get_hour ().to_string ();
@@ -141,14 +117,14 @@ public class Hourglass.Widgets.Alarm : Gtk.ListBoxRow {
 
         //add minutes
         str += time.get_minute ().to_string ();
-        str += ";";
+        str += ALARM_INFO_SEPARATOR;
 
         //add date
         str += time.get_month ().to_string ();
         str += "-";
 
         str += time.get_day_of_month ().to_string ();
-        str += ";";
+        str += ALARM_INFO_SEPARATOR;
 
         //add repeat days
         bool has_repeat_days = false;
@@ -163,7 +139,8 @@ public class Hourglass.Widgets.Alarm : Gtk.ListBoxRow {
         } else {
             str += "none";
         }
-        str += ";";
+
+        str += ALARM_INFO_SEPARATOR;
 
         //add state
         if (toggle.active) {
@@ -176,7 +153,7 @@ public class Hourglass.Widgets.Alarm : Gtk.ListBoxRow {
     }
 
     public static Alarm parse_string (string alarm_string) {
-        string[] parts = alarm_string.split (";");
+        string[] parts = alarm_string.split (ALARM_INFO_SEPARATOR);
 
         //title
         var title = parts[0];
@@ -191,7 +168,7 @@ public class Hourglass.Widgets.Alarm : Gtk.ListBoxRow {
         var month = int.parse (date_string_parts[0]);
         var day = int.parse (date_string_parts[1]);
 
-        var time = new DateTime.local (new DateTime.now_local ().get_year (), month, day, hour, min, 0);
+        var time = new GLib.DateTime.local (new GLib.DateTime.now_local ().get_year (), month, day, hour, min, 0);
 
         //repeat
         int[] repeat_days = {};
@@ -201,6 +178,7 @@ public class Hourglass.Widgets.Alarm : Gtk.ListBoxRow {
                 repeat_days = null;
                 break;
             }
+
             int i = int.parse (str);
             repeat_days += i;
         }
@@ -215,12 +193,11 @@ public class Hourglass.Widgets.Alarm : Gtk.ListBoxRow {
         }
 
         return a;
-
     }
 
     public static bool is_valid_alarm_string (string alarm_string) {
-        if (";" in alarm_string) {
-            string[] parts = alarm_string.split (";");
+        if (ALARM_INFO_SEPARATOR in alarm_string) {
+            string[] parts = alarm_string.split (ALARM_INFO_SEPARATOR);
             if (parts.length != 6) return false; //if wrong number of sections return false
 
             //check if time section is correct

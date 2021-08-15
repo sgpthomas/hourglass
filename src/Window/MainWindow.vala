@@ -21,7 +21,7 @@ public class Hourglass.Window.MainWindow : Gtk.Window {
     public signal void on_stack_change ();
 
     private Gtk.Stack stack;
-    private Hourglass.Widgets.TimeWidget[] widget_list;
+    private Hourglass.Views.AbstractView[] widget_list;
 
     private string last_visible;
 
@@ -34,9 +34,11 @@ public class Hourglass.Window.MainWindow : Gtk.Window {
     construct {
         set_border_width (12);
 
-        //initiate stylesheet
-        Hourglass.Services.StyleManager.add_stylesheet ("style/text.css");
-        Hourglass.Services.StyleManager.add_stylesheet ("style/elements.css");
+        var cssprovider = new Gtk.CssProvider ();
+        cssprovider.load_from_resource ("/com/github/sgpthomas/hourglass/Application.css");
+        Gtk.StyleContext.add_provider_for_screen (Gdk.Screen.get_default (),
+                                                    cssprovider,
+                                                    Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION);
 
         stack = new Gtk.Stack ();
         var stack_switcher = new Gtk.StackSwitcher ();
@@ -45,9 +47,9 @@ public class Hourglass.Window.MainWindow : Gtk.Window {
         stack.transition_type = Gtk.StackTransitionType.SLIDE_LEFT_RIGHT;
 
         //add time widgets
-        widget_list += new Hourglass.Widgets.AlarmTimeWidget (this);
-        widget_list += new Hourglass.Widgets.StopwatchTimeWidget (this);
-        widget_list += new Hourglass.Widgets.TimerTimeWidget (this);
+        widget_list += new Hourglass.Views.AlarmView (this);
+        widget_list += new Hourglass.Views.StopwatchView (this);
+        widget_list += new Hourglass.Views.TimerView ();
 
         var headerbar = new Gtk.HeaderBar ();
         headerbar.set_custom_title (stack_switcher);
@@ -55,8 +57,8 @@ public class Hourglass.Window.MainWindow : Gtk.Window {
         this.set_titlebar (headerbar);
 
         //loop through time widgets
-        foreach (Hourglass.Widgets.TimeWidget t in widget_list) {
-            stack.add_titled (t, t.get_id (), t.get_name ());
+        foreach (Hourglass.Views.AbstractView widget in widget_list) {
+            stack.add_titled (widget, widget.id, widget.display_name);
         }
 
         add (stack);
@@ -84,23 +86,19 @@ public class Hourglass.Window.MainWindow : Gtk.Window {
             }
         });
 
-        this.delete_event.connect (() => {
+        delete_event.connect (() => {
             on_delete ();
         });
 
-        stack.visible_child_name = Hourglass.saved.get_string ("last-open-widget");
-    }
-
-    protected override bool key_press_event (Gdk.EventKey key) {
-        if (Gdk.ModifierType.CONTROL_MASK in key.state) {
-            switch (key.keyval) {
-                case Gdk.Key.q:
-                    on_delete ();
-                    break;
+        key_press_event.connect ((key) => {
+            if (Gdk.ModifierType.CONTROL_MASK in key.state && key.keyval == Gdk.Key.q) {
+                on_delete ();
             }
-        }
 
-        return Gdk.EVENT_PROPAGATE;
+            return false;
+        });
+
+        stack.visible_child_name = Hourglass.saved.get_string ("last-open-widget");
     }
 
     private bool on_delete () {
@@ -111,8 +109,8 @@ public class Hourglass.Window.MainWindow : Gtk.Window {
         Hourglass.saved.set ("window-position", "(ii)", window_x, window_y);
         Hourglass.saved.set_boolean ("is-maximized", is_maximized);
 
-        var visible = (Hourglass.Widgets.TimeWidget) stack.get_visible_child ();
-        if (visible.keep_open ()) {
+        var visible = (Hourglass.Views.AbstractView) stack.get_visible_child ();
+        if (visible.should_keep_open) {
             Hourglass.window_open = false;
             iconify ();
             return false;
