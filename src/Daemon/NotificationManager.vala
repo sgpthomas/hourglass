@@ -28,6 +28,6 @@ public class HourglassDaemon.NotificationManager {
         notification.set_body (body);
         notification.set_priority (NotificationPriority.HIGH);
 
-        app.send_notification (id, notification);
+        app.send_notification ("%s-%s".printf (EXEC_NAME, id), notification);
     }
 }
