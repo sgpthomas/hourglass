@@ -33,9 +33,7 @@ public class Hourglass.Widgets.Alarm : Gtk.ListBoxRow {
             title: title
         );
         this.repeat = repeat;
-    }
 
-    construct {
         var time_label = new Gtk.Label (get_time_string ());
         time_label.get_style_context ().add_class (Granite.STYLE_CLASS_H2_LABEL);
 
