@@ -180,16 +180,18 @@ namespace HourglassDaemon {
             string[] date_parts = parts[2].split ("-");
             var alarm_month = int.parse (date_parts[0]);
             var alarm_day = int.parse (date_parts[1]);
+            var alarm_year = int.parse (date_parts[2]);
 
             //create booleans that checks same date and time
-            bool same_day = alarm_day == now.get_day_of_month ();
             bool same_month = alarm_month == now.get_month ();
+            bool same_day = alarm_day == now.get_day_of_month ();
+            bool same_year = alarm_year == now.get_year ();
             bool same_hour = alarm_hour == now.get_hour ();
             bool same_min = alarm_min == now.get_minute ();
 
             if (same_hour && same_min) {
                 //if today, alarm goes off
-                if (same_day && same_month) {
+                if (same_day && same_month && same_year) {
                     return true;
                 }
 
