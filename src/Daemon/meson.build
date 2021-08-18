@@ -1,6 +1,7 @@
 executable(
     meson.project_name() + '-daemon',
     config_file,
+    meson.source_root() + '/src/Utils.vala',
     'AlarmManager.vala',
     'HourglassDaemon.vala',
     'HourglassServer.vala',

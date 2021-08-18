@@ -44,6 +44,7 @@ executable(
     'src/Widgets/TimeSpinner.vala',
     'src/Window/MainWindow.vala',
     'src/Hourglass.vala',
+    'src/Utils.vala',
     dependencies: [
         dependency('gtk+-3.0', version: '>= 3.18'),
         dependency('gee-0.8'),
