@@ -120,8 +120,10 @@ public class Hourglass.Widgets.Alarm : Gtk.ListBoxRow {
         //add date
         str += time.get_month ().to_string ();
         str += "-";
-
         str += time.get_day_of_month ().to_string ();
+        str += "-";
+        str += time.get_year ().to_string ();
+
         str += Utils.ALARM_INFO_SEPARATOR;
 
         //add repeat days
@@ -165,8 +167,9 @@ public class Hourglass.Widgets.Alarm : Gtk.ListBoxRow {
         var date_string_parts = parts[2].split ("-");
         var month = int.parse (date_string_parts[0]);
         var day = int.parse (date_string_parts[1]);
+        var year = int.parse (date_string_parts[2]);
 
-        var time = new GLib.DateTime.local (new GLib.DateTime.now_local ().get_year (), month, day, hour, min, 0);
+        var time = new GLib.DateTime.local (year, month, day, hour, min, 0);
 
         //repeat
         int[] repeat_days = {};
