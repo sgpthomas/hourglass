@@ -155,7 +155,7 @@ public class Hourglass.Views.AlarmView : AbstractView {
 
         try {
             foreach (string str in Hourglass.dbus_server.get_alarm_list ()) {
-                if (Alarm.is_valid_alarm_string (str)) {
+                if (Utils.is_valid_alarm_string (str)) {
                     append_alarm (Alarm.parse_string (str));
                 }
             }

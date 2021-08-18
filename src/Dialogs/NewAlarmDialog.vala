@@ -106,7 +106,7 @@ public class Hourglass.Dialogs.NewAlarmDialog : Granite.Dialog {
 
         //if user tries to enter ';' stop them
         title_entry.insert_text.connect ((new_text, new_text_length, ref pos) => {
-            if (";" in new_text) {
+            if (Utils.ALARM_INFO_SEPARATOR in new_text) {
                 GLib.Signal.stop_emission_by_name (title_entry, "insert-text");
             }
         });
