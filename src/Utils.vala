@@ -1,3 +1,8 @@
+/*
+ * Copyright 2015-2017 Hourglass Developers
+ * SPDX-License-Identifier: GPL-3.0-or-later
+ */
+
 namespace Utils {
     public const string ALARM_INFO_SEPARATOR = ";";
 
