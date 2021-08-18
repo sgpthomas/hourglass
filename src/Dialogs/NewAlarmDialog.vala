@@ -24,6 +24,8 @@ public class Hourglass.Dialogs.NewAlarmDialog : Granite.Dialog {
 
     public Alarm? alarm { get; construct; }
 
+    private Gtk.Switch date_switch;
+
     private int[] repeat_days;
     private bool is_existing_alarm = false;
 
@@ -59,6 +61,10 @@ public class Hourglass.Dialogs.NewAlarmDialog : Granite.Dialog {
             halign = Gtk.Align.END
         };
 
+        date_switch = new Gtk.Switch () {
+            halign = Gtk.Align.START
+        };
+
         var date_picker = new Granite.Widgets.DatePicker ();
 
         var repeat_label = new Gtk.Label (_("Repeat:")) {
@@ -71,6 +77,7 @@ public class Hourglass.Dialogs.NewAlarmDialog : Granite.Dialog {
         if (is_existing_alarm) {
             title_entry.text = alarm.title;
             time_picker.time = alarm.time;
+            date_switch.active = alarm.has_date;
             date_picker.date = alarm.time;
             repeat_day_picker.label = popover.get_display_string ();
         } else {
@@ -90,9 +97,10 @@ public class Hourglass.Dialogs.NewAlarmDialog : Granite.Dialog {
         main_grid.attach (time_label , 0, 1, 1, 1);
         main_grid.attach (time_picker, 1, 1, 1, 1);
         main_grid.attach (date_label, 0, 2, 1, 1);
-        main_grid.attach (date_picker, 1, 2, 1, 1);
-        main_grid.attach (repeat_label, 0, 3, 1, 1);
-        main_grid.attach (repeat_day_picker, 1, 3, 1, 1);
+        main_grid.attach (date_switch, 1, 2, 1, 1);
+        main_grid.attach (date_picker, 1, 3, 1, 1);
+        main_grid.attach (repeat_label, 0, 4, 1, 1);
+        main_grid.attach (repeat_day_picker, 1, 4, 1, 1);
 
         get_content_area ().add (main_grid);
 
@@ -136,11 +144,13 @@ public class Hourglass.Dialogs.NewAlarmDialog : Granite.Dialog {
                 time.get_hour (), time.get_minute (), time.get_second ()
             );
 
+            bool has_date = date_switch.active;
+
             Alarm new_alarm;
             if (repeat_days.length > 0) {
-                new_alarm = new Alarm (alarm_time, title, repeat_days);
+                new_alarm = new Alarm (alarm_time, has_date, title, repeat_days);
             } else {
-                new_alarm = new Alarm (alarm_time, title);
+                new_alarm = new Alarm (alarm_time, has_date, title);
             }
 
             if (is_existing_alarm) {
@@ -155,5 +165,7 @@ public class Hourglass.Dialogs.NewAlarmDialog : Granite.Dialog {
         cancel_button.clicked.connect (() => {
             destroy ();
         });
+
+        date_switch.bind_property ("active", date_picker, "sensitive", GLib.BindingFlags.SYNC_CREATE);
     }
 }
