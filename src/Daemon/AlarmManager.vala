@@ -222,11 +222,13 @@ namespace HourglassDaemon {
                 }
 
                 //check if date section is correct
-                var date_string_parts = parts[2].split ("-");
-                foreach (string s in date_string_parts) {
-                    int64 i = 0;
-                    if (!int64.try_parse (s, out i)) {
-                        return false;
+                if (parts[2] != "none") {
+                    var date_string_parts = parts[2].split ("-");
+                    foreach (string s in date_string_parts) {
+                        int64 i = 0;
+                        if (!int64.try_parse (s, out i)) {
+                            return false;
+                        }
                     }
                 }
 

@@ -20,6 +20,7 @@ public class Hourglass.Widgets.Alarm : Gtk.ListBoxRow {
     public signal void state_toggled ();
 
     public GLib.DateTime time { get; construct; }
+    public bool has_date { get; construct; }
     public string title { get; construct; }
     public int[] repeat;
 
@@ -27,9 +28,10 @@ public class Hourglass.Widgets.Alarm : Gtk.ListBoxRow {
 
     private Gtk.Switch toggle;
 
-    public Alarm (GLib.DateTime time, string title, int[]? repeat = null) {
+    public Alarm (GLib.DateTime time, bool has_date, string title, int[]? repeat = null) {
         Object (
             time: time,
+            has_date: has_date,
             title: title
         );
         this.repeat = repeat;
@@ -120,10 +122,14 @@ public class Hourglass.Widgets.Alarm : Gtk.ListBoxRow {
         str += ALARM_INFO_SEPARATOR;
 
         //add date
-        str += time.get_month ().to_string ();
-        str += "-";
+        if (has_date) {
+            str += time.get_month ().to_string ();
+            str += "-";
+            str += time.get_day_of_month ().to_string ();
+        } else {
+            str += "none";
+        }
 
-        str += time.get_day_of_month ().to_string ();
         str += ALARM_INFO_SEPARATOR;
 
         //add repeat days
@@ -164,11 +170,22 @@ public class Hourglass.Widgets.Alarm : Gtk.ListBoxRow {
         var min = int.parse (time_string_parts[1]);
 
         //day and month
-        var date_string_parts = parts[2].split ("-");
-        var month = int.parse (date_string_parts[0]);
-        var day = int.parse (date_string_parts[1]);
+        var now = new GLib.DateTime.now_local ();
+        int year = now.get_year ();
 
-        var time = new GLib.DateTime.local (new GLib.DateTime.now_local ().get_year (), month, day, hour, min, 0);
+        int month, day;
+        bool has_date = false;
+        if (parts[2] == "none") {
+            month = now.get_month ();
+            day = now.get_day_of_month ();
+        } else {
+            has_date = true;
+            var date_string_parts = parts[2].split ("-");
+            month = int.parse (date_string_parts[0]);
+            day = int.parse (date_string_parts[1]);
+        }
+
+        var time = new GLib.DateTime.local (year, month, day, hour, min, 0);
 
         //repeat
         int[] repeat_days = {};
@@ -183,7 +200,7 @@ public class Hourglass.Widgets.Alarm : Gtk.ListBoxRow {
             repeat_days += i;
         }
 
-        var a = new Alarm (time, title, repeat_days);
+        var a = new Alarm (time, has_date, title, repeat_days);
 
         //state
         if (parts[4] == "on") {
@@ -210,11 +227,13 @@ public class Hourglass.Widgets.Alarm : Gtk.ListBoxRow {
             }
 
             //check if date section is correct
-            var date_string_parts = parts[2].split ("-");
-            foreach (string s in date_string_parts) {
-                int64 i = 0;
-                if (!int64.try_parse (s, out i)) {
-                    return false;
+            if (parts[2] != "none") {
+                var date_string_parts = parts[2].split ("-");
+                foreach (string s in date_string_parts) {
+                    int64 i = 0;
+                    if (!int64.try_parse (s, out i)) {
+                        return false;
+                    }
                 }
             }
 
