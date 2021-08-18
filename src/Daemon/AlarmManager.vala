@@ -168,7 +168,6 @@ namespace HourglassDaemon {
         }
 
         public bool is_alarm_string_now (string alarm_string) {
-            var now = new DateTime.now_local (); //current time
             string[] parts = alarm_string.split (Utils.ALARM_INFO_SEPARATOR);
 
             //time
@@ -177,9 +176,16 @@ namespace HourglassDaemon {
             var alarm_min = int.parse (time_parts[1]);
 
             //date
-            string[] date_parts = parts[2].split ("-");
-            var alarm_month = int.parse (date_parts[0]);
-            var alarm_day = int.parse (date_parts[1]);
+            var now = new DateTime.now_local ();
+            int alarm_month, alarm_day;
+            if (parts[2] == "none") {
+                alarm_month = now.get_month ();
+                alarm_day = now.get_day_of_month ();
+            } else {
+                string[] date_parts = parts[2].split ("-");
+                alarm_month = int.parse (date_parts[0]);
+                alarm_day = int.parse (date_parts[1]);
+            }
 
             //create booleans that checks same date and time
             bool same_day = alarm_day == now.get_day_of_month ();
