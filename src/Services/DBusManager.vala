@@ -20,7 +20,6 @@ namespace Hourglass.Services {
 
     [DBus (name = "com.github.sgpthomas.hourglass")]
     public interface HourglassClient : Object {
-        public abstract void print_debug (string msg) throws GLib.DBusError, GLib.IOError;
         public abstract void show_notification (string summary, string body, string id) throws GLib.DBusError, GLib.IOError;
         public abstract void add_alarm (string alarm) throws GLib.DBusError, GLib.IOError;
         public abstract void remove_alarm (string alarm) throws GLib.DBusError, GLib.IOError;
@@ -42,12 +41,7 @@ namespace Hourglass.Services {
             try {
                 //sync client to server
                 client = Bus.get_proxy_sync (BusType.SESSION, "com.github.sgpthomas.hourglass", "/com/github/sgpthomas/hourglass");
-
-                client.print_debug ("Client Starting");
-
             } catch (GLib.IOError e) {
-                error (e.message);
-            } catch (GLib.DBusError e) {
                 error (e.message);
             }
         }
