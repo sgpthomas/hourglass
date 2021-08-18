@@ -124,6 +124,8 @@ public class Hourglass.Widgets.Alarm : Gtk.ListBoxRow {
             str += time.get_month ().to_string ();
             str += "-";
             str += time.get_day_of_month ().to_string ();
+            str += "-";
+            str += time.get_year ().to_string ();
         } else {
             str += "none";
         }
@@ -169,18 +171,19 @@ public class Hourglass.Widgets.Alarm : Gtk.ListBoxRow {
 
         //day and month
         var now = new GLib.DateTime.now_local ();
-        int year = now.get_year ();
 
-        int month, day;
+        int month, day, year;
         bool has_date = false;
         if (parts[2] == "none") {
             month = now.get_month ();
             day = now.get_day_of_month ();
+            year = now.get_year ();
         } else {
             has_date = true;
             var date_string_parts = parts[2].split ("-");
             month = int.parse (date_string_parts[0]);
             day = int.parse (date_string_parts[1]);
+            year = int.parse (date_string_parts[2]);
         }
 
         var time = new GLib.DateTime.local (year, month, day, hour, min, 0);
