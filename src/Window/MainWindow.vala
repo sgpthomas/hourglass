@@ -88,6 +88,7 @@ public class Hourglass.Window.MainWindow : Gtk.Window {
 
         delete_event.connect (() => {
             on_delete ();
+            return true;
         });
 
         key_press_event.connect ((key) => {
