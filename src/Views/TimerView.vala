@@ -33,7 +33,7 @@ public class Hourglass.Views.TimerView : AbstractView {
 
     public override bool should_keep_open {
         get {
-            return counter.get_active ();
+            return counter.is_active;
         }
     }
 
@@ -95,8 +95,7 @@ public class Hourglass.Views.TimerView : AbstractView {
         chooser_grid.attach (reset_timer_button, 0, 3, 5, 1);
 
         // configure counter
-        counter = new Counter (CountDirection.DOWN);
-        counter.set_label_class ("timer");
+        counter = new Counter (Counter.CountDirection.DOWN);
 
         stop_timer_button = new Gtk.Button.with_label (_("Stop"));
         stop_timer_button.get_style_context ().add_class ("round-button");
@@ -144,7 +143,7 @@ public class Hourglass.Views.TimerView : AbstractView {
 
         stop_timer_button.clicked.connect (stop_timer);
 
-        counter.on_end.connect (stop_timer);
+        counter.ended.connect (stop_timer);
 
         update ();
         hour_chooser.has_focus = true;
@@ -166,8 +165,9 @@ public class Hourglass.Views.TimerView : AbstractView {
         stack.set_visible_child_name ("timer_grid");
 
         var val = (int64) (sec_chooser.get_value () + (min_chooser.get_value () * 60) + (hour_chooser.get_value () * 3600)) * 1000000;
-        counter.set_limit (val);
-        counter.set_should_notify (true,
+        counter.limit = val;
+        counter.should_notify = true;
+        counter.set_notification (
             purpose_entry.text == "" ? _("It's time!") : purpose_entry.text,
             Counter.create_time_string (val, false),
             "timer"
@@ -176,18 +176,18 @@ public class Hourglass.Views.TimerView : AbstractView {
         debug ("starting");
         counter.start ();
 
-        counter.on_tick.connect (() => {
+        counter.ticked.connect (() => {
             update ();
         });
 
         // when timer stops, turn timer state to false
-        counter.on_stop.connect (() => {
-            Hourglass.saved.set_int64 ("timer-time", counter.get_current_time () / 1000);
+        counter.stopped.connect (() => {
+            Hourglass.saved.set_int64 ("timer-time", counter.current_time / 1000);
             Hourglass.saved.set_boolean ("timer-state", false);
         });
 
         // when counter ends
-        counter.on_end.connect (() => {
+        counter.ended.connect (() => {
             Hourglass.saved.set_int64 ("timer-time", 0);
             Hourglass.saved.set_boolean ("timer-state", false);
         });
@@ -206,9 +206,9 @@ public class Hourglass.Views.TimerView : AbstractView {
     private void stop_timer () {
         stack.set_visible_child_name ("chooser_grid"); // set the chooser to be visible
         counter.stop (); // stop the counter
-        counter.set_should_notify (false);
+        counter.should_notify = false;
 
-        var time = Counter.parse_seconds (counter.get_current_time ()); // get time from counter
+        var time = Counter.parse_seconds (counter.current_time); // get time from counter
         sec_chooser.value = time.seconds; // get second value from time and update spinner value
         min_chooser.value = time.minutes; // get minute value from time and update spinner value
         hour_chooser.value = time.hours; // get hour value from time and update spinner value
