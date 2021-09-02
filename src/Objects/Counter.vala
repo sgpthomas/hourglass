@@ -89,11 +89,6 @@ public class Hourglass.Objects.Counter : GLib.Object {
         }
 
         stopped ();
-
-        if (!Hourglass.window_open) {
-            Hourglass.saved.set_boolean ("timer-state", false); // prevents timer from going off again when you start up the app
-            Gtk.main_quit ();
-        }
     }
 
     private bool tick () {
