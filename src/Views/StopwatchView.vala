@@ -59,7 +59,7 @@ public class Hourglass.Views.StopwatchView : AbstractView {
         // add and configure counter
         counter = new Hourglass.Objects.Counter (Hourglass.Objects.Counter.CountDirection.UP);
 
-        counter_label = new Gtk.Label (counter.get_time_string (counter.current_time, true)) {
+        counter_label = new Gtk.Label (Hourglass.Utils.get_formatted_time (counter.current_time, true)) {
             margin = 10
         };
         counter_label.get_style_context ().add_class ("timer");
@@ -103,7 +103,7 @@ public class Hourglass.Views.StopwatchView : AbstractView {
         pack_start (button_box);
 
         counter.ticked.connect (() => {
-            counter_label.label = counter.get_time_string (counter.current_time, true);
+            counter_label.label = Hourglass.Utils.get_formatted_time (counter.current_time, true);
         });
 
         start.clicked.connect (() => {
@@ -129,7 +129,7 @@ public class Hourglass.Views.StopwatchView : AbstractView {
         });
 
         lap.clicked.connect (() => {
-            lap_log += counter.get_time_string (counter.current_time, true);
+            lap_log += Hourglass.Utils.get_formatted_time (counter.current_time, true);
             update_log ();
             update ();
         });
@@ -140,7 +140,7 @@ public class Hourglass.Views.StopwatchView : AbstractView {
     }
 
     private void update () {
-        counter_label.label = counter.get_time_string (counter.current_time, true);
+        counter_label.label = Hourglass.Utils.get_formatted_time (counter.current_time, true);
 
         if (is_running) {
             start.hide ();

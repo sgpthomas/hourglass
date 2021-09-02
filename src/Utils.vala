@@ -13,18 +13,36 @@ namespace Hourglass.Utils {
         int64 milliseconds;
     }
 
-    public static Time parse_seconds (int64 seconds) {
+    public static Time parse_milliseconds (int64 milliseconds) {
         Time time = Time ();
 
-        time.hours = seconds / (int64) TimeSpan.HOUR;
-        seconds %= (int64) TimeSpan.HOUR;
-        time.minutes = seconds / (int64) TimeSpan.MINUTE;
-        seconds %= (int64) TimeSpan.MINUTE;
-        time.seconds = seconds / (int64) TimeSpan.SECOND;
-        seconds %= (int64) TimeSpan.SECOND;
-        time.milliseconds = seconds % ((int64) TimeSpan.MILLISECOND / 10);
+        time.hours = milliseconds / (int64) TimeSpan.HOUR;
+        milliseconds %= (int64) TimeSpan.HOUR;
+        time.minutes = milliseconds / (int64) TimeSpan.MINUTE;
+        milliseconds %= (int64) TimeSpan.MINUTE;
+        time.milliseconds = milliseconds / (int64) TimeSpan.SECOND;
+        milliseconds %= (int64) TimeSpan.SECOND;
+        time.millimilliseconds = milliseconds % ((int64) TimeSpan.MILLISECOND / 10);
 
         return time;
+    }
+
+    public static string get_formatted_time (int64 milliseconds, bool with_millisecond) {
+        Time time = parse_milliseconds (milliseconds);
+
+        if (with_millisecond) {
+            if (time.hours == 0) {
+                return "%02llu:%02llu:%02llu".printf (time.minutes, time.seconds, time.milliseconds);
+            }
+
+            return "%02llu:%02llu:%02llu:%02llu".printf (time.hours, time.minutes, time.seconds, time.milliseconds);
+        } else {
+            if (time.hours == 0) {
+                return "%02llu:%02llu".printf (time.minutes, time.seconds);
+            }
+
+            return "%02llu:%02llu:%02llu".printf (time.hours, time.minutes, time.seconds);
+        }
     }
 
     public static bool is_valid_alarm_string (string alarm_string) {
