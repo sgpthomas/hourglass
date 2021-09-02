@@ -37,7 +37,9 @@ public class Hourglass.Views.TimerView : AbstractView {
         }
     }
 
-    private Counter counter;
+    private Hourglass.Objects.Counter counter;
+
+    private Gtk.Stack stack;
 
     private TimeSpinner hour_chooser;
     private TimeSpinner min_chooser;
@@ -45,25 +47,26 @@ public class Hourglass.Views.TimerView : AbstractView {
     private Gtk.Entry purpose_entry;
     private Gtk.Button start_timer_button;
     private Gtk.Button reset_timer_button;
+
+    private Gtk.Label counter_label;
     private Gtk.Button stop_timer_button;
-    private Gtk.Stack stack;
 
     construct {
         // get current time from dconf
-        Counter.Time t = Counter.parse_seconds (Hourglass.saved.get_int64 ("timer-time") * 100);
+        Hourglass.Utils.Time time = Hourglass.Utils.parse_seconds (Hourglass.saved.get_int64 ("timer-time") * 100);
 
         hour_chooser = new TimeSpinner (59) {
-            value = t.hours,
+            value = time.hours,
             tooltip_text = _("Hours")
         };
 
         min_chooser = new TimeSpinner (59) {
-            value = t.minutes,
+            value = time.minutes,
             tooltip_text = _("Minutes")
         };
 
         sec_chooser = new TimeSpinner (59) {
-            value = t.seconds,
+            value = time.seconds,
             tooltip_text = _("Seconds")
         };
 
@@ -95,7 +98,12 @@ public class Hourglass.Views.TimerView : AbstractView {
         chooser_grid.attach (reset_timer_button, 0, 3, 5, 1);
 
         // configure counter
-        counter = new Counter (Counter.CountDirection.DOWN);
+        counter = new Hourglass.Objects.Counter (Hourglass.Objects.Counter.CountDirection.DOWN);
+
+        counter_label = new Gtk.Label (counter.get_time_string (counter.current_time, false)) {
+            margin = 10
+        };
+        counter_label.get_style_context ().add_class ("timer");
 
         stop_timer_button = new Gtk.Button.with_label (_("Stop"));
         stop_timer_button.get_style_context ().add_class ("round-button");
@@ -107,7 +115,7 @@ public class Hourglass.Views.TimerView : AbstractView {
             column_spacing = 6,
             row_spacing = 12
         };
-        timer_grid.attach (counter.get_label (false), 0, 0, 1, 1);
+        timer_grid.attach (counter_label, 0, 0, 1, 1);
         timer_grid.attach (stop_timer_button, 0, 1, 1, 1);
 
         // add grids to the stack
@@ -143,6 +151,10 @@ public class Hourglass.Views.TimerView : AbstractView {
 
         stop_timer_button.clicked.connect (stop_timer);
 
+        counter.ticked.connect (() => {
+            counter_label.label = counter.get_time_string (counter.current_time, false);
+        });
+
         counter.ended.connect (stop_timer);
 
         update ();
@@ -169,7 +181,7 @@ public class Hourglass.Views.TimerView : AbstractView {
         counter.should_notify = true;
         counter.set_notification (
             purpose_entry.text == "" ? _("It's time!") : purpose_entry.text,
-            Counter.create_time_string (val, false),
+            counter.get_time_string (val, false),
             "timer"
         );
 
@@ -208,7 +220,7 @@ public class Hourglass.Views.TimerView : AbstractView {
         counter.stop (); // stop the counter
         counter.should_notify = false;
 
-        var time = Counter.parse_seconds (counter.current_time); // get time from counter
+        Hourglass.Utils.Time time = Hourglass.Utils.parse_seconds (counter.current_time); // get time from counter
         sec_chooser.value = time.seconds; // get second value from time and update spinner value
         min_chooser.value = time.minutes; // get minute value from time and update spinner value
         hour_chooser.value = time.hours; // get hour value from time and update spinner value

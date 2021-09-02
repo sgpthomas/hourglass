@@ -16,17 +16,10 @@
 * with Hourglass. If not, see http://www.gnu.org/licenses/.
 */
 
-public class Hourglass.Widgets.Counter : GLib.Object {
+public class Hourglass.Objects.Counter : GLib.Object {
     public enum CountDirection {
         UP,
         DOWN
-    }
-
-    public struct Time {
-        int64 hours;
-        int64 minutes;
-        int64 seconds;
-        int64 milliseconds;
     }
 
     public signal void ticked ();
@@ -60,9 +53,6 @@ public class Hourglass.Widgets.Counter : GLib.Object {
     private int64 last_time = 0; // in milliseconds
     private DateTime start_time;
 
-    private Gtk.Label time_label_w_milli; // with milliseconds
-    private Gtk.Label time_label_wo_milli; // without milliseconds
-
     public bool should_notify = false;
     private string notify_summary;
     private string notify_body;
@@ -73,18 +63,7 @@ public class Hourglass.Widgets.Counter : GLib.Object {
     }
 
     construct {
-        time_label_w_milli = new Gtk.Label ("") {
-            margin = 10
-        };
-        time_label_w_milli.get_style_context ().add_class ("timer");
-
-        time_label_wo_milli = new Gtk.Label ("") {
-            margin = 10
-        };
-        time_label_wo_milli.get_style_context ().add_class ("timer");
-
         reset ();
-        update_label ();
     }
 
     public void reset () {
@@ -139,7 +118,6 @@ public class Hourglass.Widgets.Counter : GLib.Object {
             }
         }
 
-        update_label ();
         ticked ();
 
         return true;
@@ -151,27 +129,8 @@ public class Hourglass.Widgets.Counter : GLib.Object {
         notify_id = id;
     }
 
-    public Gtk.Label get_label (bool is_millisecond = true) {
-        if (is_millisecond) {
-            return time_label_w_milli;
-        } else {
-            return time_label_wo_milli;
-        }
-    }
-
-    private void update_label () {
-        time_label_w_milli.set_label (get_time_string (true));
-        time_label_wo_milli.set_label (get_time_string (false));
-        time_label_w_milli.show ();
-        time_label_wo_milli.show ();
-    }
-
-    public string get_time_string (bool with_millisecond = true) {
-        return create_time_string (current_time, with_millisecond);
-    }
-
-    public static string create_time_string (int64 alt_time, bool with_millisecond = true) {
-        Time t = parse_seconds (alt_time);
+    public string get_time_string (int64 time, bool with_millisecond) {
+        Hourglass.Utils.Time t = Hourglass.Utils.parse_seconds (time);
         if (with_millisecond) {
             if (t.hours == 0) {
                 return "%02llu:%02llu:%02llu".printf (t.minutes, t.seconds, t.milliseconds);
@@ -185,17 +144,5 @@ public class Hourglass.Widgets.Counter : GLib.Object {
 
             return "%02llu:%02llu:%02llu".printf (t.hours, t.minutes, t.seconds);
         }
-    }
-
-    public static Time parse_seconds (int64 time) {
-        Time t = Time ();
-        t.hours = time / (int64) TimeSpan.HOUR;
-        time %= (int64) TimeSpan.HOUR;
-        t.minutes = time / (int64) TimeSpan.MINUTE;
-        time %= (int64) TimeSpan.MINUTE;
-        t.seconds = time / (int64) TimeSpan.SECOND;
-        time %= (int64) TimeSpan.SECOND;
-        t.milliseconds = time % ((int64) TimeSpan.MILLISECOND / 10);
-        return t;
     }
 }

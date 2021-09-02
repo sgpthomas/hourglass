@@ -159,7 +159,7 @@ public class Hourglass.Widgets.Alarm : Gtk.ListBoxRow {
     }
 
     public static Alarm parse_string (string alarm_string) {
-        string[] parts = alarm_string.split (Utils.ALARM_INFO_SEPARATOR);
+        string[] parts = alarm_string.split (Hourglass.Utils.ALARM_INFO_SEPARATOR);
 
         //title
         var title = parts[0];

@@ -49,7 +49,7 @@ namespace HourglassDaemon {
                 return; //return if alarm is already in array
             }
 
-            if (!Utils.is_valid_alarm_string (alarm_string)) {
+            if (!Hourglass.Utils.is_valid_alarm_string (alarm_string)) {
                 return; //don't add string if string is not valid
             }
 
@@ -72,7 +72,7 @@ namespace HourglassDaemon {
         public void load_alarm_list () {
             alarm_list = new Gee.ArrayList<string> (); //empty alarm list
             foreach (string s in HourglassDaemon.saved_alarms.get_strv ("alarms")) { //loop through all entries in schema
-                if (Utils.is_valid_alarm_string (s)) { //check for validity
+                if (Hourglass.Utils.is_valid_alarm_string (s)) { //check for validity
                     alarm_list.add (s); //add to alarm list
                 }
             }
@@ -88,12 +88,12 @@ namespace HourglassDaemon {
         }
 
         public string get_alarm_name (string alarm_string) {
-            string[] parts = alarm_string.split (Utils.ALARM_INFO_SEPARATOR);
+            string[] parts = alarm_string.split (Hourglass.Utils.ALARM_INFO_SEPARATOR);
             return parts[0];
         }
 
         public string get_alarm_time (string alarm_string) {
-            string[] parts = alarm_string.split (Utils.ALARM_INFO_SEPARATOR);
+            string[] parts = alarm_string.split (Hourglass.Utils.ALARM_INFO_SEPARATOR);
             string[] time = parts[1].split (",");
 
             string hour = time[0];
@@ -113,7 +113,7 @@ namespace HourglassDaemon {
         }
 
         public bool get_alarm_state (string alarm_string) {
-            string[] parts = alarm_string.split (Utils.ALARM_INFO_SEPARATOR);
+            string[] parts = alarm_string.split (Hourglass.Utils.ALARM_INFO_SEPARATOR);
             if (parts[4] == "on") {
                 return true;
             } else {
@@ -122,7 +122,7 @@ namespace HourglassDaemon {
         }
 
         public bool get_alarm_repeat (string alarm_string) {
-            string[] parts = alarm_string.split (Utils.ALARM_INFO_SEPARATOR); //split alarm string
+            string[] parts = alarm_string.split (Hourglass.Utils.ALARM_INFO_SEPARATOR); //split alarm string
 
             if (parts[3] == "none") {
                 return false;
@@ -168,7 +168,7 @@ namespace HourglassDaemon {
         }
 
         public bool is_alarm_string_now (string alarm_string) {
-            string[] parts = alarm_string.split (Utils.ALARM_INFO_SEPARATOR);
+            string[] parts = alarm_string.split (Hourglass.Utils.ALARM_INFO_SEPARATOR);
 
             //time
             string[] time_parts = parts[1].split (",");
