@@ -22,13 +22,6 @@ public class Hourglass.Objects.Counter : GLib.Object {
         DOWN
     }
 
-    public struct Time {
-        int64 hours;
-        int64 minutes;
-        int64 seconds;
-        int64 milliseconds;
-    }
-
     public signal void ticked ();
     public signal void started ();
     public signal void stopped ();
@@ -137,7 +130,7 @@ public class Hourglass.Objects.Counter : GLib.Object {
     }
 
     public string get_time_string (int64 time, bool with_millisecond) {
-        Time t = parse_seconds (time);
+        Hourglass.Utils.Time t = Hourglass.Utils.parse_seconds (time);
         if (with_millisecond) {
             if (t.hours == 0) {
                 return "%02llu:%02llu:%02llu".printf (t.minutes, t.seconds, t.milliseconds);
@@ -151,17 +144,5 @@ public class Hourglass.Objects.Counter : GLib.Object {
 
             return "%02llu:%02llu:%02llu".printf (t.hours, t.minutes, t.seconds);
         }
-    }
-
-    public static Time parse_seconds (int64 time) {
-        Time t = Time ();
-        t.hours = time / (int64) TimeSpan.HOUR;
-        time %= (int64) TimeSpan.HOUR;
-        t.minutes = time / (int64) TimeSpan.MINUTE;
-        time %= (int64) TimeSpan.MINUTE;
-        t.seconds = time / (int64) TimeSpan.SECOND;
-        time %= (int64) TimeSpan.SECOND;
-        t.milliseconds = time % ((int64) TimeSpan.MILLISECOND / 10);
-        return t;
     }
 }

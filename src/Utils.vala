@@ -3,8 +3,29 @@
  * SPDX-License-Identifier: GPL-3.0-or-later
  */
 
-namespace Utils {
+namespace Hourglass.Utils {
     public const string ALARM_INFO_SEPARATOR = ";";
+
+    public struct Time {
+        int64 hours;
+        int64 minutes;
+        int64 seconds;
+        int64 milliseconds;
+    }
+
+    public static Time parse_seconds (int64 seconds) {
+        Time time = Time ();
+
+        time.hours = seconds / (int64) TimeSpan.HOUR;
+        seconds %= (int64) TimeSpan.HOUR;
+        time.minutes = seconds / (int64) TimeSpan.MINUTE;
+        seconds %= (int64) TimeSpan.MINUTE;
+        time.seconds = seconds / (int64) TimeSpan.SECOND;
+        seconds %= (int64) TimeSpan.SECOND;
+        time.milliseconds = seconds % ((int64) TimeSpan.MILLISECOND / 10);
+
+        return time;
+    }
 
     public static bool is_valid_alarm_string (string alarm_string) {
         if (ALARM_INFO_SEPARATOR in alarm_string) {

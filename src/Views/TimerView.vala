@@ -53,20 +53,20 @@ public class Hourglass.Views.TimerView : AbstractView {
 
     construct {
         // get current time from dconf
-        Hourglass.Objects.Counter.Time t = Hourglass.Objects.Counter.parse_seconds (Hourglass.saved.get_int64 ("timer-time") * 100);
+        Hourglass.Utils.Time time = Hourglass.Utils.parse_seconds (Hourglass.saved.get_int64 ("timer-time") * 100);
 
         hour_chooser = new TimeSpinner (59) {
-            value = t.hours,
+            value = time.hours,
             tooltip_text = _("Hours")
         };
 
         min_chooser = new TimeSpinner (59) {
-            value = t.minutes,
+            value = time.minutes,
             tooltip_text = _("Minutes")
         };
 
         sec_chooser = new TimeSpinner (59) {
-            value = t.seconds,
+            value = time.seconds,
             tooltip_text = _("Seconds")
         };
 
@@ -220,7 +220,7 @@ public class Hourglass.Views.TimerView : AbstractView {
         counter.stop (); // stop the counter
         counter.should_notify = false;
 
-        var time = Hourglass.Objects.Counter.parse_seconds (counter.current_time); // get time from counter
+        Hourglass.Utils.Time time = Hourglass.Utils.parse_seconds (counter.current_time); // get time from counter
         sec_chooser.value = time.seconds; // get second value from time and update spinner value
         min_chooser.value = time.minutes; // get minute value from time and update spinner value
         hour_chooser.value = time.hours; // get hour value from time and update spinner value
