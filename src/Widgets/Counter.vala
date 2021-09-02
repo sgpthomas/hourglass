@@ -16,184 +16,186 @@
 * with Hourglass. If not, see http://www.gnu.org/licenses/.
 */
 
-using Gtk;
-
-namespace Hourglass.Widgets {
-
+public class Hourglass.Widgets.Counter : GLib.Object {
     public enum CountDirection {
         UP,
         DOWN
     }
 
-    public class Counter {
+    public struct Time {
+        int64 hours;
+        int64 minutes;
+        int64 seconds;
+        int64 milliseconds;
+    }
 
-        public struct Time {
-            int64 hours;
-            int64 minutes;
-            int64 seconds;
-            int64 milliseconds;
-        }
+    public signal void ticked ();
+    public signal void started ();
+    public signal void stopped ();
+    public signal void ended ();
 
-        private DateTime start_time;
-        private int64 current_time; // in milliseconds
-        private int64 limit;
-        private int64 last_time = 0; // in milliseconds
-        private Label time_label_w_milli; // with milliseconds
-        private Label time_label_wo_milli; // without milliseconds
-        private CountDirection direction;
-        private uint time_step = 10;
-        private uint timeout_id; // timeout_id
+    private uint timeout_id;
 
-        private bool should_notify;
-        private string notify_summary;
-        private string notify_body;
-        private string notify_id;
+    public CountDirection direction { get; construct; }
 
-        public signal void on_tick (); // on tick signal
-        public signal void on_start (); // when timer starts
-        public signal void on_stop (); // when timer is stopped
-        public signal void on_end (); // when timer finishes
-
-        // constructor
-        public Counter (CountDirection direction) {
-            time_label_w_milli = new Label ("") {
-                margin = 10
-            };
-            time_label_wo_milli = new Label ("") {
-                margin = 10
-            };
-            set_current_time (0);
-            should_notify = false;
-            this.direction = direction;
-            update_label ();
-        }
-
-        public void start () {
-            start_time = new DateTime.now_local ();
-
-            if (timeout_id == 0) {
-                timeout_id = Timeout.add (time_step, tick);
-            }
-
-            on_start ();
-        }
-
-        public void stop () {
-            last_time = current_time;
-            if (timeout_id != 0) {
-                Source.remove (timeout_id);
-                timeout_id = 0;
-            }
-
-            on_stop ();
-
-            if (!Hourglass.window_open) {
-                Hourglass.saved.set_boolean ("timer-state", false); // prevents timer from going off again when you start up the app
-                Gtk.main_quit ();
-            }
-        }
-
-        private bool tick () {
-            var diff = (new DateTime.now_local ()).difference (start_time);
-
-            if (direction == CountDirection.UP) {
-                current_time = (int64)diff + last_time;
-            } else {
-                if (current_time >= 0) {
-                    current_time = limit - (int64)diff;
-                } else {
-                    if (should_notify) {
-                        try {
-                            Hourglass.dbus_server.show_notification (notify_summary, notify_body, notify_id);
-                        } catch (GLib.IOError e) {
-                            error (e.message);
-                        } catch (GLib.DBusError e) {
-                            error (e.message);
-                        }
-                    }
-                    stop ();
-                    on_end ();
-                }
-            }
-
-            update_label ();
-            on_tick (); // fire signal
-            return true;
-        }
-
-        public void set_current_time (int64 time) {
-            current_time = time;
-            last_time = 0;
-            update_label ();
-        }
-
-        public int64 get_current_time () {
-            return current_time;
-        }
-
-        public void set_limit (int64 time) {
-            limit = time;
-            current_time = time;
-        }
-
-        public bool get_active () {
+    public bool is_active {
+        get {
             return this.current_time > 0;
         }
+    }
 
-        public void set_should_notify (bool b = true, string? summary = null, string? body = null, string? id = null) {
-            should_notify = b;
-            notify_summary = summary;
-            notify_body = body;
-            notify_id = id;
+    // in milliseconds
+    public int64 current_time { get; private set; }
+    public int64 limit {
+        get {
+            return _limit;
+        }
+        set {
+            _limit = value;
+            current_time = value;
+        }
+    }
+    private int64 _limit;
+
+    private int64 last_time = 0; // in milliseconds
+    private DateTime start_time;
+
+    private Gtk.Label time_label_w_milli; // with milliseconds
+    private Gtk.Label time_label_wo_milli; // without milliseconds
+
+    public bool should_notify = false;
+    private string notify_summary;
+    private string notify_body;
+    private string notify_id;
+
+    public Counter (CountDirection direction) {
+        Object (direction: direction);
+    }
+
+    construct {
+        time_label_w_milli = new Gtk.Label ("") {
+            margin = 10
+        };
+        time_label_w_milli.get_style_context ().add_class ("timer");
+
+        time_label_wo_milli = new Gtk.Label ("") {
+            margin = 10
+        };
+        time_label_wo_milli.get_style_context ().add_class ("timer");
+
+        reset ();
+        update_label ();
+    }
+
+    public void reset () {
+        current_time = 0;
+        last_time = 0;
+    }
+
+    public void start () {
+        start_time = new DateTime.now_local ();
+
+        if (timeout_id == 0) {
+            timeout_id = Timeout.add (10, tick);
         }
 
-        public Label get_label (bool milli = true) {
-            if (milli) {
-                return time_label_w_milli;
+        started ();
+    }
+
+    public void stop () {
+        last_time = current_time;
+        if (timeout_id != 0) {
+            Source.remove (timeout_id);
+            timeout_id = 0;
+        }
+
+        stopped ();
+
+        if (!Hourglass.window_open) {
+            Hourglass.saved.set_boolean ("timer-state", false); // prevents timer from going off again when you start up the app
+            Gtk.main_quit ();
+        }
+    }
+
+    private bool tick () {
+        var diff = (new DateTime.now_local ()).difference (start_time);
+
+        if (direction == CountDirection.UP) {
+            current_time = (int64)diff + last_time;
+        } else {
+            if (current_time >= 0) {
+                current_time = limit - (int64)diff;
             } else {
-                return time_label_wo_milli;
+                if (should_notify) {
+                    try {
+                        Hourglass.dbus_server.show_notification (notify_summary, notify_body, notify_id);
+                    } catch (Error e) {
+                        error (e.message);
+                    }
+                }
+
+                stop ();
+                ended ();
             }
         }
 
-        public void update_label () {
-            time_label_w_milli.set_label (get_time_string (true));
-            time_label_wo_milli.set_label (get_time_string (false));
-            time_label_w_milli.show ();
-            time_label_wo_milli.show ();
-        }
+        update_label ();
+        ticked ();
 
-        public void set_label_class (string class) {
-            time_label_w_milli.get_style_context ().add_class (class);
-            time_label_wo_milli.get_style_context ().add_class (class);
-        }
+        return true;
+    }
 
-        public string get_time_string (bool with_milli = true) {
-            return create_time_string (current_time, with_milli);
-        }
+    public void set_notification (string summary, string body, string id) {
+        notify_summary = summary;
+        notify_body = body;
+        notify_id = id;
+    }
 
-        public static string create_time_string (int64 alt_time, bool with_milli = true) {
-            Time t = parse_seconds (alt_time);
-            if (with_milli) {
-                if (t.hours == 0) {
-                    return "%02llu:%02llu:%02llu".printf (t.minutes, t.seconds, t.milliseconds);
-                } return "%02llu:%02llu:%02llu:%02llu".printf (t.hours, t.minutes, t.seconds, t.milliseconds);
-            } else {
-                if (t.hours == 0) {
-                    return "%02llu:%02llu".printf (t.minutes, t.seconds);
-                } return "%02llu:%02llu:%02llu".printf (t.hours, t.minutes, t.seconds);
+    public Gtk.Label get_label (bool is_millisecond = true) {
+        if (is_millisecond) {
+            return time_label_w_milli;
+        } else {
+            return time_label_wo_milli;
+        }
+    }
+
+    public void update_label () {
+        time_label_w_milli.set_label (get_time_string (true));
+        time_label_wo_milli.set_label (get_time_string (false));
+        time_label_w_milli.show ();
+        time_label_wo_milli.show ();
+    }
+
+    public string get_time_string (bool with_millisecond = true) {
+        return create_time_string (current_time, with_millisecond);
+    }
+
+    public static string create_time_string (int64 alt_time, bool with_millisecond = true) {
+        Time t = parse_seconds (alt_time);
+        if (with_millisecond) {
+            if (t.hours == 0) {
+                return "%02llu:%02llu:%02llu".printf (t.minutes, t.seconds, t.milliseconds);
             }
-        }
 
-        public static Time parse_seconds (int64 time) {
-            Time t = Time ();
-            t.hours = time / (int64) TimeSpan.HOUR;
-            time %= (int64) TimeSpan.HOUR;
-            t.minutes = time / (int64) TimeSpan.MINUTE;
-            time %= (int64) TimeSpan.MINUTE;
-            t.seconds = time / (int64) TimeSpan.SECOND;
-            time %= (int64) TimeSpan.SECOND;
-            t.milliseconds = time % ((int64) TimeSpan.MILLISECOND / 10);
-            return t;
+            return "%02llu:%02llu:%02llu:%02llu".printf (t.hours, t.minutes, t.seconds, t.milliseconds);
+        } else {
+            if (t.hours == 0) {
+                return "%02llu:%02llu".printf (t.minutes, t.seconds);
+            }
+
+            return "%02llu:%02llu:%02llu".printf (t.hours, t.minutes, t.seconds);
         }
+    }
+
+    public static Time parse_seconds (int64 time) {
+        Time t = Time ();
+        t.hours = time / (int64) TimeSpan.HOUR;
+        time %= (int64) TimeSpan.HOUR;
+        t.minutes = time / (int64) TimeSpan.MINUTE;
+        time %= (int64) TimeSpan.MINUTE;
+        t.seconds = time / (int64) TimeSpan.SECOND;
+        time %= (int64) TimeSpan.SECOND;
+        t.milliseconds = time % ((int64) TimeSpan.MILLISECOND / 10);
+        return t;
     }
 }

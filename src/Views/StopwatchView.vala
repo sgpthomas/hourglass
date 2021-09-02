@@ -34,7 +34,7 @@ public class Hourglass.Views.StopwatchView : AbstractView {
 
     public override bool should_keep_open {
         get {
-            return counter.get_active ();
+            return counter.is_active;
         }
     }
 
@@ -56,8 +56,7 @@ public class Hourglass.Views.StopwatchView : AbstractView {
 
     construct {
         // add and configure counter
-        counter = new Counter (CountDirection.UP);
-        counter.set_label_class ("timer");
+        counter = new Counter (Counter.CountDirection.UP);
 
         // create scollable log
         lap_box = new Gtk.ListBox ();
@@ -110,7 +109,7 @@ public class Hourglass.Views.StopwatchView : AbstractView {
         });
 
         reset.clicked.connect (() => {
-            counter.set_current_time (0);
+            counter.reset ();
             lap_log = {};
             foreach (var w in lap_box.get_children ()) {
                 w.destroy ();
@@ -144,7 +143,7 @@ public class Hourglass.Views.StopwatchView : AbstractView {
             lap.hide ();
         }
 
-        reset.sensitive = (counter.get_current_time () != 0);
+        reset.sensitive = (counter.current_time != 0);
     }
 
     private void update_log () {
