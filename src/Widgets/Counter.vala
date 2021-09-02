@@ -159,7 +159,7 @@ public class Hourglass.Widgets.Counter : GLib.Object {
         }
     }
 
-    public void update_label () {
+    private void update_label () {
         time_label_w_milli.set_label (get_time_string (true));
         time_label_wo_milli.set_label (get_time_string (false));
         time_label_w_milli.show ();
