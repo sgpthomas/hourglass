@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: com.github.sgpthomas.hourglass\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-09-03 14:54+0900\n"
-"PO-Revision-Date: 2021-08-12 14:51+0900\n"
+"PO-Revision-Date: 2021-09-03 15:01+0900\n"
 "Last-Translator: Ryo Nakano <ryonakaknock3@gmail.com>\n"
 "Language-Team: none\n"
 "Language: ja\n"
@@ -68,7 +68,7 @@ msgstr "土日"
 #: src/Dialogs/MultiSelectPopover.vala:94
 #, c-format
 msgid "%s, "
-msgstr ""
+msgstr "%s、"
 
 #: src/Dialogs/MultiSelectPopover.vala:100 src/Dialogs/NewAlarmDialog.vala:85
 msgid "Never"
@@ -139,7 +139,7 @@ msgstr "開始"
 
 #: src/Views/StopwatchView.vala:81 src/Views/TimerView.vala:108
 msgid "Stop"
-msgstr "終了"
+msgstr "停止"
 
 #: src/Views/StopwatchView.vala:85 src/Views/TimerView.vala:82
 msgid "Reset"
@@ -167,28 +167,22 @@ msgstr "秒"
 
 #: src/Views/TimerView.vala:74
 msgid "Enter purposes of the timer"
-msgstr ""
+msgstr "タイマーの目的を入力"
 
 #: src/Views/TimerView.vala:183
 msgid "It's time!"
-msgstr ""
+msgstr "時間です！"
 
 #: src/Widgets/Alarm.vala:98
-#, fuzzy, c-format
+#, c-format
 msgid "Repeats: %s"
-msgstr "繰り返し: "
+msgstr "繰り返し: %s"
 
 #: src/Widgets/Alarm.vala:100
-#, fuzzy, c-format
+#, c-format
 msgid ", Repeats: %s"
-msgstr "、繰り返し: "
+msgstr "、繰り返し: %s"
 
 #: src/Window/MainWindow.vala:30
 msgid "Hourglass"
 msgstr "Hourglass"
-
-#~ msgid ":"
-#~ msgstr ":"
-
-#~ msgid "Timer has ended!"
-#~ msgstr "タイマーが終了しました！"
