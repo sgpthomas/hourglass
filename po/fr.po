@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: com.github.sgpthomas.hourglass\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-08-15 12:08+0200\n"
+"POT-Creation-Date: 2021-09-03 14:54+0900\n"
 "PO-Revision-Date: 2021-08-15 12:08+0200\n"
 "Last-Translator: Nathan Bonnemains (@NathanBnm)\n"
 "Language-Team: none\n"
@@ -70,39 +70,39 @@ msgstr "Chaque weekend"
 msgid "%s, "
 msgstr "%s, "
 
-#: src/Dialogs/MultiSelectPopover.vala:100 src/Dialogs/NewAlarmDialog.vala:78
+#: src/Dialogs/MultiSelectPopover.vala:100 src/Dialogs/NewAlarmDialog.vala:85
 msgid "Never"
 msgstr "Jamais"
 
-#: src/Dialogs/NewAlarmDialog.vala:46
+#: src/Dialogs/NewAlarmDialog.vala:48
 msgid "Title:"
 msgstr "Nom :"
 
-#: src/Dialogs/NewAlarmDialog.vala:52
+#: src/Dialogs/NewAlarmDialog.vala:54
 msgid "Time:"
 msgstr "Heure :"
 
-#: src/Dialogs/NewAlarmDialog.vala:58
+#: src/Dialogs/NewAlarmDialog.vala:60
 msgid "Date:"
 msgstr "Date :"
 
-#: src/Dialogs/NewAlarmDialog.vala:64
+#: src/Dialogs/NewAlarmDialog.vala:70
 msgid "Repeat:"
 msgstr "Répétition :"
 
-#: src/Dialogs/NewAlarmDialog.vala:99
+#: src/Dialogs/NewAlarmDialog.vala:107
 msgid "Cancel"
 msgstr "Annuler"
 
-#: src/Dialogs/NewAlarmDialog.vala:102
+#: src/Dialogs/NewAlarmDialog.vala:110
 msgid "Save"
 msgstr "Enregistrer"
 
-#: src/Dialogs/NewAlarmDialog.vala:102
+#: src/Dialogs/NewAlarmDialog.vala:110
 msgid "Create Alarm"
 msgstr "Créer l'alarme"
 
-#: src/Dialogs/NewAlarmDialog.vala:127 src/Views/AlarmView.vala:30
+#: src/Dialogs/NewAlarmDialog.vala:135 src/Views/AlarmView.vala:30
 msgid "Alarm"
 msgstr "Alarme"
 
@@ -134,19 +134,19 @@ msgid "Stopwatch"
 msgstr "Chronomètre"
 
 #. create buttons
-#: src/Views/StopwatchView.vala:72 src/Views/TimerView.vala:75
+#: src/Views/StopwatchView.vala:77 src/Views/TimerView.vala:78
 msgid "Start"
 msgstr "Démarrer"
 
-#: src/Views/StopwatchView.vala:76 src/Views/TimerView.vala:101
+#: src/Views/StopwatchView.vala:81 src/Views/TimerView.vala:108
 msgid "Stop"
 msgstr "Arrêter"
 
-#: src/Views/StopwatchView.vala:80 src/Views/TimerView.vala:79
+#: src/Views/StopwatchView.vala:85 src/Views/TimerView.vala:82
 msgid "Reset"
 msgstr "Réinitialiser"
 
-#: src/Views/StopwatchView.vala:83
+#: src/Views/StopwatchView.vala:88
 msgid "Lap"
 msgstr "Enregistrer"
 
@@ -154,23 +154,23 @@ msgstr "Enregistrer"
 msgid "Timer"
 msgstr "Minuteur"
 
-#: src/Views/TimerView.vala:57
+#: src/Views/TimerView.vala:60
 msgid "Hours"
 msgstr "Heures"
 
-#: src/Views/TimerView.vala:62
+#: src/Views/TimerView.vala:65
 msgid "Minutes"
 msgstr "Minutes"
 
-#: src/Views/TimerView.vala:67
+#: src/Views/TimerView.vala:70
 msgid "Seconds"
 msgstr "Secondes"
 
-#: src/Views/TimerView.vala:71
+#: src/Views/TimerView.vala:74
 msgid "Enter purposes of the timer"
 msgstr "Indiquez l'objectif de minuteur"
 
-#: src/Views/TimerView.vala:171
+#: src/Views/TimerView.vala:183
 msgid "It's time!"
 msgstr "C'est l'heure !"
 
