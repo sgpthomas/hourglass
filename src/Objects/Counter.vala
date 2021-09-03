@@ -31,11 +31,7 @@ public class Hourglass.Objects.Counter : GLib.Object {
 
     public CountDirection direction { get; construct; }
 
-    public bool is_active {
-        get {
-            return current_time > 0;
-        }
-    }
+    public bool is_active { get; private set; }
 
     // in milliseconds
     public int64 current_time { get; private set; default = 0; }
@@ -74,6 +70,7 @@ public class Hourglass.Objects.Counter : GLib.Object {
             timeout_id = Timeout.add (10, tick);
         }
 
+        is_active = true;
         started ();
     }
 
@@ -84,17 +81,18 @@ public class Hourglass.Objects.Counter : GLib.Object {
             timeout_id = 0;
         }
 
+        is_active = false;
         stopped ();
     }
 
     private bool tick () {
-        var diff = (new DateTime.now_local ()).difference (start_time);
+        var diff = (int64) (new DateTime.now_local ()).difference (start_time);
 
         if (direction == CountDirection.UP) {
-            current_time = (int64)diff + last_time;
+            current_time = diff + last_time;
         } else {
             if (current_time >= 0) {
-                current_time = limit - (int64)diff;
+                current_time = limit - diff;
             } else {
                 if (should_notify) {
                     try {
@@ -104,6 +102,7 @@ public class Hourglass.Objects.Counter : GLib.Object {
                     }
                 }
 
+                current_time = limit;
                 stop ();
                 ended ();
             }
