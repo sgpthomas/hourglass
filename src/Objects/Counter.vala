@@ -88,13 +88,13 @@ public class Hourglass.Objects.Counter : GLib.Object {
     }
 
     private bool tick () {
-        var diff = (new DateTime.now_local ()).difference (start_time);
+        var diff = (int64) (new DateTime.now_local ()).difference (start_time);
 
         if (direction == CountDirection.UP) {
-            current_time = (int64)diff + last_time;
+            current_time = diff + last_time;
         } else {
             if (current_time >= 0) {
-                current_time = limit - (int64)diff;
+                current_time = limit - diff;
             } else {
                 if (should_notify) {
                     try {
@@ -104,6 +104,7 @@ public class Hourglass.Objects.Counter : GLib.Object {
                     }
                 }
 
+                current_time = limit;
                 stop ();
                 ended ();
             }
