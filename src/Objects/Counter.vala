@@ -33,12 +33,12 @@ public class Hourglass.Objects.Counter : GLib.Object {
 
     public bool is_active {
         get {
-            return this.current_time > 0;
+            return current_time > 0;
         }
     }
 
     // in milliseconds
-    public int64 current_time { get; private set; }
+    public int64 current_time { get; private set; default = 0; }
     public int64 limit {
         get {
             return _limit;
@@ -60,10 +60,6 @@ public class Hourglass.Objects.Counter : GLib.Object {
 
     public Counter (CountDirection direction) {
         Object (direction: direction);
-    }
-
-    construct {
-        reset ();
     }
 
     public void reset () {
