@@ -20,9 +20,9 @@ namespace Hourglass.Utils {
         milliseconds %= (int64) TimeSpan.HOUR;
         time.minutes = milliseconds / (int64) TimeSpan.MINUTE;
         milliseconds %= (int64) TimeSpan.MINUTE;
-        time.milliseconds = milliseconds / (int64) TimeSpan.SECOND;
+        time.seconds = milliseconds / (int64) TimeSpan.SECOND;
         milliseconds %= (int64) TimeSpan.SECOND;
-        time.millimilliseconds = milliseconds % ((int64) TimeSpan.MILLISECOND / 10);
+        time.milliseconds = milliseconds % ((int64) TimeSpan.MILLISECOND / 10);
 
         return time;
     }
