@@ -53,7 +53,7 @@ public class Hourglass.Views.TimerView : AbstractView {
 
     construct {
         // get current time from dconf
-        Hourglass.Utils.Time time = Hourglass.Utils.parse_seconds (Hourglass.saved.get_int64 ("timer-time") * 100);
+        Hourglass.Utils.Time time = Hourglass.Utils.parse_milliseconds (Hourglass.saved.get_int64 ("timer-time") * 100);
 
         hour_chooser = new TimeSpinner (59) {
             value = time.hours,
@@ -100,7 +100,7 @@ public class Hourglass.Views.TimerView : AbstractView {
         // configure counter
         counter = new Hourglass.Objects.Counter (Hourglass.Objects.Counter.CountDirection.DOWN);
 
-        counter_label = new Gtk.Label (counter.get_time_string (counter.current_time, false)) {
+        counter_label = new Gtk.Label (Hourglass.Utils.get_formatted_time (counter.current_time, false)) {
             margin = 10
         };
         counter_label.get_style_context ().add_class ("timer");
@@ -152,7 +152,7 @@ public class Hourglass.Views.TimerView : AbstractView {
         stop_timer_button.clicked.connect (stop_timer);
 
         counter.ticked.connect (() => {
-            counter_label.label = counter.get_time_string (counter.current_time, false);
+            counter_label.label = Hourglass.Utils.get_formatted_time (counter.current_time, false);
         });
 
         counter.ended.connect (stop_timer);
@@ -181,7 +181,7 @@ public class Hourglass.Views.TimerView : AbstractView {
         counter.should_notify = true;
         counter.set_notification (
             purpose_entry.text == "" ? _("It's time!") : purpose_entry.text,
-            counter.get_time_string (val, false),
+            Hourglass.Utils.get_formatted_time (val, false),
             "timer"
         );
 
@@ -220,7 +220,7 @@ public class Hourglass.Views.TimerView : AbstractView {
         counter.stop (); // stop the counter
         counter.should_notify = false;
 
-        Hourglass.Utils.Time time = Hourglass.Utils.parse_seconds (counter.current_time); // get time from counter
+        Hourglass.Utils.Time time = Hourglass.Utils.parse_milliseconds (counter.current_time); // get time from counter
         sec_chooser.value = time.seconds; // get second value from time and update spinner value
         min_chooser.value = time.minutes; // get minute value from time and update spinner value
         hour_chooser.value = time.hours; // get hour value from time and update spinner value

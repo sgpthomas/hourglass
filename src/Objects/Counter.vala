@@ -119,21 +119,4 @@ public class Hourglass.Objects.Counter : GLib.Object {
         notify_body = body;
         notify_id = id;
     }
-
-    public string get_time_string (int64 time, bool with_millisecond) {
-        Hourglass.Utils.Time t = Hourglass.Utils.parse_seconds (time);
-        if (with_millisecond) {
-            if (t.hours == 0) {
-                return "%02llu:%02llu:%02llu".printf (t.minutes, t.seconds, t.milliseconds);
-            }
-
-            return "%02llu:%02llu:%02llu:%02llu".printf (t.hours, t.minutes, t.seconds, t.milliseconds);
-        } else {
-            if (t.hours == 0) {
-                return "%02llu:%02llu".printf (t.minutes, t.seconds);
-            }
-
-            return "%02llu:%02llu:%02llu".printf (t.hours, t.minutes, t.seconds);
-        }
-    }
 }
