@@ -1,6 +1,6 @@
 project('com.github.sgpthomas.hourglass',
     'vala', 'c',
-    version: '1.4.0'
+    version: '2.0.0'
 )
 
 gnome = import('gnome')
@@ -34,16 +34,17 @@ executable(
     asresources,
     'src/Dialogs/MultiSelectPopover.vala',
     'src/Dialogs/NewAlarmDialog.vala',
+    'src/Objects/Counter.vala',
     'src/Services/DBusManager.vala',
     'src/Views/AbstractView.vala',
     'src/Views/AlarmView.vala',
     'src/Views/StopwatchView.vala',
     'src/Views/TimerView.vala',
     'src/Widgets/Alarm.vala',
-    'src/Widgets/Counter.vala',
     'src/Widgets/TimeSpinner.vala',
     'src/Window/MainWindow.vala',
     'src/Hourglass.vala',
+    'src/Utils.vala',
     dependencies: [
         dependency('gtk+-3.0', version: '>= 3.18'),
         dependency('gee-0.8'),

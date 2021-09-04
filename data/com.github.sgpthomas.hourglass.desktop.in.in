@@ -10,4 +10,5 @@ Terminal=false
 Categories=GNOME;GTK;Utility;
 Keywords=Timer;Time;Clock;Hourglass;Alarm;
 X-GNOME-Keywords=Timer;Time;Clock;Hourglass;Alarm;
+X-GNOME-UsesNotifications=true
 StartupNotify=true

@@ -40,13 +40,14 @@ public class Hourglass.Views.StopwatchView : AbstractView {
 
     public override bool should_keep_open {
         get {
-            return counter.get_active ();
+            return counter.is_active;
         }
     }
 
     public MainWindow window { get; construct; }
 
-    private Counter counter;
+    private Hourglass.Objects.Counter counter;
+    private Gtk.Label counter_label;
     private Gtk.ListBox lap_box;
     private Gtk.Button start;
     private Gtk.Button stop;
@@ -54,7 +55,7 @@ public class Hourglass.Views.StopwatchView : AbstractView {
     private Gtk.Button lap;
 
     private string[] lap_log = {};
-    private bool running = false;
+    private bool is_running = false;
 
     public StopwatchView (MainWindow window) {
         Object (window: window);
@@ -62,8 +63,12 @@ public class Hourglass.Views.StopwatchView : AbstractView {
 
     construct {
         // add and configure counter
-        counter = new Counter (CountDirection.UP);
-        counter.set_label_class ("timer");
+        counter = new Hourglass.Objects.Counter (Hourglass.Objects.Counter.CountDirection.UP);
+
+        counter_label = new Gtk.Label (Hourglass.Utils.get_formatted_time (counter.current_time, true)) {
+            margin = 10
+        };
+        counter_label.get_style_context ().add_class ("timer");
 
         // create scollable log
         lap_box = new Gtk.ListBox ();
@@ -99,24 +104,28 @@ public class Hourglass.Views.StopwatchView : AbstractView {
         button_box.add (reset);
         button_box.add (lap);
 
-        pack_start (counter.get_label ());
+        pack_start (counter_label);
         pack_start (scrolled_window);
         pack_start (button_box);
 
+        counter.ticked.connect (() => {
+            counter_label.label = Hourglass.Utils.get_formatted_time (counter.current_time, true);
+        });
+
         start.clicked.connect (() => {
             counter.start ();
-            running = true;
+            is_running = true;
             update ();
         });
 
         stop.clicked.connect (() => {
             counter.stop ();
-            running = false;
+            is_running = false;
             update ();
         });
 
         reset.clicked.connect (() => {
-            counter.set_current_time (0);
+            counter.reset ();
             lap_log = {};
             foreach (var w in lap_box.get_children ()) {
                 w.destroy ();
@@ -126,7 +135,7 @@ public class Hourglass.Views.StopwatchView : AbstractView {
         });
 
         lap.clicked.connect (() => {
-            lap_log += counter.get_time_string ();
+            lap_log += Hourglass.Utils.get_formatted_time (counter.current_time, true);
             update_log ();
             update ();
         });
@@ -137,20 +146,21 @@ public class Hourglass.Views.StopwatchView : AbstractView {
     }
 
     private void update () {
-        //set visibility
-        if (running) {
+        counter_label.label = Hourglass.Utils.get_formatted_time (counter.current_time, true);
+
+        if (is_running) {
             start.hide ();
             stop.show ();
             reset.hide ();
             lap.show ();
-        } else if (!running) {
+        } else if (!is_running) {
             start.show ();
             stop.hide ();
             reset.show ();
             lap.hide ();
         }
 
-        reset.sensitive = (counter.get_current_time () != 0);
+        reset.sensitive = (counter.current_time != 0);
     }
 
     private void update_log () {

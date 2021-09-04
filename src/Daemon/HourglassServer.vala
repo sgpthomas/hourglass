@@ -23,12 +23,8 @@ namespace HourglassDaemon {
     [DBus (name = "com.github.sgpthomas.hourglass")]
     public class Server : Object {
 
-        public void print_debug (string msg) throws GLib.DBusError, GLib.IOError {
-            debug (msg);
-        }
-
-        public void show_notification (string summary, string body = "", string track = "") throws GLib.DBusError, GLib.IOError {
-            notification.show (summary, body, track);
+        public void show_notification (string summary, string body, string id) throws GLib.DBusError, GLib.IOError {
+            notification.show (summary, body, id);
         }
 
         public void add_alarm (string alarm) throws GLib.DBusError, GLib.IOError {

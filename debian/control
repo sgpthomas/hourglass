@@ -12,9 +12,10 @@ Build-Depends: debhelper (>= 10.5.1),
                meson,
                valac
 Standards-Version: 4.1.1
+Homepage: https://github.com/sgpthomas/hourglass
 
 Package: com.github.sgpthomas.hourglass
 Architecture: any
 Depends: ${misc:Depends}, ${shlibs:Depends}
 Description: A simple timer and alarm application
- Hourglass is an application designed for elementary OS and is provides some simple time, stopwatch, and alarm functionality.
+ Hourglass is an application designed for elementary OS. It provides some simple time, stopwatch, and alarm functionality.

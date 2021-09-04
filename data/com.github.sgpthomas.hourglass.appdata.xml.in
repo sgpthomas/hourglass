@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Copyright 2017 Sam Thomas <sgpthomas@gmail.com> -->
+<!-- Copyright 2017-2021 Samuel Thomas <sgpthomas@gmail.com> -->
 <component type="desktop">
   <id>com.github.sgpthomas.hourglass</id>
   <launchable type="desktop-id">com.github.sgpthomas.hourglass.desktop</launchable>
@@ -16,15 +16,15 @@
 
   <screenshots>
     <screenshot type="default">
-      <caption>Alarm</caption>
+      <caption>Alarm View</caption>
       <image>https://raw.githubusercontent.com/sgpthomas/hourglass/master/data/screenshots/alarm.png</image>
     </screenshot>
     <screenshot>
-      <caption>Stopwatch</caption>
+      <caption>Stopwatch View</caption>
       <image>https://raw.githubusercontent.com/sgpthomas/hourglass/master/data/screenshots/stopwatch.png</image>
     </screenshot>
     <screenshot>
-      <caption>Timer</caption>
+      <caption>Timer View</caption>
       <image>https://raw.githubusercontent.com/sgpthomas/hourglass/master/data/screenshots/timer.png</image>
     </screenshot>
   </screenshots>
@@ -77,6 +77,45 @@
   </provides>
 
   <releases>
+    <release version="2.0.0" date="2021-09-03" urgency="high">
+      <description>
+        <p>
+          This release comes with numerous bug fixes &amp; improvements!
+        </p>
+        <p>
+          Changes in Alarm:
+        </p>
+        <ul>
+          <li>Refresh weekday toggle activity when opening popover</li>
+          <li>Notify on every 0 second</li>
+          <li>Keep repeated alarms on and turn off one-time alarms after ringing</li>
+          <li>Now alarm date is optional; if you don't specify date of the alarm, it will be notified at that time of today</li>
+          <li>Remove unused "update-frequency" gsettings key</li>
+          <li>Fix repeating alarms can't be disabled</li>
+          <li>Explicitly set the year</li>
+        </ul>
+        <p>
+          Changes in Timer:
+        </p>
+        <ul>
+          <li>Add Reset button</li>
+          <li>Support setting purpose of a timer</li>
+          <li>Lessen damages to your storage</li>
+          <li>Restore started time on end</li>
+          <li>Make sure to iconify always when the timer is active</li>
+        </ul>
+        <p>
+          Other changes:
+        </p>
+        <ul>
+          <li>Fix a regression that any key input no longer accepted</li>
+          <li>Lessen window width by default</li>
+          <li>Fix the app exits if the window has been iconified</li>
+          <li>Code refactoring</li>
+          <li>Update translations</li>
+        </ul>
+      </description>
+    </release>
     <release version="1.4.0" date="2021-08-12" urgency="medium">
       <description>
         <ul>

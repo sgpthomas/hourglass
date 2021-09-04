@@ -17,47 +17,17 @@
 */
 
 public class HourglassDaemon.NotificationManager {
-    private Notify.Notification notification;
-    private Canberra.Context player;
+    public GLib.Application app { get; private set; }
 
-    private bool open = false;
-
-    public NotificationManager () {
-        Notify.init ("com.github.sgpthomas.hourglass");
-
-        Canberra.Context.create (out player);
+    public NotificationManager (GLib.Application app) {
+        this.app = app;
     }
 
-    public void show (string summary, string body = "", string track = "") {
-        open = true;
-        try {
-            if (notification == null) {
-                notification = new Notify.Notification (summary, body, "com.github.sgpthomas.hourglass"); // create notification
-            } else {
-                notification.update (summary, body, "com.github.sgpthomas.hourglass"); // update notification if it already exists
-            }
+    public void show (string summary, string body, string id) {
+        var notification = new GLib.Notification (summary);
+        notification.set_body (body);
+        notification.set_priority (NotificationPriority.HIGH);
 
-            notification.set_urgency (Notify.Urgency.CRITICAL);
-            notification.show ();
-
-            notification.closed.connect (() => {
-                player.cancel (1);
-                open = false;
-            });
-
-            // player sound
-            player.play (1, Canberra.PROP_EVENT_ID, HourglassDaemon.settings.get_string ("sound"), Canberra.PROP_MEDIA_ROLE, "alarm");
-
-            Timeout.add (10000, () => {
-                if (open) {
-                    player.play (1, Canberra.PROP_EVENT_ID, HourglassDaemon.settings.get_string ("sound"), Canberra.PROP_MEDIA_ROLE, "alarm");
-                    return Source.CONTINUE;
-                } else {
-                    return Source.REMOVE;
-                }
-            });
-        } catch (GLib.Error e) {
-            error ("Error: %s", e.message);
-        }
+        app.send_notification ("%s-%s".printf (EXEC_NAME, id), notification);
     }
 }
