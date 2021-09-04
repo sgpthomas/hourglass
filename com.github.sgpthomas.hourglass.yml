@@ -11,7 +11,6 @@ finish-args:
   # DBus access
   - '--own-name=com.github.sgpthomas.client'
   - '--own-name=com.github.sgpthomas.hourglass'
-  - '--talk-name=org.freedesktop.Notifications'
 
   - '--metadata=X-DConf=migrate-path=/com/github/sgpthomas/hourglass/'
 
