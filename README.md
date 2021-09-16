@@ -17,7 +17,7 @@ On elementary OS? Click the button to get Hourglass on AppCenter:
 You'll need the following dependencies to build:
 * libgranite-dev (>= 6.0.0)
 * libgtk-3-dev
-* meson
+* meson (>= 0.49.0)
 * valac
 
 Run `meson build` to configure the build environment and then change to the build directory and run `ninja` to build

@@ -1,6 +1,7 @@
 project('com.github.sgpthomas.hourglass',
     'vala', 'c',
-    version: '2.0.0'
+    version: '2.0.0',
+    meson_version: '>=0.49.0'
 )
 
 gnome = import('gnome')
@@ -16,7 +17,7 @@ conf_data.set('DAEMON_EXEC_NAME', meson.project_name() + '-daemon')
 conf_data.set_quoted('LOCALEDIR', get_option('prefix') / get_option('localedir'))
 conf_data.set_quoted('GETTEXT_PACKAGE', meson.project_name())
 config_file = configure_file(
-    input: join_paths('src', 'Config.vala.in'),
+    input: 'src' / 'Config.vala.in',
     output: 'Config.vala',
     configuration: conf_data
 )
@@ -28,23 +29,27 @@ asresources = gnome.compile_resources(
     c_name: 'as'
 )
 
+sources = files(
+    'src' / 'Dialogs' / 'MultiSelectPopover.vala',
+    'src' / 'Dialogs' / 'NewAlarmDialog.vala',
+    'src' / 'Objects' / 'Counter.vala',
+    'src' / 'Services' / 'DBusManager.vala',
+    'src' / 'Views' / 'AbstractView.vala',
+    'src' / 'Views' / 'AlarmView.vala',
+    'src' / 'Views' / 'StopwatchView.vala',
+    'src' / 'Views' / 'TimerView.vala',
+    'src' / 'Widgets' / 'Alarm.vala',
+    'src' / 'Widgets' / 'TimeSpinner.vala',
+    'src' / 'Window' / 'MainWindow.vala',
+    'src' / 'Hourglass.vala',
+    'src' / 'Utils.vala'
+)
+
 executable(
     meson.project_name(),
     config_file,
     asresources,
-    'src/Dialogs/MultiSelectPopover.vala',
-    'src/Dialogs/NewAlarmDialog.vala',
-    'src/Objects/Counter.vala',
-    'src/Services/DBusManager.vala',
-    'src/Views/AbstractView.vala',
-    'src/Views/AlarmView.vala',
-    'src/Views/StopwatchView.vala',
-    'src/Views/TimerView.vala',
-    'src/Widgets/Alarm.vala',
-    'src/Widgets/TimeSpinner.vala',
-    'src/Window/MainWindow.vala',
-    'src/Hourglass.vala',
-    'src/Utils.vala',
+    sources,
     dependencies: [
         dependency('gtk+-3.0', version: '>= 3.18'),
         dependency('gee-0.8'),
@@ -54,12 +59,12 @@ executable(
 )
 
 install_data(
-    join_paths('schemas', meson.project_name() + '.gschema.xml'),
-    install_dir: join_paths(get_option('datadir'), 'glib-2.0', 'schemas')
+    'schemas' / meson.project_name() + '.gschema.xml',
+    install_dir: get_option('datadir') / 'glib-2.0' / 'schemas'
 )
 
 subdir ('data')
 subdir ('po')
-subdir ('src/Daemon')
+subdir ('src' / 'Daemon')
 
-meson.add_install_script('meson/post_install.py')
+meson.add_install_script('meson' / 'post_install.py')
