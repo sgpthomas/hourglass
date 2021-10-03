@@ -31,12 +31,6 @@ public class Hourglass.Views.TimerView : AbstractView {
         }
     }
 
-    public override string icon_name {
-        get {
-            return "view-timer-symbolic";
-        }
-    }
-
     public override bool should_keep_open {
         get {
             return counter.is_active;

@@ -53,28 +53,19 @@ public class Hourglass.Window.MainWindow : Hdy.Window {
 
         //loop through time widgets
         foreach (Hourglass.Views.AbstractView widget in widget_list) {
-            var val = Value (typeof (string));
-            val.set_string (widget.icon_name);
             stack.add_titled (widget, widget.id, widget.display_name);
-            stack.child_set_property (widget, "icon-name", val);
         }
 
-        var view_switcher_bar = new Hdy.ViewSwitcherBar ();
-        view_switcher_bar.stack = stack;
-
-        var view_switcher_title = new Hdy.ViewSwitcherTitle ();
-        view_switcher_title.stack = stack;
-        view_switcher_title.title = _("Hourglass");
-        view_switcher_title.bind_property ("title-visible", view_switcher_bar, "reveal", GLib.BindingFlags.SYNC_CREATE);
-
         var headerbar = new Hdy.HeaderBar ();
-        headerbar.custom_title = view_switcher_title;
+        headerbar.custom_title = stack_switcher;
         headerbar.show_close_button = true;
+
+        unowned var headerbar_style = headerbar.get_style_context ();
+        headerbar_style.add_class (Gtk.STYLE_CLASS_FLAT);
 
         var main_box = new Gtk.Box (Gtk.Orientation.VERTICAL, 0);
         main_box.add (headerbar);
         main_box.add (stack);
-        main_box.add (view_switcher_bar);
 
         add (main_box);
 

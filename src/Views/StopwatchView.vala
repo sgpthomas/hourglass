@@ -32,12 +32,6 @@ public class Hourglass.Views.StopwatchView : AbstractView {
         }
     }
 
-    public override string icon_name {
-        get {
-            return "emblem-default";
-        }
-    }
-
     public override bool should_keep_open {
         get {
             return counter.is_active;

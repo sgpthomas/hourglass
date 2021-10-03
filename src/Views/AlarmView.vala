@@ -31,12 +31,6 @@ public class Hourglass.Views.AlarmView : AbstractView {
         }
     }
 
-    public override string icon_name {
-        get {
-            return "preferences-system-time";
-        }
-    }
-
     public override bool should_keep_open {
         get {
             return false;

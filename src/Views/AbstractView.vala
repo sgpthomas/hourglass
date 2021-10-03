@@ -19,7 +19,6 @@
 public abstract class Hourglass.Views.AbstractView : Gtk.Box {
     public abstract string id { get; }
     public abstract string display_name { get; }
-    public abstract string icon_name { get; }
     public abstract bool should_keep_open { get; }
 
     construct {
