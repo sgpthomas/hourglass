@@ -101,6 +101,7 @@ namespace Hourglass {
         HourglassApp.spawn_daemon ();
 
         Gtk.init (ref args);
+        Hdy.init ();
 
         HourglassApp app = new HourglassApp ();
         app.run (args);

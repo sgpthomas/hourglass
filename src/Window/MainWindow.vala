@@ -17,7 +17,7 @@
 * with Hourglass. If not, see http://www.gnu.org/licenses/.
 */
 
-public class Hourglass.Window.MainWindow : Gtk.Window {
+public class Hourglass.Window.MainWindow : Hdy.Window {
     public signal void on_stack_change ();
 
     private Gtk.Stack stack;
@@ -32,8 +32,6 @@ public class Hourglass.Window.MainWindow : Gtk.Window {
     }
 
     construct {
-        set_border_width (12);
-
         var cssprovider = new Gtk.CssProvider ();
         cssprovider.load_from_resource ("/com/github/sgpthomas/hourglass/Application.css");
         Gtk.StyleContext.add_provider_for_screen (Gdk.Screen.get_default (),
@@ -41,27 +39,35 @@ public class Hourglass.Window.MainWindow : Gtk.Window {
                                                     Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION);
 
         stack = new Gtk.Stack ();
+        stack.border_width = 12;
+        stack.transition_type = Gtk.StackTransitionType.SLIDE_LEFT_RIGHT;
+
         var stack_switcher = new Gtk.StackSwitcher ();
         stack_switcher.stack = stack;
         stack_switcher.halign = Gtk.Align.CENTER;
-        stack.transition_type = Gtk.StackTransitionType.SLIDE_LEFT_RIGHT;
 
         //add time widgets
         widget_list += new Hourglass.Views.AlarmView (this);
         widget_list += new Hourglass.Views.StopwatchView (this);
         widget_list += new Hourglass.Views.TimerView ();
 
-        var headerbar = new Gtk.HeaderBar ();
-        headerbar.set_custom_title (stack_switcher);
-        headerbar.show_close_button = true;
-        this.set_titlebar (headerbar);
-
         //loop through time widgets
         foreach (Hourglass.Views.AbstractView widget in widget_list) {
             stack.add_titled (widget, widget.id, widget.display_name);
         }
 
-        add (stack);
+        var headerbar = new Hdy.HeaderBar ();
+        headerbar.custom_title = stack_switcher;
+        headerbar.show_close_button = true;
+
+        unowned var headerbar_style = headerbar.get_style_context ();
+        headerbar_style.add_class (Gtk.STYLE_CLASS_FLAT);
+
+        var main_box = new Gtk.Box (Gtk.Orientation.VERTICAL, 0);
+        main_box.add (headerbar);
+        main_box.add (stack);
+
+        add (main_box);
 
         // Follow elementary OS-wide dark preference
         var granite_settings = Granite.Settings.get_default ();

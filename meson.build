@@ -54,6 +54,7 @@ executable(
         dependency('gtk+-3.0', version: '>= 3.18'),
         dependency('gee-0.8'),
         dependency('granite', version: '>= 6.0.0'),
+        dependency('libhandy-1')
     ],
     install: true,
 )
