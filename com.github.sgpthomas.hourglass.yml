@@ -13,9 +13,6 @@ finish-args:
   - '--own-name=com.github.sgpthomas.hourglass'
 
   - '--metadata=X-DConf=migrate-path=/com/github/sgpthomas/hourglass/'
-
-  # needed for perfers-color-scheme
-  - '--system-talk-name=org.freedesktop.Accounts'
 modules:
   - name: hourglass
     buildsystem: meson
