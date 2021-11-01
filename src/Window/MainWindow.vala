@@ -23,8 +23,6 @@ public class Hourglass.Window.MainWindow : Hdy.Window {
     private Gtk.Stack stack;
     private Hourglass.Views.AbstractView[] widget_list;
 
-    private string last_visible;
-
     public MainWindow () {
         Object (
             title: _("Hourglass")
@@ -81,15 +79,9 @@ public class Hourglass.Window.MainWindow : Hdy.Window {
 
         show_all ();
 
-        stack.notify.connect ((s, p) => {
-            if (last_visible != stack.get_visible_child_name () &&
-                    stack.get_visible_child () != null &&
-                    Hourglass.main_window != null) {
-                last_visible = stack.get_visible_child_name ();
-                on_stack_change ();
-
-                Hourglass.saved.set_string ("last-open-widget", last_visible);
-            }
+        stack.notify["visible-child"].connect (() => {
+            Hourglass.saved.set_string ("last-open-widget", stack.visible_child_name);
+            on_stack_change ();
         });
 
         delete_event.connect (() => {
