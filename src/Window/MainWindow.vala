@@ -110,7 +110,6 @@ public class Hourglass.Window.MainWindow : Hdy.Window {
 
         var visible = (Hourglass.Views.AbstractView) stack.get_visible_child ();
         if (visible.should_keep_open) {
-            Hourglass.window_open = false;
             iconify ();
             return false;
         } else {

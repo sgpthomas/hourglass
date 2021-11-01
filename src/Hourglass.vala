@@ -16,26 +16,15 @@
 * with Hourglass. If not, see http://www.gnu.org/licenses/.
 */
 
-using Hourglass.Window;
-using Hourglass.Services;
-
 namespace Hourglass {
-
-    /* Global - App wide variables */
-    public DBusManager dbus_manager;
-    public HourglassClient dbus_server;
-
-    /* Settings */
+    public Hourglass.Services.HourglassClient dbus_server;
     public static GLib.Settings saved;
 
-    /* State */
-    public MainWindow main_window;
-    public bool window_open;
-
     public class HourglassApp : Gtk.Application {
+        private Hourglass.Window.MainWindow main_window;
 
         construct {
-            application_id = "com.github.sgpthomas.client";
+            dbus_server = new Hourglass.Services.DBusManager ().client;
             GLib.Intl.setlocale (LocaleCategory.ALL, "");
             GLib.Intl.bindtextdomain (GETTEXT_PACKAGE, LOCALEDIR);
             GLib.Intl.bind_textdomain_codeset (GETTEXT_PACKAGE, "UTF-8");
@@ -43,15 +32,14 @@ namespace Hourglass {
         }
 
         static construct {
-            /* Settings */
             saved = new GLib.Settings ("com.github.sgpthomas.hourglass.saved");
         }
 
-        //constructor
         public HourglassApp () {
-            /* Managers */
-            dbus_manager = new DBusManager ();
-            dbus_server = dbus_manager.client;
+            Object (
+                application_id :"com.github.sgpthomas.client",
+                flags: ApplicationFlags.FLAGS_NONE
+            );
         }
 
         public override void activate () {
@@ -61,7 +49,7 @@ namespace Hourglass {
                 return;
             }
 
-            main_window = new MainWindow ();
+            main_window = new Hourglass.Window.MainWindow ();
 
             if (Hourglass.saved.get_boolean ("is-maximized")) {
                 main_window.maximize ();
@@ -79,7 +67,6 @@ namespace Hourglass {
                 main_window.window_position = Gtk.WindowPosition.CENTER;
             }
 
-            window_open = true;
             Gtk.main ();
         }
 
@@ -97,7 +84,6 @@ namespace Hourglass {
     }
 
     public static void main (string[] args) {
-        // attempt to spawn daemon
         HourglassApp.spawn_daemon ();
 
         Gtk.init (ref args);
