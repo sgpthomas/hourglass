@@ -20,7 +20,7 @@ public class Hourglass.Dialogs.MultiSelectPopover : Gtk.Popover {
     private Gtk.ToggleButton[] toggles;
 
     private int[]? selected_days;
-    private string[] shortened_days = {
+    private static string[] shortened_days = {
         _("Sun"), _("Mon"), _("Tue"), _("Wed"), _("Thu"), _("Fri"), _("Sat")
     };
 
@@ -73,10 +73,6 @@ public class Hourglass.Dialogs.MultiSelectPopover : Gtk.Popover {
     }
 
     public static string selected_to_string (int[] selected_days) {
-        string[] shortened_days = {
-            _("Sun"), _("Mon"), _("Tue"), _("Wed"), _("Thu"), _("Fri"), _("Sat")
-        };
-
         string str = "";
         if (selected_days.length == 7) {
             str = _("Every Day");
