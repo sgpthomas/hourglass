@@ -16,11 +16,11 @@
 * with Hourglass. If not, see http://www.gnu.org/licenses/.
 */
 
-public class HourglassDaemon.NotificationManager {
-    public GLib.Application app { get; private set; }
+public class HourglassDaemon.NotificationManager : Object {
+    public GLib.Application app { private get; construct; }
 
     public NotificationManager (GLib.Application app) {
-        this.app = app;
+        Object (app: app);
     }
 
     public void show (string summary, string body, string id) {
