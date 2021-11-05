@@ -36,13 +36,15 @@ public class Hourglass.Window.MainWindow : Hdy.Window {
                                                     cssprovider,
                                                     Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION);
 
-        stack = new Gtk.Stack ();
-        stack.border_width = 12;
-        stack.transition_type = Gtk.StackTransitionType.SLIDE_LEFT_RIGHT;
+        stack = new Gtk.Stack () {
+            border_width = 12,
+            transition_type = Gtk.StackTransitionType.SLIDE_LEFT_RIGHT
+        };
 
-        var stack_switcher = new Gtk.StackSwitcher ();
-        stack_switcher.stack = stack;
-        stack_switcher.halign = Gtk.Align.CENTER;
+        var stack_switcher = new Gtk.StackSwitcher () {
+            stack = stack,
+            halign = Gtk.Align.CENTER
+        };
 
         //add time widgets
         widget_list += new Hourglass.Views.AlarmView (this);
@@ -54,9 +56,10 @@ public class Hourglass.Window.MainWindow : Hdy.Window {
             stack.add_titled (widget, widget.id, widget.display_name);
         }
 
-        var headerbar = new Hdy.HeaderBar ();
-        headerbar.custom_title = stack_switcher;
-        headerbar.show_close_button = true;
+        var headerbar = new Hdy.HeaderBar () {
+            custom_title = stack_switcher,
+            show_close_button = true
+        };
 
         unowned var headerbar_style = headerbar.get_style_context ();
         headerbar_style.add_class (Gtk.STYLE_CLASS_FLAT);
