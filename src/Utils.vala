@@ -1,6 +1,6 @@
 /*
- * Copyright 2015-2017 Hourglass Developers
  * SPDX-License-Identifier: GPL-3.0-or-later
+ * SPDX-FileCopyrightText: 2015-2021 Sam Thomas
  */
 
 namespace Hourglass.Utils {
