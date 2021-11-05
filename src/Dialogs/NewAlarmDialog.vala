@@ -49,7 +49,9 @@ public class Hourglass.Dialogs.NewAlarmDialog : Granite.Dialog {
             halign = Gtk.Align.END
         };
 
-        var title_entry = new Gtk.Entry ();
+        var title_entry = new Gtk.Entry () {
+            placeholder_text = _("Alarm")
+        };
 
         var time_label = new Gtk.Label (_("Time:")) {
             halign = Gtk.Align.END
@@ -132,7 +134,7 @@ public class Hourglass.Dialogs.NewAlarmDialog : Granite.Dialog {
         create_alarm_button.clicked.connect (() => {
             string title = title_entry.get_text ();
             if (title == "") {
-                title = _("Alarm");
+                title = title_entry.placeholder_text;
             }
 
             var date = date_picker.date;
