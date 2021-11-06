@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: com.github.sgpthomas.hourglass\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-09-03 14:54+0900\n"
+"POT-Creation-Date: 2021-11-06 09:01+0900\n"
 "PO-Revision-Date: 2020-05-01 16:18+0200\n"
 "Last-Translator: Kristjan Vool <tictac7x@gmail.com>\n"
 "Language-Team: none\n"
@@ -17,180 +17,172 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: src/Dialogs/MultiSelectPopover.vala:24
-#: src/Dialogs/MultiSelectPopover.vala:77
+#: src/Dialogs/MultiSelectPopover.vala:11
 #, fuzzy
 msgid "Sun"
 msgstr "P"
 
-#: src/Dialogs/MultiSelectPopover.vala:24
-#: src/Dialogs/MultiSelectPopover.vala:77
+#: src/Dialogs/MultiSelectPopover.vala:11
 msgid "Mon"
 msgstr "E"
 
-#: src/Dialogs/MultiSelectPopover.vala:24
-#: src/Dialogs/MultiSelectPopover.vala:77
+#: src/Dialogs/MultiSelectPopover.vala:11
 msgid "Tue"
 msgstr "T"
 
-#: src/Dialogs/MultiSelectPopover.vala:24
-#: src/Dialogs/MultiSelectPopover.vala:77
+#: src/Dialogs/MultiSelectPopover.vala:11
 msgid "Wed"
 msgstr "K"
 
-#: src/Dialogs/MultiSelectPopover.vala:24
-#: src/Dialogs/MultiSelectPopover.vala:77
+#: src/Dialogs/MultiSelectPopover.vala:11
 #, fuzzy
 msgid "Thu"
 msgstr "N"
 
-#: src/Dialogs/MultiSelectPopover.vala:24
-#: src/Dialogs/MultiSelectPopover.vala:77
+#: src/Dialogs/MultiSelectPopover.vala:11
 msgid "Fri"
 msgstr "R"
 
-#: src/Dialogs/MultiSelectPopover.vala:24
-#: src/Dialogs/MultiSelectPopover.vala:77
+#: src/Dialogs/MultiSelectPopover.vala:11
 #, fuzzy
 msgid "Sat"
 msgstr "L"
 
-#: src/Dialogs/MultiSelectPopover.vala:82
+#: src/Dialogs/MultiSelectPopover.vala:65
 msgid "Every Day"
 msgstr "Iga päev"
 
-#: src/Dialogs/MultiSelectPopover.vala:84
+#: src/Dialogs/MultiSelectPopover.vala:67
 msgid "Every Weekday"
 msgstr ""
 
-#: src/Dialogs/MultiSelectPopover.vala:86
+#: src/Dialogs/MultiSelectPopover.vala:69
 msgid "Every Weekend"
 msgstr ""
 
 #. /TRANSLATORS: %s represents translated string of a day of the week
-#: src/Dialogs/MultiSelectPopover.vala:94
+#: src/Dialogs/MultiSelectPopover.vala:77
 #, c-format
 msgid "%s, "
 msgstr ""
 
-#: src/Dialogs/MultiSelectPopover.vala:100 src/Dialogs/NewAlarmDialog.vala:85
+#: src/Dialogs/MultiSelectPopover.vala:83 src/Dialogs/NewAlarmDialog.vala:74
 msgid "Never"
 msgstr "Mitte kunagi"
 
-#: src/Dialogs/NewAlarmDialog.vala:48
+#: src/Dialogs/NewAlarmDialog.vala:35
 msgid "Title:"
 msgstr "Nimi:"
 
-#: src/Dialogs/NewAlarmDialog.vala:54
+#: src/Dialogs/NewAlarmDialog.vala:40 src/Views/AlarmView.vala:17
+msgid "Alarm"
+msgstr "Alarm"
+
+#: src/Dialogs/NewAlarmDialog.vala:43
 #, fuzzy
 msgid "Time:"
 msgstr "Taimer"
 
-#: src/Dialogs/NewAlarmDialog.vala:60
+#: src/Dialogs/NewAlarmDialog.vala:49
 msgid "Date:"
 msgstr ""
 
-#: src/Dialogs/NewAlarmDialog.vala:70
+#: src/Dialogs/NewAlarmDialog.vala:59
 msgid "Repeat:"
 msgstr "Kordamine:"
 
-#: src/Dialogs/NewAlarmDialog.vala:107
+#: src/Dialogs/NewAlarmDialog.vala:96
 msgid "Cancel"
 msgstr "Loobu"
 
-#: src/Dialogs/NewAlarmDialog.vala:110
+#: src/Dialogs/NewAlarmDialog.vala:99
 msgid "Save"
 msgstr ""
 
-#: src/Dialogs/NewAlarmDialog.vala:110
+#: src/Dialogs/NewAlarmDialog.vala:99
 msgid "Create Alarm"
 msgstr ""
 
-#: src/Dialogs/NewAlarmDialog.vala:135 src/Views/AlarmView.vala:30
-msgid "Alarm"
-msgstr "Alarm"
-
 #. welcome screen
-#: src/Views/AlarmView.vala:56
+#: src/Views/AlarmView.vala:43
 msgid "No Alarms"
 msgstr "Alarme pole"
 
-#: src/Views/AlarmView.vala:56
+#: src/Views/AlarmView.vala:43
 msgid "Click the add icon in the toolbar below to get started."
 msgstr ""
 
 #. action buttons
-#: src/Views/AlarmView.vala:75
+#: src/Views/AlarmView.vala:62
 msgid "Add…"
 msgstr ""
 
-#: src/Views/AlarmView.vala:78
+#: src/Views/AlarmView.vala:65
 msgid "Edit…"
 msgstr ""
 
-#: src/Views/AlarmView.vala:81
+#: src/Views/AlarmView.vala:68
 msgid "Delete"
 msgstr ""
 
-#: src/Views/StopwatchView.vala:31
+#: src/Views/StopwatchView.vala:18
 msgid "Stopwatch"
 msgstr "Stopper"
 
 #. create buttons
-#: src/Views/StopwatchView.vala:77 src/Views/TimerView.vala:78
+#: src/Views/StopwatchView.vala:64 src/Views/TimerView.vala:65
 msgid "Start"
 msgstr "Käivita"
 
-#: src/Views/StopwatchView.vala:81 src/Views/TimerView.vala:108
+#: src/Views/StopwatchView.vala:68 src/Views/TimerView.vala:95
 msgid "Stop"
 msgstr "Peata"
 
-#: src/Views/StopwatchView.vala:85 src/Views/TimerView.vala:82
+#: src/Views/StopwatchView.vala:72 src/Views/TimerView.vala:69
 msgid "Reset"
 msgstr "Nulli"
 
-#: src/Views/StopwatchView.vala:88
+#: src/Views/StopwatchView.vala:75
 msgid "Lap"
 msgstr ""
 
-#: src/Views/TimerView.vala:30
+#: src/Views/TimerView.vala:17
 msgid "Timer"
 msgstr "Taimer"
 
-#: src/Views/TimerView.vala:60
+#: src/Views/TimerView.vala:47
 msgid "Hours"
 msgstr "Tundi"
 
-#: src/Views/TimerView.vala:65
+#: src/Views/TimerView.vala:52
 msgid "Minutes"
 msgstr "Minutit"
 
-#: src/Views/TimerView.vala:70
+#: src/Views/TimerView.vala:57
 msgid "Seconds"
 msgstr "Sekundit"
 
-#: src/Views/TimerView.vala:74
+#: src/Views/TimerView.vala:61
 msgid "Enter purposes of the timer"
 msgstr ""
 
-#: src/Views/TimerView.vala:183
+#: src/Views/TimerView.vala:170
 msgid "It's time!"
 msgstr ""
 
-#: src/Widgets/Alarm.vala:98
+#: src/Widgets/Alarm.vala:85
 #, fuzzy, c-format
 msgid "Repeats: %s"
 msgstr "Kordamine:"
 
-#: src/Widgets/Alarm.vala:100
+#: src/Widgets/Alarm.vala:87
 #, fuzzy, c-format
 msgid ", Repeats: %s"
 msgstr "Kordamine:"
 
-#: src/Window/MainWindow.vala:30
 #, fuzzy
-msgid "Hourglass"
-msgstr "Tundi"
+#~ msgid "Hourglass"
+#~ msgstr "Tundi"
 
 #~ msgid ":"
 #~ msgstr ":"
