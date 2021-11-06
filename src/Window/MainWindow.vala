@@ -11,7 +11,7 @@ public class Hourglass.Window.MainWindow : Hdy.Window {
 
     public MainWindow () {
         Object (
-            title: _("Hourglass")
+            title: "Hourglass"
         );
     }
 
