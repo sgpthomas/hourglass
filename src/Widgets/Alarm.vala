@@ -3,7 +3,7 @@
  * SPDX-FileCopyrightText: 2015-2021 Sam Thomas
  */
 
- public class Hourglass.Widgets.Alarm : Gtk.ListBoxRow {
+public class Hourglass.Widgets.Alarm : Gtk.ListBoxRow {
     public signal void state_toggled ();
 
     public GLib.DateTime time { get; construct; }
@@ -79,7 +79,7 @@
         return time.format (time_format);
     }
 
-    private string? make_date_label () {
+    private string make_date_label () {
         var comp = new GLib.DateTime.now_local ();
         if (Granite.DateTime.is_same_day (time, comp)) {
             return _("Today");
@@ -88,7 +88,7 @@
         }
     }
 
-    private string? make_repeat_label () {
+    private string make_repeat_label () {
         string label = _("Repeats:");
         label += " ";
         if (repeat.length > 0) {
