@@ -77,6 +77,21 @@
   </provides>
 
   <releases>
+    <release version="2.0.1" date="2021-11-08" urgency="low">
+      <description>
+        <p>
+          This release contains small bug fixes and improvements:
+        </p>
+        <ul>
+          <li>Strict on sandbox permission</li>
+          <li>Rounded window corners and flat titlebar</li>
+          <li>NewAlarmDialog: Add placeholder text for title entry</li>
+          <li>Set shorter summary text in appdata</li>
+          <li>Use palette of elementary for branding color</li>
+          <li>Clean code</li>
+        </ul>
+      </description>
+    </release>
     <release version="2.0.0" date="2021-09-03" urgency="high">
       <description>
         <p>
