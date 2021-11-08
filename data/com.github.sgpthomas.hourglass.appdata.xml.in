@@ -88,6 +88,7 @@
           <li>NewAlarmDialog: Add placeholder text for title entry</li>
           <li>Set shorter summary text in appdata</li>
           <li>Use palette of elementary for branding color</li>
+          <li>Make sure to select an alarm on removing/adding/editing it and startup</li>
           <li>Clean code</li>
         </ul>
       </description>
