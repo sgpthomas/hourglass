@@ -83,6 +83,7 @@ public class Hourglass.Views.AlarmView : AbstractView {
             var new_alarm_dialog = new Hourglass.Dialogs.NewAlarmDialog (window);
             new_alarm_dialog.create_alarm.connect ((alarm) => {
                 append_alarm (alarm);
+                list_box.select_row (alarm);
             });
             new_alarm_dialog.show_all ();
         });
@@ -97,6 +98,8 @@ public class Hourglass.Views.AlarmView : AbstractView {
             } catch (GLib.Error e) {
                 error (e.message);
             }
+
+            list_box.select_row (list_box.get_row_at_index (0));
         });
 
         Hourglass.dbus_server.should_refresh_client.connect (() => {
@@ -149,6 +152,8 @@ public class Hourglass.Views.AlarmView : AbstractView {
         } catch (GLib.Error e) {
             error (e.message);
         }
+
+        list_box.select_row (list_box.get_row_at_index (0));
     }
 
     private bool load_alarms_source_func () {
@@ -187,7 +192,6 @@ public class Hourglass.Views.AlarmView : AbstractView {
         var widget = list_box.get_selected_row ();
         if (widget != null) {
             var new_alarm_dialog = new Hourglass.Dialogs.NewAlarmDialog (window, (Alarm) widget);
-
             new_alarm_dialog.edit_alarm.connect ((old_a, new_a) => {
                 list_box.remove (old_a); //  remove old alarm
                 try {
@@ -197,6 +201,7 @@ public class Hourglass.Views.AlarmView : AbstractView {
                 }
 
                 append_alarm (new_a); // add new alarms
+                list_box.select_row (new_a);
             });
 
             new_alarm_dialog.show_all ();
