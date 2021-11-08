@@ -91,7 +91,7 @@
         string label = _("Repeats:");
         label += " ";
         if (repeat.length > 0) {
-            label += "%s".printf (Dialogs.MultiSelectPopover.selected_to_string (repeat));
+            label += Dialogs.MultiSelectPopover.selected_to_string (repeat);
         } else {
             label += _("None");
         }
