@@ -3,7 +3,7 @@
  * SPDX-FileCopyrightText: 2015-2021 Sam Thomas
  */
 
-public class Hourglass.Widgets.Alarm : Gtk.ListBoxRow {
+ public class Hourglass.Widgets.Alarm : Gtk.ListBoxRow {
     public signal void state_toggled ();
 
     public GLib.DateTime time { get; construct; }
@@ -24,18 +24,24 @@ public class Hourglass.Widgets.Alarm : Gtk.ListBoxRow {
         var time_label = new Gtk.Label (get_time_string ());
         time_label.get_style_context ().add_class (Granite.STYLE_CLASS_H2_LABEL);
 
-        var name_label = new Gtk.Label (title);
-        name_label.get_style_context ().add_class (Gtk.STYLE_CLASS_DIM_LABEL);
+        var date_label = new Gtk.Label (make_date_label ());
 
-        var days_label = new Gtk.Label (make_repeat_label ());
+        var name_label = new Gtk.Label (title) {
+            halign = Gtk.Align.START
+        };
+
+        var repeat_label = new Gtk.Label (make_repeat_label ()) {
+            halign = Gtk.Align.START
+        };
 
         var grid = new Gtk.Grid () {
             row_spacing = 6,
             column_spacing = 12
         };
         grid.attach (time_label, 0, 0, 1, 1);
-        grid.attach (name_label, 0, 1, 1, 1);
-        grid.attach (days_label, 1, 0, 1, 2);
+        grid.attach (date_label, 0, 1, 1, 1);
+        grid.attach (name_label, 1, 0, 1, 1);
+        grid.attach (repeat_label, 1, 1, 1, 1);
 
         toggle = new Gtk.Switch () {
             halign = Gtk.Align.END,
@@ -72,23 +78,25 @@ public class Hourglass.Widgets.Alarm : Gtk.ListBoxRow {
         return time.format (time_format);
     }
 
-    private string make_repeat_label () {
-        var str = "";
-
+    private string? make_date_label () {
         var comp = new GLib.DateTime.now_local ();
-        if (!Granite.DateTime.is_same_day (time, comp)) {
-            str += Granite.DateTime.get_relative_datetime (time);
+        if (Granite.DateTime.is_same_day (time, comp)) {
+            return _("Today");
+        } else {
+            return Granite.DateTime.get_relative_datetime (time);
         }
+    }
 
+    private string? make_repeat_label () {
+        string label = _("Repeats:");
+        label += " ";
         if (repeat.length > 0) {
-            if (str == "") {
-                str += _("Repeats: %s").printf (Dialogs.MultiSelectPopover.selected_to_string (repeat));
-            } else {
-                str += _(", Repeats: %s").printf (Dialogs.MultiSelectPopover.selected_to_string (repeat));
-            }
+            label += "%s".printf (Dialogs.MultiSelectPopover.selected_to_string (repeat));
+        } else {
+            label += _("None");
         }
 
-        return str;
+        return label;
     }
 
     public string to_string () {
