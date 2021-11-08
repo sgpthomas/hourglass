@@ -63,7 +63,7 @@ public class Hourglass.Views.StopwatchView : AbstractView {
         // create buttons
         start = new Gtk.Button.with_label (_("Start"));
         start.get_style_context ().add_class ("round-button");
-        start.get_style_context ().add_class ("green-button");
+        start.get_style_context ().add_class (Gtk.STYLE_CLASS_SUGGESTED_ACTION);
 
         stop = new Gtk.Button.with_label (_("Stop"));
         stop.get_style_context ().add_class ("round-button");

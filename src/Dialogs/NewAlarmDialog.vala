@@ -99,7 +99,7 @@ public class Hourglass.Dialogs.NewAlarmDialog : Granite.Dialog {
             is_existing_alarm ? _("Save") : _("Create Alarm"),
             Gtk.ResponseType.YES
         );
-        create_alarm_button.get_style_context ().add_class ("green-button");
+        create_alarm_button.get_style_context ().add_class (Gtk.STYLE_CLASS_SUGGESTED_ACTION);
 
         //if user tries to enter ';' stop them
         title_entry.insert_text.connect ((new_text, new_text_length, ref pos) => {

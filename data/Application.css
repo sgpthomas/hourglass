@@ -1,3 +1,5 @@
+@define-color accent_color @LIME_700;
+
 .round-button {
     padding: 5px;
     border-radius: 15px;
@@ -5,12 +7,6 @@
 
 .round-button:disabled {
     opacity: 0.4;
-}
-
-.green-button {
-    color: #ffffff;
-    background: linear-gradient(#009F51, #008041);
-    border: 1px solid darker(#008F43);
 }
 
 .red-button {

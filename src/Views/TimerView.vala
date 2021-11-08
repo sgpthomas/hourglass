@@ -64,7 +64,7 @@ public class Hourglass.Views.TimerView : AbstractView {
 
         start_timer_button = new Gtk.Button.with_label (_("Start"));
         start_timer_button.get_style_context ().add_class ("round-button");
-        start_timer_button.get_style_context ().add_class ("green-button");
+        start_timer_button.get_style_context ().add_class (Gtk.STYLE_CLASS_SUGGESTED_ACTION);
 
         reset_timer_button = new Gtk.Button.with_label (_("Reset"));
         reset_timer_button.get_style_context ().add_class ("round-button");
