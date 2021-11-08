@@ -77,6 +77,14 @@
   </provides>
 
   <releases>
+    <release version="2.0.2" date="2021-11-08" urgency="medium">
+      <description>
+        <ul>
+          <li>Fix a regression that the app don't launch if you create a repeated alarm, close the app, and try to reopen it</li>
+          <li>AlarmView: Organize displayed information</li>
+        </ul>
+      </description>
+    </release>
     <release version="2.0.1" date="2021-11-08" urgency="low">
       <description>
         <p>
