@@ -89,15 +89,7 @@ public class Hourglass.Widgets.Alarm : Gtk.ListBoxRow {
     }
 
     private string make_repeat_label () {
-        string label = _("Repeats:");
-        label += " ";
-        if (repeat.length > 0) {
-            label += Dialogs.MultiSelectPopover.selected_to_string (repeat);
-        } else {
-            label += _("None");
-        }
-
-        return label;
+        return _("Repeats: %s").printf (Utils.selected_days_to_string (repeat));
     }
 
     public string to_string () {
@@ -154,7 +146,7 @@ public class Hourglass.Widgets.Alarm : Gtk.ListBoxRow {
         return str;
     }
 
-    public static Alarm parse_string (string alarm_string) {
+    public static Alarm new_from_string (string alarm_string) {
         string[] parts = alarm_string.split (Hourglass.Utils.ALARM_INFO_SEPARATOR);
 
         //title
