@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: com.github.sgpthomas.hourglass\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-11-06 09:01+0900\n"
+"POT-Creation-Date: 2021-11-09 23:21+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,54 +17,32 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: src/Dialogs/MultiSelectPopover.vala:11
+#: src/Dialogs/MultiSelectPopover.vala:11 src/Utils.vala:99
 msgid "Sun"
 msgstr ""
 
-#: src/Dialogs/MultiSelectPopover.vala:11
+#: src/Dialogs/MultiSelectPopover.vala:11 src/Utils.vala:99
 msgid "Mon"
 msgstr ""
 
-#: src/Dialogs/MultiSelectPopover.vala:11
+#: src/Dialogs/MultiSelectPopover.vala:11 src/Utils.vala:99
 msgid "Tue"
 msgstr ""
 
-#: src/Dialogs/MultiSelectPopover.vala:11
+#: src/Dialogs/MultiSelectPopover.vala:11 src/Utils.vala:99
 msgid "Wed"
 msgstr ""
 
-#: src/Dialogs/MultiSelectPopover.vala:11
+#: src/Dialogs/MultiSelectPopover.vala:11 src/Utils.vala:99
 msgid "Thu"
 msgstr ""
 
-#: src/Dialogs/MultiSelectPopover.vala:11
+#: src/Dialogs/MultiSelectPopover.vala:11 src/Utils.vala:99
 msgid "Fri"
 msgstr ""
 
-#: src/Dialogs/MultiSelectPopover.vala:11
+#: src/Dialogs/MultiSelectPopover.vala:11 src/Utils.vala:99
 msgid "Sat"
-msgstr ""
-
-#: src/Dialogs/MultiSelectPopover.vala:65
-msgid "Every Day"
-msgstr ""
-
-#: src/Dialogs/MultiSelectPopover.vala:67
-msgid "Every Weekday"
-msgstr ""
-
-#: src/Dialogs/MultiSelectPopover.vala:69
-msgid "Every Weekend"
-msgstr ""
-
-#. /TRANSLATORS: %s represents translated string of a day of the week
-#: src/Dialogs/MultiSelectPopover.vala:77
-#, c-format
-msgid "%s, "
-msgstr ""
-
-#: src/Dialogs/MultiSelectPopover.vala:83 src/Dialogs/NewAlarmDialog.vala:74
-msgid "Never"
 msgstr ""
 
 #: src/Dialogs/NewAlarmDialog.vala:35
@@ -167,11 +145,32 @@ msgid "It's time!"
 msgstr ""
 
 #: src/Widgets/Alarm.vala:85
+msgid "Today"
+msgstr ""
+
+#: src/Widgets/Alarm.vala:92
 #, c-format
 msgid "Repeats: %s"
 msgstr ""
 
-#: src/Widgets/Alarm.vala:87
+#: src/Utils.vala:104
+msgid "Every Day"
+msgstr ""
+
+#: src/Utils.vala:106
+msgid "Every Weekday"
+msgstr ""
+
+#: src/Utils.vala:108
+msgid "Every Weekend"
+msgstr ""
+
+#. /TRANSLATORS: %s represents translated string of a day of the week
+#: src/Utils.vala:116
 #, c-format
-msgid ", Repeats: %s"
+msgid "%s, "
+msgstr ""
+
+#: src/Utils.vala:122
+msgid "None"
 msgstr ""
