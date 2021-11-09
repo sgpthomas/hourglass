@@ -146,7 +146,7 @@ public class Hourglass.Widgets.Alarm : Gtk.ListBoxRow {
         return str;
     }
 
-    public static Alarm parse_string (string alarm_string) {
+    public static Alarm new_from_string (string alarm_string) {
         string[] parts = alarm_string.split (Hourglass.Utils.ALARM_INFO_SEPARATOR);
 
         //title
