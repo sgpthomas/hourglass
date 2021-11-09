@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-11-09 23:21+0900\n"
-"PO-Revision-Date: 2021-09-03 15:31+0900\n"
+"PO-Revision-Date: 2021-11-09 23:29+0900\n"
 "Last-Translator: Ryo Nakano <ryonakaknock3@gmail.com>\n"
 "Language-Team: none\n"
 "Language: ja\n"
@@ -39,8 +39,8 @@ msgstr "@EXEC_NAME@"
 #: data/com.github.sgpthomas.hourglass.desktop.in.in:12
 msgid "Timer;Time;Clock;Hourglass;Alarm;"
 msgstr ""
-"Timer;Time;Clock;Hourglass;Alarm;タイマー;時間;タイム;時計;砂時計;アラーム:目"
-"覚まし;"
+"Timer;Time;Clock;Hourglass;Alarm;タイマー;時間;タイム;時計;砂時計;アラーム:"
+"目覚まし;"
 
 #: data/com.github.sgpthomas.hourglass.appdata.xml.in:12
 msgid ""
@@ -71,43 +71,47 @@ msgid ""
 "Fix a regression that the app don't launch if you create a repeated alarm, "
 "close the app, and try to reopen it"
 msgstr ""
+"繰り返しのアラームを作成して、アプリを終了し再度起動しようとすると起動しない"
+"リグレッションを修正"
 
 #: data/com.github.sgpthomas.hourglass.appdata.xml.in:84
 msgid "AlarmView: Organize displayed information"
-msgstr ""
+msgstr "アラームビュー: 表示される情報を整理"
 
 #: data/com.github.sgpthomas.hourglass.appdata.xml.in:90
-#, fuzzy
 msgid "This release contains small bug fixes and improvements:"
-msgstr "このリリースでは、何件もの不具合修正と改善が行われています！"
+msgstr "このリリースでは軽微な不具合修正と改善が行われています:"
 
 #: data/com.github.sgpthomas.hourglass.appdata.xml.in:94
 msgid "Strict on sandbox permission"
-msgstr ""
+msgstr "サンドボックス環境のパーミッションをより厳格に修正"
 
 #: data/com.github.sgpthomas.hourglass.appdata.xml.in:95
 msgid "Rounded window corners and flat titlebar"
-msgstr ""
+msgstr "角丸のウィンドウとフラットなタイトルバーを使用するように変更"
 
 #: data/com.github.sgpthomas.hourglass.appdata.xml.in:96
 msgid "NewAlarmDialog: Add placeholder text for title entry"
 msgstr ""
+"新規アラームダイアログ: アラームのタイトル欄にプレースホルダーテキストを追加"
 
 #: data/com.github.sgpthomas.hourglass.appdata.xml.in:97
 msgid "Set shorter summary text in appdata"
-msgstr ""
+msgstr "アプリデータの概要文を短いものに変更"
 
 #: data/com.github.sgpthomas.hourglass.appdata.xml.in:98
 msgid "Use palette of elementary for branding color"
-msgstr ""
+msgstr "elementary のパレットカラーをテーマカラーに使用"
 
 #: data/com.github.sgpthomas.hourglass.appdata.xml.in:99
 msgid "Make sure to select an alarm on removing/adding/editing it and startup"
 msgstr ""
+"アラームの削除・追加・変更時およびアプリの起動時にアラームを選択するように修"
+"正"
 
 #: data/com.github.sgpthomas.hourglass.appdata.xml.in:100
 msgid "Clean code"
-msgstr ""
+msgstr "コードの整理"
 
 #: data/com.github.sgpthomas.hourglass.appdata.xml.in:106
 msgid "This release comes with numerous bug fixes &amp; improvements!"
@@ -269,8 +273,8 @@ msgstr "追加／削除ボタンにアイコンを使うように修正"
 #: data/com.github.sgpthomas.hourglass.appdata.xml.in:181
 msgid "Update .desktop comment to be consistent with HIG (by @aljelly)"
 msgstr ""
-".desktop ファイルの Comment 行を、elementary OS の HIG に沿うように更新 (貢献"
-"者: @aljelly)"
+".desktop ファイルの Comment 行を、elementary OS の HIG に沿うように更新 (貢"
+"献者: @aljelly)"
 
 #: data/com.github.sgpthomas.hourglass.appdata.xml.in:182
 msgid "Change shortened format of weekdays (by @NathanBnm)"
@@ -294,7 +298,8 @@ msgstr "通知アイコンが設定されない不具合を修正"
 
 #: data/com.github.sgpthomas.hourglass.appdata.xml.in:187
 msgid "Fix left time shows unexpected values if set time is too big"
-msgstr "タイマーの設定時間が長すぎると残り時間が正しく表示されない不具合を修正"
+msgstr ""
+"タイマーの設定時間が長すぎると残り時間が正しく表示されない不具合を修正"
 
 #: data/com.github.sgpthomas.hourglass.appdata.xml.in:188
 msgid "Improve saving window state"
@@ -368,8 +373,3 @@ msgstr "Hourglass デーモン"
 #: data/com.github.sgpthomas.hourglass-daemon.desktop.in.in:5
 msgid "Daemon that deals with Hourglass's alarms."
 msgstr "Hourglass のアラームを管理するデーモンです。"
-
-#~ msgid ""
-#~ "A simple clock application that provides stopwatches, alarms, and timers"
-#~ msgstr ""
-#~ "ストップウォッチ、アラーム、タイマー機能を提供する、シンプルな時計アプリ"

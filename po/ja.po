@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: com.github.sgpthomas.hourglass\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-11-09 23:21+0900\n"
-"PO-Revision-Date: 2021-09-03 15:01+0900\n"
+"PO-Revision-Date: 2021-11-09 23:24+0900\n"
 "Last-Translator: Ryo Nakano <ryonakaknock3@gmail.com>\n"
 "Language-Team: none\n"
 "Language: ja\n"
@@ -146,7 +146,7 @@ msgstr "時間です！"
 
 #: src/Widgets/Alarm.vala:85
 msgid "Today"
-msgstr ""
+msgstr "今日"
 
 #: src/Widgets/Alarm.vala:92
 #, c-format
@@ -173,13 +173,4 @@ msgstr "%s、"
 
 #: src/Utils.vala:122
 msgid "None"
-msgstr ""
-
-#~ msgid "Never"
-#~ msgstr "繰り返さない"
-
-#~ msgid ", Repeats: %s"
-#~ msgstr "、繰り返し: %s"
-
-#~ msgid "Hourglass"
-#~ msgstr "Hourglass"
+msgstr "しない"
