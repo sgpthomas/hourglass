@@ -54,39 +54,4 @@ public class Hourglass.Dialogs.MultiSelectPopover : Gtk.Popover {
             }
         }
     }
-
-    public string get_display_string () {
-        return selected_to_string (selected_days);
-    }
-
-    public static string selected_to_string (int[] selected_days) {
-        string[] shortened_days = {
-            _("Sun"), _("Mon"), _("Tue"), _("Wed"), _("Thu"), _("Fri"), _("Sat")
-        };
-
-        string str = "";
-        if (selected_days.length == 7) {
-            str = _("Every Day");
-        } else if (selected_days.length == 5 && !(0 in selected_days) && !(6 in selected_days)) {
-            str = _("Every Weekday");
-        } else if (selected_days.length == 2 && (0 in selected_days) && (6 in selected_days)) {
-            str = _("Every Weekend");
-        } else if (selected_days.length > 0) {
-            int i = 0;
-            foreach (int day in selected_days) {
-                if (i == selected_days.length - 1) {
-                    str += shortened_days[day];
-                } else {
-                    ///TRANSLATORS: %s represents translated string of a day of the week
-                    str += _("%s, ").printf (shortened_days[day]);
-                }
-
-                i++;
-            }
-        } else {
-            str = _("Never");
-        }
-
-        return str;
-    }
 }

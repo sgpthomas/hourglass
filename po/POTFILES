@@ -5,3 +5,4 @@ src/Views/StopwatchView.vala
 src/Views/TimerView.vala
 src/Widgets/Alarm.vala
 src/Window/MainWindow.vala
+src/Utils.vala

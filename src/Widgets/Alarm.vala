@@ -89,15 +89,7 @@ public class Hourglass.Widgets.Alarm : Gtk.ListBoxRow {
     }
 
     private string make_repeat_label () {
-        string label = _("Repeats:");
-        label += " ";
-        if (repeat.length > 0) {
-            label += Dialogs.MultiSelectPopover.selected_to_string (repeat);
-        } else {
-            label += _("None");
-        }
-
-        return label;
+        return _("Repeats: %s").printf (Utils.selected_days_to_string (repeat));
     }
 
     public string to_string () {
