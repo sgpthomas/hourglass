@@ -63,7 +63,7 @@ public class Hourglass.Objects.Counter : GLib.Object {
                 if (inhibit_token != 0) {
                     ((Gtk.Application) GLib.Application.get_default ()).uninhibit (inhibit_token);
                     inhibit_token = 0;
-                }        
+                }
             }
         });
     }
