@@ -47,10 +47,16 @@ public class Hourglass.Views.TimerView : AbstractView {
             tooltip_text = _("Hours")
         };
 
+        var hour_min_divider = new Gtk.Label (":");
+        hour_min_divider.get_style_context ().add_class ("timer");
+
         min_chooser = new TimeSpinner (59) {
             value = time.minutes,
             tooltip_text = _("Minutes")
         };
+
+        var min_second_divider = new Gtk.Label (":");
+        min_second_divider.get_style_context ().add_class ("timer");
 
         sec_chooser = new TimeSpinner (59) {
             value = time.seconds,
@@ -76,9 +82,9 @@ public class Hourglass.Views.TimerView : AbstractView {
             row_spacing = 12
         };
         chooser_grid.attach (hour_chooser, 0, 0, 1, 1);
-        chooser_grid.attach (new Gtk.Label (":"), 1, 0, 1, 1);
+        chooser_grid.attach (hour_min_divider, 1, 0, 1, 1);
         chooser_grid.attach (min_chooser, 2, 0, 1, 1);
-        chooser_grid.attach (new Gtk.Label (":"), 3, 0, 1, 1);
+        chooser_grid.attach (min_second_divider, 3, 0, 1, 1);
         chooser_grid.attach (sec_chooser, 4, 0, 1, 1);
         chooser_grid.attach (purpose_entry, 0, 1, 5, 1);
         chooser_grid.attach (start_timer_button, 0, 2, 5, 1);
