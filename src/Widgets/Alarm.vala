@@ -81,11 +81,18 @@ public class Hourglass.Widgets.Alarm : Gtk.ListBoxRow {
 
     private string make_date_label () {
         var comp = new GLib.DateTime.now_local ();
-        if (Granite.DateTime.is_same_day (time, comp)) {
+        if (Granite.DateTime.is_same_day (time, comp) && repeat.length == 0) {
             return _("Today");
-        } else {
-            return Granite.DateTime.get_relative_datetime (time);
         }
+        int today = comp.get_day_of_week () != 7 ? comp.get_day_of_week () : 0;
+        if (today in repeat){
+            return _("Today");
+        }
+        if (repeat.length > 0){
+            int[] next_repeat = {repeat[0]};
+            return Dialogs.MultiSelectPopover.selected_to_string (next_repeat);
+        }
+        return Granite.DateTime.get_relative_datetime (time);
     }
 
     private string make_repeat_label () {
