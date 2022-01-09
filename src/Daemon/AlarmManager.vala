@@ -197,8 +197,8 @@ namespace HourglassDaemon {
                         return true;
                     }
                 }
-
             }
+
             return false;
         }
     }
