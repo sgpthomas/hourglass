@@ -88,7 +88,8 @@ public class Hourglass.Widgets.Alarm : Gtk.ListBoxRow {
         if (today in repeat){
             return _("Today");
         }
-        if (repeat.length > 0){
+
+        if (repeat.length > 0) {
             int[] next_repeat = {repeat[0]};
             return Dialogs.MultiSelectPopover.selected_to_string (next_repeat);
         }
