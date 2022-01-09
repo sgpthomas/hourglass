@@ -187,7 +187,7 @@ namespace HourglassDaemon {
                 int today = now.get_day_of_week () != 7 ? now.get_day_of_week () : 0;
 
                 //if today and alarm has no repeats, alarm goes off
-                if (same_day && same_month && same_year && !get_alarm_repeat(alarm_string)) {
+                if (same_day && same_month && same_year && !get_alarm_repeat (alarm_string)) {
                     return true;
                 }
 
