@@ -85,7 +85,7 @@ public class Hourglass.Widgets.Alarm : Gtk.ListBoxRow {
             return _("Today");
         }
         int today = comp.get_day_of_week () != 7 ? comp.get_day_of_week () : 0;
-        if (today in repeat){
+        if (today in repeat) {
             return _("Today");
         }
 
