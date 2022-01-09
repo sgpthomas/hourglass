@@ -93,6 +93,7 @@ public class Hourglass.Widgets.Alarm : Gtk.ListBoxRow {
             int[] next_repeat = {repeat[0]};
             return Dialogs.MultiSelectPopover.selected_to_string (next_repeat);
         }
+
         return Granite.DateTime.get_relative_datetime (time);
     }
 
