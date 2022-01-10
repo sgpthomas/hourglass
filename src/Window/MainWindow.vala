@@ -66,8 +66,6 @@ public class Hourglass.Window.MainWindow : Hdy.Window {
             gtk_settings.gtk_application_prefer_dark_theme = granite_settings.prefers_color_scheme == Granite.Settings.ColorScheme.DARK;
         });
 
-        show_all ();
-
         stack.notify["visible-child"].connect (() => {
             Hourglass.saved.set_string ("last-open-widget", stack.visible_child_name);
             on_stack_change ();

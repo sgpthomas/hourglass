@@ -15,6 +15,7 @@ public class Hourglass.Objects.Counter : GLib.Object {
     public signal void ended ();
 
     private uint timeout_id;
+    private uint inhibit_token = 0;
 
     public CountDirection direction { get; construct; }
 
@@ -43,6 +44,28 @@ public class Hourglass.Objects.Counter : GLib.Object {
 
     public Counter (CountDirection direction) {
         Object (direction: direction);
+    }
+
+    construct {
+        notify["is-active"].connect (() => {
+            if (is_active) {
+                unowned Gtk.Application app = (Gtk.Application) GLib.Application.get_default ();
+                if (inhibit_token != 0) {
+                    app.uninhibit (inhibit_token);
+                }
+
+                inhibit_token = app.inhibit (
+                    app.get_active_window (),
+                    Gtk.ApplicationInhibitFlags.IDLE | Gtk.ApplicationInhibitFlags.SUSPEND,
+                    _("Timer is active")
+                );
+            } else {
+                if (inhibit_token != 0) {
+                    ((Gtk.Application) GLib.Application.get_default ()).uninhibit (inhibit_token);
+                    inhibit_token = 0;
+                }
+            }
+        });
     }
 
     public void reset () {

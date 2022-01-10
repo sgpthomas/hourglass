@@ -54,6 +54,7 @@ namespace Hourglass {
                 main_window.window_position = Gtk.WindowPosition.CENTER;
             }
 
+            main_window.show_all ();
             Gtk.main ();
         }
 

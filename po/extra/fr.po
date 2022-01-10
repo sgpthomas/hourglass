@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-09-03 14:54+0900\n"
+"POT-Creation-Date: 2021-11-09 23:21+0900\n"
 "PO-Revision-Date: 2021-08-15 12:08+0200\n"
 "Last-Translator: Nathan Bonnemains (@NathanBnm)\n"
 "Language-Team: none\n"
@@ -23,6 +23,7 @@ msgid "Hourglass"
 msgstr "Hourglass"
 
 #: data/com.github.sgpthomas.hourglass.desktop.in.in:5
+#: data/com.github.sgpthomas.hourglass.appdata.xml.in:9
 msgid "Set alarms, timers, and stopwatches"
 msgstr "Définissez des alames, des minuteurs et des chronomètres"
 
@@ -38,13 +39,6 @@ msgstr "@EXEC_NAME@"
 #: data/com.github.sgpthomas.hourglass.desktop.in.in:12
 msgid "Timer;Time;Clock;Hourglass;Alarm;"
 msgstr "Minuteur;Heure;Horloge;Sablier;Alarme;"
-
-#: data/com.github.sgpthomas.hourglass.appdata.xml.in:9
-msgid ""
-"A simple clock application that provides stopwatches, alarms, and timers"
-msgstr ""
-"Une simple application d'horloge qui fournit chronomètres, alarmes et "
-"minuteurs"
 
 #: data/com.github.sgpthomas.hourglass.appdata.xml.in:12
 msgid ""
@@ -74,96 +68,138 @@ msgstr "Minuteur"
 msgid "Samuel Thomas"
 msgstr "Samuel Thomas"
 
-#: data/com.github.sgpthomas.hourglass.appdata.xml.in:82
-msgid "This release comes with numerous bug fixes &amp; improvements!"
+#: data/com.github.sgpthomas.hourglass.appdata.xml.in:83
+msgid ""
+"Fix a regression that the app don't launch if you create a repeated alarm, "
+"close the app, and try to reopen it"
 msgstr ""
 
-#: data/com.github.sgpthomas.hourglass.appdata.xml.in:85
-msgid "Changes in Alarm:"
-msgstr ""
-
-#: data/com.github.sgpthomas.hourglass.appdata.xml.in:89
-msgid "Refresh weekday toggle activity when opening popover"
+#: data/com.github.sgpthomas.hourglass.appdata.xml.in:84
+msgid "AlarmView: Organize displayed information"
 msgstr ""
 
 #: data/com.github.sgpthomas.hourglass.appdata.xml.in:90
+msgid "This release contains small bug fixes and improvements:"
+msgstr ""
+
+#: data/com.github.sgpthomas.hourglass.appdata.xml.in:94
+msgid "Strict on sandbox permission"
+msgstr ""
+
+#: data/com.github.sgpthomas.hourglass.appdata.xml.in:95
+msgid "Rounded window corners and flat titlebar"
+msgstr ""
+
+#: data/com.github.sgpthomas.hourglass.appdata.xml.in:96
+msgid "NewAlarmDialog: Add placeholder text for title entry"
+msgstr ""
+
+#: data/com.github.sgpthomas.hourglass.appdata.xml.in:97
+msgid "Set shorter summary text in appdata"
+msgstr ""
+
+#: data/com.github.sgpthomas.hourglass.appdata.xml.in:98
+msgid "Use palette of elementary for branding color"
+msgstr ""
+
+#: data/com.github.sgpthomas.hourglass.appdata.xml.in:99
+msgid "Make sure to select an alarm on removing/adding/editing it and startup"
+msgstr ""
+
+#: data/com.github.sgpthomas.hourglass.appdata.xml.in:100
+msgid "Clean code"
+msgstr ""
+
+#: data/com.github.sgpthomas.hourglass.appdata.xml.in:106
+msgid "This release comes with numerous bug fixes &amp; improvements!"
+msgstr ""
+
+#: data/com.github.sgpthomas.hourglass.appdata.xml.in:109
+msgid "Changes in Alarm:"
+msgstr ""
+
+#: data/com.github.sgpthomas.hourglass.appdata.xml.in:113
+msgid "Refresh weekday toggle activity when opening popover"
+msgstr ""
+
+#: data/com.github.sgpthomas.hourglass.appdata.xml.in:114
 msgid "Notify on every 0 second"
 msgstr ""
 
-#: data/com.github.sgpthomas.hourglass.appdata.xml.in:91
+#: data/com.github.sgpthomas.hourglass.appdata.xml.in:115
 msgid "Keep repeated alarms on and turn off one-time alarms after ringing"
 msgstr ""
 
-#: data/com.github.sgpthomas.hourglass.appdata.xml.in:92
+#: data/com.github.sgpthomas.hourglass.appdata.xml.in:116
 msgid ""
 "Now alarm date is optional; if you don't specify date of the alarm, it will "
 "be notified at that time of today"
 msgstr ""
 
-#: data/com.github.sgpthomas.hourglass.appdata.xml.in:93
+#: data/com.github.sgpthomas.hourglass.appdata.xml.in:117
 msgid "Remove unused \"update-frequency\" gsettings key"
 msgstr ""
 
-#: data/com.github.sgpthomas.hourglass.appdata.xml.in:94
+#: data/com.github.sgpthomas.hourglass.appdata.xml.in:118
 msgid "Fix repeating alarms can't be disabled"
 msgstr ""
 
-#: data/com.github.sgpthomas.hourglass.appdata.xml.in:95
+#: data/com.github.sgpthomas.hourglass.appdata.xml.in:119
 msgid "Explicitly set the year"
 msgstr ""
 
-#: data/com.github.sgpthomas.hourglass.appdata.xml.in:97
+#: data/com.github.sgpthomas.hourglass.appdata.xml.in:121
 msgid "Changes in Timer:"
 msgstr ""
 
-#: data/com.github.sgpthomas.hourglass.appdata.xml.in:101
+#: data/com.github.sgpthomas.hourglass.appdata.xml.in:125
 #, fuzzy
 msgid "Add Reset button"
 msgstr "Ajout des traductions en japonais"
 
-#: data/com.github.sgpthomas.hourglass.appdata.xml.in:102
+#: data/com.github.sgpthomas.hourglass.appdata.xml.in:126
 msgid "Support setting purpose of a timer"
 msgstr ""
 
-#: data/com.github.sgpthomas.hourglass.appdata.xml.in:103
+#: data/com.github.sgpthomas.hourglass.appdata.xml.in:127
 msgid "Lessen damages to your storage"
 msgstr ""
 
-#: data/com.github.sgpthomas.hourglass.appdata.xml.in:104
+#: data/com.github.sgpthomas.hourglass.appdata.xml.in:128
 msgid "Restore started time on end"
 msgstr ""
 
-#: data/com.github.sgpthomas.hourglass.appdata.xml.in:105
+#: data/com.github.sgpthomas.hourglass.appdata.xml.in:129
 msgid "Make sure to iconify always when the timer is active"
 msgstr ""
 
-#: data/com.github.sgpthomas.hourglass.appdata.xml.in:107
+#: data/com.github.sgpthomas.hourglass.appdata.xml.in:131
 #, fuzzy
 msgid "Other changes:"
 msgstr "Autres mises à jour :"
 
-#: data/com.github.sgpthomas.hourglass.appdata.xml.in:111
+#: data/com.github.sgpthomas.hourglass.appdata.xml.in:135
 msgid "Fix a regression that any key input no longer accepted"
 msgstr ""
 
-#: data/com.github.sgpthomas.hourglass.appdata.xml.in:112
+#: data/com.github.sgpthomas.hourglass.appdata.xml.in:136
 msgid "Lessen window width by default"
 msgstr ""
 
-#: data/com.github.sgpthomas.hourglass.appdata.xml.in:113
+#: data/com.github.sgpthomas.hourglass.appdata.xml.in:137
 msgid "Fix the app exits if the window has been iconified"
 msgstr ""
 
-#: data/com.github.sgpthomas.hourglass.appdata.xml.in:114
+#: data/com.github.sgpthomas.hourglass.appdata.xml.in:138
 msgid "Code refactoring"
 msgstr ""
 
-#: data/com.github.sgpthomas.hourglass.appdata.xml.in:115
-#: data/com.github.sgpthomas.hourglass.appdata.xml.in:127
+#: data/com.github.sgpthomas.hourglass.appdata.xml.in:139
+#: data/com.github.sgpthomas.hourglass.appdata.xml.in:151
 msgid "Update translations"
 msgstr "Mise à jour des traductions"
 
-#: data/com.github.sgpthomas.hourglass.appdata.xml.in:122
+#: data/com.github.sgpthomas.hourglass.appdata.xml.in:146
 msgid ""
 "Publish the app to the new AppCenter on elementary OS 6 with the Flatpak "
 "manifest"
@@ -171,11 +207,11 @@ msgstr ""
 "Publication de l'application dans le nouveau Centre d'Applications "
 "d'elementary OS avec le manifeste Flatpak"
 
-#: data/com.github.sgpthomas.hourglass.appdata.xml.in:123
+#: data/com.github.sgpthomas.hourglass.appdata.xml.in:147
 msgid "Respect an elementary OS-wide dark preference"
 msgstr "Prise en compte du paramètre du thème sombre d'elementary OS"
 
-#: data/com.github.sgpthomas.hourglass.appdata.xml.in:124
+#: data/com.github.sgpthomas.hourglass.appdata.xml.in:148
 msgid ""
 "Now you can close the window with the shortcut key Ctrl+Q, while the daemon "
 "stays running in the background"
@@ -183,158 +219,158 @@ msgstr ""
 "Désormais vous pouvez fermer la fenêtre avec le raccourci clavier Ctrl + Q, "
 "tandis que le service continue de s'exécuter en arrière-plan"
 
-#: data/com.github.sgpthomas.hourglass.appdata.xml.in:125
+#: data/com.github.sgpthomas.hourglass.appdata.xml.in:149
 msgid "Fix unreadable font size in the Alarm view"
 msgstr "Correction de la taille de la police illisible dans la vue Alarme"
 
-#: data/com.github.sgpthomas.hourglass.appdata.xml.in:126
+#: data/com.github.sgpthomas.hourglass.appdata.xml.in:150
 msgid "Fix wrong OARS data"
 msgstr "Corrections des données OARS erronées"
 
-#: data/com.github.sgpthomas.hourglass.appdata.xml.in:134
+#: data/com.github.sgpthomas.hourglass.appdata.xml.in:158
 msgid "Move the delete button in the action bar"
 msgstr "Déplacement du bouton de suppression dans la barre d'action"
 
-#: data/com.github.sgpthomas.hourglass.appdata.xml.in:135
+#: data/com.github.sgpthomas.hourglass.appdata.xml.in:159
 msgid "Redesign app icons (big thanks to @Fatih20)"
 msgstr "Refonte des icônes de l'application (merci beaucoup à @Fatih20)"
 
-#: data/com.github.sgpthomas.hourglass.appdata.xml.in:136
+#: data/com.github.sgpthomas.hourglass.appdata.xml.in:160
 msgid "Update Brazilian Portuguese translation (by @gfavaro)"
 msgstr "Mise à jour des traduction en portugais brésilien (par @gfavaro)"
 
-#: data/com.github.sgpthomas.hourglass.appdata.xml.in:142
+#: data/com.github.sgpthomas.hourglass.appdata.xml.in:166
 msgid "Fixes:"
 msgstr "Corrections :"
 
-#: data/com.github.sgpthomas.hourglass.appdata.xml.in:144
+#: data/com.github.sgpthomas.hourglass.appdata.xml.in:168
 msgid "Fix a fatal regression that timer does not stop on 00:00:00"
 msgstr ""
 "Correction d'une régression qui empêchait le minuteur de s'arrêter à 00:00:00"
 
-#: data/com.github.sgpthomas.hourglass.appdata.xml.in:146
+#: data/com.github.sgpthomas.hourglass.appdata.xml.in:170
 msgid "Improvements:"
 msgstr "Améliorations :"
 
-#: data/com.github.sgpthomas.hourglass.appdata.xml.in:148
+#: data/com.github.sgpthomas.hourglass.appdata.xml.in:172
 msgid "StopWatch: Rewrite for efficiency and visibility"
 msgstr "Chronomètre : Réécriture pour plus d'efficacité et de visibilité"
 
-#: data/com.github.sgpthomas.hourglass.appdata.xml.in:149
+#: data/com.github.sgpthomas.hourglass.appdata.xml.in:173
 msgid "Add :disabled pseudo-class to the .round-button class"
 msgstr "Ajout de la pseudo-classe :disabled à la classe .round-button"
 
-#: data/com.github.sgpthomas.hourglass.appdata.xml.in:150
+#: data/com.github.sgpthomas.hourglass.appdata.xml.in:174
 msgid "Use icons for add/remove buttons"
 msgstr "Utilisation d'icônes pour les bouton d'ajout/suppression"
 
-#: data/com.github.sgpthomas.hourglass.appdata.xml.in:157
+#: data/com.github.sgpthomas.hourglass.appdata.xml.in:181
 msgid "Update .desktop comment to be consistent with HIG (by @aljelly)"
 msgstr ""
 "Mise à jour du fichier .desktop pour mieux correspondres au normes HIG (par "
 "@aljelly)"
 
-#: data/com.github.sgpthomas.hourglass.appdata.xml.in:158
+#: data/com.github.sgpthomas.hourglass.appdata.xml.in:182
 msgid "Change shortened format of weekdays (by @NathanBnm)"
 msgstr "Modification du format court des jours de la semaine (par @NathanBnm)"
 
-#: data/com.github.sgpthomas.hourglass.appdata.xml.in:159
+#: data/com.github.sgpthomas.hourglass.appdata.xml.in:183
 msgid "Improve look of create/edit alarm dialog"
 msgstr ""
 "Amélioration de l'apparence de la boîte de dialogue d'ajout/modification des "
 "alarmes"
 
-#: data/com.github.sgpthomas.hourglass.appdata.xml.in:160
+#: data/com.github.sgpthomas.hourglass.appdata.xml.in:184
 msgid "Don't reset repeat setting on closing popover"
 msgstr ""
 "Le paramètre de répétition n'est plus réinitialisé à la fermeture de la "
 "fenêtre flottante"
 
-#: data/com.github.sgpthomas.hourglass.appdata.xml.in:161
+#: data/com.github.sgpthomas.hourglass.appdata.xml.in:185
 msgid "Fix DBus error at the first launch"
 msgstr "Correction de l'erreur DBus au premier lancement"
 
-#: data/com.github.sgpthomas.hourglass.appdata.xml.in:162
+#: data/com.github.sgpthomas.hourglass.appdata.xml.in:186
 msgid "Fix notification icon is not set"
 msgstr "Correction des icônes de notification"
 
-#: data/com.github.sgpthomas.hourglass.appdata.xml.in:163
+#: data/com.github.sgpthomas.hourglass.appdata.xml.in:187
 msgid "Fix left time shows unexpected values if set time is too big"
 msgstr ""
 "Correction du temps restant qui affichait des valeurs incorrectes si l'heure "
 "définie était trop grande"
 
-#: data/com.github.sgpthomas.hourglass.appdata.xml.in:164
+#: data/com.github.sgpthomas.hourglass.appdata.xml.in:188
 msgid "Improve saving window state"
 msgstr "Amélioration de l'enregistrement de l'état de la fenêtre"
 
-#: data/com.github.sgpthomas.hourglass.appdata.xml.in:166
+#: data/com.github.sgpthomas.hourglass.appdata.xml.in:190
 msgid "Translation updates:"
 msgstr "Mise à jour des traductions :"
 
-#: data/com.github.sgpthomas.hourglass.appdata.xml.in:168
+#: data/com.github.sgpthomas.hourglass.appdata.xml.in:192
 msgid "Add French translation (by @NathanBnm)"
 msgstr "Ajout des traductions en français (par @NathanBnm)"
 
-#: data/com.github.sgpthomas.hourglass.appdata.xml.in:169
+#: data/com.github.sgpthomas.hourglass.appdata.xml.in:193
 msgid "Update Spanish translation (by @CCaroV)"
 msgstr "Mise à jour des traductions en espagnol (par @CCaroV)"
 
-#: data/com.github.sgpthomas.hourglass.appdata.xml.in:170
+#: data/com.github.sgpthomas.hourglass.appdata.xml.in:194
 msgid "Add Japanese translation"
 msgstr "Ajout des traductions en japonais"
 
-#: data/com.github.sgpthomas.hourglass.appdata.xml.in:171
+#: data/com.github.sgpthomas.hourglass.appdata.xml.in:195
 msgid "Add Portuguese-Portugal translation (by @rottenpants466)"
 msgstr "Ajout des traductions en portugais brésilien (par @rottenpants466)"
 
-#: data/com.github.sgpthomas.hourglass.appdata.xml.in:173
+#: data/com.github.sgpthomas.hourglass.appdata.xml.in:197
 msgid "Other updates:"
 msgstr "Autres mises à jour :"
 
-#: data/com.github.sgpthomas.hourglass.appdata.xml.in:175
+#: data/com.github.sgpthomas.hourglass.appdata.xml.in:199
 msgid ""
 "Various l10n and coding improvements to the project thanks to @NathanBnm"
 msgstr ""
 "Diverses améliorations de l'implémentation des traductions du projet par "
 "@NathanBnm"
 
-#: data/com.github.sgpthomas.hourglass.appdata.xml.in:182
+#: data/com.github.sgpthomas.hourglass.appdata.xml.in:206
 msgid "Fixed a regression that the app didn't run at the first time launch"
 msgstr ""
 "Correction d'une regression qui empêchait l'application de démarrer la "
 "première fois"
 
-#: data/com.github.sgpthomas.hourglass.appdata.xml.in:183
+#: data/com.github.sgpthomas.hourglass.appdata.xml.in:207
 msgid "Revived and updated valid translation files"
 msgstr "Mise à jour et correction des fichiers de traduction valides"
 
-#: data/com.github.sgpthomas.hourglass.appdata.xml.in:190
+#: data/com.github.sgpthomas.hourglass.appdata.xml.in:214
 msgid "Fixed timer control influences other instances"
 msgstr ""
 "Correction des contrôles du minuteur qui influençaient les autres instances"
 
-#: data/com.github.sgpthomas.hourglass.appdata.xml.in:191
+#: data/com.github.sgpthomas.hourglass.appdata.xml.in:215
 msgid "Updated Lithuanian translation"
 msgstr "Mise à jour des traductions en lituanien"
 
-#: data/com.github.sgpthomas.hourglass.appdata.xml.in:192
+#: data/com.github.sgpthomas.hourglass.appdata.xml.in:216
 msgid "Fixed timekeeping"
 msgstr "Correction de la conservation du temps"
 
-#: data/com.github.sgpthomas.hourglass.appdata.xml.in:193
+#: data/com.github.sgpthomas.hourglass.appdata.xml.in:217
 msgid "Fixed what happens when the app closes and there is a timer running"
 msgstr ""
 "Correction du comportement de l'application à la fermeture lorsqu'un "
 "minuteur est en cours"
 
-#: data/com.github.sgpthomas.hourglass.appdata.xml.in:194
+#: data/com.github.sgpthomas.hourglass.appdata.xml.in:218
 msgid "Fixed the notification going off again when you open the app"
 msgstr ""
 "Correction des notifications qui se désactivaient à l'ouverture de "
 "l'application"
 
-#: data/com.github.sgpthomas.hourglass.appdata.xml.in:195
+#: data/com.github.sgpthomas.hourglass.appdata.xml.in:219
 msgid "Switched the build system from CMake to Meson"
 msgstr "Passage du système de compilation CMake à Meson"
 
@@ -345,3 +381,9 @@ msgstr "Service de Hourglass"
 #: data/com.github.sgpthomas.hourglass-daemon.desktop.in.in:5
 msgid "Daemon that deals with Hourglass's alarms."
 msgstr "Service qui gère les alarmes de Hourglass."
+
+#~ msgid ""
+#~ "A simple clock application that provides stopwatches, alarms, and timers"
+#~ msgstr ""
+#~ "Une simple application d'horloge qui fournit chronomètres, alarmes et "
+#~ "minuteurs"
