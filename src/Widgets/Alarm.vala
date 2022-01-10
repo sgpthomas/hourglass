@@ -94,6 +94,7 @@ public class Hourglass.Widgets.Alarm : Gtk.ListBoxRow {
             return Utils.selected_days_to_string (next_repeat);
         }
 
+
         return Granite.DateTime.get_relative_datetime (time);
     }
 
