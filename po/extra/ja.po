@@ -1,14 +1,14 @@
 # Japanese translations for extra package.
 # Copyright (C) 2020 THE extra'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the extra package.
-# Ryo Nakano <ryonakaknock3@gmail.com>, 2020-2021.
+# Ryo Nakano <ryonakaknock3@gmail.com>, 2020-2022.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-02-24 17:28+0900\n"
-"PO-Revision-Date: 2021-11-09 23:29+0900\n"
+"PO-Revision-Date: 2022-02-24 18:12+0900\n"
 "Last-Translator: Ryo Nakano <ryonakaknock3@gmail.com>\n"
 "Language-Team: none\n"
 "Language: ja\n"
@@ -39,8 +39,8 @@ msgstr "@EXEC_NAME@"
 #: data/com.github.sgpthomas.hourglass.desktop.in.in:12
 msgid "Timer;Time;Clock;Hourglass;Alarm;"
 msgstr ""
-"Timer;Time;Clock;Hourglass;Alarm;タイマー;時間;タイム;時計;砂時計;アラーム:目"
-"覚まし;"
+"Timer;Time;Clock;Hourglass;Alarm;タイマー;時間;タイム;時計;砂時計;アラーム:"
+"目覚まし;"
 
 #: data/com.github.sgpthomas.hourglass.appdata.xml.in:12
 msgid ""
@@ -70,25 +70,27 @@ msgstr "Samuel Thomas"
 msgid ""
 "Add additional categories other than ambiguous `Utility` in the desktop "
 "entry (thanks to @danrabbit)"
-msgstr ""
+msgstr "“Utility”以外に曖昧ではないカテゴリーを追加 (貢献者: @danrabbit)"
 
 #: data/com.github.sgpthomas.hourglass.appdata.xml.in:57
 msgid "Show the window in the center of the display at the first launch"
-msgstr ""
+msgstr "初回起動時にディスプレイの中央にウィンドウを表示するように修正"
 
 #: data/com.github.sgpthomas.hourglass.appdata.xml.in:58
 msgid ""
 "Make styling more consistent between stopwatch and timer (thanks to "
 "@ChildishGiant)"
 msgstr ""
+"ストップウォッチとタイマーが一貫性のあるスタイルになるように修正 (貢献者: "
+"@ChildishGiant)"
 
 #: data/com.github.sgpthomas.hourglass.appdata.xml.in:59
 msgid "Ring alarms only on repeated days (thanks to @nakotami)"
-msgstr ""
+msgstr "繰り返し指定のある日のみアラームが鳴るように修正 (貢献者: @nakotami)"
 
 #: data/com.github.sgpthomas.hourglass.appdata.xml.in:60
 msgid "Fix the condition of closing the app window being reversed"
-msgstr ""
+msgstr "アプリウィンドウを閉じる条件が逆になっていた不具合を修正"
 
 #: data/com.github.sgpthomas.hourglass.appdata.xml.in:62
 #: data/com.github.sgpthomas.hourglass.appdata.xml.in:180
@@ -96,9 +98,8 @@ msgid "Translation updates:"
 msgstr "翻訳の更新:"
 
 #: data/com.github.sgpthomas.hourglass.appdata.xml.in:66
-#, fuzzy
 msgid "Update Japanese translation"
-msgstr "日本語翻訳を追加"
+msgstr "日本語翻訳を更新"
 
 #: data/com.github.sgpthomas.hourglass.appdata.xml.in:73
 msgid ""
@@ -307,8 +308,8 @@ msgstr "追加／削除ボタンにアイコンを使うように修正"
 #: data/com.github.sgpthomas.hourglass.appdata.xml.in:171
 msgid "Update .desktop comment to be consistent with HIG (by @aljelly)"
 msgstr ""
-".desktop ファイルの Comment 行を、elementary OS の HIG に沿うように更新 (貢献"
-"者: @aljelly)"
+".desktop ファイルの Comment 行を、elementary OS の HIG に沿うように更新 (貢"
+"献者: @aljelly)"
 
 #: data/com.github.sgpthomas.hourglass.appdata.xml.in:172
 msgid "Change shortened format of weekdays (by @NathanBnm)"
@@ -332,7 +333,8 @@ msgstr "通知アイコンが設定されない不具合を修正"
 
 #: data/com.github.sgpthomas.hourglass.appdata.xml.in:177
 msgid "Fix left time shows unexpected values if set time is too big"
-msgstr "タイマーの設定時間が長すぎると残り時間が正しく表示されない不具合を修正"
+msgstr ""
+"タイマーの設定時間が長すぎると残り時間が正しく表示されない不具合を修正"
 
 #: data/com.github.sgpthomas.hourglass.appdata.xml.in:178
 msgid "Improve saving window state"
