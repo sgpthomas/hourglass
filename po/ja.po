@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: com.github.sgpthomas.hourglass\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-11-09 23:21+0900\n"
+"POT-Creation-Date: 2022-02-24 17:28+0900\n"
 "PO-Revision-Date: 2021-11-09 23:24+0900\n"
 "Last-Translator: Ryo Nakano <ryonakaknock3@gmail.com>\n"
 "Language-Team: none\n"
@@ -77,7 +77,6 @@ msgstr "保存"
 msgid "Create Alarm"
 msgstr "アラームを作成"
 
-#. welcome screen
 #: src/Views/AlarmView.vala:43
 msgid "No Alarms"
 msgstr "アラームがありません"
@@ -86,7 +85,6 @@ msgstr "アラームがありません"
 msgid "Click the add icon in the toolbar below to get started."
 msgstr "以下のツールバーにある追加アイコンをクリックしてください。"
 
-#. action buttons
 #: src/Views/AlarmView.vala:62
 msgid "Add…"
 msgstr "追加…"
@@ -103,16 +101,15 @@ msgstr "削除"
 msgid "Stopwatch"
 msgstr "ストップウォッチ"
 
-#. create buttons
-#: src/Views/StopwatchView.vala:64 src/Views/TimerView.vala:65
+#: src/Views/StopwatchView.vala:64 src/Views/TimerView.vala:71
 msgid "Start"
 msgstr "開始"
 
-#: src/Views/StopwatchView.vala:68 src/Views/TimerView.vala:95
+#: src/Views/StopwatchView.vala:68 src/Views/TimerView.vala:101
 msgid "Stop"
 msgstr "停止"
 
-#: src/Views/StopwatchView.vala:72 src/Views/TimerView.vala:69
+#: src/Views/StopwatchView.vala:72 src/Views/TimerView.vala:75
 msgid "Reset"
 msgstr "リセット"
 
@@ -128,27 +125,27 @@ msgstr "タイマー"
 msgid "Hours"
 msgstr "時間"
 
-#: src/Views/TimerView.vala:52
+#: src/Views/TimerView.vala:55
 msgid "Minutes"
 msgstr "分"
 
-#: src/Views/TimerView.vala:57
+#: src/Views/TimerView.vala:63
 msgid "Seconds"
 msgstr "秒"
 
-#: src/Views/TimerView.vala:61
+#: src/Views/TimerView.vala:67
 msgid "Enter purposes of the timer"
 msgstr "タイマーの目的を入力"
 
-#: src/Views/TimerView.vala:170
+#: src/Views/TimerView.vala:176
 msgid "It's time!"
 msgstr "時間です！"
 
-#: src/Widgets/Alarm.vala:85
+#: src/Widgets/Alarm.vala:89
 msgid "Today"
 msgstr "今日"
 
-#: src/Widgets/Alarm.vala:92
+#: src/Widgets/Alarm.vala:101
 #, c-format
 msgid "Repeats: %s"
 msgstr "繰り返し: %s"
@@ -165,7 +162,7 @@ msgstr "平日"
 msgid "Every Weekend"
 msgstr "土日"
 
-#. /TRANSLATORS: %s represents translated string of a day of the week
+#. TRANSLATORS: %s represents translated string of a day of the week
 #: src/Utils.vala:116
 #, c-format
 msgid "%s, "

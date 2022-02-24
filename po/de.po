@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: com.github.sgpthomas.hourglass\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-11-09 23:21+0900\n"
+"POT-Creation-Date: 2022-02-24 17:28+0900\n"
 "PO-Revision-Date: 2020-05-01 16:18+0200\n"
 "Last-Translator: Marijo Mustac\n"
 "Language-Team: none\n"
@@ -82,7 +82,6 @@ msgstr ""
 msgid "Create Alarm"
 msgstr "Erstellen"
 
-#. welcome screen
 #: src/Views/AlarmView.vala:43
 msgid "No Alarms"
 msgstr "Kein Alarm vorhanden"
@@ -91,7 +90,6 @@ msgstr "Kein Alarm vorhanden"
 msgid "Click the add icon in the toolbar below to get started."
 msgstr ""
 
-#. action buttons
 #: src/Views/AlarmView.vala:62
 msgid "Add…"
 msgstr ""
@@ -109,16 +107,15 @@ msgstr "Löschen"
 msgid "Stopwatch"
 msgstr "Stoppuhr"
 
-#. create buttons
-#: src/Views/StopwatchView.vala:64 src/Views/TimerView.vala:65
+#: src/Views/StopwatchView.vala:64 src/Views/TimerView.vala:71
 msgid "Start"
 msgstr "Start"
 
-#: src/Views/StopwatchView.vala:68 src/Views/TimerView.vala:95
+#: src/Views/StopwatchView.vala:68 src/Views/TimerView.vala:101
 msgid "Stop"
 msgstr "Stopp"
 
-#: src/Views/StopwatchView.vala:72 src/Views/TimerView.vala:69
+#: src/Views/StopwatchView.vala:72 src/Views/TimerView.vala:75
 msgid "Reset"
 msgstr "Zurücksetzen"
 
@@ -134,27 +131,27 @@ msgstr "Zeitmesser"
 msgid "Hours"
 msgstr "Stunden"
 
-#: src/Views/TimerView.vala:52
+#: src/Views/TimerView.vala:55
 msgid "Minutes"
 msgstr "Minuten"
 
-#: src/Views/TimerView.vala:57
+#: src/Views/TimerView.vala:63
 msgid "Seconds"
 msgstr "Sekunden"
 
-#: src/Views/TimerView.vala:61
+#: src/Views/TimerView.vala:67
 msgid "Enter purposes of the timer"
 msgstr ""
 
-#: src/Views/TimerView.vala:170
+#: src/Views/TimerView.vala:176
 msgid "It's time!"
 msgstr ""
 
-#: src/Widgets/Alarm.vala:85
+#: src/Widgets/Alarm.vala:89
 msgid "Today"
 msgstr ""
 
-#: src/Widgets/Alarm.vala:92
+#: src/Widgets/Alarm.vala:101
 #, fuzzy, c-format
 msgid "Repeats: %s"
 msgstr "Wiederholt "
@@ -171,7 +168,7 @@ msgstr "Jeder Wochentag"
 msgid "Every Weekend"
 msgstr "Jedes Wochenende"
 
-#. /TRANSLATORS: %s represents translated string of a day of the week
+#. TRANSLATORS: %s represents translated string of a day of the week
 #: src/Utils.vala:116
 #, c-format
 msgid "%s, "

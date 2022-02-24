@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: com.github.sgpthomas.hourglass\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-11-09 23:21+0900\n"
+"POT-Creation-Date: 2022-02-24 17:28+0900\n"
 "PO-Revision-Date: 2021-08-15 12:08+0200\n"
 "Last-Translator: Nathan Bonnemains (@NathanBnm)\n"
 "Language-Team: none\n"
@@ -77,7 +77,6 @@ msgstr "Enregistrer"
 msgid "Create Alarm"
 msgstr "Créer l'alarme"
 
-#. welcome screen
 #: src/Views/AlarmView.vala:43
 msgid "No Alarms"
 msgstr "Aucune alarme"
@@ -87,7 +86,6 @@ msgid "Click the add icon in the toolbar below to get started."
 msgstr ""
 "Cliquez sur l'icône d'ajout dans la barre d'outils ci-dessous pour commencer."
 
-#. action buttons
 #: src/Views/AlarmView.vala:62
 msgid "Add…"
 msgstr "Ajouter…"
@@ -104,16 +102,15 @@ msgstr "Supprimer"
 msgid "Stopwatch"
 msgstr "Chronomètre"
 
-#. create buttons
-#: src/Views/StopwatchView.vala:64 src/Views/TimerView.vala:65
+#: src/Views/StopwatchView.vala:64 src/Views/TimerView.vala:71
 msgid "Start"
 msgstr "Démarrer"
 
-#: src/Views/StopwatchView.vala:68 src/Views/TimerView.vala:95
+#: src/Views/StopwatchView.vala:68 src/Views/TimerView.vala:101
 msgid "Stop"
 msgstr "Arrêter"
 
-#: src/Views/StopwatchView.vala:72 src/Views/TimerView.vala:69
+#: src/Views/StopwatchView.vala:72 src/Views/TimerView.vala:75
 msgid "Reset"
 msgstr "Réinitialiser"
 
@@ -129,27 +126,27 @@ msgstr "Minuteur"
 msgid "Hours"
 msgstr "Heures"
 
-#: src/Views/TimerView.vala:52
+#: src/Views/TimerView.vala:55
 msgid "Minutes"
 msgstr "Minutes"
 
-#: src/Views/TimerView.vala:57
+#: src/Views/TimerView.vala:63
 msgid "Seconds"
 msgstr "Secondes"
 
-#: src/Views/TimerView.vala:61
+#: src/Views/TimerView.vala:67
 msgid "Enter purposes of the timer"
 msgstr "Indiquez l'objectif de minuteur"
 
-#: src/Views/TimerView.vala:170
+#: src/Views/TimerView.vala:176
 msgid "It's time!"
 msgstr "C'est l'heure !"
 
-#: src/Widgets/Alarm.vala:85
+#: src/Widgets/Alarm.vala:89
 msgid "Today"
 msgstr ""
 
-#: src/Widgets/Alarm.vala:92
+#: src/Widgets/Alarm.vala:101
 #, c-format
 msgid "Repeats: %s"
 msgstr "Répétition : %s"
@@ -166,7 +163,7 @@ msgstr "Chaque jour de la semaine"
 msgid "Every Weekend"
 msgstr "Chaque weekend"
 
-#. /TRANSLATORS: %s represents translated string of a day of the week
+#. TRANSLATORS: %s represents translated string of a day of the week
 #: src/Utils.vala:116
 #, c-format
 msgid "%s, "
