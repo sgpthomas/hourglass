@@ -50,6 +50,23 @@
   </provides>
 
   <releases>
+    <release version="2.0.3" date="2022-02-24" urgency="medium">
+      <description>
+        <ul>
+          <li>Add additional categories other than ambiguous `Utility` in the desktop entry (thanks to @danrabbit)</li>
+          <li>Show the window in the center of the display at the first launch</li>
+          <li>Make styling more consistent between stopwatch and timer (thanks to @ChildishGiant)</li>
+          <li>Ring alarms only on repeated days (thanks to @nakotami)</li>
+          <li>Fix the condition of closing the app window being reversed</li>
+        </ul>
+        <p>
+          Translation updates:
+        </p>
+        <ul>
+          <li>Update Japanese translation</li>
+        </ul>
+      </description>
+    </release>
     <release version="2.0.2" date="2021-11-08" urgency="medium">
       <description>
         <ul>
