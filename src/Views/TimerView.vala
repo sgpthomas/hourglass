@@ -143,7 +143,10 @@ public class Hourglass.Views.TimerView : AbstractView {
         sec_chooser.output.connect (() => {
             if (sec_chooser.value < 10) {
                 sec_chooser.text = "0%i".printf ((int) sec_chooser.value);
+                return true;
             }
+
+            return false;
         });
 
         min_chooser.value_changed.connect (() => {
@@ -153,7 +156,10 @@ public class Hourglass.Views.TimerView : AbstractView {
         min_chooser.output.connect (() => {
             if (min_chooser.value < 10) {
                 min_chooser.text = "0%i".printf ((int) min_chooser.value);
+                return true;
             }
+
+            return false;
         });
 
         hour_chooser.value_changed.connect (() => {
@@ -163,7 +169,10 @@ public class Hourglass.Views.TimerView : AbstractView {
         hour_chooser.output.connect (() => {
             if (hour_chooser.value < 10) {
                 hour_chooser.text = "0%i".printf ((int) hour_chooser.value);
+                return true;
             }
+
+            return false;
         });
 
         purpose_entry.changed.connect (update);
