@@ -21,11 +21,6 @@
             <summary>Current State of timer</summary>
             <description>Saves whether the alarm is currently running or not.</description>
         </key>
-        <key name="window-position" type="(ii)">
-            <default>(-1, -1)</default>
-            <summary>Last saved window position.</summary>
-            <description>Saves the last window position.</description>
-        </key>
         <key name="window-size" type="(ii)">
             <default>(450, 600)</default>
             <summary>Last saved window size.</summary>

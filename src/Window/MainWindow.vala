@@ -3,7 +3,7 @@
  * SPDX-FileCopyrightText: 2015-2022 Sam Thomas
  */
 
-public class Hourglass.Window.MainWindow : Hdy.Window {
+public class Hourglass.Window.MainWindow : Gtk.ApplicationWindow {
     public signal void on_stack_change ();
 
     private Gtk.Stack stack;
@@ -19,12 +19,15 @@ public class Hourglass.Window.MainWindow : Hdy.Window {
     construct {
         var cssprovider = new Gtk.CssProvider ();
         cssprovider.load_from_resource ("/com/github/sgpthomas/hourglass/Application.css");
-        Gtk.StyleContext.add_provider_for_screen (Gdk.Screen.get_default (),
+        Gtk.StyleContext.add_provider_for_display (Gdk.Display.get_default (),
                                                     cssprovider,
                                                     Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION);
 
         stack = new Gtk.Stack () {
-            border_width = 12,
+            margin_top = 12,
+            margin_bottom = 12,
+            margin_start = 12,
+            margin_end = 12,
             transition_type = Gtk.StackTransitionType.SLIDE_LEFT_RIGHT
         };
 
@@ -43,19 +46,24 @@ public class Hourglass.Window.MainWindow : Hdy.Window {
             stack.add_titled (widget, widget.id, widget.display_name);
         }
 
-        var headerbar = new Hdy.HeaderBar () {
-            custom_title = stack_switcher,
-            show_close_button = true
+        var headerbar = new Gtk.HeaderBar () {
+            title_widget = stack_switcher
         };
+        headerbar.get_style_context ().add_class (Granite.STYLE_CLASS_FLAT);
+        set_titlebar (headerbar);
 
-        unowned var headerbar_style = headerbar.get_style_context ();
-        headerbar_style.add_class (Gtk.STYLE_CLASS_FLAT);
+        child = stack;
 
-        var main_box = new Gtk.Box (Gtk.Orientation.VERTICAL, 0);
-        main_box.add (headerbar);
-        main_box.add (stack);
+        var event_controller = new Gtk.EventControllerKey ();
+        event_controller.key_pressed.connect ((keyval, keycode, state) => {
+            if (Gdk.ModifierType.CONTROL_MASK in state && keyval == Gdk.Key.q) {
+                on_delete ();
+                return true;
+            }
 
-        add (main_box);
+            return false;
+        });
+        ((Gtk.Widget) this).add_controller (event_controller);
 
         // Follow elementary OS-wide dark preference
         var granite_settings = Granite.Settings.get_default ();
@@ -72,15 +80,8 @@ public class Hourglass.Window.MainWindow : Hdy.Window {
             on_stack_change ();
         });
 
-        delete_event.connect (() => {
-            return on_delete ();
-        });
-
-        key_press_event.connect ((key) => {
-            if (Gdk.ModifierType.CONTROL_MASK in key.state && key.keyval == Gdk.Key.q) {
-                return on_delete ();
-            }
-
+        close_request.connect (() => {
+            on_delete ();
             return false;
         });
 
@@ -88,18 +89,16 @@ public class Hourglass.Window.MainWindow : Hdy.Window {
     }
 
     private bool on_delete () {
-        int window_width, window_height, window_x, window_y;
-        get_size (out window_width, out window_height);
-        get_position (out window_x, out window_y);
-        Hourglass.saved.set ("window-size", "(ii)", window_width, window_height);
-        Hourglass.saved.set ("window-position", "(ii)", window_x, window_y);
-        Hourglass.saved.set_boolean ("is-maximized", is_maximized);
+        Hourglass.saved.set ("window-size", "(ii)", default_width, default_height);
+        Hourglass.saved.set_boolean ("is-maximized", maximized);
 
         var visible = (Hourglass.Views.AbstractView) stack.get_visible_child ();
         if (visible.should_keep_open) {
-            iconify ();
+            hide_on_close = true;
+            //  get_toplevels ().get_object (0).minimize ();
             return true;
         } else {
+            hide_on_close = false;
             destroy ();
             return false;
         }

@@ -51,10 +51,9 @@ executable(
     asresources,
     sources,
     dependencies: [
-        dependency('gtk+-3.0', version: '>= 3.18'),
+        dependency('gtk4'),
         dependency('gee-0.8'),
-        dependency('granite', version: '>= 6.0.0'),
-        dependency('libhandy-1')
+        dependency('granite-7')
     ],
     install: true,
 )

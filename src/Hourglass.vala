@@ -31,8 +31,7 @@ namespace Hourglass {
 
         public override void activate () {
             if (main_window != null) {
-                debug ("There is an instance of hourglass already open.");
-                main_window.deiconify ();
+                main_window.present ();
                 return;
             }
 
@@ -43,18 +42,10 @@ namespace Hourglass {
             } else {
                 int window_width, window_height;
                 Hourglass.saved.get ("window-size", "(ii)", out window_width, out window_height);
-                main_window.resize (window_width, window_height);
+                main_window.set_default_size (window_width, window_height);
             }
 
-            int widnow_x, window_y;
-            Hourglass.saved.get ("window-position", "(ii)", out widnow_x, out window_y);
-            if (widnow_x != -1 | window_y != -1) {
-                main_window.move (widnow_x, window_y);
-            } else {
-                main_window.window_position = Gtk.WindowPosition.CENTER;
-            }
-
-            main_window.show_all ();
+            main_window.present ();
         }
 
         public static void spawn_daemon () {
@@ -73,8 +64,7 @@ namespace Hourglass {
     public static int main (string[] args) {
         HourglassApp.spawn_daemon ();
 
-        Gtk.init (ref args);
-        Hdy.init ();
+        Gtk.init ();
 
         return new HourglassApp ().run (args);
     }
