@@ -63,9 +63,6 @@ namespace Hourglass {
 
     public static int main (string[] args) {
         HourglassApp.spawn_daemon ();
-
-        Gtk.init ();
-
         return new HourglassApp ().run (args);
     }
 }

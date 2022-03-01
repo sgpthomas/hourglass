@@ -28,9 +28,9 @@ public class Hourglass.Views.TimerView : AbstractView {
 
     private Gtk.Stack stack;
 
-    private TimeSpinner hour_chooser;
-    private TimeSpinner min_chooser;
-    private TimeSpinner sec_chooser;
+    private Gtk.SpinButton hour_chooser;
+    private Gtk.SpinButton min_chooser;
+    private Gtk.SpinButton sec_chooser;
     private Gtk.Entry purpose_entry;
     private Gtk.Button start_timer_button;
     private Gtk.Button reset_timer_button;
@@ -42,26 +42,38 @@ public class Hourglass.Views.TimerView : AbstractView {
         // get current time from dconf
         Hourglass.Utils.Time time = Hourglass.Utils.parse_milliseconds (Hourglass.saved.get_int64 ("timer-time") * 100);
 
-        hour_chooser = new TimeSpinner (59) {
+        hour_chooser = new Gtk.SpinButton (new Gtk.Adjustment (0, 0, 59, 1, 0, 0), 1, 0) {
+            orientation = Gtk.Orientation.VERTICAL,
+            wrap = true,
+            numeric = true,
             value = time.hours,
             tooltip_text = _("Hours")
         };
+        hour_chooser.get_style_context ().add_class ("timer");
 
         var hour_min_divider = new Gtk.Label (":");
         hour_min_divider.get_style_context ().add_class ("timer");
 
-        min_chooser = new TimeSpinner (59) {
+        min_chooser = new Gtk.SpinButton (new Gtk.Adjustment (0, 0, 59, 1, 0, 0), 1, 0) {
+            orientation = Gtk.Orientation.VERTICAL,
+            wrap = true,
+            numeric = true,
             value = time.minutes,
             tooltip_text = _("Minutes")
         };
+        min_chooser.get_style_context ().add_class ("timer");
 
         var min_second_divider = new Gtk.Label (":");
         min_second_divider.get_style_context ().add_class ("timer");
 
-        sec_chooser = new TimeSpinner (59) {
+        sec_chooser = new Gtk.SpinButton (new Gtk.Adjustment (0, 0, 59, 1, 0, 0), 1, 0) {
+            orientation = Gtk.Orientation.VERTICAL,
+            wrap = true,
+            numeric = true,
             value = time.seconds,
             tooltip_text = _("Seconds")
         };
+        sec_chooser.get_style_context ().add_class ("timer");
 
         purpose_entry = new Gtk.Entry () {
             placeholder_text = _("Enter purposes of the timer"),
@@ -126,16 +138,28 @@ public class Hourglass.Views.TimerView : AbstractView {
 
         sec_chooser.value_changed.connect (() => {
             Hourglass.saved.set_int64 ("timer-time", (int64) ((hour_chooser.get_value () * 3600) + (min_chooser.get_value () * 60) + sec_chooser.get_value ()));
+            if (sec_chooser.value < 10) {
+                sec_chooser.text = "0%i".printf ((int) sec_chooser.value);
+            }
+
             update ();
         });
 
         min_chooser.value_changed.connect (() => {
             Hourglass.saved.set_int64 ("timer-time", (int64) ((hour_chooser.get_value () * 3600) + (min_chooser.get_value () * 60) + sec_chooser.get_value ()));
+            if (min_chooser.value < 10) {
+                min_chooser.text = "0%i".printf ((int) min_chooser.value);
+            }
+
             update ();
         });
 
         hour_chooser.value_changed.connect (() => {
             Hourglass.saved.set_int64 ("timer-time", (int64) ((hour_chooser.get_value () * 3600) + (min_chooser.get_value () * 60) + sec_chooser.get_value ()));
+            if (hour_chooser.value < 10) {
+                hour_chooser.text = "0%i".printf ((int) hour_chooser.value);
+            }
+
             update ();
         });
 
