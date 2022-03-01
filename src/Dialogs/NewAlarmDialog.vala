@@ -93,7 +93,7 @@ public class Hourglass.Dialogs.NewAlarmDialog : Granite.Dialog {
         main_grid.attach (repeat_label, 0, 4, 1, 1);
         main_grid.attach (repeat_day_picker, 1, 4, 1, 1);
 
-        get_content_area ().prepend (main_grid);
+        get_content_area ().append (main_grid);
 
         var cancel_button = (Gtk.Button) add_button (_("Cancel"), Gtk.ResponseType.CANCEL);
 

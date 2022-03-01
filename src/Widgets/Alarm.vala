@@ -59,7 +59,7 @@ public class Hourglass.Widgets.Alarm : Gtk.ListBoxRow {
             margin_top = 12,
             margin_bottom = 12
         };
-        box.prepend (grid);
+        box.append (grid);
         box.append (toggle);
 
         child = box;

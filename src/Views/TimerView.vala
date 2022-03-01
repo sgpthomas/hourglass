@@ -134,33 +134,36 @@ public class Hourglass.Views.TimerView : AbstractView {
         stack.add_named (chooser_grid, "chooser_grid");
         stack.add_named (timer_grid, "timer_grid");
 
-        prepend (stack);
+        append (stack);
 
         sec_chooser.value_changed.connect (() => {
             Hourglass.saved.set_int64 ("timer-time", (int64) ((hour_chooser.get_value () * 3600) + (min_chooser.get_value () * 60) + sec_chooser.get_value ()));
+            update ();
+        });
+        sec_chooser.output.connect (() => {
             if (sec_chooser.value < 10) {
                 sec_chooser.text = "0%i".printf ((int) sec_chooser.value);
             }
-
-            update ();
         });
 
         min_chooser.value_changed.connect (() => {
             Hourglass.saved.set_int64 ("timer-time", (int64) ((hour_chooser.get_value () * 3600) + (min_chooser.get_value () * 60) + sec_chooser.get_value ()));
+            update ();
+        });
+        min_chooser.output.connect (() => {
             if (min_chooser.value < 10) {
                 min_chooser.text = "0%i".printf ((int) min_chooser.value);
             }
-
-            update ();
         });
 
         hour_chooser.value_changed.connect (() => {
             Hourglass.saved.set_int64 ("timer-time", (int64) ((hour_chooser.get_value () * 3600) + (min_chooser.get_value () * 60) + sec_chooser.get_value ()));
+            update ();
+        });
+        hour_chooser.output.connect (() => {
             if (hour_chooser.value < 10) {
                 hour_chooser.text = "0%i".printf ((int) hour_chooser.value);
             }
-
-            update ();
         });
 
         purpose_entry.changed.connect (update);

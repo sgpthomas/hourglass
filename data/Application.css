@@ -1,7 +1,9 @@
 @define-color accent_color @LIME_700;
 
 .round-button {
-    padding: 5px;
+    padding: 6px;
+    padding-left: 24px;
+    padding-right: 24px;
     border-radius: 15px;
 }
 

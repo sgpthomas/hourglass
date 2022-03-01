@@ -39,7 +39,10 @@ public class Hourglass.Views.StopwatchView : AbstractView {
     private bool is_running = false;
 
     public StopwatchView (MainWindow window) {
-        Object (window: window);
+        Object (
+            window: window,
+            homogeneous: true
+        );
     }
 
     construct {
@@ -81,19 +84,17 @@ public class Hourglass.Views.StopwatchView : AbstractView {
 
         var buttons_box = new Gtk.Box (Gtk.Orientation.HORIZONTAL, 0) {
             spacing = 6,
-            margin_top = 12,
-            margin_bottom = 12,
-            margin_start = 12,
-            margin_end = 12
+            halign = Gtk.Align.CENTER,
+            valign = Gtk.Align.CENTER
         };
-        buttons_box.prepend (start);
-        buttons_box.prepend (stop);
-        buttons_box.prepend (reset);
-        buttons_box.prepend (lap);
+        buttons_box.append (start);
+        buttons_box.append (stop);
+        buttons_box.append (reset);
+        buttons_box.append (lap);
 
-        prepend (counter_label);
-        prepend (scrolled_window);
-        prepend (buttons_box);
+        append (counter_label);
+        append (scrolled_window);
+        append (buttons_box);
 
         counter.ticked.connect (() => {
             counter_label.label = Hourglass.Utils.get_formatted_time (counter.current_time, true);
@@ -114,8 +115,11 @@ public class Hourglass.Views.StopwatchView : AbstractView {
         reset.clicked.connect (() => {
             counter.reset ();
             lap_log = {};
-            for (int i = 0; i <= ((Gtk.ListBoxRow) lap_box.get_last_child ()).get_index (); i++) {
-                lap_box.remove (lap_box.get_row_at_index (i));
+            unowned var last_child = (Gtk.ListBoxRow) lap_box.get_last_child ();
+            if (last_child != null) {
+                for (int i = 0; i <= last_child.get_index (); i++) {
+                    lap_box.remove (lap_box.get_row_at_index (i));
+                }
             }
     
             update ();
@@ -151,7 +155,8 @@ public class Hourglass.Views.StopwatchView : AbstractView {
     }
 
     private void update_log () {
-        var num = ((Gtk.ListBoxRow) lap_box.get_last_child ()).get_index ();
+        unowned var last_child = (Gtk.ListBoxRow) lap_box.get_last_child ();
+        int num = last_child != null ? last_child.get_index () + 1 : 0;
         var label = new Gtk.Label ("%u: %s".printf (num + 1, lap_log[num])) {
             margin_top = 6,
             margin_bottom = 6,
@@ -164,7 +169,6 @@ public class Hourglass.Views.StopwatchView : AbstractView {
             child = label
         };
 
-        //  lap_box.insert (row, 0);
         lap_box.prepend (row);
     }
 }

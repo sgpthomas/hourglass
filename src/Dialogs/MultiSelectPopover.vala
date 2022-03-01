@@ -26,7 +26,7 @@ public class Hourglass.Dialogs.MultiSelectPopover : Gtk.Popover {
 
         foreach (string day in shortened_days) {
             var toggle = new Gtk.ToggleButton.with_label (day);
-            box.prepend (toggle);
+            box.append (toggle);
             toggles += toggle;
         }
 

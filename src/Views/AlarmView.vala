@@ -74,8 +74,8 @@ public class Hourglass.Views.AlarmView : AbstractView {
         actionbar.pack_start (delete_alarm_button);
 
         get_style_context ().add_class ("frame");
-        prepend (stack);
-        prepend (actionbar);
+        append (stack);
+        append (actionbar);
 
         list_box.row_selected.connect (update);
 
@@ -134,8 +134,11 @@ public class Hourglass.Views.AlarmView : AbstractView {
 
     private void load_alarms () {
         // Clear alarms
-        for (int i = 0; i <= ((Gtk.ListBoxRow) list_box.get_last_child ()).get_index (); i++) {
-            list_box.remove (list_box.get_row_at_index (i));
+        unowned var last_child = (Gtk.ListBoxRow) list_box.get_last_child ();
+        if (last_child != null) {
+            for (int i = 0; i <= last_child.get_index (); i++) {
+                list_box.remove (list_box.get_row_at_index (i));
+            }
         }
 
         try {
@@ -163,7 +166,7 @@ public class Hourglass.Views.AlarmView : AbstractView {
     }
 
     private void append_alarm (Alarm alarm) {
-        list_box.prepend (alarm);
+        list_box.append (alarm);
 
         alarm.state_toggled.connect (() => {
             debug ("toggled");
