@@ -47,23 +47,27 @@ public class Hourglass.Views.StopwatchView : AbstractView {
         counter = new Hourglass.Objects.Counter (Hourglass.Objects.Counter.CountDirection.UP);
 
         counter_label = new Gtk.Label (Hourglass.Utils.get_formatted_time (counter.current_time, true)) {
-            margin = 10
+            margin_top = 10,
+            margin_bottom = 10,
+            margin_start = 10,
+            margin_end = 10
         };
         counter_label.get_style_context ().add_class ("timer");
 
         // create scollable log
         lap_box = new Gtk.ListBox ();
 
-        var scrolled_window = new Gtk.ScrolledWindow (null, null) {
+        var scrolled_window = new Gtk.ScrolledWindow () {
             vexpand = true,
-            shadow_type = Gtk.ShadowType.IN
+            //  shadow_type = Gtk.ShadowType.IN
+            has_frame = true,
+            child = lap_box
         };
-        scrolled_window.add (lap_box);
 
         // create buttons
         start = new Gtk.Button.with_label (_("Start"));
         start.get_style_context ().add_class ("round-button");
-        start.get_style_context ().add_class (Gtk.STYLE_CLASS_SUGGESTED_ACTION);
+        start.get_style_context ().add_class (Granite.STYLE_CLASS_SUGGESTED_ACTION);
 
         stop = new Gtk.Button.with_label (_("Stop"));
         stop.get_style_context ().add_class ("round-button");
@@ -75,19 +79,21 @@ public class Hourglass.Views.StopwatchView : AbstractView {
         lap = new Gtk.Button.with_label (_("Lap"));
         lap.get_style_context ().add_class ("round-button");
 
-        var button_box = new Gtk.ButtonBox (Gtk.Orientation.HORIZONTAL) {
-            layout_style = Gtk.ButtonBoxStyle.CENTER,
+        var buttons_box = new Gtk.Box (Gtk.Orientation.HORIZONTAL, 0) {
             spacing = 6,
-            border_width = 12
+            margin_top = 12,
+            margin_bottom = 12,
+            margin_start = 12,
+            margin_end = 12
         };
-        button_box.add (start);
-        button_box.add (stop);
-        button_box.add (reset);
-        button_box.add (lap);
+        buttons_box.prepend (start);
+        buttons_box.prepend (stop);
+        buttons_box.prepend (reset);
+        buttons_box.prepend (lap);
 
-        pack_start (counter_label);
-        pack_start (scrolled_window);
-        pack_start (button_box);
+        prepend (counter_label);
+        prepend (scrolled_window);
+        prepend (buttons_box);
 
         counter.ticked.connect (() => {
             counter_label.label = Hourglass.Utils.get_formatted_time (counter.current_time, true);
@@ -108,10 +114,10 @@ public class Hourglass.Views.StopwatchView : AbstractView {
         reset.clicked.connect (() => {
             counter.reset ();
             lap_log = {};
-            foreach (var w in lap_box.get_children ()) {
-                w.destroy ();
+            for (int i = 0; i <= ((Gtk.ListBoxRow) lap_box.get_last_child ()).get_index (); i++) {
+                lap_box.remove (lap_box.get_row_at_index (i));
             }
-
+    
             update ();
         });
 
@@ -145,17 +151,20 @@ public class Hourglass.Views.StopwatchView : AbstractView {
     }
 
     private void update_log () {
-        var num = lap_box.get_children ().length ();
+        var num = ((Gtk.ListBoxRow) lap_box.get_last_child ()).get_index ();
         var label = new Gtk.Label ("%u: %s".printf (num + 1, lap_log[num])) {
-            margin = 6
+            margin_top = 6,
+            margin_bottom = 6,
+            margin_start = 6,
+            margin_end = 6
         };
-        label.get_style_context ().add_class (Gtk.STYLE_CLASS_DIM_LABEL);
+        label.get_style_context ().add_class (Granite.STYLE_CLASS_DIM_LABEL);
 
-        var row = new Gtk.ListBoxRow ();
-        row.add (label);
+        var row = new Gtk.ListBoxRow () {
+            child = label
+        };
 
-        lap_box.insert (row, 0);
-
-        lap_box.show_all ();
+        //  lap_box.insert (row, 0);
+        lap_box.prepend (row);
     }
 }

@@ -44,7 +44,7 @@ public class Hourglass.Dialogs.NewAlarmDialog : Granite.Dialog {
             halign = Gtk.Align.END
         };
 
-        var time_picker = new Granite.Widgets.TimePicker ();
+        var time_picker = new Granite.TimePicker ();
 
         var date_label = new Gtk.Label (_("Date:")) {
             halign = Gtk.Align.END
@@ -54,14 +54,16 @@ public class Hourglass.Dialogs.NewAlarmDialog : Granite.Dialog {
             halign = Gtk.Align.START
         };
 
-        var date_picker = new Granite.Widgets.DatePicker ();
+        var date_picker = new Granite.DatePicker ();
 
         var repeat_label = new Gtk.Label (_("Repeat:")) {
             halign = Gtk.Align.END
         };
 
-        var repeat_day_picker = new Gtk.Button ();
-        var popover = new MultiSelectPopover (repeat_day_picker, repeat_days);
+        var popover = new MultiSelectPopover (repeat_days);
+        var repeat_day_picker = new Gtk.MenuButton () {
+            popover = popover
+        };
 
         if (is_existing_alarm) {
             title_entry.text = alarm.title;
@@ -91,7 +93,7 @@ public class Hourglass.Dialogs.NewAlarmDialog : Granite.Dialog {
         main_grid.attach (repeat_label, 0, 4, 1, 1);
         main_grid.attach (repeat_day_picker, 1, 4, 1, 1);
 
-        get_content_area ().add (main_grid);
+        get_content_area ().prepend (main_grid);
 
         var cancel_button = (Gtk.Button) add_button (_("Cancel"), Gtk.ResponseType.CANCEL);
 
@@ -99,7 +101,7 @@ public class Hourglass.Dialogs.NewAlarmDialog : Granite.Dialog {
             is_existing_alarm ? _("Save") : _("Create Alarm"),
             Gtk.ResponseType.YES
         );
-        create_alarm_button.get_style_context ().add_class (Gtk.STYLE_CLASS_SUGGESTED_ACTION);
+        create_alarm_button.get_style_context ().add_class (Granite.STYLE_CLASS_SUGGESTED_ACTION);
 
         //if user tries to enter ';' stop them
         title_entry.insert_text.connect ((new_text, new_text_length, ref pos) => {
@@ -108,9 +110,9 @@ public class Hourglass.Dialogs.NewAlarmDialog : Granite.Dialog {
             }
         });
 
-        repeat_day_picker.clicked.connect (() => {
+        repeat_day_picker.activate.connect (() => {
             popover.set_selected ();
-            popover.show_all ();
+            popover.popup ();
         });
 
         popover.closed.connect (() => {

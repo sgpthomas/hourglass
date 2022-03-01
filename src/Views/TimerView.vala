@@ -70,7 +70,7 @@ public class Hourglass.Views.TimerView : AbstractView {
 
         start_timer_button = new Gtk.Button.with_label (_("Start"));
         start_timer_button.get_style_context ().add_class ("round-button");
-        start_timer_button.get_style_context ().add_class (Gtk.STYLE_CLASS_SUGGESTED_ACTION);
+        start_timer_button.get_style_context ().add_class (Granite.STYLE_CLASS_SUGGESTED_ACTION);
 
         reset_timer_button = new Gtk.Button.with_label (_("Reset"));
         reset_timer_button.get_style_context ().add_class ("round-button");
@@ -94,7 +94,10 @@ public class Hourglass.Views.TimerView : AbstractView {
         counter = new Hourglass.Objects.Counter (Hourglass.Objects.Counter.CountDirection.DOWN);
 
         counter_label = new Gtk.Label (Hourglass.Utils.get_formatted_time (counter.current_time, false)) {
-            margin = 10
+            margin_top = 10,
+            margin_bottom = 10,
+            margin_start = 10,
+            margin_end = 10
         };
         counter_label.get_style_context ().add_class ("timer");
 
@@ -119,7 +122,7 @@ public class Hourglass.Views.TimerView : AbstractView {
         stack.add_named (chooser_grid, "chooser_grid");
         stack.add_named (timer_grid, "timer_grid");
 
-        add (stack);
+        prepend (stack);
 
         sec_chooser.value_changed.connect (() => {
             Hourglass.saved.set_int64 ("timer-time", (int64) ((hour_chooser.get_value () * 3600) + (min_chooser.get_value () * 60) + sec_chooser.get_value ()));
@@ -151,7 +154,7 @@ public class Hourglass.Views.TimerView : AbstractView {
         counter.ended.connect (stop_timer);
 
         update ();
-        hour_chooser.has_focus = true;
+        hour_chooser.grab_focus ();
 
         // resume state
         if (Hourglass.saved.get_boolean ("timer-state")) {

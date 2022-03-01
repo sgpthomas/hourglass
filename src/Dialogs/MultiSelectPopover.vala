@@ -11,12 +11,7 @@ public class Hourglass.Dialogs.MultiSelectPopover : Gtk.Popover {
         _("Sun"), _("Mon"), _("Tue"), _("Wed"), _("Thu"), _("Fri"), _("Sat")
     };
 
-    public MultiSelectPopover (Gtk.Widget parent, int[]? selected_days = null) {
-        Object (
-            relative_to: parent,
-            modal: true
-        );
-
+    public MultiSelectPopover (int[]? selected_days = null) {
         this.selected_days = selected_days;
     }
 
