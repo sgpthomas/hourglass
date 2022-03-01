@@ -121,7 +121,7 @@ public class Hourglass.Views.StopwatchView : AbstractView {
                     lap_box.remove (lap_box.get_row_at_index (i));
                 }
             }
-    
+
             update ();
         });
 
