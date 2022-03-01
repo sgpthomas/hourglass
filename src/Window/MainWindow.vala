@@ -57,7 +57,7 @@ public class Hourglass.Window.MainWindow : Gtk.ApplicationWindow {
         var event_controller = new Gtk.EventControllerKey ();
         event_controller.key_pressed.connect ((keyval, keycode, state) => {
             if (Gdk.ModifierType.CONTROL_MASK in state && keyval == Gdk.Key.q) {
-                on_delete ();
+                close_request ();
                 return true;
             }
 
@@ -88,18 +88,16 @@ public class Hourglass.Window.MainWindow : Gtk.ApplicationWindow {
         stack.visible_child_name = Hourglass.saved.get_string ("last-open-widget");
     }
 
-    private bool on_delete () {
+    private void on_delete () {
         Hourglass.saved.set ("window-size", "(ii)", default_width, default_height);
         Hourglass.saved.set_boolean ("is-maximized", maximized);
 
         var visible = (Hourglass.Views.AbstractView) stack.get_visible_child ();
         if (visible.should_keep_open) {
             hide_on_close = true;
-            return true;
         } else {
             hide_on_close = false;
             destroy ();
-            return false;
         }
     }
 }
