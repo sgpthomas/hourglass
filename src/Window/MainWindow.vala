@@ -95,7 +95,6 @@ public class Hourglass.Window.MainWindow : Gtk.ApplicationWindow {
         var visible = (Hourglass.Views.AbstractView) stack.get_visible_child ();
         if (visible.should_keep_open) {
             hide_on_close = true;
-            //  get_toplevels ().get_object (0).minimize ();
             return true;
         } else {
             hide_on_close = false;
