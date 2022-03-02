@@ -62,7 +62,6 @@ public class Hourglass.Views.StopwatchView : AbstractView {
 
         var scrolled_window = new Gtk.ScrolledWindow () {
             vexpand = true,
-            //  shadow_type = Gtk.ShadowType.IN
             has_frame = true,
             child = lap_box
         };
@@ -115,11 +114,8 @@ public class Hourglass.Views.StopwatchView : AbstractView {
         reset.clicked.connect (() => {
             counter.reset ();
             lap_log = {};
-            unowned var last_child = (Gtk.ListBoxRow) lap_box.get_last_child ();
-            if (last_child != null) {
-                for (int i = 0; i <= last_child.get_index (); i++) {
-                    lap_box.remove (lap_box.get_row_at_index (i));
-                }
+            while ((Gtk.ListBoxRow) lap_box.get_last_child () != null) {
+                lap_box.remove ((Gtk.ListBoxRow) lap_box.get_last_child ());
             }
 
             update ();

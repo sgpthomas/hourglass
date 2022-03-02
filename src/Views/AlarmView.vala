@@ -134,11 +134,8 @@ public class Hourglass.Views.AlarmView : AbstractView {
 
     private void load_alarms () {
         // Clear alarms
-        unowned var last_child = (Gtk.ListBoxRow) list_box.get_last_child ();
-        if (last_child != null) {
-            for (int i = 0; i <= last_child.get_index (); i++) {
-                list_box.remove (list_box.get_row_at_index (i));
-            }
+        while ((Gtk.ListBoxRow) list_box.get_last_child () != null) {
+            list_box.remove ((Gtk.ListBoxRow) list_box.get_last_child ());
         }
 
         try {
