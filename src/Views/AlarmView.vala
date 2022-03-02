@@ -49,9 +49,9 @@ public class Hourglass.Views.AlarmView : AbstractView {
 
         var scrolled_window = new Gtk.ScrolledWindow () {
             vexpand = true,
-            hexpand = true
+            hexpand = true,
+            child = list_box
         };
-        scrolled_window.child = list_box;
 
         stack = new Gtk.Stack ();
         stack.add_named (no_alarm_screen, "no-alarm-view");
