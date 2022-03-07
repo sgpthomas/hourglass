@@ -1,6 +1,6 @@
 /*
  * SPDX-License-Identifier: GPL-3.0-or-later
- * SPDX-FileCopyrightText: 2015-2021 Sam Thomas
+ * SPDX-FileCopyrightText: 2015-2022 Sam Thomas
  */
 
 namespace Hourglass.Services {

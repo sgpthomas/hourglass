@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: com.github.sgpthomas.hourglass\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-11-06 09:01+0900\n"
+"POT-Creation-Date: 2022-02-24 17:28+0900\n"
 "PO-Revision-Date: 2020-08-26 14:23+0100\n"
 "Last-Translator: André Barata <andretiagob@protonmail.com>\n"
 "Language-Team: none\n"
@@ -18,55 +18,33 @@ msgstr ""
 "X-Generator: Poedit 2.4.1\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: src/Dialogs/MultiSelectPopover.vala:11
+#: src/Dialogs/MultiSelectPopover.vala:11 src/Utils.vala:99
 msgid "Sun"
 msgstr "Dom"
 
-#: src/Dialogs/MultiSelectPopover.vala:11
+#: src/Dialogs/MultiSelectPopover.vala:11 src/Utils.vala:99
 msgid "Mon"
 msgstr "Seg"
 
-#: src/Dialogs/MultiSelectPopover.vala:11
+#: src/Dialogs/MultiSelectPopover.vala:11 src/Utils.vala:99
 msgid "Tue"
 msgstr "Ter"
 
-#: src/Dialogs/MultiSelectPopover.vala:11
+#: src/Dialogs/MultiSelectPopover.vala:11 src/Utils.vala:99
 msgid "Wed"
 msgstr "Qua"
 
-#: src/Dialogs/MultiSelectPopover.vala:11
+#: src/Dialogs/MultiSelectPopover.vala:11 src/Utils.vala:99
 msgid "Thu"
 msgstr "Qui"
 
-#: src/Dialogs/MultiSelectPopover.vala:11
+#: src/Dialogs/MultiSelectPopover.vala:11 src/Utils.vala:99
 msgid "Fri"
 msgstr "Sex"
 
-#: src/Dialogs/MultiSelectPopover.vala:11
+#: src/Dialogs/MultiSelectPopover.vala:11 src/Utils.vala:99
 msgid "Sat"
 msgstr "Sab"
-
-#: src/Dialogs/MultiSelectPopover.vala:65
-msgid "Every Day"
-msgstr "Todos os Dias"
-
-#: src/Dialogs/MultiSelectPopover.vala:67
-msgid "Every Weekday"
-msgstr "Todos os Dias da Semana"
-
-#: src/Dialogs/MultiSelectPopover.vala:69
-msgid "Every Weekend"
-msgstr "Todos os Fins de Semana"
-
-#. /TRANSLATORS: %s represents translated string of a day of the week
-#: src/Dialogs/MultiSelectPopover.vala:77
-#, c-format
-msgid "%s, "
-msgstr ""
-
-#: src/Dialogs/MultiSelectPopover.vala:83 src/Dialogs/NewAlarmDialog.vala:74
-msgid "Never"
-msgstr "Nunca"
 
 #: src/Dialogs/NewAlarmDialog.vala:35
 msgid "Title:"
@@ -102,7 +80,6 @@ msgstr ""
 msgid "Create Alarm"
 msgstr "Criar"
 
-#. welcome screen
 #: src/Views/AlarmView.vala:43
 msgid "No Alarms"
 msgstr "Nenhum Alarme"
@@ -111,7 +88,6 @@ msgstr "Nenhum Alarme"
 msgid "Click the add icon in the toolbar below to get started."
 msgstr ""
 
-#. action buttons
 #: src/Views/AlarmView.vala:62
 msgid "Add…"
 msgstr ""
@@ -129,16 +105,15 @@ msgstr "Apagar"
 msgid "Stopwatch"
 msgstr "Cronômetro"
 
-#. create buttons
-#: src/Views/StopwatchView.vala:64 src/Views/TimerView.vala:65
+#: src/Views/StopwatchView.vala:64 src/Views/TimerView.vala:71
 msgid "Start"
 msgstr "Iniciar"
 
-#: src/Views/StopwatchView.vala:68 src/Views/TimerView.vala:95
+#: src/Views/StopwatchView.vala:68 src/Views/TimerView.vala:101
 msgid "Stop"
 msgstr "Parar"
 
-#: src/Views/StopwatchView.vala:72 src/Views/TimerView.vala:69
+#: src/Views/StopwatchView.vala:72 src/Views/TimerView.vala:75
 msgid "Reset"
 msgstr "Repor"
 
@@ -154,31 +129,59 @@ msgstr "Temporizador"
 msgid "Hours"
 msgstr "Horas"
 
-#: src/Views/TimerView.vala:52
+#: src/Views/TimerView.vala:55
 msgid "Minutes"
 msgstr "Minutos"
 
-#: src/Views/TimerView.vala:57
+#: src/Views/TimerView.vala:63
 msgid "Seconds"
 msgstr "Segundos"
 
-#: src/Views/TimerView.vala:61
+#: src/Views/TimerView.vala:67
 msgid "Enter purposes of the timer"
 msgstr ""
 
-#: src/Views/TimerView.vala:170
+#: src/Views/TimerView.vala:176
 msgid "It's time!"
 msgstr ""
 
-#: src/Widgets/Alarm.vala:85
+#: src/Widgets/Alarm.vala:89
+msgid "Today"
+msgstr ""
+
+#: src/Widgets/Alarm.vala:101
 #, fuzzy, c-format
 msgid "Repeats: %s"
 msgstr "Repete "
 
-#: src/Widgets/Alarm.vala:87
-#, fuzzy, c-format
-msgid ", Repeats: %s"
-msgstr ", Repete "
+#: src/Utils.vala:104
+msgid "Every Day"
+msgstr "Todos os Dias"
+
+#: src/Utils.vala:106
+msgid "Every Weekday"
+msgstr "Todos os Dias da Semana"
+
+#: src/Utils.vala:108
+msgid "Every Weekend"
+msgstr "Todos os Fins de Semana"
+
+#. TRANSLATORS: %s represents translated string of a day of the week
+#: src/Utils.vala:116
+#, c-format
+msgid "%s, "
+msgstr ""
+
+#: src/Utils.vala:122
+msgid "None"
+msgstr ""
+
+#~ msgid "Never"
+#~ msgstr "Nunca"
+
+#, fuzzy
+#~ msgid ", Repeats: %s"
+#~ msgstr ", Repete "
 
 #, fuzzy
 #~ msgid "Hourglass"

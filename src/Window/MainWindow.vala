@@ -1,6 +1,6 @@
 /*
  * SPDX-License-Identifier: GPL-3.0-or-later
- * SPDX-FileCopyrightText: 2015-2021 Sam Thomas
+ * SPDX-FileCopyrightText: 2015-2022 Sam Thomas
  */
 
 public class Hourglass.Window.MainWindow : Hdy.Window {
@@ -9,9 +9,10 @@ public class Hourglass.Window.MainWindow : Hdy.Window {
     private Gtk.Stack stack;
     private Hourglass.Views.AbstractView[] widget_list;
 
-    public MainWindow () {
+    public MainWindow (Gtk.Application app) {
         Object (
-            title: "Hourglass"
+            title: "Hourglass",
+            application: app
         );
     }
 
@@ -66,21 +67,18 @@ public class Hourglass.Window.MainWindow : Hdy.Window {
             gtk_settings.gtk_application_prefer_dark_theme = granite_settings.prefers_color_scheme == Granite.Settings.ColorScheme.DARK;
         });
 
-        show_all ();
-
         stack.notify["visible-child"].connect (() => {
             Hourglass.saved.set_string ("last-open-widget", stack.visible_child_name);
             on_stack_change ();
         });
 
         delete_event.connect (() => {
-            on_delete ();
-            return true;
+            return on_delete ();
         });
 
         key_press_event.connect ((key) => {
             if (Gdk.ModifierType.CONTROL_MASK in key.state && key.keyval == Gdk.Key.q) {
-                on_delete ();
+                return on_delete ();
             }
 
             return false;
@@ -100,10 +98,10 @@ public class Hourglass.Window.MainWindow : Hdy.Window {
         var visible = (Hourglass.Views.AbstractView) stack.get_visible_child ();
         if (visible.should_keep_open) {
             iconify ();
-            return false;
-        } else {
-            Gtk.main_quit ();
             return true;
+        } else {
+            destroy ();
+            return false;
         }
     }
 }

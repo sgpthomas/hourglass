@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: com.github.sgpthomas.hourglass\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-11-06 09:01+0900\n"
+"POT-Creation-Date: 2022-02-24 17:28+0900\n"
 "PO-Revision-Date: 2022-03-06 16:18+0100\n"
 "Last-Translator: Albano Battistella <albano_battistella@hotmail.com>\n"
 "Language-Team: Italian\n"
@@ -18,55 +18,33 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: src/Dialogs/MultiSelectPopover.vala:11
+#: src/Dialogs/MultiSelectPopover.vala:11 src/Utils.vala:99
 msgid "Sun"
 msgstr "Dom"
 
-#: src/Dialogs/MultiSelectPopover.vala:11
+#: src/Dialogs/MultiSelectPopover.vala:11 src/Utils.vala:99
 msgid "Mon"
 msgstr "Lun"
 
-#: src/Dialogs/MultiSelectPopover.vala:11
+#: src/Dialogs/MultiSelectPopover.vala:11 src/Utils.vala:99
 msgid "Tue"
 msgstr "Mar"
 
-#: src/Dialogs/MultiSelectPopover.vala:11
+#: src/Dialogs/MultiSelectPopover.vala:11 src/Utils.vala:99
 msgid "Wed"
 msgstr "Mer"
 
-#: src/Dialogs/MultiSelectPopover.vala:11
+#: src/Dialogs/MultiSelectPopover.vala:11 src/Utils.vala:99
 msgid "Thu"
 msgstr "Gio"
 
-#: src/Dialogs/MultiSelectPopover.vala:11
+#: src/Dialogs/MultiSelectPopover.vala:11 src/Utils.vala:99
 msgid "Fri"
 msgstr "Ven"
 
-#: src/Dialogs/MultiSelectPopover.vala:11
+#: src/Dialogs/MultiSelectPopover.vala:11 src/Utils.vala:99
 msgid "Sat"
 msgstr "Sab"
-
-#: src/Dialogs/MultiSelectPopover.vala:65
-msgid "Every Day"
-msgstr "Ogni giorno"
-
-#: src/Dialogs/MultiSelectPopover.vala:67
-msgid "Every Weekday"
-msgstr "Ogni giorno della settimana"
-
-#: src/Dialogs/MultiSelectPopover.vala:69
-msgid "Every Weekend"
-msgstr "Ogni fine settimana"
-
-#. /TRANSLATORS: %s represents translated string of a day of the week
-#: src/Dialogs/MultiSelectPopover.vala:77
-#, c-format
-msgid "%s, "
-msgstr "%s, "
-
-#: src/Dialogs/MultiSelectPopover.vala:83 src/Dialogs/NewAlarmDialog.vala:74
-msgid "Never"
-msgstr "Mai"
 
 #: src/Dialogs/NewAlarmDialog.vala:35
 msgid "Title:"
@@ -100,7 +78,6 @@ msgstr "Salva"
 msgid "Create Alarm"
 msgstr "Crea sveglia"
 
-#. welcome screen
 #: src/Views/AlarmView.vala:43
 msgid "No Alarms"
 msgstr "Nessuna sveglia"
@@ -109,7 +86,6 @@ msgstr "Nessuna sveglia"
 msgid "Click the add icon in the toolbar below to get started."
 msgstr "Fai clic sull'icona Aggiungi nella barra degli strumenti in basso per iniziare."
 
-#. action buttons
 #: src/Views/AlarmView.vala:62
 msgid "Add…"
 msgstr "Aggiungi…"
@@ -126,16 +102,15 @@ msgstr "Rimuovi"
 msgid "Stopwatch"
 msgstr "Cronometro"
 
-#. create buttons
-#: src/Views/StopwatchView.vala:64 src/Views/TimerView.vala:65
+#: src/Views/StopwatchView.vala:64 src/Views/TimerView.vala:71
 msgid "Start"
 msgstr "Avvia"
 
-#: src/Views/StopwatchView.vala:68 src/Views/TimerView.vala:95
+#: src/Views/StopwatchView.vala:68 src/Views/TimerView.vala:101
 msgid "Stop"
 msgstr "Interrompi"
 
-#: src/Views/StopwatchView.vala:72 src/Views/TimerView.vala:69
+#: src/Views/StopwatchView.vala:72 src/Views/TimerView.vala:75
 msgid "Reset"
 msgstr "Azzera"
 
@@ -151,29 +126,59 @@ msgstr "Timer"
 msgid "Hours"
 msgstr "Ore"
 
-#: src/Views/TimerView.vala:52
+#: src/Views/TimerView.vala:55
 msgid "Minutes"
 msgstr "Minuti"
 
-#: src/Views/TimerView.vala:57
+#: src/Views/TimerView.vala:63
 msgid "Seconds"
 msgstr "Secondi"
 
-#: src/Views/TimerView.vala:61
+#: src/Views/TimerView.vala:67
 msgid "Enter purposes of the timer"
 msgstr "Immettere le finalità del timer"
 
-#: src/Views/TimerView.vala:170
+#: src/Views/TimerView.vala:176
 msgid "It's time!"
 msgstr "È ora!"
 
-#: src/Widgets/Alarm.vala:85
+#: src/Widgets/Alarm.vala:89
+msgid "Today"
+msgstr ""
+
+#: src/Widgets/Alarm.vala:101
+#, c-format
 msgid "Repeats: %s"
 msgstr "Ripeti: %s"
 
-#: src/Widgets/Alarm.vala:87
-msgid ", Repeats: %s"
-msgstr ", Ripeti: %s"
+#: src/Utils.vala:104
+msgid "Every Day"
+msgstr "Ogni giorno"
+
+#: src/Utils.vala:106
+msgid "Every Weekday"
+msgstr "Ogni giorno della settimana"
+
+#: src/Utils.vala:108
+msgid "Every Weekend"
+msgstr "Ogni fine settimana"
+
+#. TRANSLATORS: %s represents translated string of a day of the week
+#: src/Utils.vala:116
+#, c-format
+msgid "%s, "
+msgstr ""
+
+#: src/Utils.vala:122
+msgid "None"
+msgstr ""
+
+#~ msgid "Never"
+#~ msgstr "Mai"
+
+#, fuzzy
+#~ msgid ", Repeats: %s"
+#~ msgstr ", Ripeti "
 
 #~ msgid "Hourglass"
 #~ msgstr "Clessidra"

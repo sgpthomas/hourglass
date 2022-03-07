@@ -1,6 +1,6 @@
 /*
  * SPDX-License-Identifier: GPL-3.0-or-later
- * SPDX-FileCopyrightText: 2015-2021 Sam Thomas
+ * SPDX-FileCopyrightText: 2015-2022 Sam Thomas
  */
 
 namespace HourglassDaemon {
@@ -184,13 +184,14 @@ namespace HourglassDaemon {
             bool same_min = alarm_min == now.get_minute ();
 
             if (same_hour && same_min) {
-                //if today, alarm goes off
-                if (same_day && same_month && same_year) {
+                int today = now.get_day_of_week () != 7 ? now.get_day_of_week () : 0;
+
+                //if today and alarm has no repeats, alarm goes off
+                if (same_day && same_month && same_year && !get_alarm_repeat (alarm_string)) {
                     return true;
                 }
 
-                //if today is one of the repeat days, we want the alarm to go off
-                int today = now.get_day_of_week () != 7 ? now.get_day_of_week () : 0;
+                // alarm has repeats, iterate through them to see if today
                 foreach (string s in parts[3].split (",")) {
                     if (int.parse (s) == today) {
                         return true;

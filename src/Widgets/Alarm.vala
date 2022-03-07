@@ -1,6 +1,6 @@
 /*
  * SPDX-License-Identifier: GPL-3.0-or-later
- * SPDX-FileCopyrightText: 2015-2021 Sam Thomas
+ * SPDX-FileCopyrightText: 2015-2022 Sam Thomas
  */
 
 public class Hourglass.Widgets.Alarm : Gtk.ListBoxRow {
@@ -81,23 +81,24 @@ public class Hourglass.Widgets.Alarm : Gtk.ListBoxRow {
 
     private string make_date_label () {
         var comp = new GLib.DateTime.now_local ();
-        if (Granite.DateTime.is_same_day (time, comp)) {
+        int today = comp.get_day_of_week () != 7 ? comp.get_day_of_week () : 0;
+        if (
+            Granite.DateTime.is_same_day (time, comp) && repeat.length == 0 ||
+            today in repeat
+        ) {
             return _("Today");
-        } else {
-            return Granite.DateTime.get_relative_datetime (time);
         }
+
+        if (repeat.length > 0) {
+            int[] next_repeat = {repeat[0]};
+            return Utils.selected_days_to_string (next_repeat);
+        }
+
+        return Granite.DateTime.get_relative_datetime (time);
     }
 
     private string make_repeat_label () {
-        string label = _("Repeats:");
-        label += " ";
-        if (repeat.length > 0) {
-            label += Dialogs.MultiSelectPopover.selected_to_string (repeat);
-        } else {
-            label += _("None");
-        }
-
-        return label;
+        return _("Repeats: %s").printf (Utils.selected_days_to_string (repeat));
     }
 
     public string to_string () {
@@ -154,7 +155,7 @@ public class Hourglass.Widgets.Alarm : Gtk.ListBoxRow {
         return str;
     }
 
-    public static Alarm parse_string (string alarm_string) {
+    public static Alarm new_from_string (string alarm_string) {
         string[] parts = alarm_string.split (Hourglass.Utils.ALARM_INFO_SEPARATOR);
 
         //title

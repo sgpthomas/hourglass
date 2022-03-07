@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Copyright 2017-2021 Samuel Thomas <sgpthomas@gmail.com> -->
+<!-- Copyright 2017-2022 Samuel Thomas <sgpthomas@gmail.com> -->
 <component type="desktop">
   <id>com.github.sgpthomas.hourglass</id>
   <launchable type="desktop-id">com.github.sgpthomas.hourglass.desktop</launchable>
@@ -29,40 +29,13 @@
     </screenshot>
   </screenshots>
 
-  <content_rating type="oars-1.1">
-    <content_attribute id="violence-cartoon">none</content_attribute>
-    <content_attribute id="violence-fantasy">none</content_attribute>
-    <content_attribute id="violence-realistic">none</content_attribute>
-    <content_attribute id="violence-bloodshed">none</content_attribute>
-    <content_attribute id="violence-sexual">none</content_attribute>
-    <content_attribute id="violence-desecration">none</content_attribute>
-    <content_attribute id="violence-slavery">none</content_attribute>
-    <content_attribute id="violence-worship">none</content_attribute>
-    <content_attribute id="drugs-alcohol">none</content_attribute>
-    <content_attribute id="drugs-narcotics">none</content_attribute>
-    <content_attribute id="drugs-tobacco">none</content_attribute>
-    <content_attribute id="sex-nudity">none</content_attribute>
-    <content_attribute id="sex-themes">none</content_attribute>
-    <content_attribute id="sex-homosexuality">none</content_attribute>
-    <content_attribute id="sex-prostitution">none</content_attribute>
-    <content_attribute id="sex-adultery">none</content_attribute>
-    <content_attribute id="sex-appearance">none</content_attribute>
-    <content_attribute id="language-profanity">none</content_attribute>
-    <content_attribute id="language-humor">none</content_attribute>
-    <content_attribute id="language-discrimination">none</content_attribute>
-    <content_attribute id="social-chat">none</content_attribute>
-    <content_attribute id="social-info">none</content_attribute>
-    <content_attribute id="social-audio">none</content_attribute>
-    <content_attribute id="social-location">none</content_attribute>
-    <content_attribute id="social-contacts">none</content_attribute>
-    <content_attribute id="money-purchasing">none</content_attribute>
-    <content_attribute id="money-gambling">none</content_attribute>
-  </content_rating>
+  <content_rating type="oars-1.1" />
 
   <developer_name>Samuel Thomas</developer_name>
   <url type="homepage">https://github.com/sgpthomas/hourglass</url>
   <url type="bugtracker">https://github.com/sgpthomas/hourglass/issues</url>
   <url type="help">https://github.com/sgpthomas/hourglass/issues</url>
+  <url type="translate">https://github.com/sgpthomas/hourglass</url>
   <update_contact>sgpthomas@gmail.com</update_contact>
 
   <custom>
@@ -77,6 +50,23 @@
   </provides>
 
   <releases>
+    <release version="2.0.3" date="2022-02-24" urgency="medium">
+      <description>
+        <ul>
+          <li>Add additional categories other than ambiguous `Utility` in the desktop entry (thanks to @danrabbit)</li>
+          <li>Show the window in the center of the display at the first launch</li>
+          <li>Make styling more consistent between stopwatch and timer (thanks to @ChildishGiant)</li>
+          <li>Ring alarms only on repeated days (thanks to @nakotami)</li>
+          <li>Fix the condition of closing the app window being reversed</li>
+        </ul>
+        <p>
+          Translation updates:
+        </p>
+        <ul>
+          <li>Update Japanese translation</li>
+        </ul>
+      </description>
+    </release>
     <release version="2.0.2" date="2021-11-08" urgency="medium">
       <description>
         <ul>

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: com.github.sgpthomas.hourglass\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-11-06 09:01+0900\n"
+"POT-Creation-Date: 2022-02-24 17:28+0900\n"
 "PO-Revision-Date: 2020-05-01 16:18+0200\n"
 "Last-Translator: Kristjan Vool <tictac7x@gmail.com>\n"
 "Language-Team: none\n"
@@ -17,58 +17,36 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: src/Dialogs/MultiSelectPopover.vala:11
+#: src/Dialogs/MultiSelectPopover.vala:11 src/Utils.vala:99
 #, fuzzy
 msgid "Sun"
 msgstr "P"
 
-#: src/Dialogs/MultiSelectPopover.vala:11
+#: src/Dialogs/MultiSelectPopover.vala:11 src/Utils.vala:99
 msgid "Mon"
 msgstr "E"
 
-#: src/Dialogs/MultiSelectPopover.vala:11
+#: src/Dialogs/MultiSelectPopover.vala:11 src/Utils.vala:99
 msgid "Tue"
 msgstr "T"
 
-#: src/Dialogs/MultiSelectPopover.vala:11
+#: src/Dialogs/MultiSelectPopover.vala:11 src/Utils.vala:99
 msgid "Wed"
 msgstr "K"
 
-#: src/Dialogs/MultiSelectPopover.vala:11
+#: src/Dialogs/MultiSelectPopover.vala:11 src/Utils.vala:99
 #, fuzzy
 msgid "Thu"
 msgstr "N"
 
-#: src/Dialogs/MultiSelectPopover.vala:11
+#: src/Dialogs/MultiSelectPopover.vala:11 src/Utils.vala:99
 msgid "Fri"
 msgstr "R"
 
-#: src/Dialogs/MultiSelectPopover.vala:11
+#: src/Dialogs/MultiSelectPopover.vala:11 src/Utils.vala:99
 #, fuzzy
 msgid "Sat"
 msgstr "L"
-
-#: src/Dialogs/MultiSelectPopover.vala:65
-msgid "Every Day"
-msgstr "Iga päev"
-
-#: src/Dialogs/MultiSelectPopover.vala:67
-msgid "Every Weekday"
-msgstr ""
-
-#: src/Dialogs/MultiSelectPopover.vala:69
-msgid "Every Weekend"
-msgstr ""
-
-#. /TRANSLATORS: %s represents translated string of a day of the week
-#: src/Dialogs/MultiSelectPopover.vala:77
-#, c-format
-msgid "%s, "
-msgstr ""
-
-#: src/Dialogs/MultiSelectPopover.vala:83 src/Dialogs/NewAlarmDialog.vala:74
-msgid "Never"
-msgstr "Mitte kunagi"
 
 #: src/Dialogs/NewAlarmDialog.vala:35
 msgid "Title:"
@@ -103,7 +81,6 @@ msgstr ""
 msgid "Create Alarm"
 msgstr ""
 
-#. welcome screen
 #: src/Views/AlarmView.vala:43
 msgid "No Alarms"
 msgstr "Alarme pole"
@@ -112,7 +89,6 @@ msgstr "Alarme pole"
 msgid "Click the add icon in the toolbar below to get started."
 msgstr ""
 
-#. action buttons
 #: src/Views/AlarmView.vala:62
 msgid "Add…"
 msgstr ""
@@ -129,16 +105,15 @@ msgstr ""
 msgid "Stopwatch"
 msgstr "Stopper"
 
-#. create buttons
-#: src/Views/StopwatchView.vala:64 src/Views/TimerView.vala:65
+#: src/Views/StopwatchView.vala:64 src/Views/TimerView.vala:71
 msgid "Start"
 msgstr "Käivita"
 
-#: src/Views/StopwatchView.vala:68 src/Views/TimerView.vala:95
+#: src/Views/StopwatchView.vala:68 src/Views/TimerView.vala:101
 msgid "Stop"
 msgstr "Peata"
 
-#: src/Views/StopwatchView.vala:72 src/Views/TimerView.vala:69
+#: src/Views/StopwatchView.vala:72 src/Views/TimerView.vala:75
 msgid "Reset"
 msgstr "Nulli"
 
@@ -154,31 +129,59 @@ msgstr "Taimer"
 msgid "Hours"
 msgstr "Tundi"
 
-#: src/Views/TimerView.vala:52
+#: src/Views/TimerView.vala:55
 msgid "Minutes"
 msgstr "Minutit"
 
-#: src/Views/TimerView.vala:57
+#: src/Views/TimerView.vala:63
 msgid "Seconds"
 msgstr "Sekundit"
 
-#: src/Views/TimerView.vala:61
+#: src/Views/TimerView.vala:67
 msgid "Enter purposes of the timer"
 msgstr ""
 
-#: src/Views/TimerView.vala:170
+#: src/Views/TimerView.vala:176
 msgid "It's time!"
 msgstr ""
 
-#: src/Widgets/Alarm.vala:85
+#: src/Widgets/Alarm.vala:89
+msgid "Today"
+msgstr ""
+
+#: src/Widgets/Alarm.vala:101
 #, fuzzy, c-format
 msgid "Repeats: %s"
 msgstr "Kordamine:"
 
-#: src/Widgets/Alarm.vala:87
-#, fuzzy, c-format
-msgid ", Repeats: %s"
-msgstr "Kordamine:"
+#: src/Utils.vala:104
+msgid "Every Day"
+msgstr "Iga päev"
+
+#: src/Utils.vala:106
+msgid "Every Weekday"
+msgstr ""
+
+#: src/Utils.vala:108
+msgid "Every Weekend"
+msgstr ""
+
+#. TRANSLATORS: %s represents translated string of a day of the week
+#: src/Utils.vala:116
+#, c-format
+msgid "%s, "
+msgstr ""
+
+#: src/Utils.vala:122
+msgid "None"
+msgstr ""
+
+#~ msgid "Never"
+#~ msgstr "Mitte kunagi"
+
+#, fuzzy
+#~ msgid ", Repeats: %s"
+#~ msgstr "Kordamine:"
 
 #, fuzzy
 #~ msgid "Hourglass"

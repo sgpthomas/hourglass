@@ -1,6 +1,6 @@
 /*
  * SPDX-License-Identifier: GPL-3.0-or-later
- * SPDX-FileCopyrightText: 2015-2021 Sam Thomas
+ * SPDX-FileCopyrightText: 2015-2022 Sam Thomas
  */
 
 using Hourglass.Widgets;
@@ -13,8 +13,8 @@ public class Hourglass.Dialogs.NewAlarmDialog : Granite.Dialog {
 
     private Gtk.Switch date_switch;
 
-    private int[] repeat_days;
     private bool is_existing_alarm = false;
+    private int[]? repeat_days = null;
 
     public NewAlarmDialog (Gtk.Window parent, Alarm? alarm = null) {
         Object (
@@ -68,11 +68,11 @@ public class Hourglass.Dialogs.NewAlarmDialog : Granite.Dialog {
             time_picker.time = alarm.time;
             date_switch.active = alarm.has_date;
             date_picker.date = alarm.time;
-            repeat_day_picker.label = popover.get_display_string ();
         } else {
             time_picker.time = new GLib.DateTime.now_local ().add_minutes (10);
-            repeat_day_picker.label = _("Never");
         }
+
+        repeat_day_picker.label = Utils.selected_days_to_string (repeat_days);
 
         var main_grid = new Gtk.Grid () {
             row_spacing = 6,
@@ -115,7 +115,7 @@ public class Hourglass.Dialogs.NewAlarmDialog : Granite.Dialog {
 
         popover.closed.connect (() => {
             repeat_days = popover.get_selected ();
-            repeat_day_picker.label = popover.get_display_string ();
+            repeat_day_picker.label = Utils.selected_days_to_string (repeat_days);
         });
 
         create_alarm_button.clicked.connect (() => {

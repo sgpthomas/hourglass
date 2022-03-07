@@ -1,6 +1,6 @@
 /*
  * SPDX-License-Identifier: GPL-3.0-or-later
- * SPDX-FileCopyrightText: 2015-2021 Sam Thomas
+ * SPDX-FileCopyrightText: 2015-2022 Sam Thomas
  */
 
 namespace Hourglass {
@@ -36,7 +36,7 @@ namespace Hourglass {
                 return;
             }
 
-            main_window = new Hourglass.Window.MainWindow ();
+            main_window = new Hourglass.Window.MainWindow (this);
 
             if (Hourglass.saved.get_boolean ("is-maximized")) {
                 main_window.maximize ();
@@ -54,7 +54,7 @@ namespace Hourglass {
                 main_window.window_position = Gtk.WindowPosition.CENTER;
             }
 
-            Gtk.main ();
+            main_window.show_all ();
         }
 
         public static void spawn_daemon () {
@@ -70,13 +70,12 @@ namespace Hourglass {
         }
     }
 
-    public static void main (string[] args) {
+    public static int main (string[] args) {
         HourglassApp.spawn_daemon ();
 
         Gtk.init (ref args);
         Hdy.init ();
 
-        HourglassApp app = new HourglassApp ();
-        app.run (args);
+        return new HourglassApp ().run (args);
     }
 }
