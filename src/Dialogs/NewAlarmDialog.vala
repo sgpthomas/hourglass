@@ -118,40 +118,38 @@ public class Hourglass.Dialogs.NewAlarmDialog : Granite.Dialog {
             repeat_day_picker.label = Utils.selected_days_to_string (repeat_days);
         });
 
-        create_alarm_button.clicked.connect (() => {
-            string title = title_entry.get_text ();
-            if (title == "") {
-                title = title_entry.placeholder_text;
+        response.connect ((response_id) => {
+            if (response_id == Gtk.ResponseType.YES) {
+                string title = title_entry.get_text ();
+                if (title == "") {
+                    title = title_entry.placeholder_text;
+                }
+
+                var date = date_picker.date;
+                var time = time_picker.time;
+
+                //create datetime with time of alalarm
+                var alarm_time = new GLib.DateTime.local (
+                    date.get_year (), date.get_month (), date.get_day_of_month (),
+                    time.get_hour (), time.get_minute (), time.get_second ()
+                );
+
+                bool has_date = date_switch.active;
+
+                Alarm new_alarm;
+                if (repeat_days.length > 0) {
+                    new_alarm = new Alarm (alarm_time, has_date, title, repeat_days);
+                } else {
+                    new_alarm = new Alarm (alarm_time, has_date, title);
+                }
+
+                if (is_existing_alarm) {
+                    edit_alarm (alarm, new_alarm);
+                } else {
+                    create_alarm (new_alarm);
+                }
             }
 
-            var date = date_picker.date;
-            var time = time_picker.time;
-
-            //create datetime with time of alalarm
-            var alarm_time = new GLib.DateTime.local (
-                date.get_year (), date.get_month (), date.get_day_of_month (),
-                time.get_hour (), time.get_minute (), time.get_second ()
-            );
-
-            bool has_date = date_switch.active;
-
-            Alarm new_alarm;
-            if (repeat_days.length > 0) {
-                new_alarm = new Alarm (alarm_time, has_date, title, repeat_days);
-            } else {
-                new_alarm = new Alarm (alarm_time, has_date, title);
-            }
-
-            if (is_existing_alarm) {
-                edit_alarm (alarm, new_alarm);
-            } else {
-                create_alarm (new_alarm);
-            }
-
-            destroy ();
-        });
-
-        cancel_button.clicked.connect (() => {
             destroy ();
         });
 
