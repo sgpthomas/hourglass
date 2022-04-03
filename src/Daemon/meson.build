@@ -1,5 +1,5 @@
 daemon_files = files(
-    meson.source_root() / 'src' / 'Utils.vala',
+    meson.project_source_root() / 'src' / 'Utils.vala',
     'AlarmManager.vala',
     'HourglassDaemon.vala',
     'HourglassServer.vala',
