@@ -15,7 +15,7 @@ install_data(
 i18n.merge_file(
     input: meson.project_name() + '.appdata.xml.in',
     output: meson.project_name() + '.appdata.xml',
-    po_dir: meson.source_root() / 'po' / 'extra',
+    po_dir: meson.project_source_root() / 'po' / 'extra',
     install: true,
     install_dir: get_option('datadir') / 'metainfo'
 )
@@ -29,7 +29,7 @@ desktop_in = configure_file(
 i18n.merge_file(
     input: desktop_in,
     output: meson.project_name() + '.desktop',
-    po_dir: meson.source_root() / 'po' / 'extra',
+    po_dir: meson.project_source_root() / 'po' / 'extra',
     type: 'desktop',
     install: true,
     install_dir: get_option('datadir') / 'applications'
@@ -44,7 +44,7 @@ daemon_desktop_in = configure_file(
 i18n.merge_file(
     input: daemon_desktop_in,
     output: meson.project_name() + '-daemon.desktop',
-    po_dir: meson.source_root() / 'po' / 'extra',
+    po_dir: meson.project_source_root() / 'po' / 'extra',
     type: 'desktop',
     install: true,
     install_dir: get_option('sysconfdir') / 'xdg' / 'autostart'
