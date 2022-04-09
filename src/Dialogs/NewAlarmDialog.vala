@@ -133,7 +133,10 @@ public class Hourglass.Dialogs.NewAlarmDialog : Granite.Dialog {
                 //treat the time as of tomorrow when the date isn't specified
                 //and the hour of the given time is smaller than now
                 var now = new DateTime.now_local ();
-                if (!has_date && time.get_hour () < now.get_hour ()) {
+                if (!has_date &&
+                        (time.get_hour () == now.get_hour () && time.get_minute () < now.get_minute ()) ||
+                        time.get_hour () < now.get_hour ()
+                ) {
                     date = now.add_days (1);
                     has_date = true;
                 }
