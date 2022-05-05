@@ -127,16 +127,26 @@ public class Hourglass.Dialogs.NewAlarmDialog : Granite.Dialog {
                     title = title_entry.placeholder_text;
                 }
 
+                bool has_date = date_switch.active;
+
                 var date = date_picker.date;
                 var time = time_picker.time;
 
-                //create datetime with time of alalarm
+                var now = new DateTime.now_local ();
+                //treat the time as of tomorrow when the date isn't specified and the given time is prior to now
+                if (!has_date &&
+                        (time.get_hour () == now.get_hour () && time.get_minute () < now.get_minute ()) ||
+                        time.get_hour () < now.get_hour ()
+                ) {
+                    date = now.add_days (1);
+                    has_date = true;
+                }
+
+                //create datetime with time of alarm
                 var alarm_time = new GLib.DateTime.local (
                     date.get_year (), date.get_month (), date.get_day_of_month (),
                     time.get_hour (), time.get_minute (), time.get_second ()
                 );
-
-                bool has_date = date_switch.active;
 
                 Alarm new_alarm;
                 if (repeat_days.length > 0) {
