@@ -72,8 +72,9 @@ public class Hourglass.Views.AlarmView : AbstractView {
         actionbar.pack_start (add_alarm_button);
         actionbar.pack_start (edit_alarm_button);
         actionbar.pack_start (delete_alarm_button);
+        actionbar.get_style_context ().add_class (Granite.STYLE_CLASS_FLAT);
 
-        get_style_context ().add_class ("frame");
+        get_style_context ().add_class (Granite.STYLE_CLASS_FRAME);
         append (stack);
         append (actionbar);
 
