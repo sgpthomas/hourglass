@@ -41,7 +41,7 @@ namespace Hourglass {
 
             Hourglass.saved.bind ("window-height", main_window, "default-height", SettingsBindFlags.DEFAULT);
             Hourglass.saved.bind ("window-width", main_window, "default-width", SettingsBindFlags.DEFAULT);
-    
+
             /*
              * Binding of window maximization with "SettingsBindFlags.DEFAULT" results the window getting bigger and bigger on open.
              * So we use the prepared binding only for setting
