@@ -68,7 +68,6 @@ public class Hourglass.Views.AlarmView : AbstractView {
         delete_alarm_button.tooltip_text = _("Delete");
 
         var actionbar = new Gtk.ActionBar ();
-        //  actionbar.get_style_context ().add_class (Gtk.STYLE_CLASS_INLINE_TOOLBAR);
         actionbar.pack_start (add_alarm_button);
         actionbar.pack_start (edit_alarm_button);
         actionbar.pack_start (delete_alarm_button);
