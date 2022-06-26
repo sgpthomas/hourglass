@@ -21,10 +21,15 @@
             <summary>Current State of timer</summary>
             <description>Saves whether the alarm is currently running or not.</description>
         </key>
-        <key name="window-size" type="(ii)">
-            <default>(450, 600)</default>
-            <summary>Last saved window size.</summary>
-            <description>Saves the last window size.</description>
+        <key name="window-width" type="i">
+            <default>450</default>
+            <summary>Most recent window width</summary>
+            <description>The saved width of the window last open.</description>
+        </key>
+        <key name="window-height" type="i">
+            <default>600</default>
+            <summary>Most recent window height</summary>
+            <description>The saved height of the window last open.</description>
         </key>
         <key name="is-maximized" type="b">
             <default>false</default>

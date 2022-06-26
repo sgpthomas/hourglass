@@ -81,9 +81,6 @@ public class Hourglass.Window.MainWindow : Gtk.ApplicationWindow {
         });
 
         close_request.connect (() => {
-            Hourglass.saved.set ("window-size", "(ii)", default_width, default_height);
-            Hourglass.saved.set_boolean ("is-maximized", maximized);
-
             unowned var visible = (Hourglass.Views.AbstractView) stack.get_visible_child ();
             if (visible.should_keep_open) {
                 hide_on_close = true;

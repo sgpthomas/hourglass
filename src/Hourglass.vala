@@ -36,16 +36,21 @@ namespace Hourglass {
             }
 
             main_window = new Hourglass.Window.MainWindow (this);
+            // The window seems to need showing before restoring its size in Gtk4
+            main_window.present ();
 
+            Hourglass.saved.bind ("window-height", main_window, "default-height", SettingsBindFlags.DEFAULT);
+            Hourglass.saved.bind ("window-width", main_window, "default-width", SettingsBindFlags.DEFAULT);
+    
+            /*
+             * Binding of window maximization with "SettingsBindFlags.DEFAULT" results the window getting bigger and bigger on open.
+             * So we use the prepared binding only for setting
+             */
             if (Hourglass.saved.get_boolean ("is-maximized")) {
                 main_window.maximize ();
-            } else {
-                int window_width, window_height;
-                Hourglass.saved.get ("window-size", "(ii)", out window_width, out window_height);
-                main_window.set_default_size (window_width, window_height);
             }
 
-            main_window.present ();
+            Hourglass.saved.bind ("is-maximized", main_window, "maximized", SettingsBindFlags.SET);
         }
 
         public static void spawn_daemon () {
