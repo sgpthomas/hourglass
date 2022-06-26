@@ -46,6 +46,7 @@ public class Hourglass.Widgets.Alarm : Gtk.ListBoxRow {
 
         toggle = new Gtk.Switch () {
             halign = Gtk.Align.END,
+            hexpand = true,
             valign = Gtk.Align.CENTER,
             active = true
         };
