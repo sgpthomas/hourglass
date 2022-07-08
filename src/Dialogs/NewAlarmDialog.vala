@@ -119,45 +119,48 @@ public class Hourglass.Dialogs.NewAlarmDialog : Granite.Dialog {
         });
 
         response.connect ((response_id) => {
-            if (response_id == Gtk.ResponseType.YES) {
-                string title = title_entry.get_text ();
-                if (title == "") {
-                    title = title_entry.placeholder_text;
-                }
+            if (response_id != Gtk.ResponseType.YES) {
+                destroy ();
+                return;
+            }
 
-                bool has_date = date_switch.active;
+            string title = title_entry.get_text ();
+            if (title == "") {
+                title = title_entry.placeholder_text;
+            }
 
-                var date = date_picker.date;
-                var time = time_picker.time;
+            bool has_date = date_switch.active;
 
-                var now = new DateTime.now_local ();
-                //treat the time as of tomorrow when the date isn't specified and the given time is prior to now
-                if (!has_date &&
-                        (time.get_hour () == now.get_hour () && time.get_minute () < now.get_minute ()) ||
-                        time.get_hour () < now.get_hour ()
-                ) {
-                    date = now.add_days (1);
-                    has_date = true;
-                }
+            var date = date_picker.date;
+            var time = time_picker.time;
 
-                //create datetime with time of alarm
-                var alarm_time = new GLib.DateTime.local (
-                    date.get_year (), date.get_month (), date.get_day_of_month (),
-                    time.get_hour (), time.get_minute (), time.get_second ()
-                );
+            var now = new DateTime.now_local ();
+            //treat the time as of tomorrow when the date isn't specified and the given time is prior to now
+            if (!has_date &&
+                    (time.get_hour () == now.get_hour () && time.get_minute () < now.get_minute ()) ||
+                    time.get_hour () < now.get_hour ()
+            ) {
+                date = now.add_days (1);
+                has_date = true;
+            }
 
-                Alarm new_alarm;
-                if (repeat_days.length > 0) {
-                    new_alarm = new Alarm (alarm_time, has_date, title, repeat_days);
-                } else {
-                    new_alarm = new Alarm (alarm_time, has_date, title);
-                }
+            //create datetime with time of alarm
+            var alarm_time = new GLib.DateTime.local (
+                date.get_year (), date.get_month (), date.get_day_of_month (),
+                time.get_hour (), time.get_minute (), time.get_second ()
+            );
 
-                if (is_existing_alarm) {
-                    edit_alarm (alarm, new_alarm);
-                } else {
-                    create_alarm (new_alarm);
-                }
+            Alarm new_alarm;
+            if (repeat_days.length > 0) {
+                new_alarm = new Alarm (alarm_time, has_date, title, repeat_days);
+            } else {
+                new_alarm = new Alarm (alarm_time, has_date, title);
+            }
+
+            if (is_existing_alarm) {
+                edit_alarm (alarm, new_alarm);
+            } else {
+                create_alarm (new_alarm);
             }
 
             destroy ();
