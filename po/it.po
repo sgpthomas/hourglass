@@ -169,7 +169,7 @@ msgstr "Ogni fine settimana"
 #: src/Utils.vala:116
 #, c-format
 msgid "%s, "
-msgstr ""%s, "
+msgstr "%s, "
 
 #: src/Utils.vala:122
 msgid "None"
