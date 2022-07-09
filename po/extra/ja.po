@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-07-09 09:28+0900\n"
-"PO-Revision-Date: 2022-02-24 18:12+0900\n"
+"PO-Revision-Date: 2022-07-09 10:33+0900\n"
 "Last-Translator: Ryo Nakano <ryonakaknock3@gmail.com>\n"
 "Language-Team: none\n"
 "Language: ja\n"
@@ -34,8 +34,8 @@ msgstr "タイマー"
 #: data/com.github.sgpthomas.hourglass.desktop.in.in:12
 msgid "Timer;Time;Clock;Hourglass;Alarm;"
 msgstr ""
-"Timer;Time;Clock;Hourglass;Alarm;タイマー;時間;タイム;時計;砂時計;アラーム:目"
-"覚まし;"
+"Timer;Time;Clock;Hourglass;Alarm;タイマー;時間;タイム;時計;砂時計;アラーム:"
+"目覚まし;"
 
 #: data/com.github.sgpthomas.hourglass.appdata.xml.in:12
 msgid ""
@@ -63,12 +63,11 @@ msgstr "Samuel Thomas"
 
 #: data/com.github.sgpthomas.hourglass.appdata.xml.in:56
 msgid "Improve relative time handling"
-msgstr ""
+msgstr "相対時刻の処理を改善"
 
 #: data/com.github.sgpthomas.hourglass.appdata.xml.in:57
-#, fuzzy
 msgid "Update Flatpak runtime version"
-msgstr "日本語翻訳を更新"
+msgstr "Flatpak ランタイムのバージョンを更新"
 
 #: data/com.github.sgpthomas.hourglass.appdata.xml.in:59
 #: data/com.github.sgpthomas.hourglass.appdata.xml.in:77
@@ -78,7 +77,7 @@ msgstr "翻訳の更新:"
 
 #: data/com.github.sgpthomas.hourglass.appdata.xml.in:63
 msgid "Update Italian translation (thanks to @albanobattistella)"
-msgstr ""
+msgstr "イタリア語翻訳を更新 (貢献者: @albanobattistella)"
 
 #: data/com.github.sgpthomas.hourglass.appdata.xml.in:64
 #: data/com.github.sgpthomas.hourglass.appdata.xml.in:81
@@ -318,8 +317,8 @@ msgstr "追加／削除ボタンにアイコンを使うように修正"
 #: data/com.github.sgpthomas.hourglass.appdata.xml.in:186
 msgid "Update .desktop comment to be consistent with HIG (by @aljelly)"
 msgstr ""
-".desktop ファイルの Comment 行を、elementary OS の HIG に沿うように更新 (貢献"
-"者: @aljelly)"
+".desktop ファイルの Comment 行を、elementary OS の HIG に沿うように更新 (貢"
+"献者: @aljelly)"
 
 #: data/com.github.sgpthomas.hourglass.appdata.xml.in:187
 msgid "Change shortened format of weekdays (by @NathanBnm)"
@@ -343,7 +342,8 @@ msgstr "通知アイコンが設定されない不具合を修正"
 
 #: data/com.github.sgpthomas.hourglass.appdata.xml.in:192
 msgid "Fix left time shows unexpected values if set time is too big"
-msgstr "タイマーの設定時間が長すぎると残り時間が正しく表示されない不具合を修正"
+msgstr ""
+"タイマーの設定時間が長すぎると残り時間が正しく表示されない不具合を修正"
 
 #: data/com.github.sgpthomas.hourglass.appdata.xml.in:193
 msgid "Improve saving window state"
@@ -413,6 +413,3 @@ msgstr "Hourglass デーモン"
 #: data/com.github.sgpthomas.hourglass-daemon.desktop.in.in:5
 msgid "Daemon that deals with Hourglass's alarms."
 msgstr "Hourglass のアラームを管理するデーモンです。"
-
-#~ msgid "@EXEC_NAME@"
-#~ msgstr "@EXEC_NAME@"
