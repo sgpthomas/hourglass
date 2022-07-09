@@ -50,7 +50,7 @@
   </provides>
 
   <releases>
-      <release version="2.0.4" date="2022-07-09" urgency="low">
+    <release version="2.0.4" date="2022-07-09" urgency="low">
       <description>
         <ul>
           <li>Improve relative time handling</li>
