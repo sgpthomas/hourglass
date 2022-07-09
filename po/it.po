@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: com.github.sgpthomas.hourglass\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-02-24 17:28+0900\n"
+"POT-Creation-Date: 2022-07-09 09:29+0900\n"
 "PO-Revision-Date: 2022-03-06 16:18+0100\n"
 "Last-Translator: Albano Battistella <albano_battistella@hotmail.com>\n"
 "Language-Team: Italian\n"
@@ -84,7 +84,9 @@ msgstr "Nessuna sveglia"
 
 #: src/Views/AlarmView.vala:43
 msgid "Click the add icon in the toolbar below to get started."
-msgstr "Fai clic sull'icona Aggiungi nella barra degli strumenti in basso per iniziare."
+msgstr ""
+"Fai clic sull'icona Aggiungi nella barra degli strumenti in basso per "
+"iniziare."
 
 #: src/Views/AlarmView.vala:62
 msgid "Add…"
