@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: com.github.sgpthomas.hourglass\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-07-09 09:29+0900\n"
-"PO-Revision-Date: 2022-03-06 16:18+0100\n"
+"PO-Revision-Date: 2022-07-09 09:18+0100\n"
 "Last-Translator: Albano Battistella <albano_battistella@hotmail.com>\n"
 "Language-Team: Italian\n"
 "Language: it\n"
@@ -146,7 +146,7 @@ msgstr "È ora!"
 
 #: src/Widgets/Alarm.vala:89
 msgid "Today"
-msgstr ""
+msgstr "Oggi"
 
 #: src/Widgets/Alarm.vala:101
 #, c-format
@@ -169,18 +169,17 @@ msgstr "Ogni fine settimana"
 #: src/Utils.vala:116
 #, c-format
 msgid "%s, "
-msgstr ""
+msgstr "%s, "
 
 #: src/Utils.vala:122
 msgid "None"
-msgstr ""
+msgstr "Nessuno"
 
 #~ msgid "Never"
 #~ msgstr "Mai"
 
-#, fuzzy
 #~ msgid ", Repeats: %s"
-#~ msgstr ", Ripeti "
+#~ msgstr ", Ripeti: %s "
 
 #~ msgid "Hourglass"
 #~ msgstr "Clessidra"
