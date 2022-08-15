@@ -28,9 +28,9 @@ public class Hourglass.Views.TimerView : AbstractView {
 
     private Gtk.Stack stack;
 
-    private Gtk.SpinButton hour_chooser;
-    private Gtk.SpinButton min_chooser;
-    private Gtk.SpinButton sec_chooser;
+    private Gtk.SpinButton hour_spinner;
+    private Gtk.SpinButton min_spinner;
+    private Gtk.SpinButton sec_spinner;
     private Gtk.Entry purpose_entry;
     private Gtk.Button start_timer_button;
     private Gtk.Button reset_timer_button;
@@ -42,38 +42,17 @@ public class Hourglass.Views.TimerView : AbstractView {
         // get current time from dconf
         Hourglass.Utils.Time time = Hourglass.Utils.parse_milliseconds (Hourglass.saved.get_int64 ("timer-time") * 100);
 
-        hour_chooser = new Gtk.SpinButton (new Gtk.Adjustment (0, 0, 59, 1, 0, 0), 1, 0) {
-            orientation = Gtk.Orientation.VERTICAL,
-            wrap = true,
-            numeric = true,
-            value = time.hours,
-            tooltip_text = _("Hours")
-        };
-        hour_chooser.get_style_context ().add_class ("timer");
+        hour_spinner = time_spinner_new (time.hours, _("Hours"));
 
         var hour_min_divider = new Gtk.Label (":");
         hour_min_divider.get_style_context ().add_class ("timer");
 
-        min_chooser = new Gtk.SpinButton (new Gtk.Adjustment (0, 0, 59, 1, 0, 0), 1, 0) {
-            orientation = Gtk.Orientation.VERTICAL,
-            wrap = true,
-            numeric = true,
-            value = time.minutes,
-            tooltip_text = _("Minutes")
-        };
-        min_chooser.get_style_context ().add_class ("timer");
+        min_spinner = time_spinner_new (time.minutes, _("Minutes"));
 
         var min_second_divider = new Gtk.Label (":");
         min_second_divider.get_style_context ().add_class ("timer");
 
-        sec_chooser = new Gtk.SpinButton (new Gtk.Adjustment (0, 0, 59, 1, 0, 0), 1, 0) {
-            orientation = Gtk.Orientation.VERTICAL,
-            wrap = true,
-            numeric = true,
-            value = time.seconds,
-            tooltip_text = _("Seconds")
-        };
-        sec_chooser.get_style_context ().add_class ("timer");
+        sec_spinner = time_spinner_new (time.seconds, _("Seconds"));
 
         purpose_entry = new Gtk.Entry () {
             placeholder_text = _("Enter purposes of the timer"),
@@ -93,11 +72,11 @@ public class Hourglass.Views.TimerView : AbstractView {
             column_spacing = 6,
             row_spacing = 12
         };
-        chooser_grid.attach (hour_chooser, 0, 0, 1, 1);
+        chooser_grid.attach (hour_spinner, 0, 0, 1, 1);
         chooser_grid.attach (hour_min_divider, 1, 0, 1, 1);
-        chooser_grid.attach (min_chooser, 2, 0, 1, 1);
+        chooser_grid.attach (min_spinner, 2, 0, 1, 1);
         chooser_grid.attach (min_second_divider, 3, 0, 1, 1);
-        chooser_grid.attach (sec_chooser, 4, 0, 1, 1);
+        chooser_grid.attach (sec_spinner, 4, 0, 1, 1);
         chooser_grid.attach (purpose_entry, 0, 1, 5, 1);
         chooser_grid.attach (start_timer_button, 0, 2, 5, 1);
         chooser_grid.attach (reset_timer_button, 0, 3, 5, 1);
@@ -136,39 +115,39 @@ public class Hourglass.Views.TimerView : AbstractView {
 
         append (stack);
 
-        sec_chooser.value_changed.connect (() => {
-            Hourglass.saved.set_int64 ("timer-time", (int64) ((hour_chooser.get_value () * 3600) + (min_chooser.get_value () * 60) + sec_chooser.get_value ()));
+        sec_spinner.value_changed.connect (() => {
+            Hourglass.saved.set_int64 ("timer-time", (int64) ((hour_spinner.get_value () * 3600) + (min_spinner.get_value () * 60) + sec_spinner.get_value ()));
             update ();
         });
-        sec_chooser.output.connect (() => {
-            if (sec_chooser.value < 10) {
-                sec_chooser.text = "0%i".printf ((int) sec_chooser.value);
+        sec_spinner.output.connect (() => {
+            if (sec_spinner.value < 10) {
+                sec_spinner.text = "0%i".printf ((int) sec_spinner.value);
                 return true;
             }
 
             return false;
         });
 
-        min_chooser.value_changed.connect (() => {
-            Hourglass.saved.set_int64 ("timer-time", (int64) ((hour_chooser.get_value () * 3600) + (min_chooser.get_value () * 60) + sec_chooser.get_value ()));
+        min_spinner.value_changed.connect (() => {
+            Hourglass.saved.set_int64 ("timer-time", (int64) ((hour_spinner.get_value () * 3600) + (min_spinner.get_value () * 60) + sec_spinner.get_value ()));
             update ();
         });
-        min_chooser.output.connect (() => {
-            if (min_chooser.value < 10) {
-                min_chooser.text = "0%i".printf ((int) min_chooser.value);
+        min_spinner.output.connect (() => {
+            if (min_spinner.value < 10) {
+                min_spinner.text = "0%i".printf ((int) min_spinner.value);
                 return true;
             }
 
             return false;
         });
 
-        hour_chooser.value_changed.connect (() => {
-            Hourglass.saved.set_int64 ("timer-time", (int64) ((hour_chooser.get_value () * 3600) + (min_chooser.get_value () * 60) + sec_chooser.get_value ()));
+        hour_spinner.value_changed.connect (() => {
+            Hourglass.saved.set_int64 ("timer-time", (int64) ((hour_spinner.get_value () * 3600) + (min_spinner.get_value () * 60) + sec_spinner.get_value ()));
             update ();
         });
-        hour_chooser.output.connect (() => {
-            if (hour_chooser.value < 10) {
-                hour_chooser.text = "0%i".printf ((int) hour_chooser.value);
+        hour_spinner.output.connect (() => {
+            if (hour_spinner.value < 10) {
+                hour_spinner.text = "0%i".printf ((int) hour_spinner.value);
                 return true;
             }
 
@@ -190,7 +169,7 @@ public class Hourglass.Views.TimerView : AbstractView {
         counter.ended.connect (stop_timer);
 
         update ();
-        hour_chooser.grab_focus ();
+        hour_spinner.grab_focus ();
 
         // resume state
         if (Hourglass.saved.get_boolean ("timer-state")) {
@@ -200,7 +179,7 @@ public class Hourglass.Views.TimerView : AbstractView {
 
     private void update () {
         // set sensitivity of the start button and clear button
-        bool is_timer_non_zero = !(sec_chooser.get_value () == 0 && min_chooser.get_value () == 0 && hour_chooser.get_value () == 0);
+        bool is_timer_non_zero = !(sec_spinner.get_value () == 0 && min_spinner.get_value () == 0 && hour_spinner.get_value () == 0);
         start_timer_button.sensitive = is_timer_non_zero;
         reset_timer_button.sensitive = is_timer_non_zero || purpose_entry.text != "";
     }
@@ -208,7 +187,7 @@ public class Hourglass.Views.TimerView : AbstractView {
     private void start_timer () {
         stack.set_visible_child_name ("timer_grid");
 
-        var val = (int64) (sec_chooser.get_value () + (min_chooser.get_value () * 60) + (hour_chooser.get_value () * 3600)) * 1000000;
+        var val = (int64) (sec_spinner.get_value () + (min_spinner.get_value () * 60) + (hour_spinner.get_value () * 3600)) * 1000000;
         counter.limit = val;
         counter.should_notify = true;
         counter.set_notification (
@@ -241,9 +220,9 @@ public class Hourglass.Views.TimerView : AbstractView {
     }
 
     private void clear_timer () {
-        sec_chooser.value = 0;
-        min_chooser.value = 0;
-        hour_chooser.value = 0;
+        sec_spinner.value = 0;
+        min_spinner.value = 0;
+        hour_spinner.value = 0;
         purpose_entry.text = "";
     }
 
@@ -253,11 +232,24 @@ public class Hourglass.Views.TimerView : AbstractView {
         counter.should_notify = false;
 
         Hourglass.Utils.Time time = Hourglass.Utils.parse_milliseconds (counter.current_time); // get time from counter
-        sec_chooser.value = time.seconds; // get second value from time and update spinner value
-        min_chooser.value = time.minutes; // get minute value from time and update spinner value
-        hour_chooser.value = time.hours; // get hour value from time and update spinner value
+        sec_spinner.value = time.seconds; // get second value from time and update spinner value
+        min_spinner.value = time.minutes; // get minute value from time and update spinner value
+        hour_spinner.value = time.hours; // get hour value from time and update spinner value
 
         // update state
         Hourglass.saved.set_boolean ("timer-state", false);
+    }
+
+    private Gtk.SpinButton time_spinner_new (int64 value, string tooltip_text) {
+        var time_spinner = new Gtk.SpinButton (new Gtk.Adjustment (0, 0, 59, 1, 0, 0), 1, 0) {
+            orientation = Gtk.Orientation.VERTICAL,
+            wrap = true,
+            numeric = true,
+            value = value,
+            tooltip_text = tooltip_text
+        };
+        time_spinner.get_style_context ().add_class ("timer");
+
+        return time_spinner;
     }
 }
