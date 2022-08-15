@@ -73,7 +73,8 @@ public class Hourglass.Views.AlarmView : AbstractView {
         actionbar.pack_start (delete_alarm_button);
         actionbar.get_style_context ().add_class (Granite.STYLE_CLASS_FLAT);
 
-        get_style_context ().add_class (Granite.STYLE_CLASS_FRAME);
+        //  get_style_context ().add_class (Granite.STYLE_CLASS_FRAME);
+        get_style_context ().add_class ("frame");
         append (stack);
         append (actionbar);
 
@@ -134,8 +135,12 @@ public class Hourglass.Views.AlarmView : AbstractView {
 
     private void load_alarms () {
         // Clear alarms
-        while ((Gtk.ListBoxRow) list_box.get_last_child () != null) {
-            list_box.remove ((Gtk.ListBoxRow) list_box.get_last_child ());
+        for (
+            var child = (Gtk.ListBoxRow) list_box.get_last_child ();
+                child != null;
+                child = (Gtk.ListBoxRow) list_box.get_last_child ()
+        ) {
+            list_box.remove (child);
         }
 
         try {
