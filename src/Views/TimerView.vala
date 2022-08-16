@@ -119,39 +119,15 @@ public class Hourglass.Views.TimerView : AbstractView {
             Hourglass.saved.set_int64 ("timer-time", (int64) ((hour_spinner.get_value () * 3600) + (min_spinner.get_value () * 60) + sec_spinner.get_value ()));
             update ();
         });
-        sec_spinner.output.connect (() => {
-            if (sec_spinner.value < 10) {
-                sec_spinner.text = "0%i".printf ((int) sec_spinner.value);
-                return true;
-            }
-
-            return false;
-        });
 
         min_spinner.value_changed.connect (() => {
             Hourglass.saved.set_int64 ("timer-time", (int64) ((hour_spinner.get_value () * 3600) + (min_spinner.get_value () * 60) + sec_spinner.get_value ()));
             update ();
         });
-        min_spinner.output.connect (() => {
-            if (min_spinner.value < 10) {
-                min_spinner.text = "0%i".printf ((int) min_spinner.value);
-                return true;
-            }
-
-            return false;
-        });
 
         hour_spinner.value_changed.connect (() => {
             Hourglass.saved.set_int64 ("timer-time", (int64) ((hour_spinner.get_value () * 3600) + (min_spinner.get_value () * 60) + sec_spinner.get_value ()));
             update ();
-        });
-        hour_spinner.output.connect (() => {
-            if (hour_spinner.value < 10) {
-                hour_spinner.text = "0%i".printf ((int) hour_spinner.value);
-                return true;
-            }
-
-            return false;
         });
 
         purpose_entry.changed.connect (update);
@@ -249,6 +225,15 @@ public class Hourglass.Views.TimerView : AbstractView {
             tooltip_text = tooltip_text
         };
         time_spinner.get_style_context ().add_class ("timer");
+
+        time_spinner.output.connect (() => {
+            if (time_spinner.value < 10) {
+                time_spinner.text = "0%i".printf ((int) time_spinner.value);
+                return true;
+            }
+
+            return false;
+        });
 
         return time_spinner;
     }
