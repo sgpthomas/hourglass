@@ -74,6 +74,7 @@ public class Hourglass.Views.AlarmView : AbstractView {
         actionbar.get_style_context ().add_class (Granite.STYLE_CLASS_FLAT);
 
         //  get_style_context ().add_class (Granite.STYLE_CLASS_FRAME);
+	// TODO: Replace the following code with the above one once the next version of granite is released
         get_style_context ().add_class ("frame");
         append (stack);
         append (actionbar);
