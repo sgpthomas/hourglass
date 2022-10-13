@@ -114,8 +114,10 @@ public class Hourglass.Views.StopwatchView : AbstractView {
         reset.clicked.connect (() => {
             counter.reset ();
             lap_log = {};
-            while ((Gtk.ListBoxRow) lap_box.get_last_child () != null) {
-                lap_box.remove ((Gtk.ListBoxRow) lap_box.get_last_child ());
+
+            Gtk.ListBoxRow child;
+            while ((child = (Gtk.ListBoxRow) lap_box.get_last_child ()) != null) {
+                lap_box.remove (child);
             }
 
             update ();
