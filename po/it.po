@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: com.github.sgpthomas.hourglass\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-07-09 09:29+0900\n"
+"POT-Creation-Date: 2022-10-15 19:57+0900\n"
 "PO-Revision-Date: 2022-07-09 09:18+0100\n"
 "Last-Translator: Albano Battistella <albano_battistella@hotmail.com>\n"
 "Language-Team: Italian\n"
@@ -77,6 +77,32 @@ msgstr "Salva"
 #: src/Dialogs/NewAlarmDialog.vala:99
 msgid "Create Alarm"
 msgstr "Crea sveglia"
+
+#: src/Objects/Counter.vala:60
+msgid "Timer is active"
+msgstr ""
+
+#: src/Utils.vala:104
+msgid "Every Day"
+msgstr "Ogni giorno"
+
+#: src/Utils.vala:106
+msgid "Every Weekday"
+msgstr "Ogni giorno della settimana"
+
+#: src/Utils.vala:108
+msgid "Every Weekend"
+msgstr "Ogni fine settimana"
+
+#. TRANSLATORS: %s represents translated string of a day of the week
+#: src/Utils.vala:116
+#, c-format
+msgid "%s, "
+msgstr "%s, "
+
+#: src/Utils.vala:122
+msgid "None"
+msgstr "Nessuno"
 
 #: src/Views/AlarmView.vala:43
 msgid "No Alarms"
@@ -152,28 +178,6 @@ msgstr "Oggi"
 #, c-format
 msgid "Repeats: %s"
 msgstr "Ripeti: %s"
-
-#: src/Utils.vala:104
-msgid "Every Day"
-msgstr "Ogni giorno"
-
-#: src/Utils.vala:106
-msgid "Every Weekday"
-msgstr "Ogni giorno della settimana"
-
-#: src/Utils.vala:108
-msgid "Every Weekend"
-msgstr "Ogni fine settimana"
-
-#. TRANSLATORS: %s represents translated string of a day of the week
-#: src/Utils.vala:116
-#, c-format
-msgid "%s, "
-msgstr "%s, "
-
-#: src/Utils.vala:122
-msgid "None"
-msgstr "Nessuno"
 
 #~ msgid "Never"
 #~ msgstr "Mai"

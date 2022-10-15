@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: com.github.sgpthomas.hourglass\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-07-09 09:29+0900\n"
+"POT-Creation-Date: 2022-10-15 19:57+0900\n"
 "PO-Revision-Date: 2020-05-01 16:18+0200\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -83,6 +83,32 @@ msgstr ""
 msgid "Create Alarm"
 msgstr "Создать"
 
+#: src/Objects/Counter.vala:60
+msgid "Timer is active"
+msgstr ""
+
+#: src/Utils.vala:104
+msgid "Every Day"
+msgstr "Ежедневно"
+
+#: src/Utils.vala:106
+msgid "Every Weekday"
+msgstr "Каждый будний день"
+
+#: src/Utils.vala:108
+msgid "Every Weekend"
+msgstr "Каждый выходной"
+
+#. TRANSLATORS: %s represents translated string of a day of the week
+#: src/Utils.vala:116
+#, c-format
+msgid "%s, "
+msgstr ""
+
+#: src/Utils.vala:122
+msgid "None"
+msgstr ""
+
 #: src/Views/AlarmView.vala:43
 msgid "No Alarms"
 msgstr "Нет будильников"
@@ -156,28 +182,6 @@ msgstr ""
 #, fuzzy, c-format
 msgid "Repeats: %s"
 msgstr "Повторы "
-
-#: src/Utils.vala:104
-msgid "Every Day"
-msgstr "Ежедневно"
-
-#: src/Utils.vala:106
-msgid "Every Weekday"
-msgstr "Каждый будний день"
-
-#: src/Utils.vala:108
-msgid "Every Weekend"
-msgstr "Каждый выходной"
-
-#. TRANSLATORS: %s represents translated string of a day of the week
-#: src/Utils.vala:116
-#, c-format
-msgid "%s, "
-msgstr ""
-
-#: src/Utils.vala:122
-msgid "None"
-msgstr ""
 
 #~ msgid "Never"
 #~ msgstr "Никогда"
