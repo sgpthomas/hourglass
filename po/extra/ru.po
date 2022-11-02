@@ -292,7 +292,7 @@ msgstr "Обновлён бразильский-португальский пе�
 
 #: data/com.github.sgpthomas.hourglass.appdata.xml.in:171
 msgid "Fixes:"
-msgstr "Исправления"
+msgstr "Исправления:"
 
 #: data/com.github.sgpthomas.hourglass.appdata.xml.in:173
 msgid "Fix a fatal regression that timer does not stop on 00:00:00"
@@ -367,7 +367,7 @@ msgstr "Добавлен португальский перевод (от @rotten
 
 #: data/com.github.sgpthomas.hourglass.appdata.xml.in:202
 msgid "Other updates:"
-msgstr "Другие обновления"
+msgstr "Другие обновления:"
 
 #: data/com.github.sgpthomas.hourglass.appdata.xml.in:204
 msgid ""
