@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: com.github.sgpthomas.hourglass\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-10-15 19:57+0900\n"
-"PO-Revision-Date: 2020-05-01 16:18+0200\n"
-"Last-Translator: Automatically generated\n"
+"PO-Revision-Date: 2022-11-02 20:12+0900\n"
+"Last-Translator: lenemter <lenemter@gmail.com>\n"
 "Language-Team: none\n"
 "Language: ru\n"
 "MIME-Version: 1.0\n"
@@ -19,7 +19,6 @@ msgstr ""
 "n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 
 #: src/Dialogs/MultiSelectPopover.vala:11 src/Utils.vala:99
-#, fuzzy
 msgid "Sun"
 msgstr "Вс"
 
@@ -36,7 +35,6 @@ msgid "Wed"
 msgstr "Ср"
 
 #: src/Dialogs/MultiSelectPopover.vala:11 src/Utils.vala:99
-#, fuzzy
 msgid "Thu"
 msgstr "Чт"
 
@@ -45,7 +43,6 @@ msgid "Fri"
 msgstr "Пт"
 
 #: src/Dialogs/MultiSelectPopover.vala:11 src/Utils.vala:99
-#, fuzzy
 msgid "Sat"
 msgstr "Сб"
 
@@ -58,38 +55,36 @@ msgid "Alarm"
 msgstr "Будильник"
 
 #: src/Dialogs/NewAlarmDialog.vala:43
-#, fuzzy
 msgid "Time:"
-msgstr "Таймер"
+msgstr "Время:"
 
 #: src/Dialogs/NewAlarmDialog.vala:49
 msgid "Date:"
-msgstr ""
+msgstr "Дата:"
 
 #: src/Dialogs/NewAlarmDialog.vala:59
 msgid "Repeat:"
-msgstr "Повторить:"
+msgstr "Повтор:"
 
 #: src/Dialogs/NewAlarmDialog.vala:96
 msgid "Cancel"
-msgstr "Отмена"
+msgstr "Отменить"
 
 #: src/Dialogs/NewAlarmDialog.vala:99
 msgid "Save"
-msgstr ""
+msgstr "Сохранить"
 
 #: src/Dialogs/NewAlarmDialog.vala:99
-#, fuzzy
 msgid "Create Alarm"
-msgstr "Создать"
+msgstr "Создать будильник"
 
 #: src/Objects/Counter.vala:60
 msgid "Timer is active"
-msgstr ""
+msgstr "Таймер активен"
 
 #: src/Utils.vala:104
 msgid "Every Day"
-msgstr "Ежедневно"
+msgstr "Каждый день"
 
 #: src/Utils.vala:106
 msgid "Every Weekday"
@@ -103,11 +98,11 @@ msgstr "Каждый выходной"
 #: src/Utils.vala:116
 #, c-format
 msgid "%s, "
-msgstr ""
+msgstr "%s, "
 
 #: src/Utils.vala:122
 msgid "None"
-msgstr ""
+msgstr "Нет"
 
 #: src/Views/AlarmView.vala:43
 msgid "No Alarms"
@@ -115,16 +110,15 @@ msgstr "Нет будильников"
 
 #: src/Views/AlarmView.vala:43
 msgid "Click the add icon in the toolbar below to get started."
-msgstr ""
+msgstr "Нажмите на кнопку добавления внизу, чтобы начать."
 
 #: src/Views/AlarmView.vala:62
 msgid "Add…"
-msgstr ""
+msgstr "Добавить…"
 
 #: src/Views/AlarmView.vala:65
-#, fuzzy
 msgid "Edit…"
-msgstr "Свойства"
+msgstr "Редактировать…"
 
 #: src/Views/AlarmView.vala:68
 msgid "Delete"
@@ -168,67 +162,17 @@ msgstr "Секунды"
 
 #: src/Views/TimerView.vala:67
 msgid "Enter purposes of the timer"
-msgstr ""
+msgstr "Введите цели таймера"
 
 #: src/Views/TimerView.vala:176
 msgid "It's time!"
-msgstr ""
+msgstr "Время!"
 
 #: src/Widgets/Alarm.vala:89
 msgid "Today"
-msgstr ""
+msgstr "Сегодня"
 
 #: src/Widgets/Alarm.vala:101
-#, fuzzy, c-format
+#, c-format
 msgid "Repeats: %s"
-msgstr "Повторы "
-
-#~ msgid "Never"
-#~ msgstr "Никогда"
-
-#, fuzzy
-#~ msgid ", Repeats: %s"
-#~ msgstr ", Повторы "
-
-#, fuzzy
-#~ msgid "Hourglass"
-#~ msgstr "Часы"
-
-#~ msgid ":"
-#~ msgstr ":"
-
-#~ msgid "Timer has ended!"
-#~ msgstr "Таймер отработал!"
-
-#~ msgid "Choose a time:"
-#~ msgstr "Укажите время:"
-
-#~ msgid "Choose a date:"
-#~ msgstr "Укажите дату:"
-
-#~ msgid "Click 'Add' to get started."
-#~ msgstr "Чтобы начать щёлкните Добавить."
-
-#~ msgid "Add"
-#~ msgstr "Добавить"
-
-#~ msgid "Sunday"
-#~ msgstr "Воскресенье"
-
-#~ msgid "Monday"
-#~ msgstr "Понедельник"
-
-#~ msgid "Tuesday"
-#~ msgstr "Вторник"
-
-#~ msgid "Wednesday"
-#~ msgstr "Среда"
-
-#~ msgid "Thursday"
-#~ msgstr "Четверг"
-
-#~ msgid "Friday"
-#~ msgstr "Пятница"
-
-#~ msgid "Saturday"
-#~ msgstr "Суббота"
+msgstr "Повторы: %s"
