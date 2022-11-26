@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: com.github.sgpthomas.hourglass\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-02-24 17:28+0900\n"
+"POT-Creation-Date: 2022-10-15 19:57+0900\n"
 "PO-Revision-Date: 2020-05-01 16:18+0200\n"
 "Last-Translator: Moo\n"
 "Language-Team: none\n"
@@ -15,8 +15,8 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && (n"
-"%100<10 || n%100>=20) ? 1 : 2);\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"(n%100<10 || n%100>=20) ? 1 : 2);\n"
 
 #: src/Dialogs/MultiSelectPopover.vala:11 src/Utils.vala:99
 #, fuzzy
@@ -82,6 +82,32 @@ msgstr ""
 #, fuzzy
 msgid "Create Alarm"
 msgstr "Sukurti"
+
+#: src/Objects/Counter.vala:60
+msgid "Timer is active"
+msgstr ""
+
+#: src/Utils.vala:104
+msgid "Every Day"
+msgstr "Kiekvieną dieną"
+
+#: src/Utils.vala:106
+msgid "Every Weekday"
+msgstr "Kiekvieną šiokiadienį"
+
+#: src/Utils.vala:108
+msgid "Every Weekend"
+msgstr "Kiekvieną savaitgalį"
+
+#. TRANSLATORS: %s represents translated string of a day of the week
+#: src/Utils.vala:116
+#, c-format
+msgid "%s, "
+msgstr ""
+
+#: src/Utils.vala:122
+msgid "None"
+msgstr ""
 
 #: src/Views/AlarmView.vala:43
 msgid "No Alarms"
@@ -156,28 +182,6 @@ msgstr ""
 #, fuzzy, c-format
 msgid "Repeats: %s"
 msgstr "Kartojamas "
-
-#: src/Utils.vala:104
-msgid "Every Day"
-msgstr "Kiekvieną dieną"
-
-#: src/Utils.vala:106
-msgid "Every Weekday"
-msgstr "Kiekvieną šiokiadienį"
-
-#: src/Utils.vala:108
-msgid "Every Weekend"
-msgstr "Kiekvieną savaitgalį"
-
-#. TRANSLATORS: %s represents translated string of a day of the week
-#: src/Utils.vala:116
-#, c-format
-msgid "%s, "
-msgstr ""
-
-#: src/Utils.vala:122
-msgid "None"
-msgstr ""
 
 #~ msgid "Never"
 #~ msgstr "Niekada"
