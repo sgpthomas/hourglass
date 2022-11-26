@@ -39,43 +39,43 @@ public class Hourglass.Views.AlarmView : AbstractView {
 
     construct {
         // welcome screen
-        var no_alarm_screen = new Granite.Widgets.Welcome (
-            _("No Alarms"), _("Click the add icon in the toolbar below to get started.")
-        );
+        var no_alarm_screen = new Granite.Placeholder (_("No Alarms")) {
+            description = _("Click the add icon in the toolbar below to get started.")
+        };
 
         // alarm view
         list_box = new Gtk.ListBox ();
         list_box.set_sort_func (sort_alarm_func);
 
-        var scrolled_window = new Gtk.ScrolledWindow (null, null) {
+        var scrolled_window = new Gtk.ScrolledWindow () {
             vexpand = true,
-            hexpand = true
+            hexpand = true,
+            child = list_box
         };
-        scrolled_window.add (list_box);
 
         stack = new Gtk.Stack ();
         stack.add_named (no_alarm_screen, "no-alarm-view");
         stack.add_named (scrolled_window, "alarm-view");
 
         // action buttons
-        var add_alarm_button = new Gtk.Button.from_icon_name ("list-add-symbolic", Gtk.IconSize.BUTTON);
+        var add_alarm_button = new Gtk.Button.from_icon_name ("list-add-symbolic");
         add_alarm_button.tooltip_text = _("Add…");
 
-        edit_alarm_button = new Gtk.Button.from_icon_name ("edit-symbolic", Gtk.IconSize.BUTTON);
+        edit_alarm_button = new Gtk.Button.from_icon_name ("edit-symbolic");
         edit_alarm_button.tooltip_text = _("Edit…");
 
-        delete_alarm_button = new Gtk.Button.from_icon_name ("list-remove-symbolic", Gtk.IconSize.BUTTON);
+        delete_alarm_button = new Gtk.Button.from_icon_name ("list-remove-symbolic");
         delete_alarm_button.tooltip_text = _("Delete");
 
         var actionbar = new Gtk.ActionBar ();
-        actionbar.get_style_context ().add_class (Gtk.STYLE_CLASS_INLINE_TOOLBAR);
-        actionbar.add (add_alarm_button);
-        actionbar.add (edit_alarm_button);
-        actionbar.add (delete_alarm_button);
+        actionbar.pack_start (add_alarm_button);
+        actionbar.pack_start (edit_alarm_button);
+        actionbar.pack_start (delete_alarm_button);
+        actionbar.get_style_context ().add_class (Granite.STYLE_CLASS_FLAT);
 
         get_style_context ().add_class ("frame");
-        pack_start (stack);
-        pack_start (actionbar, false);
+        append (stack);
+        append (actionbar);
 
         list_box.row_selected.connect (update);
 
@@ -85,7 +85,7 @@ public class Hourglass.Views.AlarmView : AbstractView {
                 append_alarm (alarm);
                 list_box.select_row (alarm);
             });
-            new_alarm_dialog.show_all ();
+            new_alarm_dialog.present ();
         });
 
         edit_alarm_button.clicked.connect (edit_alarm_action);
@@ -114,12 +114,7 @@ public class Hourglass.Views.AlarmView : AbstractView {
     }
 
     private void update () {
-        list_box.show_all ();
-
-        // loop through list box and see if there are still alarms in it
-        var inc = list_box.get_children ().length ();
-
-        if (inc == 0) {
+        if (list_box.get_row_at_index (0) == null) {
             stack.set_visible_child_name ("no-alarm-view");
 
             // add small delay if daemon loads after application and list is empty
@@ -132,15 +127,16 @@ public class Hourglass.Views.AlarmView : AbstractView {
             stack.set_visible_child_name ("alarm-view");
         }
 
-        bool has_alarm = (inc != 0 && list_box.get_selected_row () != null);
-        edit_alarm_button.sensitive = has_alarm;
-        delete_alarm_button.sensitive = has_alarm;
+        bool has_selected_alarm = list_box.get_selected_row () != null;
+        edit_alarm_button.sensitive = has_selected_alarm;
+        delete_alarm_button.sensitive = has_selected_alarm;
     }
 
     private void load_alarms () {
         // Clear alarms
-        foreach (Gtk.Widget w in list_box.get_children ()) {
-            w.destroy ();
+        Gtk.ListBoxRow child;
+        while ((child = (Gtk.ListBoxRow) list_box.get_last_child ()) != null) {
+            list_box.remove (child);
         }
 
         try {
@@ -160,7 +156,7 @@ public class Hourglass.Views.AlarmView : AbstractView {
         load_alarms ();
 
         // remove timeout
-        if (list_box.get_children ().length () != 0) {
+        if (list_box.get_row_at_index (0) != null) {
             GLib.Source.remove (timeout_id);
         }
 
@@ -168,7 +164,7 @@ public class Hourglass.Views.AlarmView : AbstractView {
     }
 
     private void append_alarm (Alarm alarm) {
-        list_box.prepend (alarm);
+        list_box.append (alarm);
 
         alarm.state_toggled.connect (() => {
             debug ("toggled");
@@ -204,7 +200,7 @@ public class Hourglass.Views.AlarmView : AbstractView {
                 list_box.select_row (new_a);
             });
 
-            new_alarm_dialog.show_all ();
+            new_alarm_dialog.present ();
         }
 
         update ();

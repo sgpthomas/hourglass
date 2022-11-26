@@ -11,29 +11,26 @@ public class Hourglass.Dialogs.MultiSelectPopover : Gtk.Popover {
         _("Sun"), _("Mon"), _("Tue"), _("Wed"), _("Thu"), _("Fri"), _("Sat")
     };
 
-    public MultiSelectPopover (Gtk.Widget parent, int[]? selected_days = null) {
-        Object (
-            relative_to: parent,
-            modal: true
-        );
-
+    public MultiSelectPopover (int[]? selected_days = null) {
         this.selected_days = selected_days;
     }
 
     construct {
         var box = new Gtk.Box (Gtk.Orientation.HORIZONTAL, 0) {
-            border_width = 6
+            margin_top = 6,
+            margin_bottom = 6,
+            margin_start = 6,
+            margin_end = 6
         };
         box.get_style_context ().add_class ("linked");
 
         foreach (string day in shortened_days) {
             var toggle = new Gtk.ToggleButton.with_label (day);
-            box.add (toggle);
+            box.append (toggle);
             toggles += toggle;
         }
 
-        box.show_all ();
-        add (box);
+        child = box;
     }
 
     public int[] get_selected () {
