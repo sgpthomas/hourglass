@@ -153,9 +153,8 @@ public class Hourglass.Views.StopwatchView : AbstractView {
     }
 
     private void update_log () {
-        unowned var last_child = (Gtk.ListBoxRow) lap_box.get_last_child ();
-        int num = last_child != null ? last_child.get_index () + 1 : 0;
-        var label = new Gtk.Label ("%u: %s".printf (num + 1, lap_log[num])) {
+        int i = get_index ();
+        var label = new Gtk.Label ("%d: %s".printf (i + 1, lap_log[i])) {
             margin_top = 6,
             margin_bottom = 6,
             margin_start = 6,
@@ -168,5 +167,15 @@ public class Hourglass.Views.StopwatchView : AbstractView {
         };
 
         lap_box.prepend (row);
+    }
+
+    private int get_index () {
+        var last_child = lap_box.get_last_child () as Gtk.ListBoxRow;
+        if (last_child == null) {
+            return 0;
+        }
+
+        int last_index = last_child.get_index ();
+        return last_index + 1;
     }
 }

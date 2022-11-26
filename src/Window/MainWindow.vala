@@ -81,17 +81,20 @@ public class Hourglass.Window.MainWindow : Gtk.ApplicationWindow {
         });
 
         close_request.connect (() => {
-            unowned var visible = (Hourglass.Views.AbstractView) stack.get_visible_child ();
-            if (visible.should_keep_open) {
-                hide_on_close = true;
-            } else {
-                hide_on_close = false;
-                destroy ();
-            }
-
+            on_delete ();
             return false;
         });
 
         stack.visible_child_name = Hourglass.saved.get_string ("last-open-widget");
+    }
+
+    private void on_delete () {
+        var visible = (Hourglass.Views.AbstractView) stack.get_visible_child ();
+        if (visible.should_keep_open) {
+            hide_on_close = true;
+        } else {
+            hide_on_close = false;
+            destroy ();
+        }
     }
 }

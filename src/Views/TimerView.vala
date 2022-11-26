@@ -228,7 +228,7 @@ public class Hourglass.Views.TimerView : AbstractView {
 
         time_spinner.output.connect (() => {
             if (time_spinner.value < 10) {
-                time_spinner.text = "0%i".printf ((int) time_spinner.value);
+                time_spinner.text = "%02d".printf ((int) time_spinner.value);
                 return true;
             }
 
