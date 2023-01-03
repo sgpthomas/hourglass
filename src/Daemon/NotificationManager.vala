@@ -1,6 +1,7 @@
 /*
  * SPDX-License-Identifier: GPL-3.0-or-later
- * SPDX-FileCopyrightText: 2015-2022 Sam Thomas
+ * SPDX-FileCopyrightText: 2015-2020 Sam Thomas
+ *                         2020-2023 Ryo Nakano
  */
 
 public class HourglassDaemon.NotificationManager : Object {
