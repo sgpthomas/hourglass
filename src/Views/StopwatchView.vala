@@ -4,7 +4,6 @@
  *                         2020-2023 Ryo Nakano
  */
 
-using Hourglass.Widgets;
 using Hourglass.Window;
 
 public class Hourglass.Views.StopwatchView : AbstractView {
@@ -31,36 +30,36 @@ public class Hourglass.Views.StopwatchView : AbstractView {
     private Hourglass.Objects.Counter counter;
     private Gtk.Label counter_label;
     private Gtk.ListBox lap_box;
-    private Gtk.Button start;
-    private Gtk.Button stop;
-    private Gtk.Button reset;
-    private Gtk.Button lap;
+    private Gtk.Button start_button;
+    private Gtk.Button stop_button;
+    private Gtk.Button reset_button;
+    private Gtk.Button lap_button;
 
     private string[] lap_log = {};
     private bool is_running = false;
 
     public StopwatchView (MainWindow window) {
         Object (
-            window: window,
-            homogeneous: true
+            window: window
         );
     }
 
     construct {
+        homogeneous = true;
+
         // add and configure counter
         counter = new Hourglass.Objects.Counter (Hourglass.Objects.Counter.CountDirection.UP);
 
-        counter_label = new Gtk.Label (Hourglass.Utils.get_formatted_time (counter.current_time, true)) {
+        counter_label = new Gtk.Label (null) {
             margin_top = 10,
             margin_bottom = 10,
             margin_start = 10,
             margin_end = 10
         };
-        counter_label.get_style_context ().add_class ("timer");
+        counter_label.add_css_class ("timer");
 
         // create scollable log
         lap_box = new Gtk.ListBox ();
-
         var scrolled_window = new Gtk.ScrolledWindow () {
             vexpand = true,
             has_frame = true,
@@ -68,89 +67,98 @@ public class Hourglass.Views.StopwatchView : AbstractView {
         };
 
         // create buttons
-        start = new Gtk.Button.with_label (_("Start"));
-        start.get_style_context ().add_class ("round-button");
-        start.get_style_context ().add_class (Granite.STYLE_CLASS_SUGGESTED_ACTION);
+        start_button = new Gtk.Button.with_label (_("Start"));
+        start_button.add_css_class ("round-button");
+        start_button.add_css_class (Granite.STYLE_CLASS_SUGGESTED_ACTION);
 
-        stop = new Gtk.Button.with_label (_("Stop"));
-        stop.get_style_context ().add_class ("round-button");
-        stop.get_style_context ().add_class ("red-button");
+        stop_button = new Gtk.Button.with_label (_("Stop"));
+        stop_button.add_css_class ("round-button");
+        stop_button.add_css_class ("red-button");
 
-        reset = new Gtk.Button.with_label (_("Reset"));
-        reset.get_style_context ().add_class ("round-button");
+        reset_button = new Gtk.Button.with_label (_("Reset"));
+        reset_button.add_css_class ("round-button");
 
-        lap = new Gtk.Button.with_label (_("Lap"));
-        lap.get_style_context ().add_class ("round-button");
+        lap_button = new Gtk.Button.with_label (_("Lap"));
+        lap_button.add_css_class ("round-button");
 
         var buttons_box = new Gtk.Box (Gtk.Orientation.HORIZONTAL, 0) {
             spacing = 6,
             halign = Gtk.Align.CENTER,
             valign = Gtk.Align.CENTER
         };
-        buttons_box.append (start);
-        buttons_box.append (stop);
-        buttons_box.append (reset);
-        buttons_box.append (lap);
+        buttons_box.append (start_button);
+        buttons_box.append (stop_button);
+        buttons_box.append (reset_button);
+        buttons_box.append (lap_button);
 
         append (counter_label);
         append (scrolled_window);
         append (buttons_box);
 
-        counter.ticked.connect (() => {
-            counter_label.label = Hourglass.Utils.get_formatted_time (counter.current_time, true);
-        });
+        counter.ticked.connect (update_counter_label);
 
-        start.clicked.connect (() => {
-            counter.start ();
-            is_running = true;
-            update ();
-        });
-
-        stop.clicked.connect (() => {
-            counter.stop ();
-            is_running = false;
-            update ();
-        });
-
-        reset.clicked.connect (() => {
-            counter.reset ();
-            lap_log = {};
-
-            Gtk.ListBoxRow child;
-            while ((child = (Gtk.ListBoxRow) lap_box.get_last_child ()) != null) {
-                lap_box.remove (child);
-            }
-
-            update ();
-        });
-
-        lap.clicked.connect (() => {
-            lap_log += Hourglass.Utils.get_formatted_time (counter.current_time, true);
-            update_log ();
-            update ();
-        });
+        start_button.clicked.connect (start);
+        stop_button.clicked.connect (stop);
+        reset_button.clicked.connect (reset);
+        lap_button.clicked.connect (lap);
 
         window.on_stack_change.connect (update);
 
         update ();
     }
 
-    private void update () {
-        counter_label.label = Hourglass.Utils.get_formatted_time (counter.current_time, true);
+    private void start () {
+        counter.start ();
+        is_running = true;
+        update ();
+    }
 
-        if (is_running) {
-            start.hide ();
-            stop.show ();
-            reset.hide ();
-            lap.show ();
-        } else if (!is_running) {
-            start.show ();
-            stop.hide ();
-            reset.show ();
-            lap.hide ();
+    private void stop () {
+        counter.stop ();
+        is_running = false;
+        update ();
+    }
+
+    private void reset () {
+        counter.reset ();
+        lap_log = {};
+
+        Gtk.ListBoxRow child;
+        while ((child = (Gtk.ListBoxRow) lap_box.get_last_child ()) != null) {
+            lap_box.remove (child);
         }
 
-        reset.sensitive = (counter.current_time != 0);
+        update ();
+    }
+
+    private void lap () {
+        string current_time = Hourglass.Utils.get_formatted_time (counter.current_time, true);
+        lap_log += current_time;
+        update_log ();
+        update ();
+    }
+
+    private void update_counter_label () {
+        string current_time = Hourglass.Utils.get_formatted_time (counter.current_time, true);
+        counter_label.label = current_time;
+    }
+
+    private void update () {
+        update_counter_label ();
+
+        if (is_running) {
+            start_button.hide ();
+            stop_button.show ();
+            reset_button.hide ();
+            lap_button.show ();
+        } else {
+            start_button.show ();
+            stop_button.hide ();
+            reset_button.show ();
+            lap_button.hide ();
+        }
+
+        reset_button.sensitive = (counter.current_time != 1);
     }
 
     private void update_log () {
@@ -161,7 +169,7 @@ public class Hourglass.Views.StopwatchView : AbstractView {
             margin_start = 6,
             margin_end = 6
         };
-        label.get_style_context ().add_class (Granite.STYLE_CLASS_DIM_LABEL);
+        label.add_css_class (Granite.STYLE_CLASS_DIM_LABEL);
 
         var row = new Gtk.ListBoxRow () {
             child = label
