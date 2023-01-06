@@ -27,6 +27,10 @@ public class Hourglass.Views.StopwatchView : AbstractView {
 
     public MainWindow window { get; construct; }
 
+    [CCode (has_target = false)]
+    private delegate bool KeyPressHandler (StopwatchView self, uint keyval, uint keycode, Gdk.ModifierType state);
+    private static Gee.HashMap<uint, KeyPressHandler> key_press_handler;
+
     private Hourglass.Objects.Counter counter;
     private Gtk.Label counter_label;
     private Gtk.ListBox lap_box;
@@ -42,6 +46,11 @@ public class Hourglass.Views.StopwatchView : AbstractView {
         Object (
             window: window
         );
+    }
+
+    static construct {
+        key_press_handler = new Gee.HashMap<uint, KeyPressHandler> ();
+        key_press_handler[Gdk.Key.s] = key_press_handler_s;
     }
 
     construct {
@@ -67,11 +76,15 @@ public class Hourglass.Views.StopwatchView : AbstractView {
         };
 
         // create buttons
-        start_button = new Gtk.Button.with_label (_("Start"));
+        start_button = new Gtk.Button.with_label (_("Start")) {
+            tooltip_markup = Granite.markup_accel_tooltip ({"<Control>s"}, _("Start the stopwatch"))
+        };
         start_button.add_css_class ("round-button");
         start_button.add_css_class (Granite.STYLE_CLASS_SUGGESTED_ACTION);
 
-        stop_button = new Gtk.Button.with_label (_("Stop"));
+        stop_button = new Gtk.Button.with_label (_("Stop")) {
+            tooltip_markup = Granite.markup_accel_tooltip ({"<Control>s"}, _("Stop the stopwatch"))
+        };
         stop_button.add_css_class ("round-button");
         stop_button.add_css_class ("red-button");
 
@@ -95,6 +108,18 @@ public class Hourglass.Views.StopwatchView : AbstractView {
         append (scrolled_window);
         append (buttons_box);
 
+        var event_controller = new Gtk.EventControllerKey ();
+        event_controller.key_pressed.connect ((keyval, keycode, state) => {
+            var handler = key_press_handler[keyval];
+            // Unhandled key event
+            if (handler == null) {
+                return false;
+            }
+
+            return handler (this, keyval, keycode, state);
+        });
+        add_controller (event_controller);
+
         counter.ticked.connect (update_counter_label);
 
         start_button.clicked.connect (start);
@@ -117,6 +142,14 @@ public class Hourglass.Views.StopwatchView : AbstractView {
         counter.stop ();
         is_running = false;
         update ();
+    }
+
+    private void toggle () {
+        if (is_running) {
+            stop ();
+        } else {
+            start ();
+        }
     }
 
     private void reset () {
@@ -186,5 +219,14 @@ public class Hourglass.Views.StopwatchView : AbstractView {
 
         int last_index = last_child.get_index ();
         return last_index + 1;
+    }
+
+    private static bool key_press_handler_s (StopwatchView self, uint keyval, uint keycode, Gdk.ModifierType state) {
+        if (!(Gdk.ModifierType.CONTROL_MASK in state)) {
+            return false;
+        }
+
+        self.toggle ();
+        return true;
     }
 }
