@@ -1,48 +1,25 @@
 name: CI
 
-on: [pull_request]
+on:
+  push:
+    branches:
+      - master
+
+permissions:
+  contents: write
 
 jobs:
-  Flatpak:
-    runs-on: ubuntu-latest
-
-    strategy:
-      matrix:
-        arch: [x86_64, aarch64]
-      # Don't fail the whole workflow if one architecture fails
-      fail-fast: false
-
-    container:
-      image: ghcr.io/elementary/flatpak-platform/runtime:7.1-${{ matrix.arch }}
-      options: --privileged
+  gettext:
+    name: Gettext
+    runs-on: ubuntu-22.04
 
     steps:
       - name: Checkout
         uses: actions/checkout@v3
 
-      - name: Set up QEMU for aarch64 emulation
-        if: ${{ matrix.arch != 'x86_64' }}
-        uses: docker/setup-qemu-action@v1
+      - name: Gettext
+        uses: ryonakano/actions/gettext-template@horus
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          platforms: arm64
-
-      - name: Build
-        uses: flatpak/flatpak-github-actions/flatpak-builder@v5
-        with:
-          bundle: hourglass.flatpak
-          manifest-path: com.github.sgpthomas.hourglass.yml
-          run-tests: true
-          repository-name: appcenter
-          repository-url: https://flatpak.elementary.io/repo.flatpakrepo
-          cache-key: "flatpak-builder-${{ github.sha }}"
-          arch: ${{ matrix.arch }}
-
-  Lint:
-    name: Lint
-    runs-on: ubuntu-latest
-    container:
-      image: valalang/lint
-    steps:
-    - uses: actions/checkout@v3
-    - name: Lint
-      run: io.elementary.vala-lint -d .
+          regenerate_po: 'true'
