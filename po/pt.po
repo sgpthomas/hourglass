@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: com.github.sgpthomas.hourglass\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-10-15 19:57+0900\n"
+"POT-Creation-Date: 2023-01-19 15:57+0000\n"
 "PO-Revision-Date: 2020-08-26 14:23+0100\n"
 "Last-Translator: André Barata <andretiagob@protonmail.com>\n"
 "Language-Team: none\n"
@@ -18,91 +18,91 @@ msgstr ""
 "X-Generator: Poedit 2.4.1\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: src/Dialogs/MultiSelectPopover.vala:11 src/Utils.vala:99
+#: src/Dialogs/MultiSelectPopover.vala:12 src/Utils.vala:101
 msgid "Sun"
 msgstr "Dom"
 
-#: src/Dialogs/MultiSelectPopover.vala:11 src/Utils.vala:99
+#: src/Dialogs/MultiSelectPopover.vala:12 src/Utils.vala:101
 msgid "Mon"
 msgstr "Seg"
 
-#: src/Dialogs/MultiSelectPopover.vala:11 src/Utils.vala:99
+#: src/Dialogs/MultiSelectPopover.vala:12 src/Utils.vala:101
 msgid "Tue"
 msgstr "Ter"
 
-#: src/Dialogs/MultiSelectPopover.vala:11 src/Utils.vala:99
+#: src/Dialogs/MultiSelectPopover.vala:12 src/Utils.vala:101
 msgid "Wed"
 msgstr "Qua"
 
-#: src/Dialogs/MultiSelectPopover.vala:11 src/Utils.vala:99
+#: src/Dialogs/MultiSelectPopover.vala:12 src/Utils.vala:101
 msgid "Thu"
 msgstr "Qui"
 
-#: src/Dialogs/MultiSelectPopover.vala:11 src/Utils.vala:99
+#: src/Dialogs/MultiSelectPopover.vala:12 src/Utils.vala:101
 msgid "Fri"
 msgstr "Sex"
 
-#: src/Dialogs/MultiSelectPopover.vala:11 src/Utils.vala:99
+#: src/Dialogs/MultiSelectPopover.vala:12 src/Utils.vala:101
 msgid "Sat"
 msgstr "Sab"
 
-#: src/Dialogs/NewAlarmDialog.vala:35
+#: src/Dialogs/NewAlarmDialog.vala:36
 msgid "Title:"
 msgstr "Título:"
 
-#: src/Dialogs/NewAlarmDialog.vala:40 src/Views/AlarmView.vala:17
+#: src/Dialogs/NewAlarmDialog.vala:41 src/Views/AlarmView.vala:18
 msgid "Alarm"
 msgstr "Alarme"
 
-#: src/Dialogs/NewAlarmDialog.vala:43
+#: src/Dialogs/NewAlarmDialog.vala:44
 #, fuzzy
 msgid "Time:"
 msgstr "Temporizador"
 
-#: src/Dialogs/NewAlarmDialog.vala:49
+#: src/Dialogs/NewAlarmDialog.vala:50
 msgid "Date:"
 msgstr ""
 
-#: src/Dialogs/NewAlarmDialog.vala:59
+#: src/Dialogs/NewAlarmDialog.vala:60
 msgid "Repeat:"
 msgstr "Repetir:"
 
-#: src/Dialogs/NewAlarmDialog.vala:96
+#: src/Dialogs/NewAlarmDialog.vala:99
 msgid "Cancel"
 msgstr "Cancelar"
 
-#: src/Dialogs/NewAlarmDialog.vala:99
+#: src/Dialogs/NewAlarmDialog.vala:102
 msgid "Save"
 msgstr ""
 
-#: src/Dialogs/NewAlarmDialog.vala:99
+#: src/Dialogs/NewAlarmDialog.vala:102
 #, fuzzy
 msgid "Create Alarm"
 msgstr "Criar"
 
-#: src/Objects/Counter.vala:60
+#: src/Objects/Counter.vala:61
 msgid "Timer is active"
 msgstr ""
 
-#: src/Utils.vala:104
+#: src/Utils.vala:106
 msgid "Every Day"
 msgstr "Todos os Dias"
 
-#: src/Utils.vala:106
+#: src/Utils.vala:108
 msgid "Every Weekday"
 msgstr "Todos os Dias da Semana"
 
-#: src/Utils.vala:108
+#: src/Utils.vala:110
 msgid "Every Weekend"
 msgstr "Todos os Fins de Semana"
 
 #. TRANSLATORS: %s represents translated string of a day of the week
-#: src/Utils.vala:116
+#: src/Utils.vala:118
 #, c-format
 msgid "%s, "
 msgstr ""
 
-#: src/Utils.vala:122
+#: src/Utils.vala:124
 msgid "None"
 msgstr ""
 
@@ -110,20 +110,20 @@ msgstr ""
 msgid "No Alarms"
 msgstr "Nenhum Alarme"
 
-#: src/Views/AlarmView.vala:43
+#: src/Views/AlarmView.vala:44
 msgid "Click the add icon in the toolbar below to get started."
 msgstr ""
 
-#: src/Views/AlarmView.vala:62
+#: src/Views/AlarmView.vala:63
 msgid "Add…"
 msgstr ""
 
-#: src/Views/AlarmView.vala:65
+#: src/Views/AlarmView.vala:66
 #, fuzzy
 msgid "Edit…"
 msgstr "Editar"
 
-#: src/Views/AlarmView.vala:68
+#: src/Views/AlarmView.vala:69
 msgid "Delete"
 msgstr "Apagar"
 
@@ -131,51 +131,61 @@ msgstr "Apagar"
 msgid "Stopwatch"
 msgstr "Cronômetro"
 
-#: src/Views/StopwatchView.vala:64 src/Views/TimerView.vala:71
+#: src/Views/StopwatchView.vala:79 src/Views/TimerView.vala:63
 msgid "Start"
 msgstr "Iniciar"
 
-#: src/Views/StopwatchView.vala:68 src/Views/TimerView.vala:101
+#: src/Views/StopwatchView.vala:80
+#, fuzzy
+msgid "Start the stopwatch"
+msgstr "Cronômetro"
+
+#: src/Views/StopwatchView.vala:85 src/Views/TimerView.vala:96
 msgid "Stop"
 msgstr "Parar"
 
-#: src/Views/StopwatchView.vala:72 src/Views/TimerView.vala:75
+#: src/Views/StopwatchView.vala:86
+#, fuzzy
+msgid "Stop the stopwatch"
+msgstr "Cronômetro"
+
+#: src/Views/StopwatchView.vala:91 src/Views/TimerView.vala:67
 msgid "Reset"
 msgstr "Repor"
 
-#: src/Views/StopwatchView.vala:75
+#: src/Views/StopwatchView.vala:94
 msgid "Lap"
 msgstr "Volta"
 
-#: src/Views/TimerView.vala:17
+#: src/Views/TimerView.vala:18
 msgid "Timer"
 msgstr "Temporizador"
 
-#: src/Views/TimerView.vala:47
+#: src/Views/TimerView.vala:46
 msgid "Hours"
 msgstr "Horas"
 
-#: src/Views/TimerView.vala:55
+#: src/Views/TimerView.vala:51
 msgid "Minutes"
 msgstr "Minutos"
 
-#: src/Views/TimerView.vala:63
+#: src/Views/TimerView.vala:56
 msgid "Seconds"
 msgstr "Segundos"
 
-#: src/Views/TimerView.vala:67
+#: src/Views/TimerView.vala:59
 msgid "Enter purposes of the timer"
 msgstr ""
 
-#: src/Views/TimerView.vala:176
+#: src/Views/TimerView.vala:171
 msgid "It's time!"
 msgstr ""
 
-#: src/Widgets/Alarm.vala:89
+#: src/Widgets/Alarm.vala:91
 msgid "Today"
 msgstr ""
 
-#: src/Widgets/Alarm.vala:101
+#: src/Widgets/Alarm.vala:103
 #, fuzzy, c-format
 msgid "Repeats: %s"
 msgstr "Repete "
