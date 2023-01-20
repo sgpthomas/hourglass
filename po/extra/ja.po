@@ -1,14 +1,14 @@
 # Japanese translations for extra package.
 # Copyright (C) 2020 THE extra'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the extra package.
-# Ryo Nakano <ryonakaknock3@gmail.com>, 2020-2022.
+# Ryo Nakano <ryonakaknock3@gmail.com>, 2020-2023.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-01-19 15:57+0000\n"
-"PO-Revision-Date: 2022-07-09 10:33+0900\n"
+"PO-Revision-Date: 2023-01-20 20:17+0900\n"
 "Last-Translator: Ryo Nakano <ryonakaknock3@gmail.com>\n"
 "Language-Team: none\n"
 "Language: ja\n"
@@ -34,8 +34,8 @@ msgstr "タイマー"
 #: data/com.github.sgpthomas.hourglass.desktop.in.in:12
 msgid "Timer;Time;Clock;Hourglass;Alarm;"
 msgstr ""
-"Timer;Time;Clock;Hourglass;Alarm;タイマー;時間;タイム;時計;砂時計;アラーム:目"
-"覚まし;"
+"Timer;Time;Clock;Hourglass;Alarm;タイマー;時間;タイム;時計;砂時計;アラーム:"
+"目覚まし;"
 
 #: data/com.github.sgpthomas.hourglass.metainfo.xml.in:13
 msgid ""
@@ -63,7 +63,7 @@ msgstr "Samuel Thomas"
 
 #: data/com.github.sgpthomas.hourglass.metainfo.xml.in:69
 msgid "Port to GTK 4"
-msgstr ""
+msgstr "GTK 4 に移行"
 
 #: data/com.github.sgpthomas.hourglass.metainfo.xml.in:70
 #: data/com.github.sgpthomas.hourglass.metainfo.xml.in:89
@@ -72,11 +72,11 @@ msgstr "Flatpak ランタイムのバージョンを更新"
 
 #: data/com.github.sgpthomas.hourglass.metainfo.xml.in:71
 msgid "Ctrl+S to toggle stopwatch"
-msgstr ""
+msgstr "Ctrl + S でストップウォッチを開始／停止できる機能を追加"
 
 #: data/com.github.sgpthomas.hourglass.metainfo.xml.in:72
 msgid "Correct license in the app metainfo"
-msgstr ""
+msgstr "アプリのメタ情報内のライセンスを修正"
 
 #: data/com.github.sgpthomas.hourglass.metainfo.xml.in:74
 #: data/com.github.sgpthomas.hourglass.metainfo.xml.in:91
@@ -91,9 +91,8 @@ msgid "Update Italian translation (thanks to @albanobattistella)"
 msgstr "イタリア語翻訳を更新 (貢献者: @albanobattistella)"
 
 #: data/com.github.sgpthomas.hourglass.metainfo.xml.in:79
-#, fuzzy
 msgid "Update Russian translation (thanks to @lenemter)"
-msgstr "イタリア語翻訳を更新 (貢献者: @albanobattistella)"
+msgstr "ロシア語翻訳を更新 (貢献者: @lenemter)"
 
 #: data/com.github.sgpthomas.hourglass.metainfo.xml.in:80
 #: data/com.github.sgpthomas.hourglass.metainfo.xml.in:96
@@ -338,8 +337,8 @@ msgstr "追加／削除ボタンにアイコンを使うように修正"
 #: data/com.github.sgpthomas.hourglass.metainfo.xml.in:226
 msgid "Update .desktop comment to be consistent with HIG (by @aljelly)"
 msgstr ""
-".desktop ファイルの Comment 行を、elementary OS の HIG に沿うように更新 (貢献"
-"者: @aljelly)"
+".desktop ファイルの Comment 行を、elementary OS の HIG に沿うように更新 (貢"
+"献者: @aljelly)"
 
 #: data/com.github.sgpthomas.hourglass.metainfo.xml.in:227
 msgid "Change shortened format of weekdays (by @NathanBnm)"
@@ -363,7 +362,8 @@ msgstr "通知アイコンが設定されない不具合を修正"
 
 #: data/com.github.sgpthomas.hourglass.metainfo.xml.in:232
 msgid "Fix left time shows unexpected values if set time is too big"
-msgstr "タイマーの設定時間が長すぎると残り時間が正しく表示されない不具合を修正"
+msgstr ""
+"タイマーの設定時間が長すぎると残り時間が正しく表示されない不具合を修正"
 
 #: data/com.github.sgpthomas.hourglass.metainfo.xml.in:233
 msgid "Improve saving window state"
