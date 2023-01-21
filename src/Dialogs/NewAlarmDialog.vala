@@ -14,7 +14,6 @@ public class Hourglass.Dialogs.NewAlarmDialog : Granite.Dialog {
 
     private Gtk.Switch date_switch;
 
-    private bool is_existing_alarm = false;
     private int[]? repeat_days = null;
 
     public NewAlarmDialog (Gtk.Window parent, Alarm? alarm = null) {
@@ -28,11 +27,6 @@ public class Hourglass.Dialogs.NewAlarmDialog : Granite.Dialog {
     }
 
     construct {
-        if (alarm != null) {
-            is_existing_alarm = true;
-            repeat_days = alarm.repeat;
-        }
-
         var title_label = new Gtk.Label (_("Title:")) {
             halign = Gtk.Align.END
         };
@@ -57,6 +51,19 @@ public class Hourglass.Dialogs.NewAlarmDialog : Granite.Dialog {
 
         var date_picker = new Granite.DatePicker ();
 
+        string create_button_label;
+        if (alarm != null) {
+            repeat_days = alarm.repeat;
+            title_entry.text = alarm.title;
+            time_picker.time = alarm.time;
+            date_switch.active = alarm.has_date;
+            date_picker.date = alarm.time;
+            create_button_label = _("Save");
+        } else {
+            time_picker.time = new GLib.DateTime.now_local ().add_minutes (10);
+            create_button_label = _("Create Alarm");
+        }
+
         var repeat_label = new Gtk.Label (_("Repeat:")) {
             halign = Gtk.Align.END
         };
@@ -65,16 +72,6 @@ public class Hourglass.Dialogs.NewAlarmDialog : Granite.Dialog {
         var repeat_day_picker = new Gtk.MenuButton () {
             popover = popover
         };
-
-        if (is_existing_alarm) {
-            title_entry.text = alarm.title;
-            time_picker.time = alarm.time;
-            date_switch.active = alarm.has_date;
-            date_picker.date = alarm.time;
-        } else {
-            time_picker.time = new GLib.DateTime.now_local ().add_minutes (10);
-        }
-
         repeat_day_picker.label = Utils.selected_days_to_string (repeat_days);
 
         var main_grid = new Gtk.Grid () {
@@ -98,10 +95,7 @@ public class Hourglass.Dialogs.NewAlarmDialog : Granite.Dialog {
 
         var cancel_button = (Gtk.Button) add_button (_("Cancel"), Gtk.ResponseType.CANCEL);
 
-        var create_alarm_button = (Gtk.Button) add_button (
-            is_existing_alarm ? _("Save") : _("Create Alarm"),
-            Gtk.ResponseType.YES
-        );
+        var create_alarm_button = (Gtk.Button) add_button (create_button_label, Gtk.ResponseType.YES);
         create_alarm_button.get_style_context ().add_class (Granite.STYLE_CLASS_SUGGESTED_ACTION);
 
         //if user tries to enter ';' stop them
@@ -160,7 +154,7 @@ public class Hourglass.Dialogs.NewAlarmDialog : Granite.Dialog {
                 new_alarm = new Alarm (alarm_time, has_date, title);
             }
 
-            if (is_existing_alarm) {
+            if (alarm != null) {
                 edit_alarm (alarm, new_alarm);
             } else {
                 create_alarm (new_alarm);
