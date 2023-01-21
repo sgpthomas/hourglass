@@ -110,7 +110,7 @@ msgstr "Нет будильников"
 
 #: src/Views/AlarmView.vala:44
 msgid "Click the add icon in the toolbar below to get started."
-msgstr "Нажмите на кнопку добавления внизу, чтобы начать."
+msgstr "Нажмите на кнопку добавления снизу, чтобы начать."
 
 #: src/Views/AlarmView.vala:63
 msgid "Add…"
