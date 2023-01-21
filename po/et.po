@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: com.github.sgpthomas.hourglass\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-01-19 15:57+0000\n"
+"POT-Creation-Date: 2023-01-21 01:11+0000\n"
 "PO-Revision-Date: 2020-05-01 16:18+0200\n"
 "Last-Translator: Kristjan Vool <tictac7x@gmail.com>\n"
 "Language-Team: none\n"
@@ -48,38 +48,38 @@ msgstr "R"
 msgid "Sat"
 msgstr "L"
 
-#: src/Dialogs/NewAlarmDialog.vala:36
+#: src/Dialogs/NewAlarmDialog.vala:30
 msgid "Title:"
 msgstr "Nimi:"
 
-#: src/Dialogs/NewAlarmDialog.vala:41 src/Views/AlarmView.vala:18
+#: src/Dialogs/NewAlarmDialog.vala:35 src/Views/AlarmView.vala:18
 msgid "Alarm"
 msgstr "Alarm"
 
-#: src/Dialogs/NewAlarmDialog.vala:44
+#: src/Dialogs/NewAlarmDialog.vala:38
 #, fuzzy
 msgid "Time:"
 msgstr "Taimer"
 
-#: src/Dialogs/NewAlarmDialog.vala:50
+#: src/Dialogs/NewAlarmDialog.vala:44
 msgid "Date:"
 msgstr ""
 
-#: src/Dialogs/NewAlarmDialog.vala:60
-msgid "Repeat:"
-msgstr "Kordamine:"
-
-#: src/Dialogs/NewAlarmDialog.vala:99
-msgid "Cancel"
-msgstr "Loobu"
-
-#: src/Dialogs/NewAlarmDialog.vala:102
+#: src/Dialogs/NewAlarmDialog.vala:61
 msgid "Save"
 msgstr ""
 
-#: src/Dialogs/NewAlarmDialog.vala:102
+#: src/Dialogs/NewAlarmDialog.vala:64
 msgid "Create Alarm"
 msgstr ""
+
+#: src/Dialogs/NewAlarmDialog.vala:67
+msgid "Repeat:"
+msgstr "Kordamine:"
+
+#: src/Dialogs/NewAlarmDialog.vala:96
+msgid "Cancel"
+msgstr "Loobu"
 
 #: src/Objects/Counter.vala:61
 msgid "Timer is active"

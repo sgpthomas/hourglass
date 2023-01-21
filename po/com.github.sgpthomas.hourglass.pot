@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: com.github.sgpthomas.hourglass\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-01-19 15:57+0000\n"
+"POT-Creation-Date: 2023-01-21 01:11+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -45,36 +45,36 @@ msgstr ""
 msgid "Sat"
 msgstr ""
 
-#: src/Dialogs/NewAlarmDialog.vala:36
+#: src/Dialogs/NewAlarmDialog.vala:30
 msgid "Title:"
 msgstr ""
 
-#: src/Dialogs/NewAlarmDialog.vala:41 src/Views/AlarmView.vala:18
+#: src/Dialogs/NewAlarmDialog.vala:35 src/Views/AlarmView.vala:18
 msgid "Alarm"
 msgstr ""
 
-#: src/Dialogs/NewAlarmDialog.vala:44
+#: src/Dialogs/NewAlarmDialog.vala:38
 msgid "Time:"
 msgstr ""
 
-#: src/Dialogs/NewAlarmDialog.vala:50
+#: src/Dialogs/NewAlarmDialog.vala:44
 msgid "Date:"
 msgstr ""
 
-#: src/Dialogs/NewAlarmDialog.vala:60
-msgid "Repeat:"
-msgstr ""
-
-#: src/Dialogs/NewAlarmDialog.vala:99
-msgid "Cancel"
-msgstr ""
-
-#: src/Dialogs/NewAlarmDialog.vala:102
+#: src/Dialogs/NewAlarmDialog.vala:61
 msgid "Save"
 msgstr ""
 
-#: src/Dialogs/NewAlarmDialog.vala:102
+#: src/Dialogs/NewAlarmDialog.vala:64
 msgid "Create Alarm"
+msgstr ""
+
+#: src/Dialogs/NewAlarmDialog.vala:67
+msgid "Repeat:"
+msgstr ""
+
+#: src/Dialogs/NewAlarmDialog.vala:96
+msgid "Cancel"
 msgstr ""
 
 #: src/Objects/Counter.vala:61

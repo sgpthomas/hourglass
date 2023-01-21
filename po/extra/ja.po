@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-01-19 15:57+0000\n"
+"POT-Creation-Date: 2023-01-21 01:11+0000\n"
 "PO-Revision-Date: 2023-01-21 09:41+0900\n"
 "Last-Translator: Ryo Nakano <ryonakaknock3@gmail.com>\n"
 "Language-Team: none\n"
@@ -34,8 +34,8 @@ msgstr "タイマー"
 #: data/com.github.sgpthomas.hourglass.desktop.in.in:12
 msgid "Timer;Time;Clock;Hourglass;Alarm;"
 msgstr ""
-"Timer;Time;Clock;Hourglass;Alarm;タイマー;時間;タイム;時計;砂時計;アラーム:"
-"目覚まし;"
+"Timer;Time;Clock;Hourglass;Alarm;タイマー;時間;タイム;時計;砂時計;アラーム:目"
+"覚まし;"
 
 #: data/com.github.sgpthomas.hourglass.metainfo.xml.in:13
 msgid ""
@@ -337,8 +337,8 @@ msgstr "追加／削除ボタンにアイコンを使うように修正"
 #: data/com.github.sgpthomas.hourglass.metainfo.xml.in:226
 msgid "Update .desktop comment to be consistent with HIG (by @aljelly)"
 msgstr ""
-".desktop ファイルの Comment 行を、elementary OS の HIG に沿うように更新 (貢"
-"献者: @aljelly)"
+".desktop ファイルの Comment 行を、elementary OS の HIG に沿うように更新 (貢献"
+"者: @aljelly)"
 
 #: data/com.github.sgpthomas.hourglass.metainfo.xml.in:227
 msgid "Change shortened format of weekdays (by @NathanBnm)"
@@ -362,8 +362,7 @@ msgstr "通知アイコンが設定されない不具合を修正"
 
 #: data/com.github.sgpthomas.hourglass.metainfo.xml.in:232
 msgid "Fix left time shows unexpected values if set time is too big"
-msgstr ""
-"タイマーの設定時間が長すぎると残り時間が正しく表示されない不具合を修正"
+msgstr "タイマーの設定時間が長すぎると残り時間が正しく表示されない不具合を修正"
 
 #: data/com.github.sgpthomas.hourglass.metainfo.xml.in:233
 msgid "Improve saving window state"

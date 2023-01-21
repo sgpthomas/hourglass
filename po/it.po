@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: com.github.sgpthomas.hourglass\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-01-19 15:57+0000\n"
+"POT-Creation-Date: 2023-01-21 01:11+0000\n"
 "PO-Revision-Date: 2022-07-09 09:18+0100\n"
 "Last-Translator: Albano Battistella <albano_battistella@hotmail.com>\n"
 "Language-Team: Italian\n"
@@ -46,37 +46,37 @@ msgstr "Ven"
 msgid "Sat"
 msgstr "Sab"
 
-#: src/Dialogs/NewAlarmDialog.vala:36
+#: src/Dialogs/NewAlarmDialog.vala:30
 msgid "Title:"
 msgstr "Titolo:"
 
-#: src/Dialogs/NewAlarmDialog.vala:41 src/Views/AlarmView.vala:18
+#: src/Dialogs/NewAlarmDialog.vala:35 src/Views/AlarmView.vala:18
 msgid "Alarm"
 msgstr "Sveglia"
 
-#: src/Dialogs/NewAlarmDialog.vala:44
+#: src/Dialogs/NewAlarmDialog.vala:38
 msgid "Time:"
 msgstr "Timer:"
 
-#: src/Dialogs/NewAlarmDialog.vala:50
+#: src/Dialogs/NewAlarmDialog.vala:44
 msgid "Date:"
 msgstr "Data:"
 
-#: src/Dialogs/NewAlarmDialog.vala:60
-msgid "Repeat:"
-msgstr "Ripeti:"
-
-#: src/Dialogs/NewAlarmDialog.vala:99
-msgid "Cancel"
-msgstr "Annulla"
-
-#: src/Dialogs/NewAlarmDialog.vala:102
+#: src/Dialogs/NewAlarmDialog.vala:61
 msgid "Save"
 msgstr "Salva"
 
-#: src/Dialogs/NewAlarmDialog.vala:102
+#: src/Dialogs/NewAlarmDialog.vala:64
 msgid "Create Alarm"
 msgstr "Crea sveglia"
+
+#: src/Dialogs/NewAlarmDialog.vala:67
+msgid "Repeat:"
+msgstr "Ripeti:"
+
+#: src/Dialogs/NewAlarmDialog.vala:96
+msgid "Cancel"
+msgstr "Annulla"
 
 #: src/Objects/Counter.vala:61
 msgid "Timer is active"
