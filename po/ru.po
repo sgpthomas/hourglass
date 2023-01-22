@@ -1,14 +1,14 @@
 # Russian translations for com.github.sgpthomas.hourglass package.
 # Copyright (C) 2020 THE com.github.sgpthomas.hourglass'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the com.github.sgpthomas.hourglass package.
-# Automatically generated, 2020.
+# lenemter <lenemter@gmail.com>, 2022-2023.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: com.github.sgpthomas.hourglass\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-01-21 01:11+0000\n"
-"PO-Revision-Date: 2022-11-02 20:12+0900\n"
+"PO-Revision-Date: 2023-01-21 19:46+0900\n"
 "Last-Translator: lenemter <lenemter@gmail.com>\n"
 "Language-Team: none\n"
 "Language: ru\n"
@@ -110,7 +110,7 @@ msgstr "Нет будильников"
 
 #: src/Views/AlarmView.vala:44
 msgid "Click the add icon in the toolbar below to get started."
-msgstr "Нажмите на кнопку добавления внизу, чтобы начать."
+msgstr "Нажмите на кнопку добавления снизу, чтобы начать."
 
 #: src/Views/AlarmView.vala:63
 msgid "Add…"
@@ -133,18 +133,16 @@ msgid "Start"
 msgstr "Начать"
 
 #: src/Views/StopwatchView.vala:80
-#, fuzzy
 msgid "Start the stopwatch"
-msgstr "Секундомер"
+msgstr "Запустить секундомер"
 
 #: src/Views/StopwatchView.vala:85 src/Views/TimerView.vala:96
 msgid "Stop"
 msgstr "Стоп"
 
 #: src/Views/StopwatchView.vala:86
-#, fuzzy
 msgid "Stop the stopwatch"
-msgstr "Секундомер"
+msgstr "Остановить секундомер"
 
 #: src/Views/StopwatchView.vala:91 src/Views/TimerView.vala:67
 msgid "Reset"
