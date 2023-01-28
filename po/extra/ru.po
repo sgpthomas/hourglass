@@ -1,14 +1,14 @@
 # Russian translations for com.github.sgpthomas.hourglass package.
-# Copyright (C) 2022 THE com.github.sgpthomas.hourglass'S COPYRIGHT HOLDER
+# Copyright (C) 2022-2023 THE com.github.sgpthomas.hourglass'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the com.github.sgpthomas.hourglass package.
-# lenemter <lenemter@gmail.com>, 2022.
+# lenemter <lenemter@gmail.com>, 2022-2023.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-01-21 01:11+0000\n"
-"PO-Revision-Date: 2022-11-02 20:14+0900\n"
+"PO-Revision-Date: 2023-01-28 17:02+0900\n"
 "Last-Translator: lenemter <lenemter@gmail.com>\n"
 "Language-Team: none>\n"
 "Language: ru\n"
@@ -62,7 +62,7 @@ msgstr "Samuel Thomas"
 
 #: data/com.github.sgpthomas.hourglass.metainfo.xml.in:69
 msgid "Port to GTK 4"
-msgstr ""
+msgstr "Портировано на GTK 4"
 
 #: data/com.github.sgpthomas.hourglass.metainfo.xml.in:70
 #: data/com.github.sgpthomas.hourglass.metainfo.xml.in:89
@@ -71,11 +71,11 @@ msgstr "Обновлена версия Flatpak runtime"
 
 #: data/com.github.sgpthomas.hourglass.metainfo.xml.in:71
 msgid "Ctrl+S to toggle stopwatch"
-msgstr ""
+msgstr "Ctrl+S для переключения секундомера"
 
 #: data/com.github.sgpthomas.hourglass.metainfo.xml.in:72
 msgid "Correct license in the app metainfo"
-msgstr ""
+msgstr "Исправлена лицензия в метаданных приложения"
 
 #: data/com.github.sgpthomas.hourglass.metainfo.xml.in:74
 #: data/com.github.sgpthomas.hourglass.metainfo.xml.in:91
@@ -90,9 +90,8 @@ msgid "Update Italian translation (thanks to @albanobattistella)"
 msgstr "Обновлён итальянский перевод (спасибо @albanobattistella)"
 
 #: data/com.github.sgpthomas.hourglass.metainfo.xml.in:79
-#, fuzzy
 msgid "Update Russian translation (thanks to @lenemter)"
-msgstr "Обновлён итальянский перевод (спасибо @albanobattistella)"
+msgstr "Обновлён русский перевод (спасибо @lenemter)"
 
 #: data/com.github.sgpthomas.hourglass.metainfo.xml.in:80
 #: data/com.github.sgpthomas.hourglass.metainfo.xml.in:96
@@ -211,7 +210,7 @@ msgstr ""
 
 #: data/com.github.sgpthomas.hourglass.metainfo.xml.in:158
 msgid "Remove unused \"update-frequency\" gsettings key"
-msgstr "Убран неиспользуемый gsettings ключ «update-frequency»"
+msgstr "Убран неиспользуемый ключ gsettings «update-frequency»"
 
 #: data/com.github.sgpthomas.hourglass.metainfo.xml.in:159
 msgid "Fix repeating alarms can't be disabled"
