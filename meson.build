@@ -12,10 +12,6 @@ add_project_arguments(
     language:'c'
 )
 
-if get_option('enable_debug')
-    add_project_arguments('--debug', language: 'vala')
-endif
-
 conf_data = configuration_data()
 conf_data.set('EXEC_NAME', meson.project_name())
 conf_data.set('DAEMON_EXEC_NAME', meson.project_name() + '-daemon')
