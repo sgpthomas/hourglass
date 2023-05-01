@@ -39,6 +39,7 @@ sources = files(
     'src' / 'Views' / 'AlarmView.vala',
     'src' / 'Views' / 'StopwatchView.vala',
     'src' / 'Views' / 'TimerView.vala',
+    'src' / 'Views' / 'WorldClockView.vala',
     'src' / 'Widgets' / 'Alarm.vala',
     'src' / 'Window' / 'MainWindow.vala',
     'src' / 'Hourglass.vala',
