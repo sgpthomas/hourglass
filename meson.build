@@ -56,6 +56,7 @@ executable(
         dependency('gee-0.8'),
         dependency('granite-7', version: '>= 7.1.0')
     ],
+    link_args: ['-X', '-lm'],
     install: true,
 )
 
