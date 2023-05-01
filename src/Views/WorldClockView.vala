@@ -25,14 +25,26 @@ public class Hourglass.Views.WorldClockView : AbstractView {
     private GLib.ListStore regions;
 
     private class Region : GLib.Object {
-        public string id { get; construct; }
+        public GLib.TimeZone? tz { get; private set; }
         public string name { get; construct; }
 
         public Region (string id, string name) {
             Object (
-                id: id,
                 name: name
             );
+            tz = get_tz_from_id (id);
+        }
+
+        private GLib.TimeZone? get_tz_from_id (string id) {
+            GLib.TimeZone? tz = null;
+
+            try {
+                tz = new TimeZone.identifier (id);
+            } catch (Error e) {
+                warning (e.message);
+            }
+
+            return tz;
         }
     }
 
@@ -67,17 +79,15 @@ public class Hourglass.Views.WorldClockView : AbstractView {
             name_label.label = name;
         }
 
-        public void set_time_label (string id) {
-            GLib.TimeZone tz;
+        public void set_time_label (GLib.TimeZone? tz) {
             GLib.DateTime time;
 
-            try {
-                tz = new TimeZone.identifier (id);
-                time = new DateTime.now (tz);
-                time_label.label = time.format ("%H:%M");
-            } catch (Error e) {
-                warning (e.message);
+            if (tz == null) {
+                return;
             }
+
+            time = new DateTime.now (tz);
+            time_label.label = time.format ("%H:%M");
         }
     }
 
@@ -112,6 +122,6 @@ public class Hourglass.Views.WorldClockView : AbstractView {
         var row = item.child as ClockRow;
 
         row.set_name_label (region.name);
-        row.set_time_label (region.id);
+        row.set_time_label (region.tz);
     }
 }
