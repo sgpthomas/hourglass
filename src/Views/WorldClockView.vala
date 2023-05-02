@@ -148,6 +148,7 @@ public class Hourglass.Views.WorldClockView : AbstractView {
 
         append (list_view);
         add_css_class (Granite.STYLE_CLASS_FRAME);
+        add_css_class (Granite.STYLE_CLASS_VIEW);
     }
 
     private void setup_cb (Object object) {
@@ -182,17 +183,17 @@ public class Hourglass.Views.WorldClockView : AbstractView {
 
         string hour;
         if (diff > 0) {
-            if (diff < TimeSpan.HOUR) {
+            if (diff < TimeSpan.MINUTE) {
                 return _("Current timezone");
             } else {
                 int rounded = (int) Math.round ((double) diff / TimeSpan.HOUR);
                 hour = dngettext (GETTEXT_PACKAGE, "%d hour behind", "%d hours behind", (ulong) rounded).printf (rounded);
             }
         } else {
-            if (diff < TimeSpan.HOUR) {
+            diff = -1 * diff;
+            if (diff < TimeSpan.MINUTE) {
                 return _("Current timezone");
             } else {
-                diff = -1 * diff;
                 int rounded = (int) Math.round ((double) diff / TimeSpan.HOUR);
                 hour = dngettext (GETTEXT_PACKAGE, "%d hour ahead", "%d hours ahead", (ulong) rounded).printf (rounded);
             }
