@@ -143,12 +143,17 @@ public class Hourglass.Views.WorldClockView : AbstractView {
 
         var list_view = new Gtk.ListView (selection, factory);
 
+        var scrolled = new Gtk.ScrolledWindow () {
+            has_frame = true,
+            hscrollbar_policy = Gtk.PolicyType.NEVER,
+            vexpand = true,
+            child = list_view
+        };
+
         factory.setup.connect (setup_cb);
         factory.bind.connect (bind_cb);
 
-        append (list_view);
-        add_css_class (Granite.STYLE_CLASS_FRAME);
-        add_css_class (Granite.STYLE_CLASS_VIEW);
+        append (scrolled);
     }
 
     private void setup_cb (Object object) {
