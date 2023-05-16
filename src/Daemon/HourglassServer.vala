@@ -59,7 +59,7 @@ namespace HourglassDaemon {
                       BusNameOwnerFlags.NONE,
                       (conn) => { on_bus_aquired (conn); },
                       (c, name) => { debug ("%s was successfully registered!", name); },
-                      () => { critical ("Could not aquire service name"); exit (-1); });
+                      () => { critical ("Could not acquire service name"); exit (-1); });
         }
 
         private void on_bus_aquired (DBusConnection connection) {
