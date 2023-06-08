@@ -7,32 +7,33 @@
 namespace HourglassDaemon {
     public class Daemon : GLib.Object {
         public AlarmManager alarm_manager;
+
         public static Daemon get_default () {
-            if (__instance == null) {
-                __instance = new Daemon ();
+            if (instance == null) {
+                instance = new Daemon ();
             }
 
-            return __instance;
+            return instance;
         }
-        private static Daemon __instance = null;
+        private static Daemon instance = null;
 
         private Daemon () {
         }
 
         construct {
-            debug ("Hourglass-Daemon started");
-
             alarm_manager = new AlarmManager (this);
         }
 
         public void start () {
+            debug ("Starting Hourglass Daemon…");
+
             Timeout.add (1000, () => {
                 // Check timer every 0 second
                 if (new DateTime.now_local ().get_second () == 0) {
                     alarm_manager.check_alarm ();
                 }
 
-                return true;
+                return GLib.Source.CONTINUE;
             });
         }
 

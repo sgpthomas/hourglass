@@ -35,7 +35,7 @@ namespace Hourglass {
 
         public HourglassApp () {
             Object (
-                application_id :"com.github.sgpthomas.client",
+                application_id :"com.github.sgpthomas.hourglass",
                 flags: ApplicationFlags.FLAGS_NONE
             );
         }
