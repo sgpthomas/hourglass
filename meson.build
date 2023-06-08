@@ -14,7 +14,6 @@ add_project_arguments(
 
 conf_data = configuration_data()
 conf_data.set('EXEC_NAME', meson.project_name())
-conf_data.set('DAEMON_EXEC_NAME', meson.project_name() + '-daemon')
 conf_data.set_quoted('LOCALEDIR', get_option('prefix') / get_option('localedir'))
 conf_data.set_quoted('GETTEXT_PACKAGE', meson.project_name())
 config_file = configure_file(
@@ -45,15 +44,20 @@ sources = files(
     'src' / 'Utils.vala'
 )
 
+subdir ('src' / 'Daemon')
+
 executable(
     meson.project_name(),
     config_file,
     asresources,
     sources,
+    daemon_files,
     dependencies: [
         dependency('gtk4'),
         dependency('gee-0.8'),
-        dependency('granite-7', version: '>= 7.1.0')
+        dependency('granite-7', version: '>= 7.1.0'),
+        dependency('libportal'),
+        dependency('libportal-gtk4'),
     ],
     install: true,
 )
@@ -65,7 +69,6 @@ install_data(
 
 subdir ('data')
 subdir ('po')
-subdir ('src' / 'Daemon')
 
 gnome.post_install(
     glib_compile_schemas: true,

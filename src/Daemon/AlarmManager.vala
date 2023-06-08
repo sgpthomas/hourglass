@@ -5,10 +5,13 @@
  */
 
 namespace HourglassDaemon {
-    public class AlarmManager {
+    public class AlarmManager : GLib.Object {
+        public signal void should_refresh_client ();
+
+        public HourglassAlarmDaemon daemon { private get; construct; }
         public Gee.ArrayList<string> alarm_list { get; private set; }
 
-        public AlarmManager () {
+        public AlarmManager (HourglassAlarmDaemon daemon) {
             debug ("Initiating Alarm Manager");
             alarm_list = new Gee.ArrayList<string> ();
 
@@ -22,11 +25,11 @@ namespace HourglassDaemon {
             foreach (string alarm in alarm_list) {
                 //if alarm is now and is on, set it off and then disable it
                 if (is_alarm_string_now (alarm) && get_alarm_state (alarm)) {
-                    notification.show (get_alarm_name (alarm), get_alarm_time (alarm), "alarm");
+                    daemon.show (get_alarm_name (alarm), get_alarm_time (alarm), "alarm");
 
                     if (!get_alarm_repeat (alarm)) {
                         toggle_alarm (alarm);
-                        server.server.should_refresh_client ();
+                        should_refresh_client ();
                     }
                 }
             }

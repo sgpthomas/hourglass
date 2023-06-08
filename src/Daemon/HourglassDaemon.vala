@@ -6,38 +6,34 @@
 
 namespace HourglassDaemon {
 
-    public HourglassServer server;
     public static GLib.Settings saved_alarms;
-    public NotificationManager notification;
     public AlarmManager manager;
 
-    public class HourglassAlarmDaemon : GLib.Application {
+    public class HourglassAlarmDaemon : GLib.Object {
+        public static HourglassAlarmDaemon get_default () {
+            if (__instance == null) {
+                __instance = new HourglassAlarmDaemon ();
+            }
 
-        public HourglassAlarmDaemon () {
-            Object (application_id: "com.github.sgpthomas.hourglass", flags: ApplicationFlags.NON_UNIQUE);
-            set_inactivity_timeout (1000);
+            return __instance;
+        }
+        private static HourglassAlarmDaemon __instance = null;
+
+        private HourglassAlarmDaemon () {
         }
 
         static construct {
             saved_alarms = new GLib.Settings ("com.github.sgpthomas.hourglass.saved");
         }
 
-        ~HourglassAlarmDaemon () {
-            release ();
+        construct {
+            debug ("Hourglass-Daemon started");
+
+            manager = new AlarmManager (this);
+            manager.load_alarm_list ();
         }
 
-        public override void startup () {
-            debug ("Hourglass-Daemon started");
-            base.startup ();
-
-            server = new HourglassServer ();
-            manager = new AlarmManager ();
-            notification = new NotificationManager (this);
-
-            manager.load_alarm_list ();
-
-            hold ();
-
+        public void start () {
             Timeout.add (1000, () => {
                 // Check timer every 0 second
                 if (new DateTime.now_local ().get_second () == 0) {
@@ -48,27 +44,12 @@ namespace HourglassDaemon {
             });
         }
 
-        public override void activate () {
-            debug ("Daemon Activated");
+        public void show (string summary, string body, string id) {
+            var notification = new GLib.Notification (summary);
+            notification.set_body (body);
+            notification.set_priority (NotificationPriority.HIGH);
+
+            GLib.Application.get_default ().send_notification ("%s-%s".printf (EXEC_NAME, id), notification);
         }
-
-        public override bool dbus_register (DBusConnection connection, string object_path) throws Error {
-            return true;
-        }
-    }
-
-    //start the daemon
-    public static int main (string[] args) {
-        var app = new HourglassAlarmDaemon (); //create instance of hourglass daemon
-
-        //try to register app
-        try {
-            app.register ();
-        } catch (Error e) {
-            error ("Couldn't register application.");
-        }
-
-        //run
-        return app.run (args);
     }
 }
