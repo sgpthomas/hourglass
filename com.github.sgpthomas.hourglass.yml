@@ -8,11 +8,6 @@ finish-args:
   - '--socket=wayland'
   - '--socket=fallback-x11'
   - '--device=dri'
-
-  # DBus access
-  - '--own-name=com.github.sgpthomas.client'
-  - '--own-name=com.github.sgpthomas.hourglass'
-
   - '--metadata=X-DConf=migrate-path=/com/github/sgpthomas/hourglass/'
 modules:
   - name: libportal

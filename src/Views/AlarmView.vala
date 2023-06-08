@@ -95,7 +95,7 @@ public class Hourglass.Views.AlarmView : AbstractView {
             unowned Alarm alarm = ((Alarm) list_box.get_selected_row ());
             list_box.remove (alarm);
             try {
-                Hourglass.dbus_server.remove_alarm (alarm.to_string ());
+                daemon.alarm_manager.remove_alarm (alarm.to_string ());
             } catch (GLib.Error e) {
                 error (e.message);
             }
@@ -103,7 +103,7 @@ public class Hourglass.Views.AlarmView : AbstractView {
             list_box.select_row (list_box.get_row_at_index (0));
         });
 
-        HourglassDaemon.manager.should_refresh_client.connect (() => {
+        daemon.alarm_manager.should_refresh_client.connect (() => {
             load_alarms ();
             debug ("Refresh");
         });
@@ -140,14 +140,10 @@ public class Hourglass.Views.AlarmView : AbstractView {
             list_box.remove (child);
         }
 
-        try {
-            foreach (string str in Hourglass.dbus_server.get_alarm_list ()) {
-                if (Hourglass.Utils.is_valid_alarm_string (str)) {
-                    append_alarm (Alarm.new_from_string (str));
-                }
+        foreach (string str in daemon.alarm_manager.alarm_list) {
+            if (Hourglass.Utils.is_valid_alarm_string (str)) {
+                append_alarm (Alarm.new_from_string (str));
             }
-        } catch (GLib.Error e) {
-            error (e.message);
         }
 
         list_box.select_row (list_box.get_row_at_index (0));
@@ -169,18 +165,10 @@ public class Hourglass.Views.AlarmView : AbstractView {
 
         alarm.state_toggled.connect (() => {
             debug ("toggled");
-            try {
-                Hourglass.dbus_server.toggle_alarm (alarm.to_string ());
-            } catch (Error e) {
-                error (e.message);
-            }
+            daemon.alarm_manager.toggle_alarm (alarm.to_string ());
         });
 
-        try {
-            Hourglass.dbus_server.add_alarm (alarm.to_string ());
-        } catch (GLib.Error e) {
-            error (e.message);
-        }
+        daemon.alarm_manager.add_alarm (alarm.to_string ());
 
         update ();
     }
@@ -191,11 +179,7 @@ public class Hourglass.Views.AlarmView : AbstractView {
             var new_alarm_dialog = new Hourglass.Dialogs.NewAlarmDialog (window, (Alarm) widget);
             new_alarm_dialog.edit_alarm.connect ((old_a, new_a) => {
                 list_box.remove (old_a); //  remove old alarm
-                try {
-                    Hourglass.dbus_server.remove_alarm (old_a.to_string ());
-                } catch (GLib.Error e) {
-                    error (e.message);
-                }
+                daemon.alarm_manager.remove_alarm (old_a.to_string ());
 
                 append_alarm (new_a); // add new alarms
                 list_box.select_row (new_a);

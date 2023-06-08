@@ -5,7 +5,7 @@
  */
 
 namespace Hourglass {
-    public Hourglass.Services.HourglassClient dbus_server;
+    public HourglassDaemon.Daemon daemon;
     public static GLib.Settings saved;
 
     public class HourglassApp : Gtk.Application {
@@ -20,7 +20,7 @@ namespace Hourglass {
         private Hourglass.Window.MainWindow main_window;
 
         construct {
-            dbus_server = new Hourglass.Services.DBusManager ().client;
+            daemon = HourglassDaemon.Daemon.get_default ();
             GLib.Intl.setlocale (LocaleCategory.ALL, "");
             GLib.Intl.bindtextdomain (GETTEXT_PACKAGE, LOCALEDIR);
             GLib.Intl.bind_textdomain_codeset (GETTEXT_PACKAGE, "UTF-8");
@@ -43,7 +43,7 @@ namespace Hourglass {
         protected override void startup () {
             base.startup ();
 
-            HourglassDaemon.HourglassAlarmDaemon.get_default ().start ();
+            daemon.start ();
         }
 
         public override void activate () {

@@ -33,7 +33,6 @@ sources = files(
     'src' / 'Dialogs' / 'MultiSelectPopover.vala',
     'src' / 'Dialogs' / 'NewAlarmDialog.vala',
     'src' / 'Objects' / 'Counter.vala',
-    'src' / 'Services' / 'DBusManager.vala',
     'src' / 'Views' / 'AbstractView.vala',
     'src' / 'Views' / 'AlarmView.vala',
     'src' / 'Views' / 'StopwatchView.vala',

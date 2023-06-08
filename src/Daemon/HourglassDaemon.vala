@@ -5,46 +5,38 @@
  */
 
 namespace HourglassDaemon {
-
-    public static GLib.Settings saved_alarms;
-    public AlarmManager manager;
-
-    public class HourglassAlarmDaemon : GLib.Object {
-        public static HourglassAlarmDaemon get_default () {
+    public class Daemon : GLib.Object {
+        public AlarmManager alarm_manager;
+        public static Daemon get_default () {
             if (__instance == null) {
-                __instance = new HourglassAlarmDaemon ();
+                __instance = new Daemon ();
             }
 
             return __instance;
         }
-        private static HourglassAlarmDaemon __instance = null;
+        private static Daemon __instance = null;
 
-        private HourglassAlarmDaemon () {
-        }
-
-        static construct {
-            saved_alarms = new GLib.Settings ("com.github.sgpthomas.hourglass.saved");
+        private Daemon () {
         }
 
         construct {
             debug ("Hourglass-Daemon started");
 
-            manager = new AlarmManager (this);
-            manager.load_alarm_list ();
+            alarm_manager = new AlarmManager (this);
         }
 
         public void start () {
             Timeout.add (1000, () => {
                 // Check timer every 0 second
                 if (new DateTime.now_local ().get_second () == 0) {
-                    manager.check_alarm ();
+                    alarm_manager.check_alarm ();
                 }
 
                 return true;
             });
         }
 
-        public void show (string summary, string body, string id) {
+        public void send_notification (string summary, string body, string id) {
             var notification = new GLib.Notification (summary);
             notification.set_body (body);
             notification.set_priority (NotificationPriority.HIGH);
