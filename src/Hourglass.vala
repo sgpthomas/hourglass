@@ -58,7 +58,7 @@ namespace Hourglass {
                 return;
             }
 
-            if (main_window != null) {
+            if (get_windows () != null) {
                 main_window.present ();
                 return;
             }
