@@ -12,6 +12,10 @@ namespace HourglassDaemon {
         public Gee.ArrayList<string> alarm_list { get; private set; }
 
         public AlarmManager (Daemon daemon) {
+            Object (daemon: daemon);
+        }
+
+        construct {
             debug ("Initiating Alarm Manager");
             alarm_list = new Gee.ArrayList<string> ();
 
