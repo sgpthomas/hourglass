@@ -90,6 +90,12 @@ public class Hourglass.Window.MainWindow : Gtk.ApplicationWindow {
     }
 
     private void on_delete () {
-        ((HourglassApp) application).request_background.begin (() => destroy ());
+        var visible = (Hourglass.Views.AbstractView) stack.get_visible_child ();
+        if (visible.should_keep_open) {
+            hide_on_close = true;
+        } else {
+            hide_on_close = false;
+            ((HourglassApp) application).request_background.begin (() => destroy ());
+        }
     }
 }

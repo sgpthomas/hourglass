@@ -4,20 +4,20 @@
  *                         2020-2023 Ryo Nakano
  */
 
-namespace HourglassDaemon {
-    public class Daemon : GLib.Object {
+namespace Daemon {
+    public class HourglassDaemon : GLib.Object {
         public AlarmManager alarm_manager;
 
-        public static Daemon get_default () {
+        public static HourglassDaemon get_default () {
             if (instance == null) {
-                instance = new Daemon ();
+                instance = new HourglassDaemon ();
             }
 
             return instance;
         }
-        private static Daemon instance = null;
+        private static HourglassDaemon instance = null;
 
-        private Daemon () {
+        private HourglassDaemon () {
         }
 
         construct {

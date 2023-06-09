@@ -103,7 +103,7 @@ public class Hourglass.Views.AlarmView : AbstractView {
             list_box.select_row (list_box.get_row_at_index (0));
         });
 
-        daemon.alarm_manager.should_refresh_client.connect (() => {
+        daemon.alarm_manager.refresh_client.connect (() => {
             load_alarms ();
             debug ("Refresh");
         });

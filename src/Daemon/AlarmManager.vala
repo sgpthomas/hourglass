@@ -4,14 +4,14 @@
  *                         2020-2023 Ryo Nakano
  */
 
-namespace HourglassDaemon {
+namespace Daemon {
     public class AlarmManager : GLib.Object {
-        public signal void should_refresh_client ();
+        public signal void refresh_client ();
 
-        public Daemon daemon { private get; construct; }
+        public HourglassDaemon daemon { private get; construct; }
         public Gee.ArrayList<string> alarm_list { get; private set; }
 
-        public AlarmManager (Daemon daemon) {
+        public AlarmManager (HourglassDaemon daemon) {
             Object (daemon: daemon);
         }
 
@@ -33,7 +33,7 @@ namespace HourglassDaemon {
 
                     if (!get_alarm_repeat (alarm)) {
                         toggle_alarm (alarm);
-                        should_refresh_client ();
+                        refresh_client ();
                     }
                 }
             }

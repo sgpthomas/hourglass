@@ -5,7 +5,7 @@
  */
 
 namespace Hourglass {
-    public HourglassDaemon.Daemon daemon;
+    public Daemon.HourglassDaemon daemon;
     public static GLib.Settings saved;
 
     public class HourglassApp : Gtk.Application {
@@ -20,7 +20,7 @@ namespace Hourglass {
         private Hourglass.Window.MainWindow main_window;
 
         construct {
-            daemon = HourglassDaemon.Daemon.get_default ();
+            daemon = Daemon.HourglassDaemon.get_default ();
             GLib.Intl.setlocale (LocaleCategory.ALL, "");
             GLib.Intl.bindtextdomain (GETTEXT_PACKAGE, LOCALEDIR);
             GLib.Intl.bind_textdomain_codeset (GETTEXT_PACKAGE, "UTF-8");
