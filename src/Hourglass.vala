@@ -35,7 +35,7 @@ namespace Hourglass {
 
         public HourglassApp () {
             Object (
-                application_id :"com.github.sgpthomas.hourglass",
+                application_id: EXEC_NAME,
                 flags: ApplicationFlags.FLAGS_NONE
             );
         }
@@ -90,7 +90,7 @@ namespace Hourglass {
             }
 
             var command = new GenericArray<weak string> ();
-            command.add ("com.github.sgpthomas.hourglass");
+            command.add (EXEC_NAME);
             command.add ("--background");
 
             try {
