@@ -27,7 +27,6 @@ public class Hourglass.Views.AlarmView : AbstractView {
 
     public Hourglass.Window.MainWindow window { get; construct; }
 
-    private Gtk.Stack stack;
     private Gtk.ListBox list_box;
     private Gtk.Button edit_alarm_button;
     private Gtk.Button delete_alarm_button;
@@ -39,24 +38,19 @@ public class Hourglass.Views.AlarmView : AbstractView {
     }
 
     construct {
-        // welcome screen
         var no_alarm_screen = new Granite.Placeholder (_("No Alarms")) {
             description = _("Click the add icon in the toolbar below to get started.")
         };
 
-        // alarm view
         list_box = new Gtk.ListBox ();
         list_box.set_sort_func (sort_alarm_func);
+        list_box.set_placeholder (no_alarm_screen);
 
         var scrolled_window = new Gtk.ScrolledWindow () {
             vexpand = true,
             hexpand = true,
             child = list_box
         };
-
-        stack = new Gtk.Stack ();
-        stack.add_named (no_alarm_screen, "no-alarm-view");
-        stack.add_named (scrolled_window, "alarm-view");
 
         // action buttons
         var add_alarm_button = new Gtk.Button.from_icon_name ("list-add-symbolic");
@@ -75,7 +69,7 @@ public class Hourglass.Views.AlarmView : AbstractView {
         actionbar.get_style_context ().add_class (Granite.STYLE_CLASS_FLAT);
 
         get_style_context ().add_class (Granite.STYLE_CLASS_FRAME);
-        append (stack);
+        append (scrolled_window);
         append (actionbar);
 
         list_box.row_selected.connect (update);
@@ -108,24 +102,18 @@ public class Hourglass.Views.AlarmView : AbstractView {
             debug ("Refresh");
         });
 
-        update ();
-
         // load previously saved alarms
-        load_alarms ();
+        update ();
     }
 
     private void update () {
         if (list_box.get_row_at_index (0) == null) {
-            stack.set_visible_child_name ("no-alarm-view");
-
             // add small delay if daemon loads after application and list is empty
             if (Hourglass.saved.get_strv ("alarms").length != 0) {
                 timeout_id = Timeout.add (500, load_alarms_source_func);
             } else {
                 load_alarms ();
             }
-        } else {
-            stack.set_visible_child_name ("alarm-view");
         }
 
         bool has_selected_alarm = list_box.get_selected_row () != null;
@@ -136,7 +124,7 @@ public class Hourglass.Views.AlarmView : AbstractView {
     private void load_alarms () {
         // Clear alarms
         Gtk.ListBoxRow child;
-        while ((child = (Gtk.ListBoxRow) list_box.get_last_child ()) != null) {
+        while ((child = (Gtk.ListBoxRow) list_box.get_row_at_index (0)) != null) {
             list_box.remove (child);
         }
 
