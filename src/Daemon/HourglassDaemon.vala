@@ -4,45 +4,43 @@
  *                         2020-2023 Ryo Nakano
  */
 
-namespace Daemon {
-    public class HourglassDaemon : GLib.Object {
-        public AlarmManager alarm_manager;
+public class Daemon.HourglassDaemon : GLib.Object {
+    public AlarmManager alarm_manager;
 
-        public static HourglassDaemon get_default () {
-            if (instance == null) {
-                instance = new HourglassDaemon ();
+    public static HourglassDaemon get_default () {
+        if (instance == null) {
+            instance = new HourglassDaemon ();
+        }
+
+        return instance;
+    }
+    private static HourglassDaemon instance = null;
+
+    private HourglassDaemon () {
+    }
+
+    construct {
+        alarm_manager = new AlarmManager (this);
+    }
+
+    public void start () {
+        debug ("Starting Hourglass Daemon…");
+
+        Timeout.add (1000, () => {
+            // Check timer every 0 second
+            if (new DateTime.now_local ().get_second () == 0) {
+                alarm_manager.check_alarm ();
             }
 
-            return instance;
-        }
-        private static HourglassDaemon instance = null;
+            return GLib.Source.CONTINUE;
+        });
+    }
 
-        private HourglassDaemon () {
-        }
+    public void send_notification (string summary, string body, string id) {
+        var notification = new GLib.Notification (summary);
+        notification.set_body (body);
+        notification.set_priority (NotificationPriority.HIGH);
 
-        construct {
-            alarm_manager = new AlarmManager (this);
-        }
-
-        public void start () {
-            debug ("Starting Hourglass Daemon…");
-
-            Timeout.add (1000, () => {
-                // Check timer every 0 second
-                if (new DateTime.now_local ().get_second () == 0) {
-                    alarm_manager.check_alarm ();
-                }
-
-                return GLib.Source.CONTINUE;
-            });
-        }
-
-        public void send_notification (string summary, string body, string id) {
-            var notification = new GLib.Notification (summary);
-            notification.set_body (body);
-            notification.set_priority (NotificationPriority.HIGH);
-
-            GLib.Application.get_default ().send_notification ("%s-%s".printf (EXEC_NAME, id), notification);
-        }
+        GLib.Application.get_default ().send_notification ("%s-%s".printf (EXEC_NAME, id), notification);
     }
 }
