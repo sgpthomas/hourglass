@@ -5,18 +5,28 @@
  */
 
 namespace Hourglass {
-    public Hourglass.Services.HourglassClient dbus_server;
+    public Daemon.HourglassDaemon daemon;
     public static GLib.Settings saved;
 
     public class HourglassApp : Gtk.Application {
+        const OptionEntry[] OPTIONS = {
+            { "background", 'b', 0, OptionArg.NONE, out run_in_background, "Run the Application in background", null },
+            { null }
+        };
+
+        private static bool run_in_background;
+
+        private bool first_activation = true;
         private Hourglass.Window.MainWindow main_window;
 
         construct {
-            dbus_server = new Hourglass.Services.DBusManager ().client;
+            daemon = Daemon.HourglassDaemon.get_default ();
             GLib.Intl.setlocale (LocaleCategory.ALL, "");
             GLib.Intl.bindtextdomain (GETTEXT_PACKAGE, LOCALEDIR);
             GLib.Intl.bind_textdomain_codeset (GETTEXT_PACKAGE, "UTF-8");
             GLib.Intl.textdomain (GETTEXT_PACKAGE);
+
+            add_main_option_entries (OPTIONS);
         }
 
         static construct {
@@ -25,13 +35,30 @@ namespace Hourglass {
 
         public HourglassApp () {
             Object (
-                application_id :"com.github.sgpthomas.client",
+                application_id: EXEC_NAME,
                 flags: ApplicationFlags.FLAGS_NONE
             );
         }
 
+        protected override void startup () {
+            base.startup ();
+
+            daemon.start ();
+        }
+
         public override void activate () {
-            if (main_window != null) {
+            if (first_activation) {
+                hold ();
+                first_activation = false;
+            }
+
+            if (run_in_background) {
+                request_background.begin ();
+                run_in_background = false;
+                return;
+            }
+
+            if (get_windows () != null) {
                 main_window.present ();
                 return;
             }
@@ -54,21 +81,41 @@ namespace Hourglass {
             Hourglass.saved.bind ("is-maximized", main_window, "maximized", SettingsBindFlags.SET);
         }
 
-        public static void spawn_daemon () {
-            debug ("starting daemon");
-            string[] spawn_args = {"com.github.sgpthomas.hourglass-daemon"}; // command name
+        public async void request_background () {
+            var portal = new Xdp.Portal ();
 
-            //try to spawn daemon
+            Xdp.Parent? parent = null;
+            if (active_window != null) {
+                parent = Xdp.parent_new_gtk (active_window);
+            }
+
+            var command = new GenericArray<weak string> ();
+            command.add (EXEC_NAME);
+            command.add ("--background");
+
             try {
-                GLib.Process.spawn_async ("/", spawn_args, Environ.get () , GLib.SpawnFlags.SEARCH_PATH, null, null);
-            } catch (GLib.SpawnError e) {
-                error ("Spawning error message: %s".printf (e.message));
+                bool result = yield portal.request_background (
+                    parent,
+                    _("Hourglass will automatically start when this device turns on and keep running when its window is closed so that it can send notifications when alarm goes off."),
+                    (owned) command,
+                    Xdp.BackgroundFlags.AUTOSTART,
+                    null
+                );
+                if (!result) {
+                    release ();
+                }
+            } catch (Error e) {
+                if (e is IOError.CANCELLED) {
+                    debug ("Request for autostart and background permissions denied: %s", e.message);
+                    release ();
+                } else {
+                    warning ("Failed to request autostart and background permissions: %s", e.message);
+                }
             }
         }
     }
 
     public static int main (string[] args) {
-        HourglassApp.spawn_daemon ();
         return new HourglassApp ().run (args);
     }
 }

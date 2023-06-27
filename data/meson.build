@@ -34,18 +34,3 @@ i18n.merge_file(
     install: true,
     install_dir: get_option('datadir') / 'applications'
 )
-
-daemon_desktop_in = configure_file(
-    input: meson.project_name() + '-daemon.desktop.in.in',
-    output: meson.project_name() + '-daemon.desktop.in',
-    configuration: conf_data
-)
-
-i18n.merge_file(
-    input: daemon_desktop_in,
-    output: meson.project_name() + '-daemon.desktop',
-    po_dir: meson.project_source_root() / 'po' / 'extra',
-    type: 'desktop',
-    install: true,
-    install_dir: get_option('sysconfdir') / 'xdg' / 'autostart'
-)

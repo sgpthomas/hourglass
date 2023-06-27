@@ -4,11 +4,18 @@
  *                         2020-2023 Ryo Nakano
  */
 
-namespace HourglassDaemon {
-    public class AlarmManager {
+namespace Daemon {
+    public class AlarmManager : GLib.Object {
+        public signal void refresh_client ();
+
+        public HourglassDaemon daemon { private get; construct; }
         public Gee.ArrayList<string> alarm_list { get; private set; }
 
-        public AlarmManager () {
+        public AlarmManager (HourglassDaemon daemon) {
+            Object (daemon: daemon);
+        }
+
+        construct {
             debug ("Initiating Alarm Manager");
             alarm_list = new Gee.ArrayList<string> ();
 
@@ -22,11 +29,11 @@ namespace HourglassDaemon {
             foreach (string alarm in alarm_list) {
                 //if alarm is now and is on, set it off and then disable it
                 if (is_alarm_string_now (alarm) && get_alarm_state (alarm)) {
-                    notification.show (get_alarm_name (alarm), get_alarm_time (alarm), "alarm");
+                    daemon.send_notification (get_alarm_name (alarm), get_alarm_time (alarm), "alarm");
 
                     if (!get_alarm_repeat (alarm)) {
                         toggle_alarm (alarm);
-                        server.server.should_refresh_client ();
+                        refresh_client ();
                     }
                 }
             }
@@ -59,7 +66,7 @@ namespace HourglassDaemon {
 
         public void load_alarm_list () {
             alarm_list = new Gee.ArrayList<string> (); //empty alarm list
-            foreach (string s in HourglassDaemon.saved_alarms.get_strv ("alarms")) { //loop through all entries in schema
+            foreach (string s in Hourglass.saved.get_strv ("alarms")) { //loop through all entries in schema
                 if (Hourglass.Utils.is_valid_alarm_string (s)) { //check for validity
                     alarm_list.add (s); //add to alarm list
                 }
@@ -72,7 +79,7 @@ namespace HourglassDaemon {
                 new_alarm_list += s;
             }
 
-            HourglassDaemon.saved_alarms.set_strv ("alarms", new_alarm_list); //update alarms gsettings entry
+            Hourglass.saved.set_strv ("alarms", new_alarm_list); //update alarms gsettings entry
         }
 
         public string get_alarm_name (string alarm_string) {
