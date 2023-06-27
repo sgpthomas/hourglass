@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: com.github.sgpthomas.hourglass\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-01-21 01:11+0000\n"
+"POT-Creation-Date: 2023-06-27 13:03+0000\n"
 "PO-Revision-Date: 2020-05-01 16:18+0200\n"
 "Last-Translator: Kristjan Vool <tictac7x@gmail.com>\n"
 "Language-Team: none\n"
@@ -107,23 +107,23 @@ msgstr ""
 msgid "None"
 msgstr ""
 
-#: src/Views/AlarmView.vala:43
+#: src/Views/AlarmView.vala:41
 msgid "No Alarms"
 msgstr "Alarme pole"
 
-#: src/Views/AlarmView.vala:44
+#: src/Views/AlarmView.vala:42
 msgid "Click the add icon in the toolbar below to get started."
 msgstr ""
 
-#: src/Views/AlarmView.vala:63
+#: src/Views/AlarmView.vala:57
 msgid "Add…"
 msgstr ""
 
-#: src/Views/AlarmView.vala:66
+#: src/Views/AlarmView.vala:60
 msgid "Edit…"
 msgstr ""
 
-#: src/Views/AlarmView.vala:69
+#: src/Views/AlarmView.vala:63
 msgid "Delete"
 msgstr ""
 

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-01-21 01:11+0000\n"
+"POT-Creation-Date: 2023-06-27 13:03+0000\n"
 "PO-Revision-Date: 2023-01-21 09:41+0900\n"
 "Last-Translator: Ryo Nakano <ryonakaknock3@gmail.com>\n"
 "Language-Team: none\n"
@@ -18,12 +18,12 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 
 #: data/com.github.sgpthomas.hourglass.desktop.in.in:4
-#: data/com.github.sgpthomas.hourglass.metainfo.xml.in:10
+#: data/com.github.sgpthomas.hourglass.metainfo.xml.in:11
 msgid "Hourglass"
 msgstr "Hourglass"
 
 #: data/com.github.sgpthomas.hourglass.desktop.in.in:5
-#: data/com.github.sgpthomas.hourglass.metainfo.xml.in:11
+#: data/com.github.sgpthomas.hourglass.metainfo.xml.in:12
 msgid "Set alarms, timers, and stopwatches"
 msgstr "アラームやタイマー、ストップウォッチを使用します"
 
@@ -37,7 +37,7 @@ msgstr ""
 "Timer;Time;Clock;Hourglass;Alarm;タイマー;時間;タイム;時計;砂時計;アラーム:目"
 "覚まし;"
 
-#: data/com.github.sgpthomas.hourglass.metainfo.xml.in:13
+#: data/com.github.sgpthomas.hourglass.metainfo.xml.in:14
 msgid ""
 "Hourglass is a simple time keeping application that helps you easily set "
 "stopwatches, repeating alarms, and timers."
@@ -45,76 +45,76 @@ msgstr ""
 "Hourglass は、ストップウォッチ、スヌーズ付きアラーム、タイマーを簡単に利用で"
 "きる、シンプルな時間管理アプリです。"
 
-#: data/com.github.sgpthomas.hourglass.metainfo.xml.in:20
+#: data/com.github.sgpthomas.hourglass.metainfo.xml.in:21
 msgid "Alarm View"
 msgstr "アラーム画面"
 
-#: data/com.github.sgpthomas.hourglass.metainfo.xml.in:25
+#: data/com.github.sgpthomas.hourglass.metainfo.xml.in:26
 msgid "Stopwatch View"
 msgstr "ストップウォッチ画面"
 
-#: data/com.github.sgpthomas.hourglass.metainfo.xml.in:30
+#: data/com.github.sgpthomas.hourglass.metainfo.xml.in:31
 msgid "Timer View"
 msgstr "タイマー画面"
 
-#: data/com.github.sgpthomas.hourglass.metainfo.xml.in:53
+#: data/com.github.sgpthomas.hourglass.metainfo.xml.in:54
 msgid "Samuel Thomas"
 msgstr "Samuel Thomas"
 
-#: data/com.github.sgpthomas.hourglass.metainfo.xml.in:69
+#: data/com.github.sgpthomas.hourglass.metainfo.xml.in:70
 msgid "Port to GTK 4"
 msgstr "GTK 4 に移行"
 
-#: data/com.github.sgpthomas.hourglass.metainfo.xml.in:70
-#: data/com.github.sgpthomas.hourglass.metainfo.xml.in:89
+#: data/com.github.sgpthomas.hourglass.metainfo.xml.in:71
+#: data/com.github.sgpthomas.hourglass.metainfo.xml.in:90
 msgid "Update Flatpak runtime version"
 msgstr "Flatpak ランタイムのバージョンを更新"
 
-#: data/com.github.sgpthomas.hourglass.metainfo.xml.in:71
+#: data/com.github.sgpthomas.hourglass.metainfo.xml.in:72
 msgid "Ctrl+S to toggle stopwatch"
 msgstr "Ctrl + S でストップウォッチを開始／停止できる機能を追加"
 
-#: data/com.github.sgpthomas.hourglass.metainfo.xml.in:72
+#: data/com.github.sgpthomas.hourglass.metainfo.xml.in:73
 msgid "Correct license in the app metainfo"
 msgstr "アプリのメタ情報内のライセンスを修正"
 
-#: data/com.github.sgpthomas.hourglass.metainfo.xml.in:74
-#: data/com.github.sgpthomas.hourglass.metainfo.xml.in:91
-#: data/com.github.sgpthomas.hourglass.metainfo.xml.in:110
-#: data/com.github.sgpthomas.hourglass.metainfo.xml.in:235
+#: data/com.github.sgpthomas.hourglass.metainfo.xml.in:75
+#: data/com.github.sgpthomas.hourglass.metainfo.xml.in:92
+#: data/com.github.sgpthomas.hourglass.metainfo.xml.in:111
+#: data/com.github.sgpthomas.hourglass.metainfo.xml.in:236
 msgid "Translation updates:"
 msgstr "翻訳の更新:"
 
-#: data/com.github.sgpthomas.hourglass.metainfo.xml.in:78
-#: data/com.github.sgpthomas.hourglass.metainfo.xml.in:95
+#: data/com.github.sgpthomas.hourglass.metainfo.xml.in:79
+#: data/com.github.sgpthomas.hourglass.metainfo.xml.in:96
 msgid "Update Italian translation (thanks to @albanobattistella)"
 msgstr "イタリア語翻訳を更新 (貢献者: @albanobattistella)"
 
-#: data/com.github.sgpthomas.hourglass.metainfo.xml.in:79
+#: data/com.github.sgpthomas.hourglass.metainfo.xml.in:80
 msgid "Update Russian translation (thanks to @lenemter)"
 msgstr "ロシア語翻訳を更新 (貢献者: @lenemter)"
 
-#: data/com.github.sgpthomas.hourglass.metainfo.xml.in:80
-#: data/com.github.sgpthomas.hourglass.metainfo.xml.in:96
-#: data/com.github.sgpthomas.hourglass.metainfo.xml.in:114
+#: data/com.github.sgpthomas.hourglass.metainfo.xml.in:81
+#: data/com.github.sgpthomas.hourglass.metainfo.xml.in:97
+#: data/com.github.sgpthomas.hourglass.metainfo.xml.in:115
 msgid "Update Japanese translation"
 msgstr "日本語翻訳を更新"
 
-#: data/com.github.sgpthomas.hourglass.metainfo.xml.in:88
+#: data/com.github.sgpthomas.hourglass.metainfo.xml.in:89
 msgid "Improve relative time handling"
 msgstr "相対時刻の処理を改善"
 
-#: data/com.github.sgpthomas.hourglass.metainfo.xml.in:104
+#: data/com.github.sgpthomas.hourglass.metainfo.xml.in:105
 msgid ""
 "Add additional categories other than ambiguous `Utility` in the desktop "
 "entry (thanks to @danrabbit)"
 msgstr "“Utility”以外に曖昧ではないカテゴリーを追加 (貢献者: @danrabbit)"
 
-#: data/com.github.sgpthomas.hourglass.metainfo.xml.in:105
+#: data/com.github.sgpthomas.hourglass.metainfo.xml.in:106
 msgid "Show the window in the center of the display at the first launch"
 msgstr "初回起動時にディスプレイの中央にウィンドウを表示するように修正"
 
-#: data/com.github.sgpthomas.hourglass.metainfo.xml.in:106
+#: data/com.github.sgpthomas.hourglass.metainfo.xml.in:107
 msgid ""
 "Make styling more consistent between stopwatch and timer (thanks to "
 "@ChildishGiant)"
@@ -122,15 +122,15 @@ msgstr ""
 "ストップウォッチとタイマーが一貫性のあるスタイルになるように修正 (貢献者: "
 "@ChildishGiant)"
 
-#: data/com.github.sgpthomas.hourglass.metainfo.xml.in:107
+#: data/com.github.sgpthomas.hourglass.metainfo.xml.in:108
 msgid "Ring alarms only on repeated days (thanks to @nakotami)"
 msgstr "繰り返し指定のある日のみアラームが鳴るように修正 (貢献者: @nakotami)"
 
-#: data/com.github.sgpthomas.hourglass.metainfo.xml.in:108
+#: data/com.github.sgpthomas.hourglass.metainfo.xml.in:109
 msgid "Fix the condition of closing the app window being reversed"
 msgstr "アプリウィンドウを閉じる条件が逆になっていた不具合を修正"
 
-#: data/com.github.sgpthomas.hourglass.metainfo.xml.in:122
+#: data/com.github.sgpthomas.hourglass.metainfo.xml.in:123
 msgid ""
 "Fix a regression that the app don't launch if you create a repeated alarm, "
 "close the app, and try to reopen it"
@@ -138,69 +138,69 @@ msgstr ""
 "繰り返しのアラームを作成して、アプリを終了し再度起動しようとすると起動しない"
 "リグレッションを修正"
 
-#: data/com.github.sgpthomas.hourglass.metainfo.xml.in:123
+#: data/com.github.sgpthomas.hourglass.metainfo.xml.in:124
 msgid "AlarmView: Organize displayed information"
 msgstr "アラームビュー: 表示される情報を整理"
 
-#: data/com.github.sgpthomas.hourglass.metainfo.xml.in:130
+#: data/com.github.sgpthomas.hourglass.metainfo.xml.in:131
 msgid "This release contains small bug fixes and improvements:"
 msgstr "このリリースでは軽微な不具合修正と改善が行われています:"
 
-#: data/com.github.sgpthomas.hourglass.metainfo.xml.in:134
+#: data/com.github.sgpthomas.hourglass.metainfo.xml.in:135
 msgid "Strict on sandbox permission"
 msgstr "サンドボックス環境のパーミッションをより厳格に修正"
 
-#: data/com.github.sgpthomas.hourglass.metainfo.xml.in:135
+#: data/com.github.sgpthomas.hourglass.metainfo.xml.in:136
 msgid "Rounded window corners and flat titlebar"
 msgstr "角丸のウィンドウとフラットなタイトルバーを使用するように変更"
 
-#: data/com.github.sgpthomas.hourglass.metainfo.xml.in:136
+#: data/com.github.sgpthomas.hourglass.metainfo.xml.in:137
 msgid "NewAlarmDialog: Add placeholder text for title entry"
 msgstr ""
 "新規アラームダイアログ: アラームのタイトル欄にプレースホルダーテキストを追加"
 
-#: data/com.github.sgpthomas.hourglass.metainfo.xml.in:137
+#: data/com.github.sgpthomas.hourglass.metainfo.xml.in:138
 msgid "Set shorter summary text in appdata"
 msgstr "アプリデータの概要文を短いものに変更"
 
-#: data/com.github.sgpthomas.hourglass.metainfo.xml.in:138
+#: data/com.github.sgpthomas.hourglass.metainfo.xml.in:139
 msgid "Use palette of elementary for branding color"
 msgstr "elementary のパレットカラーをテーマカラーに使用"
 
-#: data/com.github.sgpthomas.hourglass.metainfo.xml.in:139
+#: data/com.github.sgpthomas.hourglass.metainfo.xml.in:140
 msgid "Make sure to select an alarm on removing/adding/editing it and startup"
 msgstr ""
 "アラームの削除・追加・変更時およびアプリの起動時にアラームを選択するように修"
 "正"
 
-#: data/com.github.sgpthomas.hourglass.metainfo.xml.in:140
+#: data/com.github.sgpthomas.hourglass.metainfo.xml.in:141
 msgid "Clean code"
 msgstr "コードの整理"
 
-#: data/com.github.sgpthomas.hourglass.metainfo.xml.in:147
+#: data/com.github.sgpthomas.hourglass.metainfo.xml.in:148
 msgid "This release comes with numerous bug fixes &amp; improvements!"
 msgstr "このリリースでは、何件もの不具合修正と改善が行われています！"
 
-#: data/com.github.sgpthomas.hourglass.metainfo.xml.in:150
+#: data/com.github.sgpthomas.hourglass.metainfo.xml.in:151
 msgid "Changes in Alarm:"
 msgstr "アラーム機能の変更点:"
 
-#: data/com.github.sgpthomas.hourglass.metainfo.xml.in:154
+#: data/com.github.sgpthomas.hourglass.metainfo.xml.in:155
 msgid "Refresh weekday toggle activity when opening popover"
 msgstr ""
 "ポップオーバーを開いた際に繰り返しボタンの選択の有無を更新するように修正"
 
-#: data/com.github.sgpthomas.hourglass.metainfo.xml.in:155
+#: data/com.github.sgpthomas.hourglass.metainfo.xml.in:156
 msgid "Notify on every 0 second"
 msgstr "指定時刻ちょうどに鳴るように修正"
 
-#: data/com.github.sgpthomas.hourglass.metainfo.xml.in:156
+#: data/com.github.sgpthomas.hourglass.metainfo.xml.in:157
 msgid "Keep repeated alarms on and turn off one-time alarms after ringing"
 msgstr ""
 "アラームが鳴ったあと、繰り返しのアラームであればオンのままにして、一度のみの"
 "アラームならオフにするように修正"
 
-#: data/com.github.sgpthomas.hourglass.metainfo.xml.in:157
+#: data/com.github.sgpthomas.hourglass.metainfo.xml.in:158
 msgid ""
 "Now alarm date is optional; if you don't specify date of the alarm, it will "
 "be notified at that time of today"
@@ -208,69 +208,69 @@ msgstr ""
 "日付を指定しなくてもアラームを作成できるように修正しました。アラームの日付を"
 "指定しない場合、今日のその時間にアラームが鳴ります"
 
-#: data/com.github.sgpthomas.hourglass.metainfo.xml.in:158
+#: data/com.github.sgpthomas.hourglass.metainfo.xml.in:159
 msgid "Remove unused \"update-frequency\" gsettings key"
 msgstr "使用していない \"update-frequency\" を削除"
 
-#: data/com.github.sgpthomas.hourglass.metainfo.xml.in:159
+#: data/com.github.sgpthomas.hourglass.metainfo.xml.in:160
 msgid "Fix repeating alarms can't be disabled"
 msgstr "繰り返しのアラームを無効にできない不具合を修正"
 
-#: data/com.github.sgpthomas.hourglass.metainfo.xml.in:160
+#: data/com.github.sgpthomas.hourglass.metainfo.xml.in:161
 msgid "Explicitly set the year"
 msgstr "アラームの年を明示的に設定するように修正"
 
-#: data/com.github.sgpthomas.hourglass.metainfo.xml.in:162
+#: data/com.github.sgpthomas.hourglass.metainfo.xml.in:163
 msgid "Changes in Timer:"
 msgstr "タイマー機能の変更点:"
 
-#: data/com.github.sgpthomas.hourglass.metainfo.xml.in:166
+#: data/com.github.sgpthomas.hourglass.metainfo.xml.in:167
 msgid "Add Reset button"
 msgstr "リセットボタンを追加"
 
-#: data/com.github.sgpthomas.hourglass.metainfo.xml.in:167
+#: data/com.github.sgpthomas.hourglass.metainfo.xml.in:168
 msgid "Support setting purpose of a timer"
 msgstr "タイマーの目的を設定できる機能を追加"
 
-#: data/com.github.sgpthomas.hourglass.metainfo.xml.in:168
+#: data/com.github.sgpthomas.hourglass.metainfo.xml.in:169
 msgid "Lessen damages to your storage"
 msgstr "ストレージへの影響が減るように修正"
 
-#: data/com.github.sgpthomas.hourglass.metainfo.xml.in:169
+#: data/com.github.sgpthomas.hourglass.metainfo.xml.in:170
 msgid "Restore started time on end"
 msgstr "タイマー終了後、開始した際の時間を復元するように修正"
 
-#: data/com.github.sgpthomas.hourglass.metainfo.xml.in:170
+#: data/com.github.sgpthomas.hourglass.metainfo.xml.in:171
 msgid "Make sure to iconify always when the timer is active"
 msgstr ""
 "タイマーが動作中であればウィンドウを閉じようとしても最小化するように修正"
 
-#: data/com.github.sgpthomas.hourglass.metainfo.xml.in:172
+#: data/com.github.sgpthomas.hourglass.metainfo.xml.in:173
 msgid "Other changes:"
 msgstr "そのほかの変更:"
 
-#: data/com.github.sgpthomas.hourglass.metainfo.xml.in:176
+#: data/com.github.sgpthomas.hourglass.metainfo.xml.in:177
 msgid "Fix a regression that any key input no longer accepted"
 msgstr "キー入力を受け付けなくなるリグレッションを修正"
 
-#: data/com.github.sgpthomas.hourglass.metainfo.xml.in:177
+#: data/com.github.sgpthomas.hourglass.metainfo.xml.in:178
 msgid "Lessen window width by default"
 msgstr "デフォルトで狭いウィンドウ幅に変更"
 
-#: data/com.github.sgpthomas.hourglass.metainfo.xml.in:178
+#: data/com.github.sgpthomas.hourglass.metainfo.xml.in:179
 msgid "Fix the app exits if the window has been iconified"
 msgstr "ウィンドウが一度でも最小化されるとアプリが終了する不具合を修正"
 
-#: data/com.github.sgpthomas.hourglass.metainfo.xml.in:179
+#: data/com.github.sgpthomas.hourglass.metainfo.xml.in:180
 msgid "Code refactoring"
 msgstr "コードのリファクタリング"
 
-#: data/com.github.sgpthomas.hourglass.metainfo.xml.in:180
-#: data/com.github.sgpthomas.hourglass.metainfo.xml.in:193
+#: data/com.github.sgpthomas.hourglass.metainfo.xml.in:181
+#: data/com.github.sgpthomas.hourglass.metainfo.xml.in:194
 msgid "Update translations"
 msgstr "翻訳の更新"
 
-#: data/com.github.sgpthomas.hourglass.metainfo.xml.in:188
+#: data/com.github.sgpthomas.hourglass.metainfo.xml.in:189
 msgid ""
 "Publish the app to the new AppCenter on elementary OS 6 with the Flatpak "
 "manifest"
@@ -278,11 +278,11 @@ msgstr ""
 "Flatpak マニフェストを追加し、アプリを elementary OS 6 の新しい AppCenter に"
 "リリース"
 
-#: data/com.github.sgpthomas.hourglass.metainfo.xml.in:189
+#: data/com.github.sgpthomas.hourglass.metainfo.xml.in:190
 msgid "Respect an elementary OS-wide dark preference"
 msgstr "elementary OS のダークスタイル設定を反映するように修正"
 
-#: data/com.github.sgpthomas.hourglass.metainfo.xml.in:190
+#: data/com.github.sgpthomas.hourglass.metainfo.xml.in:191
 msgid ""
 "Now you can close the window with the shortcut key Ctrl+Q, while the daemon "
 "stays running in the background"
@@ -290,145 +290,143 @@ msgstr ""
 "ショートカットキー Ctrl+Q を押すと、デーモンはバックグラウンドで起動したまま"
 "ウィンドウを閉じれるように修正"
 
-#: data/com.github.sgpthomas.hourglass.metainfo.xml.in:191
+#: data/com.github.sgpthomas.hourglass.metainfo.xml.in:192
 msgid "Fix unreadable font size in the Alarm view"
 msgstr "アラームビューのフォントサイズが小さくて読みづらい不具合を修正"
 
-#: data/com.github.sgpthomas.hourglass.metainfo.xml.in:192
+#: data/com.github.sgpthomas.hourglass.metainfo.xml.in:193
 msgid "Fix wrong OARS data"
 msgstr "OARS データが間違っていたのを修正"
 
-#: data/com.github.sgpthomas.hourglass.metainfo.xml.in:201
+#: data/com.github.sgpthomas.hourglass.metainfo.xml.in:202
 msgid "Move the delete button in the action bar"
 msgstr "削除ボタンをアクションバーに移動"
 
-#: data/com.github.sgpthomas.hourglass.metainfo.xml.in:202
+#: data/com.github.sgpthomas.hourglass.metainfo.xml.in:203
 msgid "Redesign app icons (big thanks to @Fatih20)"
 msgstr "アプリアイコンを刷新 (貢献者: @Fatih20)"
 
-#: data/com.github.sgpthomas.hourglass.metainfo.xml.in:203
+#: data/com.github.sgpthomas.hourglass.metainfo.xml.in:204
 msgid "Update Brazilian Portuguese translation (by @gfavaro)"
 msgstr "ブラジルポルトガル語翻訳を更新 (貢献者: @gfavaro)"
 
-#: data/com.github.sgpthomas.hourglass.metainfo.xml.in:210
+#: data/com.github.sgpthomas.hourglass.metainfo.xml.in:211
 msgid "Fixes:"
 msgstr "修正点:"
 
-#: data/com.github.sgpthomas.hourglass.metainfo.xml.in:212
+#: data/com.github.sgpthomas.hourglass.metainfo.xml.in:213
 msgid "Fix a fatal regression that timer does not stop on 00:00:00"
 msgstr "タイマーが 00:00:00 で停止しない致命的なリグレッションを修正"
 
-#: data/com.github.sgpthomas.hourglass.metainfo.xml.in:214
+#: data/com.github.sgpthomas.hourglass.metainfo.xml.in:215
 msgid "Improvements:"
 msgstr "改善点:"
 
-#: data/com.github.sgpthomas.hourglass.metainfo.xml.in:216
+#: data/com.github.sgpthomas.hourglass.metainfo.xml.in:217
 msgid "StopWatch: Rewrite for efficiency and visibility"
 msgstr "ストップウォッチ: イチから書き直して、効率性と視認性を向上"
 
-#: data/com.github.sgpthomas.hourglass.metainfo.xml.in:217
+#: data/com.github.sgpthomas.hourglass.metainfo.xml.in:218
 msgid "Add :disabled pseudo-class to the .round-button class"
 msgstr ".round-button クラスに :disabled 疑似クラスを追加"
 
-#: data/com.github.sgpthomas.hourglass.metainfo.xml.in:218
+#: data/com.github.sgpthomas.hourglass.metainfo.xml.in:219
 msgid "Use icons for add/remove buttons"
 msgstr "追加／削除ボタンにアイコンを使うように修正"
 
-#: data/com.github.sgpthomas.hourglass.metainfo.xml.in:226
+#: data/com.github.sgpthomas.hourglass.metainfo.xml.in:227
 msgid "Update .desktop comment to be consistent with HIG (by @aljelly)"
 msgstr ""
 ".desktop ファイルの Comment 行を、elementary OS の HIG に沿うように更新 (貢献"
 "者: @aljelly)"
 
-#: data/com.github.sgpthomas.hourglass.metainfo.xml.in:227
+#: data/com.github.sgpthomas.hourglass.metainfo.xml.in:228
 msgid "Change shortened format of weekdays (by @NathanBnm)"
 msgstr "曜日の省略表記の書式を変更 (貢献者: @NathanBnm)"
 
-#: data/com.github.sgpthomas.hourglass.metainfo.xml.in:228
+#: data/com.github.sgpthomas.hourglass.metainfo.xml.in:229
 msgid "Improve look of create/edit alarm dialog"
 msgstr "アラーム作成／編集ダイアログの見た目を改善"
 
-#: data/com.github.sgpthomas.hourglass.metainfo.xml.in:229
+#: data/com.github.sgpthomas.hourglass.metainfo.xml.in:230
 msgid "Don't reset repeat setting on closing popover"
 msgstr "ポップオーバーを閉じても繰り返し設定をリセットしないように修正"
 
-#: data/com.github.sgpthomas.hourglass.metainfo.xml.in:230
+#: data/com.github.sgpthomas.hourglass.metainfo.xml.in:231
 msgid "Fix DBus error at the first launch"
 msgstr "初回起動時の DBus エラーを修正"
 
-#: data/com.github.sgpthomas.hourglass.metainfo.xml.in:231
+#: data/com.github.sgpthomas.hourglass.metainfo.xml.in:232
 msgid "Fix notification icon is not set"
 msgstr "通知アイコンが設定されない不具合を修正"
 
-#: data/com.github.sgpthomas.hourglass.metainfo.xml.in:232
+#: data/com.github.sgpthomas.hourglass.metainfo.xml.in:233
 msgid "Fix left time shows unexpected values if set time is too big"
 msgstr "タイマーの設定時間が長すぎると残り時間が正しく表示されない不具合を修正"
 
-#: data/com.github.sgpthomas.hourglass.metainfo.xml.in:233
+#: data/com.github.sgpthomas.hourglass.metainfo.xml.in:234
 msgid "Improve saving window state"
 msgstr "ウィンドウの状態保存を改善"
 
-#: data/com.github.sgpthomas.hourglass.metainfo.xml.in:237
+#: data/com.github.sgpthomas.hourglass.metainfo.xml.in:238
 msgid "Add French translation (by @NathanBnm)"
 msgstr "フランス語翻訳を追加 (貢献者: @NathanBnm)"
 
-#: data/com.github.sgpthomas.hourglass.metainfo.xml.in:238
+#: data/com.github.sgpthomas.hourglass.metainfo.xml.in:239
 msgid "Update Spanish translation (by @CCaroV)"
 msgstr "スペイン語翻訳を更新 (貢献者: @CCaroV)"
 
-#: data/com.github.sgpthomas.hourglass.metainfo.xml.in:239
+#: data/com.github.sgpthomas.hourglass.metainfo.xml.in:240
 msgid "Add Japanese translation"
 msgstr "日本語翻訳を追加"
 
-#: data/com.github.sgpthomas.hourglass.metainfo.xml.in:240
+#: data/com.github.sgpthomas.hourglass.metainfo.xml.in:241
 msgid "Add Portuguese-Portugal translation (by @rottenpants466)"
 msgstr "イベリアポルトガル語翻訳を追加 (貢献者: @rottenpants466)"
 
-#: data/com.github.sgpthomas.hourglass.metainfo.xml.in:242
+#: data/com.github.sgpthomas.hourglass.metainfo.xml.in:243
 msgid "Other updates:"
 msgstr "そのほかのアップデート:"
 
-#: data/com.github.sgpthomas.hourglass.metainfo.xml.in:244
+#: data/com.github.sgpthomas.hourglass.metainfo.xml.in:245
 msgid ""
 "Various l10n and coding improvements to the project thanks to @NathanBnm"
 msgstr "地域化とコードの各種改善 (貢献者: @NathanBnm)"
 
-#: data/com.github.sgpthomas.hourglass.metainfo.xml.in:252
+#: data/com.github.sgpthomas.hourglass.metainfo.xml.in:253
 msgid "Fixed a regression that the app didn't run at the first time launch"
 msgstr "アプリが初回起動時に起動しないリグレッションを修正"
 
-#: data/com.github.sgpthomas.hourglass.metainfo.xml.in:253
+#: data/com.github.sgpthomas.hourglass.metainfo.xml.in:254
 msgid "Revived and updated valid translation files"
 msgstr "有効な翻訳ファイルを復元・更新"
 
-#: data/com.github.sgpthomas.hourglass.metainfo.xml.in:261
+#: data/com.github.sgpthomas.hourglass.metainfo.xml.in:262
 msgid "Fixed timer control influences other instances"
 msgstr "タイマー操作がほかのインスタンスのアプリに影響を与えていたのを修正"
 
-#: data/com.github.sgpthomas.hourglass.metainfo.xml.in:262
+#: data/com.github.sgpthomas.hourglass.metainfo.xml.in:263
 msgid "Updated Lithuanian translation"
 msgstr "リトアニア語翻訳を更新"
 
-#: data/com.github.sgpthomas.hourglass.metainfo.xml.in:263
+#: data/com.github.sgpthomas.hourglass.metainfo.xml.in:264
 msgid "Fixed timekeeping"
 msgstr "時間測定に関する不具合を修正"
 
-#: data/com.github.sgpthomas.hourglass.metainfo.xml.in:264
+#: data/com.github.sgpthomas.hourglass.metainfo.xml.in:265
 msgid "Fixed what happens when the app closes and there is a timer running"
 msgstr "タイマー動作中にアプリを閉じた場合に発生していた不具合を修正"
 
-#: data/com.github.sgpthomas.hourglass.metainfo.xml.in:265
+#: data/com.github.sgpthomas.hourglass.metainfo.xml.in:266
 msgid "Fixed the notification going off again when you open the app"
 msgstr "アプリを開くと通知が再度オフになる不具合を修正"
 
-#: data/com.github.sgpthomas.hourglass.metainfo.xml.in:266
+#: data/com.github.sgpthomas.hourglass.metainfo.xml.in:267
 msgid "Switched the build system from CMake to Meson"
 msgstr "ビルドシステムを CMake から Meson に変更"
 
-#: data/com.github.sgpthomas.hourglass-daemon.desktop.in.in:4
-msgid "Hourglass Daemon"
-msgstr "Hourglass デーモン"
+#~ msgid "Hourglass Daemon"
+#~ msgstr "Hourglass デーモン"
 
-#: data/com.github.sgpthomas.hourglass-daemon.desktop.in.in:5
-msgid "Daemon that deals with Hourglass's alarms."
-msgstr "Hourglass のアラームを管理するデーモンです。"
+#~ msgid "Daemon that deals with Hourglass's alarms."
+#~ msgstr "Hourglass のアラームを管理するデーモンです。"
