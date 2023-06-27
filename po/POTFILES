@@ -1,5 +1,6 @@
 src/Dialogs/MultiSelectPopover.vala
 src/Dialogs/NewAlarmDialog.vala
+src/Hourglass.vala
 src/Objects/Counter.vala
 src/Utils.vala
 src/Views/AlarmView.vala
