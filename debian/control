@@ -8,6 +8,7 @@ Build-Depends: appstream,
                libgranite-7-dev (>= 7.1.0),
                libglib2.0-dev,
                libportal-dev,
+               libportal-gtk4-dev,
                meson (>= 0.57.0),
                valac
 Standards-Version: 4.5.0
