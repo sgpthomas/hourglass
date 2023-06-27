@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: com.github.sgpthomas.hourglass\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-06-27 13:03+0000\n"
+"POT-Creation-Date: 2023-06-27 13:09+0000\n"
 "PO-Revision-Date: 2022-07-09 09:18+0100\n"
 "Last-Translator: Albano Battistella <albano_battistella@hotmail.com>\n"
 "Language-Team: Italian\n"
@@ -77,6 +77,13 @@ msgstr "Ripeti:"
 #: src/Dialogs/NewAlarmDialog.vala:96
 msgid "Cancel"
 msgstr "Annulla"
+
+#: src/Hourglass.vala:99
+msgid ""
+"Hourglass will automatically start when this device turns on and keep "
+"running when its window is closed so that it can send notifications when "
+"alarm goes off."
+msgstr ""
 
 #: src/Objects/Counter.vala:61
 msgid "Timer is active"
