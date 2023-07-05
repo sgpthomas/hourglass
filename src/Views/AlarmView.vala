@@ -27,7 +27,6 @@ public class Hourglass.Views.AlarmView : AbstractView {
 
     public Hourglass.Window.MainWindow window { get; construct; }
 
-    private Gtk.Stack stack;
     private Gtk.ListBox list_box;
     private Gtk.Button edit_alarm_button;
     private Gtk.Button delete_alarm_button;
@@ -39,24 +38,19 @@ public class Hourglass.Views.AlarmView : AbstractView {
     }
 
     construct {
-        // welcome screen
         var no_alarm_screen = new Granite.Placeholder (_("No Alarms")) {
             description = _("Click the add icon in the toolbar below to get started.")
         };
 
-        // alarm view
         list_box = new Gtk.ListBox ();
         list_box.set_sort_func (sort_alarm_func);
+        list_box.set_placeholder (no_alarm_screen);
 
         var scrolled_window = new Gtk.ScrolledWindow () {
             vexpand = true,
             hexpand = true,
             child = list_box
         };
-
-        stack = new Gtk.Stack ();
-        stack.add_named (no_alarm_screen, "no-alarm-view");
-        stack.add_named (scrolled_window, "alarm-view");
 
         // action buttons
         var add_alarm_button = new Gtk.Button.from_icon_name ("list-add-symbolic");
@@ -75,7 +69,7 @@ public class Hourglass.Views.AlarmView : AbstractView {
         actionbar.get_style_context ().add_class (Granite.STYLE_CLASS_FLAT);
 
         get_style_context ().add_class (Granite.STYLE_CLASS_FRAME);
-        append (stack);
+        append (scrolled_window);
         append (actionbar);
 
         list_box.row_selected.connect (update);
@@ -95,7 +89,7 @@ public class Hourglass.Views.AlarmView : AbstractView {
             unowned Alarm alarm = ((Alarm) list_box.get_selected_row ());
             list_box.remove (alarm);
             try {
-                Hourglass.dbus_server.remove_alarm (alarm.to_string ());
+                daemon.alarm_manager.remove_alarm (alarm.to_string ());
             } catch (GLib.Error e) {
                 error (e.message);
             }
@@ -103,29 +97,23 @@ public class Hourglass.Views.AlarmView : AbstractView {
             list_box.select_row (list_box.get_row_at_index (0));
         });
 
-        Hourglass.dbus_server.should_refresh_client.connect (() => {
+        daemon.alarm_manager.refresh_client.connect (() => {
             load_alarms ();
             debug ("Refresh");
         });
 
-        update ();
-
         // load previously saved alarms
-        load_alarms ();
+        update ();
     }
 
     private void update () {
         if (list_box.get_row_at_index (0) == null) {
-            stack.set_visible_child_name ("no-alarm-view");
-
             // add small delay if daemon loads after application and list is empty
             if (Hourglass.saved.get_strv ("alarms").length != 0) {
                 timeout_id = Timeout.add (500, load_alarms_source_func);
             } else {
                 load_alarms ();
             }
-        } else {
-            stack.set_visible_child_name ("alarm-view");
         }
 
         bool has_selected_alarm = list_box.get_selected_row () != null;
@@ -136,18 +124,14 @@ public class Hourglass.Views.AlarmView : AbstractView {
     private void load_alarms () {
         // Clear alarms
         Gtk.ListBoxRow child;
-        while ((child = (Gtk.ListBoxRow) list_box.get_last_child ()) != null) {
+        while ((child = (Gtk.ListBoxRow) list_box.get_row_at_index (0)) != null) {
             list_box.remove (child);
         }
 
-        try {
-            foreach (string str in Hourglass.dbus_server.get_alarm_list ()) {
-                if (Hourglass.Utils.is_valid_alarm_string (str)) {
-                    append_alarm (Alarm.new_from_string (str));
-                }
+        foreach (string str in daemon.alarm_manager.alarm_list) {
+            if (Hourglass.Utils.is_valid_alarm_string (str)) {
+                append_alarm (Alarm.new_from_string (str));
             }
-        } catch (GLib.Error e) {
-            error (e.message);
         }
 
         list_box.select_row (list_box.get_row_at_index (0));
@@ -169,18 +153,10 @@ public class Hourglass.Views.AlarmView : AbstractView {
 
         alarm.state_toggled.connect (() => {
             debug ("toggled");
-            try {
-                Hourglass.dbus_server.toggle_alarm (alarm.to_string ());
-            } catch (Error e) {
-                error (e.message);
-            }
+            daemon.alarm_manager.toggle_alarm (alarm.to_string ());
         });
 
-        try {
-            Hourglass.dbus_server.add_alarm (alarm.to_string ());
-        } catch (GLib.Error e) {
-            error (e.message);
-        }
+        daemon.alarm_manager.add_alarm (alarm.to_string ());
 
         update ();
     }
@@ -191,11 +167,7 @@ public class Hourglass.Views.AlarmView : AbstractView {
             var new_alarm_dialog = new Hourglass.Dialogs.NewAlarmDialog (window, (Alarm) widget);
             new_alarm_dialog.edit_alarm.connect ((old_a, new_a) => {
                 list_box.remove (old_a); //  remove old alarm
-                try {
-                    Hourglass.dbus_server.remove_alarm (old_a.to_string ());
-                } catch (GLib.Error e) {
-                    error (e.message);
-                }
+                daemon.alarm_manager.remove_alarm (old_a.to_string ());
 
                 append_alarm (new_a); // add new alarms
                 list_box.select_row (new_a);

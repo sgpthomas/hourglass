@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: com.github.sgpthomas.hourglass\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-01-21 01:11+0000\n"
+"POT-Creation-Date: 2023-06-27 13:09+0000\n"
 "PO-Revision-Date: 2022-07-09 09:18+0100\n"
 "Last-Translator: Albano Battistella <albano_battistella@hotmail.com>\n"
 "Language-Team: Italian\n"
@@ -78,6 +78,13 @@ msgstr "Ripeti:"
 msgid "Cancel"
 msgstr "Annulla"
 
+#: src/Hourglass.vala:99
+msgid ""
+"Hourglass will automatically start when this device turns on and keep "
+"running when its window is closed so that it can send notifications when "
+"alarm goes off."
+msgstr ""
+
 #: src/Objects/Counter.vala:61
 msgid "Timer is active"
 msgstr ""
@@ -104,25 +111,25 @@ msgstr "%s, "
 msgid "None"
 msgstr "Nessuno"
 
-#: src/Views/AlarmView.vala:43
+#: src/Views/AlarmView.vala:41
 msgid "No Alarms"
 msgstr "Nessuna sveglia"
 
-#: src/Views/AlarmView.vala:44
+#: src/Views/AlarmView.vala:42
 msgid "Click the add icon in the toolbar below to get started."
 msgstr ""
 "Fai clic sull'icona Aggiungi nella barra degli strumenti in basso per "
 "iniziare."
 
-#: src/Views/AlarmView.vala:63
+#: src/Views/AlarmView.vala:57
 msgid "Add…"
 msgstr "Aggiungi…"
 
-#: src/Views/AlarmView.vala:66
+#: src/Views/AlarmView.vala:60
 msgid "Edit…"
 msgstr "Modifica…"
 
-#: src/Views/AlarmView.vala:69
+#: src/Views/AlarmView.vala:63
 msgid "Delete"
 msgstr "Rimuovi"
 

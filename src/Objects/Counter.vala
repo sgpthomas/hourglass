@@ -106,11 +106,7 @@ public class Hourglass.Objects.Counter : GLib.Object {
                 current_time = limit - diff;
             } else {
                 if (should_notify) {
-                    try {
-                        Hourglass.dbus_server.show_notification (notify_summary, notify_body, notify_id);
-                    } catch (Error e) {
-                        error (e.message);
-                    }
+                    daemon.send_notification (notify_summary, notify_body, notify_id);
                 }
 
                 current_time = limit;

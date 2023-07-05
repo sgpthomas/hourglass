@@ -96,7 +96,7 @@ public class Hourglass.Window.MainWindow : Gtk.ApplicationWindow {
             hide_on_close = true;
         } else {
             hide_on_close = false;
-            destroy ();
+            ((HourglassApp) application).request_background.begin (() => destroy ());
         }
     }
 }
