@@ -3,6 +3,8 @@
  * SPDX-FileCopyrightText: 2023 Ryo Nakano
  */
 
+using Hourglass.Objects;
+
 public class Hourglass.Views.WorldClockView : AbstractView {
     public override string id {
         get {
@@ -23,30 +25,6 @@ public class Hourglass.Views.WorldClockView : AbstractView {
     }
 
     private GLib.ListStore regions;
-
-    private class Region : GLib.Object {
-        public GLib.TimeZone? tz { get; private set; }
-        public string name { get; construct; }
-
-        public Region (string id, string name) {
-            Object (
-                name: name
-            );
-            tz = get_tz_from_id (id);
-        }
-
-        private GLib.TimeZone? get_tz_from_id (string id) {
-            GLib.TimeZone? tz = null;
-
-            try {
-                tz = new TimeZone.identifier (id);
-            } catch (Error e) {
-                warning (e.message);
-            }
-
-            return tz;
-        }
-    }
 
     private class ClockRow : Gtk.Grid {
         private Gtk.Label name_label;
@@ -132,11 +110,7 @@ public class Hourglass.Views.WorldClockView : AbstractView {
 
     construct {
         regions = new GLib.ListStore (typeof (Region));
-        // TODO: Allow users to add/remove timezones
-        regions.append (new Region ("Europe/London", _("London, UK")));
-        regions.append (new Region ("America/Santiago", _("Santiago, US")));
-        regions.append (new Region ("America/Anchorage", _("Anchorage, US")));
-        regions.append (new Region ("Asia/Tokyo", _("Tokyo, Japan")));
+        RegionStore.init_store (regions);
 
         var selection = new Gtk.SingleSelection (regions);
         var factory = new Gtk.SignalListItemFactory ();
