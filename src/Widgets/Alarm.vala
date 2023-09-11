@@ -23,14 +23,14 @@ public class Hourglass.Widgets.Alarm : Gtk.ListBoxRow {
         this.repeat = repeat;
 
         var time_label = new Gtk.Label (get_time_string ());
-        time_label.get_style_context ().add_class (Granite.STYLE_CLASS_H2_LABEL);
+        time_label.add_css_class (Granite.STYLE_CLASS_H2_LABEL);
 
         var date_label = new Gtk.Label (make_date_label ());
 
         var name_label = new Gtk.Label (title) {
             halign = Gtk.Align.START
         };
-        name_label.get_style_context ().add_class (Granite.STYLE_CLASS_H3_LABEL);
+        name_label.add_css_class (Granite.STYLE_CLASS_H3_LABEL);
 
         var repeat_label = new Gtk.Label (make_repeat_label ()) {
             halign = Gtk.Align.START
