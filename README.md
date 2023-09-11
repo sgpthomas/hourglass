@@ -21,13 +21,16 @@ You'll need the following dependencies to build:
 * meson (>= 0.57.0)
 * valac
 
-Run `meson build` to configure the build environment and then change to the build directory and run `ninja` to build
+Run `meson setup` to configure the build environment and run `ninja` to build
 
-    meson build --prefix=/usr 
-    cd build
-    ninja
+```bash
+meson setup builddir --prefix=/usr
+ninja -C builddir
+```
 
 To install, use `ninja install`, then execute with `com.github.sgpthomas.hourglass`
 
-    ninja install
-    com.github.sgpthomas.hourglass
+```bash
+ninja install -C builddir
+com.github.sgpthomas.hourglass
+```

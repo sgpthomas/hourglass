@@ -46,12 +46,12 @@ public class Hourglass.Views.TimerView : AbstractView {
         hour_spinner = time_spinner_new (time.hours, _("Hours"));
 
         var hour_min_divider = new Gtk.Label (":");
-        hour_min_divider.get_style_context ().add_class ("timer");
+        hour_min_divider.add_css_class ("timer");
 
         min_spinner = time_spinner_new (time.minutes, _("Minutes"));
 
         var min_second_divider = new Gtk.Label (":");
-        min_second_divider.get_style_context ().add_class ("timer");
+        min_second_divider.add_css_class ("timer");
 
         sec_spinner = time_spinner_new (time.seconds, _("Seconds"));
 
@@ -61,11 +61,11 @@ public class Hourglass.Views.TimerView : AbstractView {
         };
 
         start_timer_button = new Gtk.Button.with_label (_("Start"));
-        start_timer_button.get_style_context ().add_class ("round-button");
-        start_timer_button.get_style_context ().add_class (Granite.STYLE_CLASS_SUGGESTED_ACTION);
+        start_timer_button.add_css_class ("round-button");
+        start_timer_button.add_css_class (Granite.STYLE_CLASS_SUGGESTED_ACTION);
 
         reset_timer_button = new Gtk.Button.with_label (_("Reset"));
-        reset_timer_button.get_style_context ().add_class ("round-button");
+        reset_timer_button.add_css_class ("round-button");
 
         // chooser grid
         var chooser_grid = new Gtk.Grid () {
@@ -91,11 +91,11 @@ public class Hourglass.Views.TimerView : AbstractView {
             margin_start = 10,
             margin_end = 10
         };
-        counter_label.get_style_context ().add_class ("timer");
+        counter_label.add_css_class ("timer");
 
         stop_timer_button = new Gtk.Button.with_label (_("Stop"));
-        stop_timer_button.get_style_context ().add_class ("round-button");
-        stop_timer_button.get_style_context ().add_class ("red-button");
+        stop_timer_button.add_css_class ("round-button");
+        stop_timer_button.add_css_class ("red-button");
 
         // timer grid
         var timer_grid = new Gtk.Grid () {
@@ -225,7 +225,7 @@ public class Hourglass.Views.TimerView : AbstractView {
             value = value,
             tooltip_text = tooltip_text
         };
-        time_spinner.get_style_context ().add_class ("timer");
+        time_spinner.add_css_class ("timer");
 
         time_spinner.output.connect (() => {
             if (time_spinner.value < 10) {

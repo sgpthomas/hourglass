@@ -23,7 +23,7 @@ public class Hourglass.Dialogs.MultiSelectPopover : Gtk.Popover {
             margin_start = 6,
             margin_end = 6
         };
-        box.get_style_context ().add_class ("linked");
+        box.add_css_class (Granite.STYLE_CLASS_LINKED);
 
         foreach (string day in shortened_days) {
             var toggle = new Gtk.ToggleButton.with_label (day);

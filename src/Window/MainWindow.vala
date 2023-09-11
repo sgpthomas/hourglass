@@ -51,7 +51,7 @@ public class Hourglass.Window.MainWindow : Gtk.ApplicationWindow {
         var headerbar = new Gtk.HeaderBar () {
             title_widget = stack_switcher
         };
-        headerbar.get_style_context ().add_class (Granite.STYLE_CLASS_FLAT);
+        headerbar.add_css_class (Granite.STYLE_CLASS_FLAT);
         set_titlebar (headerbar);
 
         child = stack;
