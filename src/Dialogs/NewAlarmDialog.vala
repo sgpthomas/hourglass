@@ -96,7 +96,7 @@ public class Hourglass.Dialogs.NewAlarmDialog : Granite.Dialog {
         var cancel_button = (Gtk.Button) add_button (_("Cancel"), Gtk.ResponseType.CANCEL);
 
         var create_alarm_button = (Gtk.Button) add_button (create_button_label, Gtk.ResponseType.YES);
-        create_alarm_button.get_style_context ().add_class (Granite.STYLE_CLASS_SUGGESTED_ACTION);
+        create_alarm_button.add_css_class (Granite.STYLE_CLASS_SUGGESTED_ACTION);
 
         //if user tries to enter ';' stop them
         title_entry.insert_text.connect ((new_text, new_text_length, ref pos) => {
