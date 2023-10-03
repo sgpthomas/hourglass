@@ -65,7 +65,7 @@
 
   <releases>
     <release version="3.0.0" date="2023-01-21" urgency="high">
-      <description>
+      <description translatable="no">
         <ul>
           <li>Port to GTK 4</li>
           <li>Update Flatpak runtime version</li>
@@ -84,7 +84,7 @@
     </release>
 
     <release version="2.0.4" date="2022-07-09" urgency="low">
-      <description>
+      <description translatable="no">
         <ul>
           <li>Improve relative time handling</li>
           <li>Update Flatpak runtime version</li>
@@ -100,7 +100,7 @@
     </release>
 
     <release version="2.0.3" date="2022-02-24" urgency="medium">
-      <description>
+      <description translatable="no">
         <ul>
           <li>Add additional categories other than ambiguous `Utility` in the desktop entry (thanks to @danrabbit)</li>
           <li>Show the window in the center of the display at the first launch</li>
@@ -118,7 +118,7 @@
     </release>
 
     <release version="2.0.2" date="2021-11-08" urgency="medium">
-      <description>
+      <description translatable="no">
         <ul>
           <li>Fix a regression that the app don't launch if you create a repeated alarm, close the app, and try to reopen it</li>
           <li>AlarmView: Organize displayed information</li>
@@ -127,7 +127,7 @@
     </release>
 
     <release version="2.0.1" date="2021-11-08" urgency="low">
-      <description>
+      <description translatable="no">
         <p>
           This release contains small bug fixes and improvements:
         </p>
@@ -144,7 +144,7 @@
     </release>
 
     <release version="2.0.0" date="2021-09-03" urgency="high">
-      <description>
+      <description translatable="no">
         <p>
           This release comes with numerous bug fixes &amp; improvements!
         </p>
@@ -184,7 +184,7 @@
     </release>
 
     <release version="1.4.0" date="2021-08-12" urgency="medium">
-      <description>
+      <description translatable="no">
         <ul>
           <li>Publish the app to the new AppCenter on elementary OS 6 with the Flatpak manifest</li>
           <li>Respect an elementary OS-wide dark preference</li>
@@ -197,7 +197,7 @@
     </release>
 
     <release version="1.3.0" date="2021-02-17" urgency="medium">
-      <description>
+      <description translatable="no">
         <ul>
           <li>Move the delete button in the action bar</li>
           <li>Redesign app icons (big thanks to @Fatih20)</li>
@@ -207,7 +207,7 @@
     </release>
 
     <release version="1.2.3" date="2020-09-17" urgency="high">
-      <description>
+      <description translatable="no">
         <p>Fixes:</p>
         <ul>
           <li>Fix a fatal regression that timer does not stop on 00:00:00</li>
@@ -222,7 +222,7 @@
     </release>
 
     <release version="1.2.2" date="2020-09-12" urgency="medium">
-      <description>
+      <description translatable="no">
         <ul>
           <li>Update .desktop comment to be consistent with HIG (by @aljelly)</li>
           <li>Change shortened format of weekdays (by @NathanBnm)</li>
@@ -248,7 +248,7 @@
     </release>
 
     <release version="1.2.1" date="2020-04-20" urgency="medium">
-      <description>
+      <description translatable="no">
         <ul>
           <li>Fixed a regression that the app didn't run at the first time launch</li>
           <li>Revived and updated valid translation files</li>
@@ -257,7 +257,7 @@
     </release>
 
     <release version="1.2.0" date="2020-04-20" urgency="medium">
-      <description>
+      <description translatable="no">
         <ul>
           <li>Fixed timer control influences other instances</li>
           <li>Updated Lithuanian translation</li>
