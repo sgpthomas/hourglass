@@ -41,9 +41,13 @@ jobs:
   lint:
     name: Lint
     runs-on: ubuntu-22.04
+
     container:
       image: valalang/lint
+
     steps:
-    - uses: actions/checkout@v4
-    - name: Lint
-      run: io.elementary.vala-lint -d .
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Lint
+        run: io.elementary.vala-lint -d .
