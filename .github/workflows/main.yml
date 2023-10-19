@@ -1,7 +1,7 @@
 name: Gettext updates
 on:
   push:
-    branches: [ $default-branch ]
+    branches: [master]
 jobs:
   gettext_flatpak:
     runs-on: ubuntu-latest
