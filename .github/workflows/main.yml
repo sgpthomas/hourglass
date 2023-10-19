@@ -1,25 +1,26 @@
-name: CI
-
+name: Gettext updates
 on:
   push:
-    branches:
-      - master
-
-permissions:
-  contents: write
-
+    branches: [ $default-branch ]
 jobs:
-  gettext:
-    name: Gettext
-    runs-on: ubuntu-22.04
+  gettext_flatpak:
+    runs-on: ubuntu-latest
+    container:
+      image: ghcr.io/elementary/flatpak-platform/runtime:7.2-x86_64
+      options: --privileged
 
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-
-      - name: Gettext
-        uses: ryonakano/actions/gettext-template@horus
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          regenerate_po: 'true'
+    - name: Install git, python3-git and jq
+      run: |
+        apt-get update
+        apt-get install git jq python3-git -y
+    - name: Clone repository
+      uses: actions/checkout@v4
+      with:
+        token: ${{ secrets.GIT_USER_TOKEN }}
+    - name: Configure Git
+      run: |
+        git config --global --add safe.directory "$GITHUB_WORKSPACE"
+    - uses: elementary/actions/gettext-flatpak@main
+      with:
+        manifest-path: 'com.github.sgpthomas.hourglass.yml'
