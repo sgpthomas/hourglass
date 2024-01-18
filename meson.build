@@ -33,10 +33,13 @@ sources = files(
     'src' / 'Dialogs' / 'MultiSelectPopover.vala',
     'src' / 'Dialogs' / 'NewAlarmDialog.vala',
     'src' / 'Objects' / 'Counter.vala',
+    'src' / 'Objects' / 'Region.vala',
+    'src' / 'Objects' / 'RegionStore.vala',
     'src' / 'Views' / 'AbstractView.vala',
     'src' / 'Views' / 'AlarmView.vala',
     'src' / 'Views' / 'StopwatchView.vala',
     'src' / 'Views' / 'TimerView.vala',
+    'src' / 'Views' / 'WorldClockView.vala',
     'src' / 'Widgets' / 'Alarm.vala',
     'src' / 'Window' / 'MainWindow.vala',
     'src' / 'Hourglass.vala',
@@ -58,6 +61,7 @@ executable(
         dependency('libportal'),
         dependency('libportal-gtk4'),
     ],
+    link_args: ['-X', '-lm'],
     install: true,
 )
 

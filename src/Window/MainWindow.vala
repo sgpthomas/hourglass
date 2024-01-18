@@ -38,6 +38,7 @@ public class Hourglass.Window.MainWindow : Gtk.ApplicationWindow {
         };
 
         //add time widgets
+        widget_list += new Hourglass.Views.WorldClockView ();
         widget_list += new Hourglass.Views.AlarmView (this);
         widget_list += new Hourglass.Views.StopwatchView (this);
         widget_list += new Hourglass.Views.TimerView ();
