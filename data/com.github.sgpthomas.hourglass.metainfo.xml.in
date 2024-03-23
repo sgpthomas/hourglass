@@ -51,7 +51,11 @@
   <url type="help">https://github.com/sgpthomas/hourglass/issues</url>
   <url type="translate">https://github.com/sgpthomas/hourglass</url>
 
+  <!-- developer_name has deprecated since AppStream 1.0 -->
   <developer_name>Samuel Thomas</developer_name>
+  <developer id="com.github.sgpthomas">
+    <name>Samuel Thomas</name>
+  </developer>
   <update_contact>sgpthomas@gmail.com</update_contact>
 
   <custom>
