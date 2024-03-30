@@ -49,6 +49,7 @@
   <url type="homepage">https://github.com/sgpthomas/hourglass</url>
   <url type="bugtracker">https://github.com/sgpthomas/hourglass/issues</url>
   <url type="help">https://github.com/sgpthomas/hourglass/issues</url>
+  <url type="vcs-browser">https://github.com/sgpthomas/hourglass</url>
   <url type="translate">https://github.com/sgpthomas/hourglass</url>
 
   <!-- developer_name has deprecated since AppStream 1.0 -->
