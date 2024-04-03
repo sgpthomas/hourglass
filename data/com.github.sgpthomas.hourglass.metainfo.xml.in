@@ -35,8 +35,8 @@
 
   <branding>
     <color type="primary">#3a9104</color>
-    <color type="primary" schema_preference="light">#467826</color>
-    <color type="primary" schema_preference="dark">#89d15c</color>
+    <color type="primary" scheme_preference="light">#467826</color>
+    <color type="primary" scheme_preference="dark">#89d15c</color>
   </branding>
 
   <content_rating type="oars-1.1" />
