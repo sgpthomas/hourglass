@@ -6,7 +6,7 @@
   <launchable type="desktop-id">com.github.sgpthomas.hourglass.desktop</launchable>
   <translation type="gettext">com.github.sgpthomas.hourglass</translation>
   <metadata_license>CC0-1.0</metadata_license>
-  <project_license>GPL-3.0+</project_license>
+  <project_license>GPL-3.0-or-later</project_license>
 
   <name>Hourglass</name>
   <summary>Set alarms, timers, and stopwatches</summary>
