@@ -16,8 +16,11 @@ On elementary OS? Click the button to get Hourglass on AppCenter:
 ### For Developers
 You'll need the following dependencies to build:
 
+* libgee-0.8-dev
 * libgranite-7-dev (>= 7.1.0)
 * libgtk-4-dev
+* libportal-dev
+* libportal-gtk4-dev
 * meson (>= 0.57.0)
 * valac
 
