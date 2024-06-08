@@ -20,14 +20,16 @@ i18n.merge_file(
     install_dir: get_option('datadir') / 'metainfo'
 )
 
-desktop_in = configure_file(
+desktop_conf = configuration_data()
+desktop_conf.set('EXEC_NAME', meson.project_name())
+desktop_file_in = configure_file(
     input: meson.project_name() + '.desktop.in.in',
     output: meson.project_name() + '.desktop.in',
-    configuration: conf_data
+    configuration: desktop_conf
 )
 
 i18n.merge_file(
-    input: desktop_in,
+    input: desktop_file_in,
     output: meson.project_name() + '.desktop',
     po_dir: meson.project_source_root() / 'po' / 'extra',
     type: 'desktop',
