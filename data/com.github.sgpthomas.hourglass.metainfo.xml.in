@@ -69,6 +69,22 @@
   </provides>
 
   <releases>
+    <release version="3.1.0" date="2024-08-12" urgency="low">
+      <description translate="no">
+        <ul>
+          <li>Use portal for background and autostart</li>
+          <li>Update Flatpak runtime version to 8</li>
+        </ul>
+        <p>
+          Translation updates:
+        </p>
+        <ul>
+          <li>Update Russian translation (thanks to @lenemter)</li>
+          <li>Update Japanese translation</li>
+        </ul>
+      </description>
+    </release>
+
     <release version="3.0.0" date="2023-01-21" urgency="high">
       <description translate="no">
         <ul>
