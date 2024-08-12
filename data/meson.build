@@ -12,8 +12,16 @@ install_data(
     install_dir: get_option('datadir') / 'pixmaps'
 )
 
-i18n.merge_file(
-    input: meson.project_name() + '.metainfo.xml.in',
+appstream_conf = configuration_data()
+appstream_conf.set('VERSION', meson.project_version())
+appstream_file_in = configure_file(
+    input: meson.project_name() + '.metainfo.xml.in.in',
+    output: meson.project_name() + '.metainfo.xml.in',
+    configuration: appstream_conf
+)
+
+appstream_file = i18n.merge_file(
+    input: appstream_file_in,
     output: meson.project_name() + '.metainfo.xml',
     po_dir: meson.project_source_root() / 'po' / 'extra',
     install: true,
