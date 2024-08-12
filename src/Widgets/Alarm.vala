@@ -1,7 +1,7 @@
 /*
  * SPDX-License-Identifier: GPL-3.0-or-later
  * SPDX-FileCopyrightText: 2015-2020 Sam Thomas
- *                         2020-2023 Ryo Nakano
+ *                         2020-2024 Ryo Nakano
  */
 
 public class Hourglass.Widgets.Alarm : Gtk.ListBoxRow {
