@@ -4,11 +4,11 @@ runtime-version: '8'
 sdk: io.elementary.Sdk
 command: com.github.sgpthomas.hourglass
 finish-args:
-  - '--share=ipc'
-  - '--socket=wayland'
-  - '--socket=fallback-x11'
-  - '--device=dri'
-  - '--metadata=X-DConf=migrate-path=/com/github/sgpthomas/hourglass/'
+  - --share=ipc
+  - --socket=wayland
+  - --socket=fallback-x11
+  - --device=dri
+  - --metadata=X-DConf=migrate-path=/com/github/sgpthomas/hourglass/
 modules:
   - name: hourglass
     buildsystem: meson
