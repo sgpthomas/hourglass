@@ -1,4 +1,4 @@
-app-id: com.github.sgpthomas.hourglass
+id: com.github.sgpthomas.hourglass
 runtime: io.elementary.Platform
 runtime-version: '8'
 sdk: io.elementary.Sdk
