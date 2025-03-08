@@ -1,7 +1,7 @@
 /*
  * SPDX-License-Identifier: GPL-3.0-or-later
  * SPDX-FileCopyrightText: 2015-2020 Sam Thomas
- *                         2020-2024 Ryo Nakano
+ *                         2020-2025 Ryo Nakano
  */
 
 public class Hourglass.Window.MainWindow : Gtk.ApplicationWindow {
