@@ -180,15 +180,15 @@ public class Hourglass.Views.StopwatchView : AbstractView {
         update_counter_label ();
 
         if (is_running) {
-            start_button.hide ();
-            stop_button.show ();
-            reset_button.hide ();
-            lap_button.show ();
+            start_button.visible = false;
+            stop_button.visible = true;
+            reset_button.visible = false;
+            lap_button.visible = true;
         } else {
-            start_button.show ();
-            stop_button.hide ();
-            reset_button.show ();
-            lap_button.hide ();
+            start_button.visible = true;
+            stop_button.visible = false;
+            reset_button.visible = true;
+            lap_button.visible = false;
         }
 
         reset_button.sensitive = (counter.current_time != 1);
