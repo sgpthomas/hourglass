@@ -65,7 +65,6 @@
 
   <provides>
     <binary>hourglass</binary>
-    <binary>hourglass-daemon</binary>
   </provides>
 
   <releases>
