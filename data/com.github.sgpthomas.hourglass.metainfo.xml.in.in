@@ -68,6 +68,15 @@
   </provides>
 
   <releases>
+    <release version="3.1.1" date="2025-06-14" urgency="low">
+      <description translate="no">
+        <ul>
+          <li>Add skeuomorphic icon for the app (big thanks to Subhadeep Jasu)</li>
+          <li>Update Flatpak runtime version to 8.2</li>
+        </ul>
+      </description>
+    </release>
+
     <release version="3.1.0" date="2024-08-12" urgency="low">
       <description translate="no">
         <ul>
