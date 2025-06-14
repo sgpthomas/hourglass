@@ -1,6 +1,6 @@
 id: com.github.sgpthomas.hourglass
 runtime: io.elementary.Platform
-runtime-version: '8.1'
+runtime-version: '8.2'
 sdk: io.elementary.Sdk
 command: com.github.sgpthomas.hourglass
 finish-args:
