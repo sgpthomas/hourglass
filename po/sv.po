@@ -2,23 +2,24 @@
 # Copyright (C) 2020 THE com.github.sgpthomas.hourglass'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the com.github.sgpthomas.hourglass package.
 # Mathias, 2020.
+# Daniel Nylander <github@danielnylander.se>, 2025.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: com.github.sgpthomas.hourglass\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-10-03 12:56+0000\n"
-"PO-Revision-Date: 2020-05-01 16:18+0200\n"
-"Last-Translator: Mathias\n"
+"PO-Revision-Date: 2025-10-24 12:16+0200\n"
+"Last-Translator: Daniel Nylander <github@danielnylander.se>\n"
 "Language-Team: none\n"
 "Language: sv\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 3.8\n"
 
 #: src/Dialogs/MultiSelectPopover.vala:12 src/Utils.vala:101
-#, fuzzy
 msgid "Sun"
 msgstr "Sön"
 
@@ -35,16 +36,14 @@ msgid "Wed"
 msgstr "Ons"
 
 #: src/Dialogs/MultiSelectPopover.vala:12 src/Utils.vala:101
-#, fuzzy
 msgid "Thu"
-msgstr "Tors"
+msgstr "Tor"
 
 #: src/Dialogs/MultiSelectPopover.vala:12 src/Utils.vala:101
 msgid "Fri"
 msgstr "Fre"
 
 #: src/Dialogs/MultiSelectPopover.vala:12 src/Utils.vala:101
-#, fuzzy
 msgid "Sat"
 msgstr "Lör"
 
@@ -57,21 +56,20 @@ msgid "Alarm"
 msgstr "Alarm"
 
 #: src/Dialogs/NewAlarmDialog.vala:38
-#, fuzzy
 msgid "Time:"
-msgstr "Timer"
+msgstr "Tid:"
 
 #: src/Dialogs/NewAlarmDialog.vala:44
 msgid "Date:"
-msgstr ""
+msgstr "Datum:"
 
 #: src/Dialogs/NewAlarmDialog.vala:61
 msgid "Save"
-msgstr ""
+msgstr "Spara"
 
 #: src/Dialogs/NewAlarmDialog.vala:64
 msgid "Create Alarm"
-msgstr ""
+msgstr "Skapa larm"
 
 #: src/Dialogs/NewAlarmDialog.vala:67
 msgid "Repeat:"
@@ -87,10 +85,13 @@ msgid ""
 "running when its window is closed so that it can send notifications when "
 "alarm goes off."
 msgstr ""
+"Hourglass startar automatiskt när den här enheten slås på och fortsätter "
+"att köra när dess fönster är stängt så att den kan skicka meddelanden "
+"när larmet går."
 
 #: src/Objects/Counter.vala:61
 msgid "Timer is active"
-msgstr ""
+msgstr "Timern är aktiv"
 
 #: src/Utils.vala:106
 msgid "Every Day"
@@ -98,21 +99,21 @@ msgstr "Varje dag"
 
 #: src/Utils.vala:108
 msgid "Every Weekday"
-msgstr ""
+msgstr "Varje vardag"
 
 #: src/Utils.vala:110
 msgid "Every Weekend"
-msgstr ""
+msgstr "Varje helg"
 
 #. TRANSLATORS: %s represents translated string of a day of the week
 #: src/Utils.vala:118
 #, c-format
 msgid "%s, "
-msgstr ""
+msgstr "%s, "
 
 #: src/Utils.vala:124
 msgid "None"
-msgstr ""
+msgstr "Ingen"
 
 #: src/Views/AlarmView.vala:41
 msgid "No Alarms"
@@ -121,40 +122,39 @@ msgstr "Inga alarm"
 #: src/Views/AlarmView.vala:42
 msgid "Click the add icon in the toolbar below to get started."
 msgstr ""
+"Klicka på ikonen Lägg till i verktygsfältet nedan för att komma igång."
 
 #: src/Views/AlarmView.vala:57
 msgid "Add…"
-msgstr ""
+msgstr "Lägg till…"
 
 #: src/Views/AlarmView.vala:60
 msgid "Edit…"
-msgstr ""
+msgstr "Redigera…"
 
 #: src/Views/AlarmView.vala:63
 msgid "Delete"
-msgstr ""
+msgstr "Ta bort"
 
 #: src/Views/StopwatchView.vala:18
 msgid "Stopwatch"
-msgstr "Stoppur"
+msgstr "Tidtagare"
 
 #: src/Views/StopwatchView.vala:79 src/Views/TimerView.vala:63
 msgid "Start"
 msgstr "Starta"
 
 #: src/Views/StopwatchView.vala:80
-#, fuzzy
 msgid "Start the stopwatch"
-msgstr "Stoppur"
+msgstr "Starta tidtagaren"
 
 #: src/Views/StopwatchView.vala:85 src/Views/TimerView.vala:96
 msgid "Stop"
 msgstr "Stoppa"
 
 #: src/Views/StopwatchView.vala:86
-#, fuzzy
 msgid "Stop the stopwatch"
-msgstr "Stoppur"
+msgstr "Stoppa tidtagaren"
 
 #: src/Views/StopwatchView.vala:91 src/Views/TimerView.vala:67
 msgid "Reset"
@@ -182,20 +182,20 @@ msgstr "Sekunder"
 
 #: src/Views/TimerView.vala:59
 msgid "Enter purposes of the timer"
-msgstr ""
+msgstr "Ange syftet med timern"
 
 #: src/Views/TimerView.vala:171
 msgid "It's time!"
-msgstr ""
+msgstr "Nu är det dags!"
 
 #: src/Widgets/Alarm.vala:91
 msgid "Today"
-msgstr ""
+msgstr "Idag"
 
 #: src/Widgets/Alarm.vala:103
-#, fuzzy, c-format
+#, c-format
 msgid "Repeats: %s"
-msgstr "Upprepa:"
+msgstr "Upprepa: %s"
 
 #~ msgid "Never"
 #~ msgstr "Aldrig"
