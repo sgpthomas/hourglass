@@ -1,6 +1,8 @@
 id: com.github.sgpthomas.hourglass
 runtime: io.elementary.Platform
-runtime-version: '8.2'
+# TODO Use stable version of runtime with granite-7 >= 7.7.0 when released
+#runtime-version: '8.3'
+runtime-version: 'daily'
 sdk: io.elementary.Sdk
 command: com.github.sgpthomas.hourglass
 finish-args:
