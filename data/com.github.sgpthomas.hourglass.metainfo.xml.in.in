@@ -67,6 +67,11 @@
     <binary>hourglass</binary>
   </provides>
 
+  <!--
+    We intentionally don't support translation for the descriptions in release notes
+    because only a few past release notes would be often shown in the app store
+    even if translators translated all of them, which is not worthy.
+  -->
   <releases>
     <release version="3.1.1" date="2025-06-14" urgency="low">
       <description translate="no">
