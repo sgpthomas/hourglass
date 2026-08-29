@@ -25,7 +25,7 @@ sources = files(
 dependencies = [
   dependency('gtk4'),
   dependency('gee-0.8'),
-  dependency('granite-7', version: '>= 7.1.0'),
+  dependency('granite-7', version: '>= 7.7.0'),
   dependency('libportal'),
   dependency('libportal-gtk4'),
 ]

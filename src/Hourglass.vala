@@ -43,6 +43,8 @@ namespace Hourglass {
         protected override void startup () {
             base.startup ();
 
+            Granite.init ();
+
             daemon.start ();
         }
 
