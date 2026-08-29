@@ -18,14 +18,12 @@ jobs:
       fail-fast: false
 
     container:
-      # TODO Use stable version of runtime with granite-7 >= 7.7.0 when released
-      #image: ghcr.io/elementary/flatpak-platform/runtime:8.3-${{ matrix.arch }}
-      image: ghcr.io/elementary/flatpak-platform/runtime:daily-${{ matrix.arch }}
+      image: ghcr.io/elementary/flatpak-platform/runtime:9-${{ matrix.arch }}
       options: --privileged
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v6
+        uses: actions/checkout@v7
 
       - name: Build
         uses: flatpak/flatpak-github-actions/flatpak-builder@v6
@@ -47,7 +45,7 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v6
+        uses: actions/checkout@v7
 
       - name: Lint
         run: io.elementary.vala-lint -d .
