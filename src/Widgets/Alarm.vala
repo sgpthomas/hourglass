@@ -35,13 +35,6 @@ public class Hourglass.Widgets.Alarm : Gtk.ListBoxRow {
             halign = Gtk.Align.START
         };
 
-        var grid = new Gtk.Grid () {
-            row_spacing = 6,
-            column_spacing = 12
-        };
-        grid.attach (time_label, 0, 0, 1, 1);
-        grid.attach (name_label, 1, 0, 1, 1);
-
         toggle = new Gtk.Switch () {
             halign = Gtk.Align.END,
             hexpand = true,
@@ -58,7 +51,8 @@ public class Hourglass.Widgets.Alarm : Gtk.ListBoxRow {
             margin_top = 12,
             margin_bottom = 12
         };
-        box.append (grid);
+        box.append (time_label);
+        box.append (name_label);
         box.append (toggle);
 
         child = box;
