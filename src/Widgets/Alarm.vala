@@ -23,17 +23,13 @@ public class Hourglass.Widgets.Alarm : Gtk.ListBoxRow {
         this.repeat = repeat;
 
         var time_label = new Granite.HeaderLabel (get_time_string ()) {
-            size = Granite.HeaderLabel.Size.H2
+            size = Granite.HeaderLabel.Size.H2,
+            secondary_text = make_date_label ()
         };
-
-        var date_label = new Gtk.Label (make_date_label ());
 
         var name_label = new Granite.HeaderLabel (title) {
             size = Granite.HeaderLabel.Size.H3,
-            halign = Gtk.Align.START
-        };
-
-        var repeat_label = new Gtk.Label (make_repeat_label ()) {
+            secondary_text = make_repeat_label (),
             halign = Gtk.Align.START
         };
 
@@ -42,9 +38,7 @@ public class Hourglass.Widgets.Alarm : Gtk.ListBoxRow {
             column_spacing = 12
         };
         grid.attach (time_label, 0, 0, 1, 1);
-        grid.attach (date_label, 0, 1, 1, 1);
         grid.attach (name_label, 1, 0, 1, 1);
-        grid.attach (repeat_label, 1, 1, 1, 1);
 
         toggle = new Gtk.Switch () {
             halign = Gtk.Align.END,
