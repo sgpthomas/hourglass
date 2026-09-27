@@ -22,15 +22,16 @@ public class Hourglass.Widgets.Alarm : Gtk.ListBoxRow {
         );
         this.repeat = repeat;
 
-        var time_label = new Gtk.Label (get_time_string ());
-        time_label.add_css_class (Granite.STYLE_CLASS_H2_LABEL);
+        var time_label = new Granite.HeaderLabel (get_time_string ()) {
+            size = Granite.HeaderLabel.Size.H2
+        };
 
         var date_label = new Gtk.Label (make_date_label ());
 
-        var name_label = new Gtk.Label (title) {
+        var name_label = new Granite.HeaderLabel (title) {
+            size = Granite.HeaderLabel.Size.H3,
             halign = Gtk.Align.START
         };
-        name_label.add_css_class (Granite.STYLE_CLASS_H3_LABEL);
 
         var repeat_label = new Gtk.Label (make_repeat_label ()) {
             halign = Gtk.Align.START

@@ -60,7 +60,7 @@ public class Hourglass.Views.TimerView : AbstractView {
 
         start_timer_button = new Gtk.Button.with_label (_("Start"));
         start_timer_button.add_css_class ("round-button");
-        start_timer_button.add_css_class (Granite.STYLE_CLASS_SUGGESTED_ACTION);
+        start_timer_button.add_css_class (Granite.CssClass.SUGGESTED);
 
         reset_timer_button = new Gtk.Button.with_label (_("Reset"));
         reset_timer_button.add_css_class ("round-button");

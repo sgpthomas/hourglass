@@ -17,13 +17,12 @@ public class Hourglass.Dialogs.MultiSelectPopover : Gtk.Popover {
     }
 
     construct {
-        var box = new Gtk.Box (Gtk.Orientation.HORIZONTAL, 0) {
+        var box = new Granite.Box (Gtk.Orientation.HORIZONTAL, Granite.Box.Spacing.NONE) {
             margin_top = 6,
             margin_bottom = 6,
             margin_start = 6,
             margin_end = 6
         };
-        box.add_css_class (Granite.STYLE_CLASS_LINKED);
 
         foreach (string day in shortened_days) {
             var toggle = new Gtk.ToggleButton.with_label (day);

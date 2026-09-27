@@ -66,9 +66,15 @@ public class Hourglass.Views.AlarmView : AbstractView {
         actionbar.pack_start (delete_alarm_button);
         actionbar.add_css_class (Granite.STYLE_CLASS_FLAT);
 
-        add_css_class (Granite.STYLE_CLASS_FRAME);
-        append (scrolled_window);
-        append (actionbar);
+        var box = new Gtk.Box (Gtk.Orientation.VERTICAL, 0);
+        box.append (scrolled_window);
+        box.append (actionbar);
+
+        var frame = new Gtk.Frame (null) {
+            child = box
+        };
+
+        append (frame);
 
         list_box.row_selected.connect (update);
 
