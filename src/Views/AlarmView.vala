@@ -4,8 +4,6 @@
  *                         2020-2026 Ryo Nakano
  */
 
-using Hourglass.Widgets;
-
 public class Hourglass.Views.AlarmView : AbstractView {
     public override string id {
         get {
@@ -86,7 +84,7 @@ public class Hourglass.Views.AlarmView : AbstractView {
         edit_alarm_button.clicked.connect (edit_alarm_action);
 
         delete_alarm_button.clicked.connect (() => {
-            unowned Alarm alarm = ((Alarm) list_box.get_selected_row ());
+            unowned Widgets.Alarm alarm = ((Widgets.Alarm) list_box.get_selected_row ());
             list_box.remove (alarm);
             try {
                 daemon.alarm_manager.remove_alarm (alarm.to_string ());
@@ -130,7 +128,7 @@ public class Hourglass.Views.AlarmView : AbstractView {
 
         foreach (string str in daemon.alarm_manager.alarm_list) {
             if (Hourglass.Utils.is_valid_alarm_string (str)) {
-                append_alarm (Alarm.new_from_string (str));
+                append_alarm (Widgets.Alarm.new_from_string (str));
             }
         }
 
@@ -148,7 +146,7 @@ public class Hourglass.Views.AlarmView : AbstractView {
         return false;
     }
 
-    private void append_alarm (Alarm alarm) {
+    private void append_alarm (Widgets.Alarm alarm) {
         list_box.append (alarm);
 
         alarm.state_toggled.connect (() => {
@@ -164,7 +162,7 @@ public class Hourglass.Views.AlarmView : AbstractView {
     private void edit_alarm_action () {
         var widget = list_box.get_selected_row ();
         if (widget != null) {
-            var new_alarm_dialog = new Hourglass.Dialogs.NewAlarmDialog (window, (Alarm) widget);
+            var new_alarm_dialog = new Hourglass.Dialogs.NewAlarmDialog (window, (Widgets.Alarm) widget);
             new_alarm_dialog.edit_alarm.connect ((old_a, new_a) => {
                 list_box.remove (old_a); //  remove old alarm
                 daemon.alarm_manager.remove_alarm (old_a.to_string ());
@@ -180,9 +178,9 @@ public class Hourglass.Views.AlarmView : AbstractView {
     }
 
     private int sort_alarm_func (Gtk.ListBoxRow row1, Gtk.ListBoxRow row2) {
-        if (row1 is Alarm && row2 is Alarm) {
-            var time1 = ((Alarm) row1).time;
-            var time2 = ((Alarm) row2).time;
+        if (row1 is Widgets.Alarm && row2 is Widgets.Alarm) {
+            var time1 = ((Widgets.Alarm) row1).time;
+            var time2 = ((Widgets.Alarm) row2).time;
 
             return time1.compare (time2);
         } else {

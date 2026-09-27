@@ -4,19 +4,17 @@
  *                         2020-2026 Ryo Nakano
  */
 
-using Hourglass.Widgets;
-
 public class Hourglass.Dialogs.NewAlarmDialog : Granite.Dialog {
-    public signal void create_alarm (Alarm a);
-    public signal void edit_alarm (Alarm old_alarm, Alarm new_alarm);
+    public signal void create_alarm (Widgets.Alarm a);
+    public signal void edit_alarm (Widgets.Alarm old_alarm, Widgets.Alarm new_alarm);
 
-    public Alarm? alarm { get; construct; }
+    public Widgets.Alarm? alarm { get; construct; }
 
     private Gtk.Switch date_switch;
 
     private int[]? repeat_days = null;
 
-    public NewAlarmDialog (Gtk.Window parent, Alarm? alarm = null) {
+    public NewAlarmDialog (Gtk.Window parent, Widgets.Alarm? alarm = null) {
         Object (
             transient_for: parent,
             alarm: alarm,
@@ -147,11 +145,11 @@ public class Hourglass.Dialogs.NewAlarmDialog : Granite.Dialog {
                 time.get_hour (), time.get_minute (), time.get_second ()
             );
 
-            Alarm new_alarm;
+            Widgets.Alarm new_alarm;
             if (repeat_days.length > 0) {
-                new_alarm = new Alarm (alarm_time, has_date, title, repeat_days);
+                new_alarm = new Widgets.Alarm (alarm_time, has_date, title, repeat_days);
             } else {
-                new_alarm = new Alarm (alarm_time, has_date, title);
+                new_alarm = new Widgets.Alarm (alarm_time, has_date, title);
             }
 
             if (alarm != null) {

@@ -4,8 +4,6 @@
  *                         2020-2026 Ryo Nakano
  */
 
-using Hourglass.Window;
-
 public class Hourglass.Views.StopwatchView : AbstractView {
     public override string id {
         get {
@@ -25,7 +23,7 @@ public class Hourglass.Views.StopwatchView : AbstractView {
         }
     }
 
-    public MainWindow window { get; construct; }
+    public Window.MainWindow window { get; construct; }
 
     [CCode (has_target = false)]
     private delegate bool KeyPressHandler (StopwatchView self, uint keyval, uint keycode, Gdk.ModifierType state);
@@ -42,7 +40,7 @@ public class Hourglass.Views.StopwatchView : AbstractView {
     private string[] lap_log = {};
     private bool is_running = false;
 
-    public StopwatchView (MainWindow window) {
+    public StopwatchView (Window.MainWindow window) {
         Object (
             window: window
         );
