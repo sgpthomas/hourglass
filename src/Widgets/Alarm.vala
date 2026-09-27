@@ -25,7 +25,7 @@ public class Hourglass.Widgets.Alarm : Gtk.ListBoxRow {
         var time_label = new Granite.HeaderLabel (get_time_string ()) {
             size = Granite.HeaderLabel.Size.H2,
             secondary_text = make_date_label (),
-            valign = Gtk.Align.CENTER,
+            valign = Gtk.Align.CENTER
         };
 
         var name_label = new Granite.HeaderLabel (title) {
