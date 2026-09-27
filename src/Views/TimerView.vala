@@ -4,8 +4,6 @@
  *                         2020-2026 Ryo Nakano
  */
 
-using Hourglass.Widgets;
-
 public class Hourglass.Views.TimerView : AbstractView {
     public override string id {
         get {
