@@ -17,7 +17,7 @@ public class Hourglass.Dialogs.MultiSelectPopover : Gtk.Popover {
     }
 
     construct {
-        var box = new Granite.Box (Gtk.Orientation.HORIZONTAL, Granite.Box.Spacing.NONE) {
+        var box = new Granite.Box (Gtk.Orientation.HORIZONTAL, Granite.Box.Spacing.LINKED) {
             margin_top = 6,
             margin_bottom = 6,
             margin_start = 6,
