@@ -22,28 +22,18 @@ public class Hourglass.Widgets.Alarm : Gtk.ListBoxRow {
         );
         this.repeat = repeat;
 
-        var time_label = new Gtk.Label (get_time_string ());
-        time_label.add_css_class (Granite.STYLE_CLASS_H2_LABEL);
+        var time_label = new Granite.HeaderLabel (get_time_string ()) {
+            size = Granite.HeaderLabel.Size.H2,
+            secondary_text = make_date_label (),
+            valign = Gtk.Align.CENTER
+        };
 
-        var date_label = new Gtk.Label (make_date_label ());
-
-        var name_label = new Gtk.Label (title) {
+        var name_label = new Granite.HeaderLabel (title) {
+            size = Granite.HeaderLabel.Size.H3,
+            secondary_text = make_repeat_label (),
+            valign = Gtk.Align.CENTER,
             halign = Gtk.Align.START
         };
-        name_label.add_css_class (Granite.STYLE_CLASS_H3_LABEL);
-
-        var repeat_label = new Gtk.Label (make_repeat_label ()) {
-            halign = Gtk.Align.START
-        };
-
-        var grid = new Gtk.Grid () {
-            row_spacing = 6,
-            column_spacing = 12
-        };
-        grid.attach (time_label, 0, 0, 1, 1);
-        grid.attach (date_label, 0, 1, 1, 1);
-        grid.attach (name_label, 1, 0, 1, 1);
-        grid.attach (repeat_label, 1, 1, 1, 1);
 
         toggle = new Gtk.Switch () {
             halign = Gtk.Align.END,
@@ -61,7 +51,8 @@ public class Hourglass.Widgets.Alarm : Gtk.ListBoxRow {
             margin_top = 12,
             margin_bottom = 12
         };
-        box.append (grid);
+        box.append (time_label);
+        box.append (name_label);
         box.append (toggle);
 
         child = box;

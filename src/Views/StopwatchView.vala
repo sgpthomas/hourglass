@@ -78,7 +78,7 @@ public class Hourglass.Views.StopwatchView : AbstractView {
             tooltip_markup = Granite.markup_accel_tooltip ({"<Control>s"}, _("Start the stopwatch"))
         };
         start_button.add_css_class ("round-button");
-        start_button.add_css_class (Granite.STYLE_CLASS_SUGGESTED_ACTION);
+        start_button.add_css_class (Granite.CssClass.SUGGESTED);
 
         stop_button = new Gtk.Button.with_label (_("Stop")) {
             tooltip_markup = Granite.markup_accel_tooltip ({"<Control>s"}, _("Stop the stopwatch"))
@@ -200,7 +200,7 @@ public class Hourglass.Views.StopwatchView : AbstractView {
             margin_start = 6,
             margin_end = 6
         };
-        label.add_css_class (Granite.STYLE_CLASS_DIM_LABEL);
+        label.add_css_class (Granite.CssClass.DIM);
 
         var row = new Gtk.ListBoxRow () {
             child = label
