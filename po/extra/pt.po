@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-10-03 12:56+0000\n"
+"POT-Creation-Date: 2026-03-22 11:38+0900\n"
 "PO-Revision-Date: 2020-08-26 14:38+0100\n"
 "Last-Translator: André Barata <andretiagob@protonmail.com>\n"
 "Language-Team: none\n"
@@ -18,25 +18,25 @@ msgstr ""
 "X-Generator: Poedit 2.4.1\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: data/com.github.sgpthomas.hourglass.desktop.in.in:4
-#: data/com.github.sgpthomas.hourglass.metainfo.xml.in:11
+#: data/com.github.sgpthomas.hourglass.desktop.in.in:3
+#: data/com.github.sgpthomas.hourglass.metainfo.xml.in.in:11
 msgid "Hourglass"
 msgstr "Hourglass"
 
-#: data/com.github.sgpthomas.hourglass.desktop.in.in:5
-#: data/com.github.sgpthomas.hourglass.metainfo.xml.in:12
+#: data/com.github.sgpthomas.hourglass.desktop.in.in:4
+#: data/com.github.sgpthomas.hourglass.metainfo.xml.in.in:12
 msgid "Set alarms, timers, and stopwatches"
 msgstr "Defina alarmes, temporizadores e cronômetros"
 
-#: data/com.github.sgpthomas.hourglass.desktop.in.in:6
+#: data/com.github.sgpthomas.hourglass.desktop.in.in:5
 msgid "Timer"
 msgstr "Temporizador"
 
-#: data/com.github.sgpthomas.hourglass.desktop.in.in:12
+#: data/com.github.sgpthomas.hourglass.desktop.in.in:11
 msgid "Timer;Time;Clock;Hourglass;Alarm;"
 msgstr "Temporizador;Tempo;Relógio;Ampulheta;Alarme;"
 
-#: data/com.github.sgpthomas.hourglass.metainfo.xml.in:14
+#: data/com.github.sgpthomas.hourglass.metainfo.xml.in.in:14
 msgid ""
 "Hourglass is a simple time keeping application that helps you easily set "
 "stopwatches, repeating alarms, and timers."
@@ -44,22 +44,24 @@ msgstr ""
 "O Hourglass é uma aplicação simples de manter o seu tempo e que o ajuda a "
 "definir facilmente cronômetros, alarmes e temporizadores."
 
-#: data/com.github.sgpthomas.hourglass.metainfo.xml.in:21
+#: data/com.github.sgpthomas.hourglass.metainfo.xml.in.in:21
 #, fuzzy
 msgid "Alarm View"
 msgstr "Alarme"
 
-#: data/com.github.sgpthomas.hourglass.metainfo.xml.in:26
+#: data/com.github.sgpthomas.hourglass.metainfo.xml.in.in:26
 #, fuzzy
 msgid "Stopwatch View"
 msgstr "Cronômetro"
 
-#: data/com.github.sgpthomas.hourglass.metainfo.xml.in:31
+#: data/com.github.sgpthomas.hourglass.metainfo.xml.in.in:31
 #, fuzzy
 msgid "Timer View"
 msgstr "Temporizador"
 
-#: data/com.github.sgpthomas.hourglass.metainfo.xml.in:54
+#. developer_name has deprecated since AppStream 1.0
+#: data/com.github.sgpthomas.hourglass.metainfo.xml.in.in:56
+#: data/com.github.sgpthomas.hourglass.metainfo.xml.in.in:58
 #, fuzzy
 msgid "Samuel Thomas"
 msgstr "Sam Thomas"

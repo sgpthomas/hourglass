@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: com.github.sgpthomas.hourglass\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-10-03 12:56+0000\n"
+"POT-Creation-Date: 2026-09-27 17:42+0900\n"
 "PO-Revision-Date: 2020-05-01 16:18+0200\n"
 "Last-Translator: Deniz CAN <denizcan72@hotmail.de>\n"
 "Language-Team: none\n"
@@ -48,41 +48,41 @@ msgstr "Cum"
 msgid "Sat"
 msgstr "Cmt"
 
-#: src/Dialogs/NewAlarmDialog.vala:30
+#: src/Dialogs/NewAlarmDialog.vala:28
 msgid "Title:"
 msgstr "Başlık:"
 
-#: src/Dialogs/NewAlarmDialog.vala:35 src/Views/AlarmView.vala:18
+#: src/Dialogs/NewAlarmDialog.vala:33 src/Views/AlarmView.vala:16
 msgid "Alarm"
 msgstr "Alarm"
 
-#: src/Dialogs/NewAlarmDialog.vala:38
+#: src/Dialogs/NewAlarmDialog.vala:36
 #, fuzzy
 msgid "Time:"
 msgstr "Zamanlayıcı"
 
-#: src/Dialogs/NewAlarmDialog.vala:44
+#: src/Dialogs/NewAlarmDialog.vala:42
 msgid "Date:"
 msgstr ""
 
-#: src/Dialogs/NewAlarmDialog.vala:61
+#: src/Dialogs/NewAlarmDialog.vala:59
 msgid "Save"
 msgstr ""
 
-#: src/Dialogs/NewAlarmDialog.vala:64
+#: src/Dialogs/NewAlarmDialog.vala:62
 #, fuzzy
 msgid "Create Alarm"
 msgstr "Oluştur"
 
-#: src/Dialogs/NewAlarmDialog.vala:67
+#: src/Dialogs/NewAlarmDialog.vala:65
 msgid "Repeat:"
 msgstr "Tekrarla:"
 
-#: src/Dialogs/NewAlarmDialog.vala:96
+#: src/Dialogs/NewAlarmDialog.vala:94
 msgid "Cancel"
 msgstr "İptal"
 
-#: src/Hourglass.vala:99
+#: src/Hourglass.vala:101
 msgid ""
 "Hourglass will automatically start when this device turns on and keep "
 "running when its window is closed so that it can send notifications when "
@@ -115,86 +115,86 @@ msgstr ""
 msgid "None"
 msgstr ""
 
-#: src/Views/AlarmView.vala:41
+#: src/Views/AlarmView.vala:39
 msgid "No Alarms"
 msgstr "Alarm Yok"
 
-#: src/Views/AlarmView.vala:42
+#: src/Views/AlarmView.vala:40
 msgid "Click the add icon in the toolbar below to get started."
 msgstr ""
 
-#: src/Views/AlarmView.vala:57
+#: src/Views/AlarmView.vala:55
 msgid "Add…"
 msgstr ""
 
-#: src/Views/AlarmView.vala:60
+#: src/Views/AlarmView.vala:58
 #, fuzzy
 msgid "Edit…"
 msgstr "Düzenle"
 
-#: src/Views/AlarmView.vala:63
+#: src/Views/AlarmView.vala:61
 msgid "Delete"
 msgstr "Sil"
 
-#: src/Views/StopwatchView.vala:18
+#: src/Views/StopwatchView.vala:16
 msgid "Stopwatch"
 msgstr "Kronometre"
 
-#: src/Views/StopwatchView.vala:79 src/Views/TimerView.vala:63
+#: src/Views/StopwatchView.vala:77 src/Views/TimerView.vala:61
 msgid "Start"
 msgstr "Başlat"
 
-#: src/Views/StopwatchView.vala:80
+#: src/Views/StopwatchView.vala:78
 #, fuzzy
 msgid "Start the stopwatch"
 msgstr "Kronometre"
 
-#: src/Views/StopwatchView.vala:85 src/Views/TimerView.vala:96
+#: src/Views/StopwatchView.vala:83 src/Views/TimerView.vala:94
 msgid "Stop"
 msgstr "Dur"
 
-#: src/Views/StopwatchView.vala:86
+#: src/Views/StopwatchView.vala:84
 #, fuzzy
 msgid "Stop the stopwatch"
 msgstr "Kronometre"
 
-#: src/Views/StopwatchView.vala:91 src/Views/TimerView.vala:67
+#: src/Views/StopwatchView.vala:89 src/Views/TimerView.vala:65
 msgid "Reset"
 msgstr "Sıfırla"
 
-#: src/Views/StopwatchView.vala:94
+#: src/Views/StopwatchView.vala:92
 msgid "Lap"
 msgstr "Tur"
 
-#: src/Views/TimerView.vala:18
+#: src/Views/TimerView.vala:16
 msgid "Timer"
 msgstr "Zamanlayıcı"
 
-#: src/Views/TimerView.vala:46
+#: src/Views/TimerView.vala:44
 msgid "Hours"
 msgstr "Saatler"
 
-#: src/Views/TimerView.vala:51
+#: src/Views/TimerView.vala:49
 msgid "Minutes"
 msgstr "Dakikalar"
 
-#: src/Views/TimerView.vala:56
+#: src/Views/TimerView.vala:54
 msgid "Seconds"
 msgstr "Saniyeler"
 
-#: src/Views/TimerView.vala:59
+#: src/Views/TimerView.vala:57
 msgid "Enter purposes of the timer"
 msgstr ""
 
-#: src/Views/TimerView.vala:171
+#: src/Views/TimerView.vala:169
 msgid "It's time!"
 msgstr ""
 
-#: src/Widgets/Alarm.vala:91
+#: src/Widgets/Alarm.vala:82
 msgid "Today"
 msgstr ""
 
-#: src/Widgets/Alarm.vala:103
+#: src/Widgets/Alarm.vala:94
 #, fuzzy, c-format
 msgid "Repeats: %s"
 msgstr "Tekrarlar "

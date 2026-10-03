@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: com.github.sgpthomas.hourglass\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-10-03 12:56+0000\n"
+"POT-Creation-Date: 2026-09-27 17:42+0900\n"
 "PO-Revision-Date: 2025-10-24 12:16+0200\n"
 "Last-Translator: Daniel Nylander <github@danielnylander.se>\n"
 "Language-Team: none\n"
@@ -47,47 +47,47 @@ msgstr "Fre"
 msgid "Sat"
 msgstr "Lör"
 
-#: src/Dialogs/NewAlarmDialog.vala:30
+#: src/Dialogs/NewAlarmDialog.vala:28
 msgid "Title:"
 msgstr "Titel:"
 
-#: src/Dialogs/NewAlarmDialog.vala:35 src/Views/AlarmView.vala:18
+#: src/Dialogs/NewAlarmDialog.vala:33 src/Views/AlarmView.vala:16
 msgid "Alarm"
 msgstr "Alarm"
 
-#: src/Dialogs/NewAlarmDialog.vala:38
+#: src/Dialogs/NewAlarmDialog.vala:36
 msgid "Time:"
 msgstr "Tid:"
 
-#: src/Dialogs/NewAlarmDialog.vala:44
+#: src/Dialogs/NewAlarmDialog.vala:42
 msgid "Date:"
 msgstr "Datum:"
 
-#: src/Dialogs/NewAlarmDialog.vala:61
+#: src/Dialogs/NewAlarmDialog.vala:59
 msgid "Save"
 msgstr "Spara"
 
-#: src/Dialogs/NewAlarmDialog.vala:64
+#: src/Dialogs/NewAlarmDialog.vala:62
 msgid "Create Alarm"
 msgstr "Skapa larm"
 
-#: src/Dialogs/NewAlarmDialog.vala:67
+#: src/Dialogs/NewAlarmDialog.vala:65
 msgid "Repeat:"
 msgstr "Upprepa:"
 
-#: src/Dialogs/NewAlarmDialog.vala:96
+#: src/Dialogs/NewAlarmDialog.vala:94
 msgid "Cancel"
 msgstr "Avbryt"
 
-#: src/Hourglass.vala:99
+#: src/Hourglass.vala:101
 msgid ""
 "Hourglass will automatically start when this device turns on and keep "
 "running when its window is closed so that it can send notifications when "
 "alarm goes off."
 msgstr ""
-"Hourglass startar automatiskt när den här enheten slås på och fortsätter "
-"att köra när dess fönster är stängt så att den kan skicka meddelanden "
-"när larmet går."
+"Hourglass startar automatiskt när den här enheten slås på och fortsätter att "
+"köra när dess fönster är stängt så att den kan skicka meddelanden när larmet "
+"går."
 
 #: src/Objects/Counter.vala:61
 msgid "Timer is active"
@@ -115,84 +115,83 @@ msgstr "%s, "
 msgid "None"
 msgstr "Ingen"
 
-#: src/Views/AlarmView.vala:41
+#: src/Views/AlarmView.vala:39
 msgid "No Alarms"
 msgstr "Inga alarm"
 
-#: src/Views/AlarmView.vala:42
+#: src/Views/AlarmView.vala:40
 msgid "Click the add icon in the toolbar below to get started."
-msgstr ""
-"Klicka på ikonen Lägg till i verktygsfältet nedan för att komma igång."
+msgstr "Klicka på ikonen Lägg till i verktygsfältet nedan för att komma igång."
 
-#: src/Views/AlarmView.vala:57
+#: src/Views/AlarmView.vala:55
 msgid "Add…"
 msgstr "Lägg till…"
 
-#: src/Views/AlarmView.vala:60
+#: src/Views/AlarmView.vala:58
 msgid "Edit…"
 msgstr "Redigera…"
 
-#: src/Views/AlarmView.vala:63
+#: src/Views/AlarmView.vala:61
 msgid "Delete"
 msgstr "Ta bort"
 
-#: src/Views/StopwatchView.vala:18
+#: src/Views/StopwatchView.vala:16
 msgid "Stopwatch"
 msgstr "Tidtagare"
 
-#: src/Views/StopwatchView.vala:79 src/Views/TimerView.vala:63
+#: src/Views/StopwatchView.vala:77 src/Views/TimerView.vala:61
 msgid "Start"
 msgstr "Starta"
 
-#: src/Views/StopwatchView.vala:80
+#: src/Views/StopwatchView.vala:78
 msgid "Start the stopwatch"
 msgstr "Starta tidtagaren"
 
-#: src/Views/StopwatchView.vala:85 src/Views/TimerView.vala:96
+#: src/Views/StopwatchView.vala:83 src/Views/TimerView.vala:94
 msgid "Stop"
 msgstr "Stoppa"
 
-#: src/Views/StopwatchView.vala:86
+#: src/Views/StopwatchView.vala:84
 msgid "Stop the stopwatch"
 msgstr "Stoppa tidtagaren"
 
-#: src/Views/StopwatchView.vala:91 src/Views/TimerView.vala:67
+#: src/Views/StopwatchView.vala:89 src/Views/TimerView.vala:65
 msgid "Reset"
 msgstr "Återställ"
 
-#: src/Views/StopwatchView.vala:94
+#: src/Views/StopwatchView.vala:92
 msgid "Lap"
 msgstr "Varv"
 
-#: src/Views/TimerView.vala:18
+#: src/Views/TimerView.vala:16
 msgid "Timer"
 msgstr "Timer"
 
-#: src/Views/TimerView.vala:46
+#: src/Views/TimerView.vala:44
 msgid "Hours"
 msgstr "Timmar"
 
-#: src/Views/TimerView.vala:51
+#: src/Views/TimerView.vala:49
 msgid "Minutes"
 msgstr "Minuter"
 
-#: src/Views/TimerView.vala:56
+#: src/Views/TimerView.vala:54
 msgid "Seconds"
 msgstr "Sekunder"
 
-#: src/Views/TimerView.vala:59
+#: src/Views/TimerView.vala:57
 msgid "Enter purposes of the timer"
 msgstr "Ange syftet med timern"
 
-#: src/Views/TimerView.vala:171
+#: src/Views/TimerView.vala:169
 msgid "It's time!"
 msgstr "Nu är det dags!"
 
-#: src/Widgets/Alarm.vala:91
+#: src/Widgets/Alarm.vala:82
 msgid "Today"
 msgstr "Idag"
 
-#: src/Widgets/Alarm.vala:103
+#: src/Widgets/Alarm.vala:94
 #, c-format
 msgid "Repeats: %s"
 msgstr "Upprepa: %s"

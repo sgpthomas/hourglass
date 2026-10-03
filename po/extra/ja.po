@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-10-03 12:56+0000\n"
+"POT-Creation-Date: 2026-03-22 11:38+0900\n"
 "PO-Revision-Date: 2023-01-21 09:41+0900\n"
 "Last-Translator: Ryo Nakano <ryonakaknock3@gmail.com>\n"
 "Language-Team: none\n"
@@ -17,27 +17,27 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
-#: data/com.github.sgpthomas.hourglass.desktop.in.in:4
-#: data/com.github.sgpthomas.hourglass.metainfo.xml.in:11
+#: data/com.github.sgpthomas.hourglass.desktop.in.in:3
+#: data/com.github.sgpthomas.hourglass.metainfo.xml.in.in:11
 msgid "Hourglass"
 msgstr "Hourglass"
 
-#: data/com.github.sgpthomas.hourglass.desktop.in.in:5
-#: data/com.github.sgpthomas.hourglass.metainfo.xml.in:12
+#: data/com.github.sgpthomas.hourglass.desktop.in.in:4
+#: data/com.github.sgpthomas.hourglass.metainfo.xml.in.in:12
 msgid "Set alarms, timers, and stopwatches"
 msgstr "アラームやタイマー、ストップウォッチを使用します"
 
-#: data/com.github.sgpthomas.hourglass.desktop.in.in:6
+#: data/com.github.sgpthomas.hourglass.desktop.in.in:5
 msgid "Timer"
 msgstr "タイマー"
 
-#: data/com.github.sgpthomas.hourglass.desktop.in.in:12
+#: data/com.github.sgpthomas.hourglass.desktop.in.in:11
 msgid "Timer;Time;Clock;Hourglass;Alarm;"
 msgstr ""
 "Timer;Time;Clock;Hourglass;Alarm;タイマー;時間;タイム;時計;砂時計;アラーム:目"
 "覚まし;"
 
-#: data/com.github.sgpthomas.hourglass.metainfo.xml.in:14
+#: data/com.github.sgpthomas.hourglass.metainfo.xml.in.in:14
 msgid ""
 "Hourglass is a simple time keeping application that helps you easily set "
 "stopwatches, repeating alarms, and timers."
@@ -45,19 +45,21 @@ msgstr ""
 "Hourglass は、ストップウォッチ、スヌーズ付きアラーム、タイマーを簡単に利用で"
 "きる、シンプルな時間管理アプリです。"
 
-#: data/com.github.sgpthomas.hourglass.metainfo.xml.in:21
+#: data/com.github.sgpthomas.hourglass.metainfo.xml.in.in:21
 msgid "Alarm View"
 msgstr "アラーム画面"
 
-#: data/com.github.sgpthomas.hourglass.metainfo.xml.in:26
+#: data/com.github.sgpthomas.hourglass.metainfo.xml.in.in:26
 msgid "Stopwatch View"
 msgstr "ストップウォッチ画面"
 
-#: data/com.github.sgpthomas.hourglass.metainfo.xml.in:31
+#: data/com.github.sgpthomas.hourglass.metainfo.xml.in.in:31
 msgid "Timer View"
 msgstr "タイマー画面"
 
-#: data/com.github.sgpthomas.hourglass.metainfo.xml.in:54
+#. developer_name has deprecated since AppStream 1.0
+#: data/com.github.sgpthomas.hourglass.metainfo.xml.in.in:56
+#: data/com.github.sgpthomas.hourglass.metainfo.xml.in.in:58
 msgid "Samuel Thomas"
 msgstr "Samuel Thomas"
 

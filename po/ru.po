@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: com.github.sgpthomas.hourglass\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-10-03 12:56+0000\n"
+"POT-Creation-Date: 2026-09-27 17:42+0900\n"
 "PO-Revision-Date: 2023-01-21 19:46+0900\n"
 "Last-Translator: lenemter <lenemter@gmail.com>\n"
 "Language-Team: none\n"
@@ -46,39 +46,39 @@ msgstr "Пт"
 msgid "Sat"
 msgstr "Сб"
 
-#: src/Dialogs/NewAlarmDialog.vala:30
+#: src/Dialogs/NewAlarmDialog.vala:28
 msgid "Title:"
 msgstr "Название:"
 
-#: src/Dialogs/NewAlarmDialog.vala:35 src/Views/AlarmView.vala:18
+#: src/Dialogs/NewAlarmDialog.vala:33 src/Views/AlarmView.vala:16
 msgid "Alarm"
 msgstr "Будильник"
 
-#: src/Dialogs/NewAlarmDialog.vala:38
+#: src/Dialogs/NewAlarmDialog.vala:36
 msgid "Time:"
 msgstr "Время:"
 
-#: src/Dialogs/NewAlarmDialog.vala:44
+#: src/Dialogs/NewAlarmDialog.vala:42
 msgid "Date:"
 msgstr "Дата:"
 
-#: src/Dialogs/NewAlarmDialog.vala:61
+#: src/Dialogs/NewAlarmDialog.vala:59
 msgid "Save"
 msgstr "Сохранить"
 
-#: src/Dialogs/NewAlarmDialog.vala:64
+#: src/Dialogs/NewAlarmDialog.vala:62
 msgid "Create Alarm"
 msgstr "Создать будильник"
 
-#: src/Dialogs/NewAlarmDialog.vala:67
+#: src/Dialogs/NewAlarmDialog.vala:65
 msgid "Repeat:"
 msgstr "Повтор:"
 
-#: src/Dialogs/NewAlarmDialog.vala:96
+#: src/Dialogs/NewAlarmDialog.vala:94
 msgid "Cancel"
 msgstr "Отменить"
 
-#: src/Hourglass.vala:99
+#: src/Hourglass.vala:101
 msgid ""
 "Hourglass will automatically start when this device turns on and keep "
 "running when its window is closed so that it can send notifications when "
@@ -111,83 +111,83 @@ msgstr "%s, "
 msgid "None"
 msgstr "Нет"
 
-#: src/Views/AlarmView.vala:41
+#: src/Views/AlarmView.vala:39
 msgid "No Alarms"
 msgstr "Нет будильников"
 
-#: src/Views/AlarmView.vala:42
+#: src/Views/AlarmView.vala:40
 msgid "Click the add icon in the toolbar below to get started."
 msgstr "Нажмите на кнопку добавления снизу, чтобы начать."
 
-#: src/Views/AlarmView.vala:57
+#: src/Views/AlarmView.vala:55
 msgid "Add…"
 msgstr "Добавить…"
 
-#: src/Views/AlarmView.vala:60
+#: src/Views/AlarmView.vala:58
 msgid "Edit…"
 msgstr "Редактировать…"
 
-#: src/Views/AlarmView.vala:63
+#: src/Views/AlarmView.vala:61
 msgid "Delete"
 msgstr "Удалить"
 
-#: src/Views/StopwatchView.vala:18
+#: src/Views/StopwatchView.vala:16
 msgid "Stopwatch"
 msgstr "Секундомер"
 
-#: src/Views/StopwatchView.vala:79 src/Views/TimerView.vala:63
+#: src/Views/StopwatchView.vala:77 src/Views/TimerView.vala:61
 msgid "Start"
 msgstr "Начать"
 
-#: src/Views/StopwatchView.vala:80
+#: src/Views/StopwatchView.vala:78
 msgid "Start the stopwatch"
 msgstr "Запустить секундомер"
 
-#: src/Views/StopwatchView.vala:85 src/Views/TimerView.vala:96
+#: src/Views/StopwatchView.vala:83 src/Views/TimerView.vala:94
 msgid "Stop"
 msgstr "Стоп"
 
-#: src/Views/StopwatchView.vala:86
+#: src/Views/StopwatchView.vala:84
 msgid "Stop the stopwatch"
 msgstr "Остановить секундомер"
 
-#: src/Views/StopwatchView.vala:91 src/Views/TimerView.vala:67
+#: src/Views/StopwatchView.vala:89 src/Views/TimerView.vala:65
 msgid "Reset"
 msgstr "Сбросить"
 
-#: src/Views/StopwatchView.vala:94
+#: src/Views/StopwatchView.vala:92
 msgid "Lap"
 msgstr "Круг"
 
-#: src/Views/TimerView.vala:18
+#: src/Views/TimerView.vala:16
 msgid "Timer"
 msgstr "Таймер"
 
-#: src/Views/TimerView.vala:46
+#: src/Views/TimerView.vala:44
 msgid "Hours"
 msgstr "Часы"
 
-#: src/Views/TimerView.vala:51
+#: src/Views/TimerView.vala:49
 msgid "Minutes"
 msgstr "Минуты"
 
-#: src/Views/TimerView.vala:56
+#: src/Views/TimerView.vala:54
 msgid "Seconds"
 msgstr "Секунды"
 
-#: src/Views/TimerView.vala:59
+#: src/Views/TimerView.vala:57
 msgid "Enter purposes of the timer"
 msgstr "Введите цели таймера"
 
-#: src/Views/TimerView.vala:171
+#: src/Views/TimerView.vala:169
 msgid "It's time!"
 msgstr "Время!"
 
-#: src/Widgets/Alarm.vala:91
+#: src/Widgets/Alarm.vala:82
 msgid "Today"
 msgstr "Сегодня"
 
-#: src/Widgets/Alarm.vala:103
+#: src/Widgets/Alarm.vala:94
 #, c-format
 msgid "Repeats: %s"
 msgstr "Повторы: %s"
