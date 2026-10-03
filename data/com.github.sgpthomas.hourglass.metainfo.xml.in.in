@@ -73,6 +73,15 @@
     even if translators translated all of them, which is not worthy.
   -->
   <releases>
+    <release version="3.1.2" date="2026-10-03" urgency="low">
+      <description translate="no">
+        <ul>
+          <li>Updated Swedish translation (thanks to Daniel Nylander)</li>
+          <li>Flatpak: Update elementary Platform to 9.1</li>
+        </ul>
+      </description>
+    </release>
+
     <release version="3.1.1" date="2025-06-14" urgency="low">
       <description translate="no">
         <ul>

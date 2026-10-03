@@ -1,6 +1,6 @@
 project('com.github.sgpthomas.hourglass',
   'vala', 'c',
-  version: '3.1.1',
+  version: '3.1.2',
   meson_version: '>= 0.57.0',
 )
 
