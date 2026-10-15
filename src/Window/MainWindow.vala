@@ -71,24 +71,30 @@ public class Hourglass.Window.MainWindow : Gtk.ApplicationWindow {
             on_stack_change ();
         });
 
-        close_request.connect (() => {
-            on_delete ();
-            return true;
-        });
-
         stack.visible_child_name = Hourglass.saved.get_string ("last-open-widget");
     }
 
-    private void on_delete () {
+    protected override bool close_request () {
         var visible = (Hourglass.Views.AbstractView) stack.get_visible_child ();
         if (visible.should_keep_open) {
             ((Gtk.Widget) this).visible = false;
-            return;
+
+            /*
+             * Prevent other handlers from being invoked to destroy the window
+             * because we've change visibility instead of destroying
+             */
+            return true;
         }
 
-        // We have to wrap in Idle otherwise we crash because libportal hasn't unexported us yet.
+        // We have to wrap in Idle otherwise we crash because libportal hasn't unexported us yet
         ((HourglassApp) application).request_background.begin (() =>
             Idle.add_once (() => destroy ())
         );
+
+        /*
+         * Prevent other handlers from being invoked to destroy the window
+         * because we've scheduled destroy on our own
+         */
+        return true;
     }
 }
